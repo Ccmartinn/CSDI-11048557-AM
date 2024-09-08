@@ -1,0 +1,184 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_Olympic_medalists_in_figure_skating a wtq:Entity ;
+    wtq:hasRow wtq:List_of_Olympic_medalists_in_figure_skating_row_19,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_2,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_21,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_22,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_23,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_24,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_26,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_27,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_29,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_3,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_32,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_33,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_34,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_35,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_36,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_39,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_45,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_46 .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_19 wtq:hasAthlete "Carol Heiss" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "United States (USA)" ;
+    wtq:hasOlympics "1956-1960" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "19" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_2 wtq:hasAthlete "Sonja Henie" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "3" ;
+    wtq:hasNation "Norway (NOR)" ;
+    wtq:hasOlympics "1928–1936" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_21 wtq:hasAthlete "Kim Yu-na" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "South Korea (KOR)" ;
+    wtq:hasOlympics "2010–2014" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "21" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_22 wtq:hasAthlete "Shen Xue / Zhao Hongbo" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "China (CHN)" ;
+    wtq:hasOlympics "2002–2010" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "22" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_23 wtq:hasAthlete "Jeannette Altwegg" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Great Britain (GBR)" ;
+    wtq:hasOlympics "1948-1952" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "23" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_24 wtq:hasAthlete "Marina Anissina / Gwendal Peizerat" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "France (FRA)" ;
+    wtq:hasOlympics "1998-2002" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "24" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_26 wtq:hasAthlete "Viktor Petrenko" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Soviet Union (URS)\\n Unified Team (EUN)" ;
+    wtq:hasOlympics "1988-1992" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "26" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_27 wtq:hasAthlete "Beatrix Loughran" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "United States (USA)" ;
+    wtq:hasOlympics "1924–1932" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "27" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_29 wtq:hasAthlete "Fritzi Burger" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Austria (AUT)" ;
+    wtq:hasOlympics "1928-1932" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "29" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_3 wtq:hasAthlete "Irina Rodnina / Alexander Zaitsev" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "3" ;
+    wtq:hasNation "Soviet Union (URS)" ;
+    wtq:hasOlympics "1972–1980" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "3" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_32 wtq:hasAthlete "Brian Orser" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Canada (CAN)" ;
+    wtq:hasOlympics "1984-1988" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "32" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_33 wtq:hasAthlete "Elvis Stojko" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Canada (CAN)" ;
+    wtq:hasOlympics "1994-1998" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "33" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_34 wtq:hasAthlete "Phyllis Johnson" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Great Britain (GBR)" ;
+    wtq:hasOlympics "1908-1920" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "34" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_35 wtq:hasAthlete "Nancy Kerrigan" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "United States (USA)" ;
+    wtq:hasOlympics "1992-1994" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "35" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_36 wtq:hasAthlete "Michelle Kwan" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "United States (USA)" ;
+    wtq:hasOlympics "1998-2002" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "36" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_39 wtq:hasAthlete "Isabelle Brasseur / Lloyd Eisler" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Canada (CAN)" ;
+    wtq:hasOlympics "1992-1994" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "39" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_45 wtq:hasAthlete "Emília Rotter / László Szollás" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Hungary (HUN)" ;
+    wtq:hasOlympics "1932-1936" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "45" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_46 wtq:hasAthlete "Aliona Savchenko / Robin Szolkowy" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Germany (GER)" ;
+    wtq:hasOlympics "2010-2014" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "46" .
+

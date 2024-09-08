@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q853043", "label": "wd:Q853043", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q8835", "label": "wd:Q8835", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "label": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q613222", "label": "wd:Q613222", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q8723", "label": "wd:Q8723", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q742953", "label": "wd:Q742953", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q12236", "label": "wd:Q12236", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q11984", "label": "wd:Q11984", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Badajoz", "label": "Badajoz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_36", "label": "36", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Robert Sarver", "label": "Robert Sarver", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_34", "label": "34", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_33", "label": "33", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_45", "label": "45", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Estadio Municipal de Marbella", "label": "Estadio Municipal de Marbella", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_42+4", "label": "42+4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Club Deportivo Badajoz", "label": "Club Deportivo Badajoz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Narc\u00eds Bardalet Vi\u00f1als", "label": "Narc\u00eds Bardalet Vi\u00f1als", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_association football", "label": "association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_41", "label": "41", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_-18", "label": "-18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Category:UE Figueres", "label": "Category:UE Figueres", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Athletic de Bilbao B", "label": "Athletic de Bilbao B", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_34", "label": "34", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Seville", "label": "Seville", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_57", "label": "57", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Real Betis", "label": "Real Betis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_UE Figueres", "label": "UE Figueres", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_37", "label": "37", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_36-2", "label": "36-2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_32-6", "label": "32-6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Club Deportivo Lugo", "label": "Club Deportivo Lugo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_LaLiga 2", "label": "LaLiga 2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_Mois\u00e9s Hurtado", "label": "Mois\u00e9s Hurtado", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_33-5", "label": "33-5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Q25879626", "label": "Q25879626", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_RCD Mallorca", "label": "RCD Mallorca", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_Palma", "label": "Palma", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_56", "label": "56", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Racing de Santander", "label": "Racing de Santander", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_41", "label": "41", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_43+5", "label": "43+5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_CD Lugo", "label": "CD Lugo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_-1", "label": "-1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_association football club", "label": "association football club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Real Betis Balompi\u00e9", "label": "Real Betis Balompi\u00e9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_Segunda Federaci\u00f3n", "label": "Segunda Federaci\u00f3n", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_-18", "label": "-18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_RCD Mallorca", "label": "RCD Mallorca", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_LaLiga 2", "label": "LaLiga 2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_41", "label": "41", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_59", "label": "59", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_33", "label": "33", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_49", "label": "49", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_association football club", "label": "association football club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_23", "label": "23", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_Spain", "label": "Spain", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_23", "label": "23", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_CD Badajoz", "label": "CD Badajoz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_UE Figueres", "label": "UE Figueres", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_Racing de Santander", "label": "Racing de Santander", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_23", "label": "23", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_Santander", "label": "Santander", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_52+14", "label": "52+14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_25-13", "label": "25-13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_Spain", "label": "Spain", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_CA Marbella", "label": "CA Marbella", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_professional sports team", "label": "professional sports team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_association football", "label": "association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_association football", "label": "association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_50+12", "label": "50+12", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_Atl\u00e9tico Marbella", "label": "Atl\u00e9tico Marbella", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasClub", "to": "wd:Q613222"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasindex", "to": "literal_0_6"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasLosses", "to": "literal_7_13"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasGoals_for", "to": "literal_15_45"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasPoints", "to": "literal_18_42+4"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasDraws", "to": "literal_24_8"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasGoal_Difference", "to": "literal_46_4"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasGoals_against", "to": "literal_56_41"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasWins", "to": "literal_77_17"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasPosition", "to": "literal_81_7"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasPlayed", "to": "literal_105_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_6", "title": "wtq:hasClub", "to": "literal_115_Atl\u00e9tico Marbella"}, {"from": "wd:Q853043", "title": "wtq:hasClub", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10"}, {"from": "wd:Q853043", "title": "wdt:P131", "to": "literal_1_Badajoz"}, {"from": "wd:Q853043", "title": "rdfs:label", "to": "literal_19_Club Deportivo Badajoz"}, {"from": "wd:Q853043", "title": "wdt:P31", "to": "literal_62_association football club"}, {"from": "wd:Q853043", "title": "wdt:P17", "to": "literal_103_Spain"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasPlayed", "to": "literal_2_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasPosition", "to": "literal_22_15"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasClub", "to": "literal_28_Athletic de Bilbao B"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasGoals_against", "to": "literal_32_34"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasDraws", "to": "literal_43_15"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasPoints", "to": "literal_49_33-5"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasGoal_Difference", "to": "literal_61_-1"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasWins", "to": "literal_66_9"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasindex", "to": "literal_69_14"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasGoals_for", "to": "literal_79_33"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_14", "title": "wtq:hasLosses", "to": "literal_85_14"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n", "title": "wtq:hasRow", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasClub", "to": "wd:Q8723"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasGoals_against", "to": "literal_14_33"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasClub", "to": "literal_37_Real Betis"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasDraws", "to": "literal_41_11"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasPoints", "to": "literal_57_43+5"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasWins", "to": "literal_60_16"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasindex", "to": "literal_68_4"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasGoal_Difference", "to": "literal_80_16"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasGoals_for", "to": "literal_82_49"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasPosition", "to": "literal_83_5"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasLosses", "to": "literal_104_11"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_4", "title": "wtq:hasPlayed", "to": "literal_107_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasClub", "to": "wd:Q12236"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasGoal_Difference", "to": "literal_3_18"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasPosition", "to": "literal_13_3"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasPlayed", "to": "literal_17_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasGoals_against", "to": "literal_29_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasGoals_for", "to": "literal_54_56"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasLosses", "to": "literal_63_9"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasDraws", "to": "literal_72_6"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasindex", "to": "literal_84_2"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasClub", "to": "literal_97_Racing de Santander"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasWins", "to": "literal_98_23"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_2", "title": "wtq:hasPoints", "to": "literal_101_52+14"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasGoals_against", "to": "literal_4_36"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasWins", "to": "literal_10_14"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasPosition", "to": "literal_31_11"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasDraws", "to": "literal_34_8"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasLosses", "to": "literal_36_16"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasGoals_for", "to": "literal_39_37"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasPoints", "to": "literal_40_36-2"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasPlayed", "to": "literal_73_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasindex", "to": "literal_86_10"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasClub", "to": "literal_93_CD Badajoz"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_10", "title": "wtq:hasGoal_Difference", "to": "literal_111_1"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasClub", "to": "wd:Q742953"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasDraws", "to": "literal_5_10"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasindex", "to": "literal_25_16"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasGoal_Difference", "to": "literal_26_-18"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasPosition", "to": "literal_30_17"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasClub", "to": "literal_38_UE Figueres"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasPoints", "to": "literal_42_32-6"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasLosses", "to": "literal_48_17"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasPlayed", "to": "literal_53_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasGoals_for", "to": "literal_76_41"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasGoals_against", "to": "literal_78_59"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_16", "title": "wtq:hasWins", "to": "literal_95_11"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasClub", "to": "wd:Q11984"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasPlayed", "to": "literal_6_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasLosses", "to": "literal_12_20"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasGoals_against", "to": "literal_23_41"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasClub", "to": "literal_59_CD Lugo"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasGoal_Difference", "to": "literal_67_-18"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasPosition", "to": "literal_70_18"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasGoals_for", "to": "literal_90_23"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasindex", "to": "literal_91_17"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasDraws", "to": "literal_99_11"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasPoints", "to": "literal_102_25-13"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_17", "title": "wtq:hasWins", "to": "literal_110_7"}, {"from": "wd:Q8835", "title": "wtq:hasClub", "to": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3"}, {"from": "wd:Q8835", "title": "wdt:P127", "to": "literal_8_Robert Sarver"}, {"from": "wd:Q8835", "title": "wdt:P159", "to": "literal_52_Palma"}, {"from": "wd:Q8835", "title": "rdfs:label", "to": "literal_74_RCD Mallorca"}, {"from": "wd:Q8835", "title": "wdt:P31", "to": "literal_87_association football club"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasGoals_against", "to": "literal_9_34"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasLosses", "to": "literal_11_9"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasGoals_for", "to": "literal_35_57"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasClub", "to": "literal_51_RCD Mallorca"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasDraws", "to": "literal_58_8"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasPlayed", "to": "literal_71_38"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasGoal_Difference", "to": "literal_88_23"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasindex", "to": "literal_92_3"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasPosition", "to": "literal_94_4"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasWins", "to": "literal_112_21"}, {"from": "wtq:1992\u201393_Segunda_Divisi\u00f3n_row_3", "title": "wtq:hasPoints", "to": "literal_114_50+12"}, {"from": "wd:Q613222", "title": "wdt:P115", "to": "literal_16_Estadio Municipal de Marbella"}, {"from": "wd:Q613222", "title": "wdt:P1424", "to": "literal_50_Q25879626"}, {"from": "wd:Q613222", "title": "wdt:P118", "to": "literal_65_Segunda Federaci\u00f3n"}, {"from": "wd:Q613222", "title": "rdfs:label", "to": "literal_106_CA Marbella"}, {"from": "wd:Q8723", "title": "wdt:P159", "to": "literal_33_Seville"}, {"from": "wd:Q8723", "title": "rdfs:label", "to": "literal_64_Real Betis Balompi\u00e9"}, {"from": "wd:Q8723", "title": "wdt:P31", "to": "literal_108_professional sports team"}, {"from": "wd:Q8723", "title": "wdt:P641", "to": "literal_109_association football"}, {"from": "wd:Q742953", "title": "wdt:P488", "to": "literal_20_Narc\u00eds Bardalet Vi\u00f1als"}, {"from": "wd:Q742953", "title": "wdt:P910", "to": "literal_27_Category:UE Figueres"}, {"from": "wd:Q742953", "title": "wdt:P286", "to": "literal_47_Mois\u00e9s Hurtado"}, {"from": "wd:Q742953", "title": "rdfs:label", "to": "literal_96_UE Figueres"}, {"from": "wd:Q12236", "title": "wdt:P641", "to": "literal_21_association football"}, {"from": "wd:Q12236", "title": "rdfs:label", "to": "literal_55_Racing de Santander"}, {"from": "wd:Q12236", "title": "wdt:P118", "to": "literal_75_LaLiga 2"}, {"from": "wd:Q12236", "title": "wdt:P159", "to": "literal_100_Santander"}, {"from": "wd:Q11984", "title": "rdfs:label", "to": "literal_44_Club Deportivo Lugo"}, {"from": "wd:Q11984", "title": "wdt:P118", "to": "literal_45_LaLiga 2"}, {"from": "wd:Q11984", "title": "wdt:P17", "to": "literal_89_Spain"}, {"from": "wd:Q11984", "title": "wdt:P641", "to": "literal_113_association football"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2007_NASCAR_Busch_Series a wtq:Entity ;
+    wtq:hasRow wtq:2007_NASCAR_Busch_Series_row_2,
+        wtq:2007_NASCAR_Busch_Series_row_4,
+        wtq:2007_NASCAR_Busch_Series_row_6,
+        wtq:2007_NASCAR_Busch_Series_row_9 .
+
+wtq:2007_NASCAR_Busch_Series_row_2 <http://wikitablequestion.org/hasCar_#> "99" ;
+    wtq:hasDriver wd:Q723929,
+        "David Reutimann" ;
+    wtq:hasMake wd:Q53268,
+        "Toyota" ;
+    <http://wikitablequestion.org/hasPos.> "3" ;
+    wtq:hasTeam wd:Q1929735,
+        "Michael Waltrip Racing" ;
+    wtq:hasindex "2" .
+
+wtq:2007_NASCAR_Busch_Series_row_4 <http://wikitablequestion.org/hasCar_#> "77" ;
+    wtq:hasDriver "Ron Hornaday" ;
+    wtq:hasMake wd:Q29570,
+        "Chevrolet" ;
+    <http://wikitablequestion.org/hasPos.> "5" ;
+    wtq:hasTeam wd:Q6396457,
+        "Kevin Harvick Incorporated" ;
+    wtq:hasindex "4" .
+
+wtq:2007_NASCAR_Busch_Series_row_6 <http://wikitablequestion.org/hasCar_#> "29" ;
+    wtq:hasDriver wd:Q1094254,
+        "Scott Wimmer" ;
+    wtq:hasMake wd:Q29570,
+        "Chevrolet" ;
+    <http://wikitablequestion.org/hasPos.> "7" ;
+    wtq:hasTeam wd:Q1152098,
+        "Richard Childress Racing" ;
+    wtq:hasindex "6" .
+
+wtq:2007_NASCAR_Busch_Series_row_9 <http://wikitablequestion.org/hasCar_#> "88" ;
+    wtq:hasDriver wd:Q560164,
+        "Brad Keselowski" ;
+    wtq:hasMake wd:Q29570,
+        "Chevrolet" ;
+    <http://wikitablequestion.org/hasPos.> "10" ;
+    wtq:hasTeam wd:Q1094266,
+        "JR Motorsports" ;
+    wtq:hasindex "9" .
+
+wd:Q1094254 rdfs:label "Scott Wimmer" ;
+    wdt:P19 "Wausau" ;
+    wdt:P31 "human" ;
+    wdt:P641 "auto racing" .
+
+wd:Q1094266 rdfs:label "JR Motorsports" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "auto racing team" .
+
+wd:Q1152098 rdfs:label "Richard Childress Racing" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "auto racing team",
+        "business" .
+
+wd:Q1929735 rdfs:label "Michael Waltrip Racing" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "business" ;
+    wdt:P641 "auto racing" .
+
+wd:Q53268 rdfs:label "Toyota" ;
+    wdt:P355 "Kuozui Motors",
+        "Toyota Kirloskar Motor Private Limited",
+        "Toyota Motor Engineering & Manufacturing North America" .
+
+wd:Q560164 rdfs:label "Brad Keselowski" ;
+    wdt:P19 "Rochester Hills" ;
+    wdt:P22 "Bob Keselowski" ;
+    wdt:P31 "human" .
+
+wd:Q6396457 rdfs:label "Kevin Harvick Incorporated" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "auto racing team",
+        "business" .
+
+wd:Q723929 rdfs:label "David Reutimann" ;
+    wdt:P19 "Zephyrhills" ;
+    wdt:P21 "male" ;
+    wdt:P69 "Zephyrhills High School" .
+
+wd:Q29570 rdfs:label "Chevrolet" ;
+    wdt:P112 "Arthur Chevrolet",
+        "Louis Chevrolet",
+        "William Crapo Durant" ;
+    wdt:P159 "Detroit" ;
+    wdt:P31 "automobile manufacturer",
+        "car brand" ;
+    wdt:P452 "automotive industry" .
+

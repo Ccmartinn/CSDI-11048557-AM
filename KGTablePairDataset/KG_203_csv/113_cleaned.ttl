@@ -1,0 +1,127 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Shooting_at_the_1988_Summer_Olympics a wtq:Entity ;
+    wtq:hasRow wtq:Shooting_at_the_1988_Summer_Olympics_row_10,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_14,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_16,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_17,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_2,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_3,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_4,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_6 .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_10 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q145107,
+        "Chile (CHI)" ;
+    wtq:hasRank "11" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "10" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_14 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Sweden (SWE)" ;
+    wtq:hasRank wd:Q2986385,
+        "11" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "14" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_16 wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q922957,
+        "Hungary (HUN)" ;
+    wtq:hasRank "17" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "16" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_17 wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q2372895,
+        "Belgium (BEL)" ;
+    wtq:hasRank "18" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "17" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_2 wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q2616909,
+        "West Germany (FRG)" ;
+    wtq:hasRank "3" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "2" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_3 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q3301163,
+        "Bulgaria (BUL)" ;
+    wtq:hasRank "4" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "3" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_4 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Czechoslovakia (TCH)" ;
+    wtq:hasRank wd:Q2662262,
+        "4" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "4" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_6 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Great Britain (GBR)" ;
+    wtq:hasRank wd:Q150729,
+        "4" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "6" .
+
+wd:Q145107 rdfs:label "Chile at the 1988 Summer Olympics" ;
+    wdt:P17 "Chile" ;
+    wdt:P179 "Chile at the Olympics" ;
+    wdt:P31 "Olympic delegation" .
+
+wd:Q150729 rdfs:label "Great Britain at the 1988 Summer Olympics" ;
+    wdt:P166 "Olympic gold medal",
+        "Olympic silver medal" ;
+    wdt:P641 "Olympic sport" .
+
+wd:Q2372895 rdfs:label "Belgium at the 1988 Summer Olympics" ;
+    wdt:P166 "Olympic gold medal" ;
+    wdt:P17 "Belgium" ;
+    wdt:P31 "Olympic delegation" .
+
+wd:Q2616909 rdfs:label "West Germany at the 1988 Summer Olympics" ;
+    wdt:P3022 "Reiner Klimke" ;
+    wdt:P31 "Olympic delegation" ;
+    wdt:P641 "Olympic sport" .
+
+wd:Q2662262 rdfs:label "Czechoslovakia at the 1988 Summer Olympics" ;
+    wdt:P17 "Czechoslovakia" ;
+    wdt:P31 "Olympic delegation" ;
+    wdt:P641 "summer sport" .
+
+wd:Q2986385 rdfs:label "Sweden at the 1988 Summer Olympics" ;
+    wdt:P166 "Olympic gold medal",
+        "Olympic silver medal" ;
+    wdt:P31 "Olympic delegation" .
+
+wd:Q3301163 rdfs:label "Bulgaria at the 1988 Summer Olympics" ;
+    wdt:P1344 "1988 Summer Olympics" ;
+    wdt:P166 "Olympic bronze medal",
+        "Olympic silver medal" .
+
+wd:Q922957 rdfs:label "Hungary at the 1988 Summer Olympics" ;
+    wdt:P166 "Olympic gold medal" ;
+    wdt:P179 "Hungary at the Olympics" ;
+    wdt:P3022 "István Vaskuti" .
+

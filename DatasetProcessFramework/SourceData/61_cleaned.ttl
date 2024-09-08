@@ -1,0 +1,127 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Athletics_at_the_1999_All-Africa_Games a wtq:Entity ;
+    wtq:hasRow wtq:Athletics_at_the_1999_All-Africa_Games_row_10,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_14,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_15,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_16,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_17,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_18,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_3,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_4 .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_10 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q1029,
+        "Mozambique" ;
+    wtq:hasRank "11" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "10" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_14 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q924,
+        "Tanzania" ;
+    wtq:hasRank "15" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "14" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_15 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Togo" ;
+    wtq:hasRank wd:Q945,
+        "15" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "15" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_16 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Burkina Faso" ;
+    wtq:hasRank wd:Q965,
+        "15" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "16" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_17 wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q929,
+        "Central African Republic" ;
+    wtq:hasRank "18" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "17" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_18 wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Uganda" ;
+    wtq:hasRank wd:Q1036,
+        "18" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "18" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_3 wtq:hasBronze "8" ;
+    wtq:hasGold "5" ;
+    wtq:hasNation wd:Q114,
+        "Kenya" ;
+    wtq:hasRank "4" ;
+    wtq:hasSilver "4" ;
+    wtq:hasTotal "17" ;
+    wtq:hasindex "3" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_4 wtq:hasBronze "1" ;
+    wtq:hasGold "2" ;
+    wtq:hasNation wd:Q948,
+        "Tunisia" ;
+    wtq:hasRank "5" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "5" ;
+    wtq:hasindex "4" .
+
+wd:Q1029 rdfs:label "Mozambique" ;
+    wdt:P31 "republic",
+        "sovereign state" ;
+    wdt:P35 "Filipe Nyusi" .
+
+wd:Q1036 rdfs:label "Uganda" ;
+    wdt:P31 "country",
+        "landlocked country" ;
+    wdt:P37 "English" .
+
+wd:Q114 rdfs:label "Kenya" ;
+    wdt:P1589 "Indian Ocean" ;
+    wdt:P1792 "Category:Kenyan people" ;
+    wdt:P2184 "history of Kenya" .
+
+wd:Q924 rdfs:label "Tanzania" ;
+    wdt:P30 "Africa" ;
+    wdt:P31 "republic" ;
+    wdt:P37 "Swahili" .
+
+wd:Q929 rdfs:label "Central African Republic" ;
+    wdt:P421 "Africa/Bangui" ;
+    wdt:P463 "African Union",
+        "Organisation internationale de la Francophonie" .
+
+wd:Q945 rdfs:label "Togo" ;
+    wdt:P2579 "Togolese studies" ;
+    wdt:P2852 "117",
+        "171" .
+
+wd:Q948 rdfs:label "Tunisia" ;
+    wdt:P17 "Tunisia" ;
+    wdt:P31 "Mediterranean country" ;
+    wdt:P35 "Kais Saied" .
+
+wd:Q965 rdfs:label "Burkina Faso" ;
+    wdt:P1464 "Category:Births in Burkina Faso" ;
+    wdt:P1552 "partly free country" ;
+    wdt:P1589 "Black Volta" .
+

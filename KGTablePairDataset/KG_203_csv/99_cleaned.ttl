@@ -1,0 +1,85 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Edmonton_Indy a wtq:Entity ;
+    wtq:hasRow wtq:Edmonton_Indy_row_1,
+        wtq:Edmonton_Indy_row_2,
+        wtq:Edmonton_Indy_row_7 .
+
+wtq:Edmonton_Indy_row_1 wtq:hasAverage_Speed_n_mph_ "100.112" ;
+    wtq:hasChassis "Lola" ;
+    wtq:hasDate "July 23" ;
+    wtq:hasDriver "Justin Wilson" ;
+    wtq:hasEngine "Ford-Cosworth" ;
+    wtq:hasRace_Distance_nLaps "85" ;
+    wtq:hasRace_Distance_nMiles__km_ "167.705 (269.895)" ;
+    wtq:hasRace_Time "1:40:30" ;
+    wtq:hasReport "Report" ;
+    wtq:hasSeason "2006" ;
+    wtq:hasTeam "RuSPORT" ;
+    wtq:hasindex "1" .
+
+wtq:Edmonton_Indy_row_2 wtq:hasAverage_Speed_n_mph_ "107.517" ;
+    wtq:hasChassis "Panoz" ;
+    wtq:hasDate "July 22" ;
+    wtq:hasDriver "Sébastien Bourdais" ;
+    wtq:hasEngine "Cosworth" ;
+    wtq:hasRace_Distance_nLaps "96" ;
+    wtq:hasRace_Distance_nMiles__km_ "189.408 (304.822)" ;
+    wtq:hasRace_Time "1:45:41" ;
+    wtq:hasReport wd:Q4605062,
+        "Report" ;
+    wtq:hasSeason wd:Q780275,
+        "2007" ;
+    wtq:hasTeam "Newman/Haas/Lanigan Racing" ;
+    wtq:hasindex "2" .
+
+wtq:Edmonton_Indy_row_7 wtq:hasAverage_Speed_n_mph_ "101.246" ;
+    wtq:hasChassis wd:Q1157975,
+        "Dallara" ;
+    wtq:hasDate "July 22" ;
+    wtq:hasDriver wd:Q525778,
+        "Hélio Castroneves" ;
+    wtq:hasEngine wd:Q9584,
+        "Chevrolet" ;
+    wtq:hasRace_Distance_nLaps "75" ;
+    wtq:hasRace_Distance_nMiles__km_ "169.2 (272.301)" ;
+    wtq:hasRace_Time "1:38:51" ;
+    wtq:hasReport wd:Q745808,
+        "Report" ;
+    wtq:hasSeason "2012" ;
+    wtq:hasTeam "Penske Racing" ;
+    wtq:hasindex "7" .
+
+wd:Q1157975 rdfs:label "Dallara" ;
+    wdt:P31 "auto racing team" ;
+    wdt:P740 "Varano de' Melegari" ;
+    wdt:P910 "Category:Dallara" .
+
+wd:Q4605062 rdfs:label "2005 West Edmonton Mall Grand Prix of Edmonton" ;
+    wdt:P17 "Canada" ;
+    wdt:P361 "2005 Champ Car season" ;
+    wdt:P5053 "A. J. Allmendinger" .
+
+wd:Q525778 rdfs:label "Will Power" ;
+    wdt:P27 "Australia" ;
+    wdt:P641 "auto racing" ;
+    wdt:P69 "Downlands College" .
+
+wd:Q745808 rdfs:label "2009 Rexall Edmonton Indy" ;
+    wdt:P1346 "Will Power" ;
+    wdt:P361 "2009 IndyCar Series season" ;
+    wdt:P3764 "Will Power" .
+
+wd:Q780275 rdfs:label "2005 Champ Car season" ;
+    wdt:P3450 "Champ Car" ;
+    wdt:P641 "auto racing" ;
+    wdt:P859 "Ford Motor Company" .
+
+wd:Q9584 rdfs:label "Honda" ;
+    wdt:P112 "Takeo Fujisawa" ;
+    wdt:P127 "The Master Trust Bank of Japan",
+        "Tokio Marine" .
+

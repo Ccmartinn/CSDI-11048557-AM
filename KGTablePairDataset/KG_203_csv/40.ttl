@@ -1,0 +1,264 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Buffalo_Public_Schools a wtq:Entity ;
+    wtq:hasRow wtq:Buffalo_Public_Schools_row_10,
+        wtq:Buffalo_Public_Schools_row_19,
+        wtq:Buffalo_Public_Schools_row_2,
+        wtq:Buffalo_Public_Schools_row_21,
+        wtq:Buffalo_Public_Schools_row_26,
+        wtq:Buffalo_Public_Schools_row_27,
+        wtq:Buffalo_Public_Schools_row_3,
+        wtq:Buffalo_Public_Schools_row_31,
+        wtq:Buffalo_Public_Schools_row_33,
+        wtq:Buffalo_Public_Schools_row_34,
+        wtq:Buffalo_Public_Schools_row_35,
+        wtq:Buffalo_Public_Schools_row_38,
+        wtq:Buffalo_Public_Schools_row_39,
+        wtq:Buffalo_Public_Schools_row_40,
+        wtq:Buffalo_Public_Schools_row_43,
+        wtq:Buffalo_Public_Schools_row_44,
+        wtq:Buffalo_Public_Schools_row_46,
+        wtq:Buffalo_Public_Schools_row_47,
+        wtq:Buffalo_Public_Schools_row_48,
+        wtq:Buffalo_Public_Schools_row_49,
+        wtq:Buffalo_Public_Schools_row_53,
+        wtq:Buffalo_Public_Schools_row_54,
+        wtq:Buffalo_Public_Schools_row_57,
+        wtq:Buffalo_Public_Schools_row_59,
+        wtq:Buffalo_Public_Schools_row_61,
+        wtq:Buffalo_Public_Schools_row_62 .
+
+wtq:Buffalo_Public_Schools_row_10 wtq:hasBuilding_Status "Private Apartments/Office Space" ;
+    wtq:hasHigh_Grade "12" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Downtown" ;
+    <http://wikitablequestion.org/hasP.S._#> "13" ;
+    wtq:hasSchool_Name "School 13" ;
+    wtq:hasYear_Closed "2003" ;
+    wtq:hasindex "10" .
+
+wtq:Buffalo_Public_Schools_row_19 wtq:hasBuilding_Status "Demolished" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Babcock" ;
+    <http://wikitablequestion.org/hasP.S._#> "25" ;
+    wtq:hasSchool_Name "School 25" ;
+    wtq:hasYear_Closed "1949" ;
+    wtq:hasindex "19" .
+
+wtq:Buffalo_Public_Schools_row_2 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "First Ward" ;
+    <http://wikitablequestion.org/hasP.S._#> "4" ;
+    wtq:hasSchool_Name "Harbor Heights Elementary School" ;
+    wtq:hasYear_Closed "2002" ;
+    wtq:hasindex "2" .
+
+wtq:Buffalo_Public_Schools_row_21 wtq:hasBuilding_Status "Houses Buffalo Public Schools' Department of Science" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Triangle" ;
+    <http://wikitablequestion.org/hasP.S._#> "28" ;
+    wtq:hasSchool_Name "Triangle Academy" ;
+    wtq:hasYear_Closed "1949" ;
+    wtq:hasindex "21" .
+
+wtq:Buffalo_Public_Schools_row_26 wtq:hasBuilding_Status "Houses Elmwood Village Charter School" ;
+    wtq:hasHigh_Grade "4" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Allentown" ;
+    <http://wikitablequestion.org/hasP.S._#> "36" ;
+    wtq:hasSchool_Name "Days Park Early Childhood Center" ;
+    wtq:hasYear_Closed "2009" ;
+    wtq:hasindex "26" .
+
+wtq:Buffalo_Public_Schools_row_27 wtq:hasBuilding_Status "Houses The Academy School 171" ;
+    wtq:hasHigh_Grade "6" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Babcock" ;
+    <http://wikitablequestion.org/hasP.S._#> "40" ;
+    wtq:hasSchool_Name "School 40" ;
+    wtq:hasYear_Closed "2006" ;
+    wtq:hasindex "27" .
+
+wtq:Buffalo_Public_Schools_row_3 wtq:hasBuilding_Status "Demolished" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Kaisertown" ;
+    <http://wikitablequestion.org/hasP.S._#> "5" ;
+    wtq:hasSchool_Name "School 5" ;
+    wtq:hasYear_Closed "1955" ;
+    wtq:hasindex "3" .
+
+wtq:Buffalo_Public_Schools_row_31 wtq:hasBuilding_Status "Demolished" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Willert Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "47" ;
+    wtq:hasSchool_Name "School 47" ;
+    wtq:hasYear_Closed "1978" ;
+    wtq:hasindex "31" .
+
+wtq:Buffalo_Public_Schools_row_33 wtq:hasBuilding_Status "Community Services building" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Front Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "49" ;
+    wtq:hasSchool_Name "School 49" ;
+    wtq:hasYear_Closed "1980" ;
+    wtq:hasindex "33" .
+
+wtq:Buffalo_Public_Schools_row_34 wtq:hasBuilding_Status "Demolished" ;
+    wtq:hasHigh_Grade "Education" ;
+    wtq:hasLow_Grade "Special" ;
+    wtq:hasNeighborhood "Emsilie" ;
+    <http://wikitablequestion.org/hasP.S._#> "50" ;
+    wtq:hasSchool_Name "School 50" ;
+    wtq:hasYear_Closed "1975" ;
+    wtq:hasindex "34" .
+
+wtq:Buffalo_Public_Schools_row_35 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Black Rock" ;
+    <http://wikitablequestion.org/hasP.S._#> "51" ;
+    wtq:hasSchool_Name "Black Rock Academy" ;
+    wtq:hasYear_Closed "2005" ;
+    wtq:hasindex "35" .
+
+wtq:Buffalo_Public_Schools_row_38 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Albright" ;
+    <http://wikitablequestion.org/hasP.S._#> "56" ;
+    wtq:hasSchool_Name "School 56" ;
+    wtq:hasYear_Closed "2007" ;
+    wtq:hasindex "38" .
+
+wtq:Buffalo_Public_Schools_row_39 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "6" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Broadway-Fillmore" ;
+    <http://wikitablequestion.org/hasP.S._#> "57" ;
+    wtq:hasSchool_Name "Broadway Village Elementary School" ;
+    wtq:hasYear_Closed "2003" ;
+    wtq:hasindex "39" .
+
+wtq:Buffalo_Public_Schools_row_40 wtq:hasBuilding_Status "Demolished" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Broadway-Fillmore" ;
+    <http://wikitablequestion.org/hasP.S._#> "58" ;
+    wtq:hasSchool_Name "School 58" ;
+    wtq:hasYear_Closed "1961" ;
+    wtq:hasindex "40" .
+
+wtq:Buffalo_Public_Schools_row_43 wtq:hasBuilding_Status "Houses Crucial Human Services" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "MLK Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "62" ;
+    wtq:hasSchool_Name "School 62" ;
+    wtq:hasYear_Closed "1980" ;
+    wtq:hasindex "43" .
+
+wtq:Buffalo_Public_Schools_row_44 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "LaSalle" ;
+    <http://wikitablequestion.org/hasP.S._#> "63" ;
+    wtq:hasSchool_Name "Campus North School" ;
+    wtq:hasYear_Closed "2007" ;
+    wtq:hasindex "44" .
+
+wtq:Buffalo_Public_Schools_row_46 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "4" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Schiller Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "71" ;
+    wtq:hasSchool_Name "WEB Early Childhood Center" ;
+    wtq:hasYear_Closed "2007" ;
+    wtq:hasindex "46" .
+
+wtq:Buffalo_Public_Schools_row_47 wtq:hasBuilding_Status "Demolished" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Columbus" ;
+    <http://wikitablequestion.org/hasP.S._#> "73" ;
+    wtq:hasSchool_Name "School 73" ;
+    wtq:hasYear_Closed "1970" ;
+    wtq:hasindex "47" .
+
+wtq:Buffalo_Public_Schools_row_48 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Emslie" ;
+    <http://wikitablequestion.org/hasP.S._#> "75" ;
+    wtq:hasSchool_Name "School 75" ;
+    wtq:hasYear_Closed "1979" ;
+    wtq:hasindex "48" .
+
+wtq:Buffalo_Public_Schools_row_49 wtq:hasBuilding_Status "Vacant" ;
+    wtq:hasHigh_Grade "4" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Front Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "77" ;
+    wtq:hasSchool_Name "School 77" ;
+    wtq:hasYear_Closed "2006" ;
+    wtq:hasindex "49" .
+
+wtq:Buffalo_Public_Schools_row_53 wtq:hasBuilding_Status "Houses Community Charter School" ;
+    wtq:hasHigh_Grade "4" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Kensington" ;
+    <http://wikitablequestion.org/hasP.S._#> "85" ;
+    wtq:hasSchool_Name "School 85" ;
+    wtq:hasYear_Closed "1976" ;
+    wtq:hasindex "53" .
+
+wtq:Buffalo_Public_Schools_row_54 wtq:hasBuilding_Status "Houses BPS' Adult Learning Program" ;
+    wtq:hasHigh_Grade "4" ;
+    wtq:hasLow_Grade "PreK" ;
+    wtq:hasNeighborhood "Starin Central" ;
+    <http://wikitablequestion.org/hasP.S._#> "86" ;
+    wtq:hasSchool_Name "St. Lawrence Academy" ;
+    wtq:hasYear_Closed "2004" ;
+    wtq:hasindex "54" .
+
+wtq:Buffalo_Public_Schools_row_57 wtq:hasBuilding_Status "Community Action Organization" ;
+    wtq:hasHigh_Grade "4" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Hamlin Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "93" ;
+    wtq:hasSchool_Name "School 93" ;
+    wtq:hasYear_Closed "1975" ;
+    wtq:hasindex "57" .
+
+wtq:Buffalo_Public_Schools_row_59 wtq:hasBuilding_Status "Opportunity Center" ;
+    wtq:hasHigh_Grade "8" ;
+    wtq:hasLow_Grade "K" ;
+    wtq:hasNeighborhood "Perry" ;
+    <http://wikitablequestion.org/hasP.S._#> "142" ;
+    wtq:hasSchool_Name "Fulton Academic Complex" ;
+    wtq:hasYear_Closed "1982" ;
+    wtq:hasindex "59" .
+
+wtq:Buffalo_Public_Schools_row_61 wtq:hasBuilding_Status "Houses Buffalo Academy for Visual & Performing Arts" ;
+    wtq:hasHigh_Grade "12" ;
+    wtq:hasLow_Grade "5" ;
+    wtq:hasNeighborhood "Masten Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "192" ;
+    wtq:hasSchool_Name "Buffalo Traditional School" ;
+    wtq:hasYear_Closed "2005" ;
+    wtq:hasindex "61" .
+
+wtq:Buffalo_Public_Schools_row_62 wtq:hasBuilding_Status "Houses The International Preparatory School" ;
+    wtq:hasHigh_Grade "12" ;
+    wtq:hasLow_Grade "9" ;
+    wtq:hasNeighborhood "Front Park" ;
+    <http://wikitablequestion.org/hasP.S._#> "202" ;
+    wtq:hasSchool_Name "Grover Cleveland High School" ;
+    wtq:hasYear_Closed "2011" ;
+    wtq:hasindex "62" .
+

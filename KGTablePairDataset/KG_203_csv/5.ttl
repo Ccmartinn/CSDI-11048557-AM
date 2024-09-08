@@ -1,0 +1,54 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:FC_St._Gallen a wtq:Entity ;
+    wtq:hasRow wtq:FC_St._Gallen_row_1,
+        wtq:FC_St._Gallen_row_10,
+        wtq:FC_St._Gallen_row_2,
+        wtq:FC_St._Gallen_row_3,
+        wtq:FC_St._Gallen_row_4 .
+
+wtq:FC_St._Gallen_row_1 wtq:hasAggregate "2–1" ;
+    wtq:hasAway "0–1" ;
+    wtq:hasCompetition "UEFA Cup" ;
+    wtq:hasHome "2–0" ;
+    wtq:hasOpponent "Chelsea" ;
+    wtq:hasRound "First round" ;
+    wtq:hasSeason "2000-2001" ;
+    wtq:hasindex "1" .
+
+wtq:FC_St._Gallen_row_10 wtq:hasAggregate "4th place" ;
+    wtq:hasAway "1–5" ;
+    wtq:hasCompetition "UEFA Europa League" ;
+    wtq:hasHome "2–3" ;
+    wtq:hasOpponent "Valencia" ;
+    wtq:hasRound "Group A" ;
+    wtq:hasSeason "2013–14" ;
+    wtq:hasindex "10" .
+
+wtq:FC_St._Gallen_row_2 wtq:hasAggregate "2–3" ;
+    wtq:hasAway "1–2" ;
+    wtq:hasCompetition "UEFA Cup" ;
+    wtq:hasHome "1–1" ;
+    wtq:hasOpponent "Club Brugge" ;
+    wtq:hasRound "Second round" ;
+    wtq:hasSeason "2000-2001" ;
+    wtq:hasindex "2" .
+
+wtq:FC_St._Gallen_row_3 wtq:hasAggregate "4–3" ;
+    wtq:hasAway "2–0" ;
+    wtq:hasCompetition "UEFA Cup" ;
+    wtq:hasHome "2–3" ;
+    wtq:hasOpponent "Pelister" ;
+    wtq:hasRound "Qualifying round" ;
+    wtq:hasSeason "2001-2002" ;
+    wtq:hasindex "3" .
+
+wtq:FC_St._Gallen_row_4 wtq:hasAggregate "3–2" ;
+    wtq:hasAway "1–1" ;
+    wtq:hasCompetition "UEFA Cup" ;
+    wtq:hasHome "2–1" ;
+    wtq:hasOpponent "Steaua București" ;
+    wtq:hasRound "First round" ;
+    wtq:hasSeason "2001-2002" ;
+    wtq:hasindex "4" .
+

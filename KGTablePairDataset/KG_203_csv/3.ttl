@@ -1,0 +1,31 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Andalusia a wtq:Entity ;
+    wtq:hasRow wtq:Andalusia_row_1,
+        wtq:Andalusia_row_2,
+        wtq:Andalusia_row_7 .
+
+wtq:Andalusia_row_1 wtq:hasCapital "Cádiz" ;
+    wtq:hasDensity "158.8 /km2 (411 /sq mi)" ;
+    wtq:hasLegal_districts "14" ;
+    wtq:hasMunicipalities "44 municipalities" ;
+    wtq:hasPopulation "1,243,519" ;
+    wtq:hasProvince "Cádiz" ;
+    wtq:hasindex "1" .
+
+wtq:Andalusia_row_2 wtq:hasCapital "Córdoba" ;
+    wtq:hasDensity "72.4 /km2 (188 /sq mi)" ;
+    wtq:hasLegal_districts "12" ;
+    wtq:hasMunicipalities "75 municipalities" ;
+    wtq:hasPopulation "805,857" ;
+    wtq:hasProvince "Córdoba" ;
+    wtq:hasindex "2" .
+
+wtq:Andalusia_row_7 wtq:hasCapital "Seville" ;
+    wtq:hasDensity "129.2 /km2 (335 /sq mi)" ;
+    wtq:hasLegal_districts "15" ;
+    wtq:hasMunicipalities "105 municipalities" ;
+    wtq:hasPopulation "1,928,962" ;
+    wtq:hasProvince "Seville" ;
+    wtq:hasindex "7" .
+

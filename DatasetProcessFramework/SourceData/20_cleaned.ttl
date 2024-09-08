@@ -1,0 +1,59 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:PDC_World_Darts_Championship a wtq:Entity ;
+    wtq:hasRow wtq:PDC_World_Darts_Championship_row_2,
+        wtq:PDC_World_Darts_Championship_row_6 .
+
+wtq:PDC_World_Darts_Championship_row_2 wtq:hasOpponent wd:Q973413,
+        "Gary Anderson" ;
+    wtq:hasPlayer wd:Q373397,
+        "Adrian Lewis" ;
+    wtq:hasResult "Won" ;
+    wtq:hasRound "Final" ;
+    wtq:hasYear wd:Q2043929,
+        "2011" ;
+    wtq:hasindex "2" .
+
+wtq:PDC_World_Darts_Championship_row_6 wtq:hasOpponent wd:Q5983251,
+        "Ian White" ;
+    wtq:hasPlayer wd:Q6451041,
+        "Kyle Anderson" ;
+    wtq:hasResult "Lost" ;
+    wtq:hasRound "1st Round" ;
+    wtq:hasYear wd:Q15304561,
+        "2014" ;
+    wtq:hasindex "6" .
+
+wd:Q15304561 rdfs:label "2014 PDC World Darts Championship" ;
+    wdt:P276 "Alexandra Palace" ;
+    wdt:P31 "sports season" ;
+    wdt:P3450 "PDC World Darts Championship" .
+
+wd:Q2043929 rdfs:label "2011 PDC World Darts Championship" ;
+    wdt:P1346 "Adrian Lewis" ;
+    wdt:P3450 "PDC World Darts Championship" ;
+    wdt:P641 "darts" .
+
+wd:Q373397 rdfs:label "Adrian Lewis" ;
+    wdt:P1412 "English" ;
+    wdt:P1532 "United Kingdom" ;
+    wdt:P641 "darts" .
+
+wd:Q5983251 rdfs:label "Ian White" ;
+    wdt:P21 "male" ;
+    wdt:P27 "United Kingdom" ;
+    wdt:P641 "darts" .
+
+wd:Q6451041 rdfs:label "Kyle Anderson" ;
+    wdt:P106 "darts player" ;
+    wdt:P1532 "Australia" ;
+    wdt:P735 "Kyle" .
+
+wd:Q973413 rdfs:label "Gary Anderson" ;
+    wdt:P19 "Eyemouth" ;
+    wdt:P21 "male" ;
+    wdt:P69 "Musselburgh Grammar School" .
+

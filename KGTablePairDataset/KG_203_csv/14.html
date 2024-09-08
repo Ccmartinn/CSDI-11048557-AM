@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Teeratep_Winothai_row_14", "label": "wtq:Teeratep_Winothai_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Teeratep_Winothai_row_3", "label": "wtq:Teeratep_Winothai_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Teeratep_Winothai_row_2", "label": "wtq:Teeratep_Winothai_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q212206", "label": "wd:Q212206", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Teeratep_Winothai_row_6", "label": "wtq:Teeratep_Winothai_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Teeratep_Winothai_row_13", "label": "wtq:Teeratep_Winothai_row_13", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q272097", "label": "wd:Q272097", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q330971", "label": "wd:Q330971", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q219854", "label": "wd:Q219854", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Teeratep_Winothai", "label": "wtq:Teeratep_Winothai", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Teeratep_Winothai_row_15", "label": "wtq:Teeratep_Winothai_row_15", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1861", "label": "wd:Q1861", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q213212", "label": "wd:Q213212", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q488454", "label": "wd:Q488454", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q130582", "label": "wd:Q130582", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Teeratep_Winothai_row_7", "label": "wtq:Teeratep_Winothai_row_7", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q285708", "label": "wd:Q285708", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_8 September 2010", "label": "8 September 2010", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Philippines", "label": "Philippines", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_India national football team", "label": "India national football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_15 March 2008", "label": "15 March 2008", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Nepal national football team", "label": "Nepal national football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Terry Butcher", "label": "Terry Butcher", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Kunming, China", "label": "Kunming, China", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Bangkok, Thailand", "label": "Bangkok, Thailand", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_association football", "label": "association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_city", "label": "city", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_2010 FIFA World Cup qualification (AFC)", "label": "2010 FIFA World Cup qualification (AFC)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_association football", "label": "association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_South Korea", "label": "South Korea", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_China national football team", "label": "China national football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_5\u20130", "label": "5\u20130", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Friendly", "label": "Friendly", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Friendly", "label": "Friendly", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_South Korea national under-23 football team", "label": "South Korea national under-23 football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Bangkok, Thailand", "label": "Bangkok, Thailand", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_Win", "label": "Win", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_2014 FIFA World Cup qualification (AFC)", "label": "2014 FIFA World Cup qualification (AFC)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Draw", "label": "Draw", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_4.0", "label": "4.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Macau", "label": "Macau", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_national association football team", "label": "national association football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_20 May 2008", "label": "20 May 2008", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_2002 FIFA World Cup", "label": "2002 FIFA World Cup", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Friendly", "label": "Friendly", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_Nonthaburi", "label": "Nonthaburi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_China PR", "label": "China PR", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_7\u20130", "label": "7\u20130", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Syrian Football Association", "label": "Syrian Football Association", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_FIFA", "label": "FIFA", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Sven-G\u00f6ran Eriksson", "label": "Sven-G\u00f6ran Eriksson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_8.0", "label": "8.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_national association football team", "label": "national association football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Nepal", "label": "Nepal", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Thomas Dooley", "label": "Thomas Dooley", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_3\u20133", "label": "3\u20133", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Chadchart Sittipunt", "label": "Chadchart Sittipunt", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_Philippines national football team", "label": "Philippines national football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_7.0", "label": "7.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_2006 FIFA World Cup qualification (AFC)", "label": "2006 FIFA World Cup qualification (AFC)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_2012 King\u0027s Cup", "label": "2012 King\u0027s Cup", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_8 October 2007", "label": "8 October 2007", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_Win", "label": "Win", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_16.0", "label": "16.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_2010 FIFA World Cup Qualification", "label": "2010 FIFA World Cup Qualification", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Macau national football team", "label": "Macau national football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Loss", "label": "Loss", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_Friendly", "label": "Friendly", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_3.0", "label": "3.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Syria", "label": "Syria", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_New Delhi, India", "label": "New Delhi, India", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Category:South Korea national under-23 football team", "label": "Category:South Korea national under-23 football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_15 January 2012", "label": "15 January 2012", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_Draw", "label": "Draw", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Abdullah Al-Mutairi", "label": "Abdullah Al-Mutairi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_15.0", "label": "15.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_All Nepal Football Association", "label": "All Nepal Football Association", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_men\u0027s U23 association football", "label": "men\u0027s U23 association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_men\u0027s association football", "label": "men\u0027s association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_1\u20133", "label": "1\u20133", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_6\u20131", "label": "6\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_national association football team", "label": "national association football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_national association football team", "label": "national association football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_2\u20131", "label": "2\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_Bangkok", "label": "Bangkok", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_Friendly", "label": "Friendly", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_8 November 2009", "label": "8 November 2009", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_Syria", "label": "Syria", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Chonburi, Thailand", "label": "Chonburi, Thailand", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_1\u20131", "label": "1\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_men\u0027s association football", "label": "men\u0027s association football", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_Bangkok, Thailand", "label": "Bangkok, Thailand", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_26 March 2006", "label": "26 March 2006", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_Win", "label": "Win", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_14.0", "label": "14.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_India", "label": "India", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_Win", "label": "Win", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_Bangkok, Thailand", "label": "Bangkok, Thailand", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_Macau", "label": "Macau", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_Syria national football team", "label": "Syria national football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_India", "label": "India", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_national association football team", "label": "national association football team", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasRow", "to": "wtq:Teeratep_Winothai"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasOpponent", "to": "wd:Q212206"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasDate", "to": "literal_0_8 September 2010"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasCompetition", "to": "literal_18_Friendly"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasResult", "to": "literal_21_Win"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasindex", "to": "literal_46_14"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasVenue", "to": "literal_59_New Delhi, India"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:has#", "to": "literal_64_15.0"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasScore", "to": "literal_73_2\u20131"}, {"from": "wtq:Teeratep_Winothai_row_14", "title": "wtq:hasOpponent", "to": "literal_85_India"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasVenue", "to": "wd:Q1861"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasCompetition", "to": "wd:Q213212"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasOpponent", "to": "wd:Q285708"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasRow", "to": "wtq:Teeratep_Winothai"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasindex", "to": "literal_1_3"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasVenue", "to": "literal_20_Bangkok, Thailand"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:has#", "to": "literal_25_4.0"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasOpponent", "to": "literal_26_Macau"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasDate", "to": "literal_50_8 October 2007"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasResult", "to": "literal_51_Win"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasCompetition", "to": "literal_53_2010 FIFA World Cup Qualification"}, {"from": "wtq:Teeratep_Winothai_row_3", "title": "wtq:hasScore", "to": "literal_69_6\u20131"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasRow", "to": "wtq:Teeratep_Winothai"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasOpponent", "to": "wd:Q219854"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasOpponent", "to": "literal_2_Philippines"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasScore", "to": "literal_16_5\u20130"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasCompetition", "to": "literal_30_Friendly"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:has#", "to": "literal_57_3.0"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasindex", "to": "literal_71_2"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasVenue", "to": "literal_78_Chonburi, Thailand"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasDate", "to": "literal_82_26 March 2006"}, {"from": "wtq:Teeratep_Winothai_row_2", "title": "wtq:hasResult", "to": "literal_86_Win"}, {"from": "wd:Q212206", "title": "rdfs:label", "to": "literal_3_India national football team"}, {"from": "wd:Q212206", "title": "wdt:P641", "to": "literal_9_association football"}, {"from": "wd:Q212206", "title": "wdt:P31", "to": "literal_70_national association football team"}, {"from": "wd:Q212206", "title": "wdt:P17", "to": "literal_90_India"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasRow", "to": "wtq:Teeratep_Winothai"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasOpponent", "to": "wd:Q130582"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasDate", "to": "literal_4_15 March 2008"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasVenue", "to": "literal_7_Kunming, China"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasCompetition", "to": "literal_17_Friendly"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasOpponent", "to": "literal_33_China PR"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasindex", "to": "literal_36_6"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasScore", "to": "literal_43_3\u20133"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:has#", "to": "literal_47_7.0"}, {"from": "wtq:Teeratep_Winothai_row_6", "title": "wtq:hasResult", "to": "literal_62_Draw"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasOpponent", "to": "wd:Q272097"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasRow", "to": "wtq:Teeratep_Winothai"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasindex", "to": "literal_23_13"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasResult", "to": "literal_24_Draw"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasCompetition", "to": "literal_56_Friendly"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasOpponent", "to": "literal_58_Syria"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasDate", "to": "literal_76_8 November 2009"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasScore", "to": "literal_79_1\u20131"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:hasVenue", "to": "literal_81_Bangkok, Thailand"}, {"from": "wtq:Teeratep_Winothai_row_13", "title": "wtq:has#", "to": "literal_84_14.0"}, {"from": "wd:Q272097", "title": "wdt:P31", "to": "literal_27_national association football team"}, {"from": "wd:Q272097", "title": "wdt:P127", "to": "literal_35_Syrian Football Association"}, {"from": "wd:Q272097", "title": "wdt:P17", "to": "literal_77_Syria"}, {"from": "wd:Q272097", "title": "rdfs:label", "to": "literal_89_Syria national football team"}, {"from": "wd:Q330971", "title": "wtq:hasOpponent", "to": "wtq:Teeratep_Winothai_row_7"}, {"from": "wd:Q330971", "title": "rdfs:label", "to": "literal_5_Nepal national football team"}, {"from": "wd:Q330971", "title": "wdt:P286", "to": "literal_63_Abdullah Al-Mutairi"}, {"from": "wd:Q330971", "title": "wdt:P127", "to": "literal_65_All Nepal Football Association"}, {"from": "wd:Q330971", "title": "wdt:P2094", "to": "literal_67_men\u0027s association football"}, {"from": "wd:Q219854", "title": "wdt:P286", "to": "literal_6_Terry Butcher"}, {"from": "wd:Q219854", "title": "wdt:P286", "to": "literal_38_Sven-G\u00f6ran Eriksson"}, {"from": "wd:Q219854", "title": "wdt:P286", "to": "literal_42_Thomas Dooley"}, {"from": "wd:Q219854", "title": "rdfs:label", "to": "literal_45_Philippines national football team"}, {"from": "wtq:Teeratep_Winothai", "title": "wtq:hasRow", "to": "wtq:Teeratep_Winothai_row_15"}, {"from": "wtq:Teeratep_Winothai", "title": "wtq:hasRow", "to": "wtq:Teeratep_Winothai_row_7"}, {"from": "wtq:Teeratep_Winothai", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasOpponent", "to": "wd:Q488454"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasVenue", "to": "literal_8_Bangkok, Thailand"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasindex", "to": "literal_12_15"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasOpponent", "to": "literal_14_South Korea"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasCompetition", "to": "literal_49_2012 King\u0027s Cup"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:has#", "to": "literal_52_16.0"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasResult", "to": "literal_55_Loss"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasDate", "to": "literal_61_15 January 2012"}, {"from": "wtq:Teeratep_Winothai_row_15", "title": "wtq:hasScore", "to": "literal_68_1\u20133"}, {"from": "wd:Q1861", "title": "wdt:P31", "to": "literal_10_city"}, {"from": "wd:Q1861", "title": "wdt:P47", "to": "literal_32_Nonthaburi"}, {"from": "wd:Q1861", "title": "wdt:P6", "to": "literal_44_Chadchart Sittipunt"}, {"from": "wd:Q1861", "title": "rdfs:label", "to": "literal_74_Bangkok"}, {"from": "wd:Q213212", "title": "rdfs:label", "to": "literal_11_2010 FIFA World Cup qualification (AFC)"}, {"from": "wd:Q213212", "title": "wdt:P156", "to": "literal_22_2014 FIFA World Cup qualification (AFC)"}, {"from": "wd:Q213212", "title": "wdt:P664", "to": "literal_37_FIFA"}, {"from": "wd:Q213212", "title": "wdt:P155", "to": "literal_48_2006 FIFA World Cup qualification (AFC)"}, {"from": "wd:Q488454", "title": "wdt:P641", "to": "literal_13_association football"}, {"from": "wd:Q488454", "title": "rdfs:label", "to": "literal_19_South Korea national under-23 football team"}, {"from": "wd:Q488454", "title": "wdt:P910", "to": "literal_60_Category:South Korea national under-23 football team"}, {"from": "wd:Q488454", "title": "wdt:P2094", "to": "literal_66_men\u0027s U23 association football"}, {"from": "wd:Q130582", "title": "rdfs:label", "to": "literal_15_China national football team"}, {"from": "wd:Q130582", "title": "wdt:P1344", "to": "literal_29_2002 FIFA World Cup"}, {"from": "wd:Q130582", "title": "wdt:P279", "to": "literal_40_national association football team"}, {"from": "wd:Q130582", "title": "wdt:P31", "to": "literal_91_national association football team"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:hasDate", "to": "literal_28_20 May 2008"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:hasindex", "to": "literal_31_7"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:hasScore", "to": "literal_34_7\u20130"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:has#", "to": "literal_39_8.0"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:hasOpponent", "to": "literal_41_Nepal"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:hasCompetition", "to": "literal_75_Friendly"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:hasResult", "to": "literal_83_Win"}, {"from": "wtq:Teeratep_Winothai_row_7", "title": "wtq:hasVenue", "to": "literal_87_Bangkok, Thailand"}, {"from": "wd:Q285708", "title": "rdfs:label", "to": "literal_54_Macau national football team"}, {"from": "wd:Q285708", "title": "wdt:P31", "to": "literal_72_national association football team"}, {"from": "wd:Q285708", "title": "wdt:P2094", "to": "literal_80_men\u0027s association football"}, {"from": "wd:Q285708", "title": "wdt:P17", "to": "literal_88_Macau"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q114", "label": "wd:Q114", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games", "label": "wtq:Athletics_at_the_1999_All-Africa_Games", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q945", "label": "wd:Q945", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q965", "label": "wd:Q965", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q929", "label": "wd:Q929", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q948", "label": "wd:Q948", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1036", "label": "wd:Q1036", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q924", "label": "wd:Q924", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1029", "label": "wd:Q1029", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "label": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Indian Ocean", "label": "Indian Ocean", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_117", "label": "117", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_171", "label": "171", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Burkina Faso", "label": "Burkina Faso", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Black Volta", "label": "Black Volta", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_Africa/Bangui", "label": "Africa/Bangui", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Burkina Faso", "label": "Burkina Faso", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Tunisia", "label": "Tunisia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Tanzania", "label": "Tanzania", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Uganda", "label": "Uganda", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Swahili", "label": "Swahili", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_republic", "label": "republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_republic", "label": "republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Central African Republic", "label": "Central African Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_English", "label": "English", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Filipe Nyusi", "label": "Filipe Nyusi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_partly free country", "label": "partly free country", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Mediterranean country", "label": "Mediterranean country", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Kenya", "label": "Kenya", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_history of Kenya", "label": "history of Kenya", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Togo", "label": "Togo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_African Union", "label": "African Union", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_sovereign state", "label": "sovereign state", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Tunisia", "label": "Tunisia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Togo", "label": "Togo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Togolese studies", "label": "Togolese studies", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_landlocked country", "label": "landlocked country", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Mozambique", "label": "Mozambique", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Central African Republic", "label": "Central African Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_Uganda", "label": "Uganda", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_Tanzania", "label": "Tanzania", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_Category:Kenyan people", "label": "Category:Kenyan people", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_country", "label": "country", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_Category:Births in Burkina Faso", "label": "Category:Births in Burkina Faso", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Tunisia", "label": "Tunisia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Organisation internationale de la Francophonie", "label": "Organisation internationale de la Francophonie", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_Kenya", "label": "Kenya", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_Kais Saied", "label": "Kais Saied", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_Mozambique", "label": "Mozambique", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_Africa", "label": "Africa", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q114", "title": "wtq:hasNation", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3"}, {"from": "wd:Q114", "title": "wdt:P1589", "to": "literal_0_Indian Ocean"}, {"from": "wd:Q114", "title": "rdfs:label", "to": "literal_48_Kenya"}, {"from": "wd:Q114", "title": "wdt:P2184", "to": "literal_49_history of Kenya"}, {"from": "wd:Q114", "title": "wdt:P1792", "to": "literal_67_Category:Kenyan people"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasNation", "to": "wd:Q948"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasRank", "to": "literal_1_5"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasSilver", "to": "literal_7_2"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasTotal", "to": "literal_24_5"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasBronze", "to": "literal_44_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasNation", "to": "literal_57_Tunisia"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasindex", "to": "literal_59_4"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_4", "title": "wtq:hasGold", "to": "literal_81_2"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games", "title": "wtq:hasRow", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasNation", "to": "wd:Q1029"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasindex", "to": "literal_19_10"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasTotal", "to": "literal_33_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasRank", "to": "literal_47_11"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasSilver", "to": "literal_50_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasBronze", "to": "literal_61_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasGold", "to": "literal_79_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_10", "title": "wtq:hasNation", "to": "literal_86_Mozambique"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasNation", "to": "wd:Q924"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasRank", "to": "literal_4_15"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasindex", "to": "literal_6_14"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasGold", "to": "literal_8_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasSilver", "to": "literal_10_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasNation", "to": "literal_18_Tanzania"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasTotal", "to": "literal_43_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_14", "title": "wtq:hasBronze", "to": "literal_68_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasRank", "to": "wd:Q1036"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasSilver", "to": "literal_2_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasGold", "to": "literal_21_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasBronze", "to": "literal_37_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasRank", "to": "literal_40_18"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasNation", "to": "literal_65_Uganda"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasindex", "to": "literal_71_18"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_18", "title": "wtq:hasTotal", "to": "literal_75_1"}, {"from": "wd:Q945", "title": "wtq:hasRank", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15"}, {"from": "wd:Q945", "title": "wdt:P2852", "to": "literal_3_117"}, {"from": "wd:Q945", "title": "wdt:P2852", "to": "literal_9_171"}, {"from": "wd:Q945", "title": "rdfs:label", "to": "literal_54_Togo"}, {"from": "wd:Q945", "title": "wdt:P2579", "to": "literal_60_Togolese studies"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "title": "wtq:hasRank", "to": "literal_5_15"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "title": "wtq:hasSilver", "to": "literal_13_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "title": "wtq:hasindex", "to": "literal_27_15"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "title": "wtq:hasTotal", "to": "literal_45_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "title": "wtq:hasGold", "to": "literal_51_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "title": "wtq:hasNation", "to": "literal_58_Togo"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_15", "title": "wtq:hasBronze", "to": "literal_69_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasRank", "to": "wd:Q965"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasNation", "to": "literal_11_Burkina Faso"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasindex", "to": "literal_14_16"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasSilver", "to": "literal_22_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasRank", "to": "literal_25_15"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasBronze", "to": "literal_31_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasGold", "to": "literal_70_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_16", "title": "wtq:hasTotal", "to": "literal_77_1"}, {"from": "wd:Q965", "title": "wdt:P1589", "to": "literal_12_Black Volta"}, {"from": "wd:Q965", "title": "rdfs:label", "to": "literal_16_Burkina Faso"}, {"from": "wd:Q965", "title": "wdt:P1552", "to": "literal_36_partly free country"}, {"from": "wd:Q965", "title": "wdt:P1464", "to": "literal_76_Category:Births in Burkina Faso"}, {"from": "wd:Q929", "title": "wtq:hasNation", "to": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17"}, {"from": "wd:Q929", "title": "wdt:P421", "to": "literal_15_Africa/Bangui"}, {"from": "wd:Q929", "title": "rdfs:label", "to": "literal_30_Central African Republic"}, {"from": "wd:Q929", "title": "wdt:P463", "to": "literal_55_African Union"}, {"from": "wd:Q929", "title": "wdt:P463", "to": "literal_80_Organisation internationale de la Francophonie"}, {"from": "wd:Q948", "title": "wdt:P17", "to": "literal_17_Tunisia"}, {"from": "wd:Q948", "title": "wdt:P31", "to": "literal_38_Mediterranean country"}, {"from": "wd:Q948", "title": "rdfs:label", "to": "literal_78_Tunisia"}, {"from": "wd:Q948", "title": "wdt:P35", "to": "literal_83_Kais Saied"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "title": "wtq:hasRank", "to": "literal_29_4"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "title": "wtq:hasTotal", "to": "literal_39_17"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "title": "wtq:hasBronze", "to": "literal_42_8"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "title": "wtq:hasGold", "to": "literal_72_5"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "title": "wtq:hasSilver", "to": "literal_74_4"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "title": "wtq:hasNation", "to": "literal_82_Kenya"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_3", "title": "wtq:hasindex", "to": "literal_85_3"}, {"from": "wd:Q1036", "title": "rdfs:label", "to": "literal_20_Uganda"}, {"from": "wd:Q1036", "title": "wdt:P37", "to": "literal_32_English"}, {"from": "wd:Q1036", "title": "wdt:P31", "to": "literal_62_landlocked country"}, {"from": "wd:Q1036", "title": "wdt:P31", "to": "literal_73_country"}, {"from": "wd:Q924", "title": "wdt:P37", "to": "literal_23_Swahili"}, {"from": "wd:Q924", "title": "wdt:P31", "to": "literal_28_republic"}, {"from": "wd:Q924", "title": "rdfs:label", "to": "literal_66_Tanzania"}, {"from": "wd:Q924", "title": "wdt:P30", "to": "literal_87_Africa"}, {"from": "wd:Q1029", "title": "wdt:P31", "to": "literal_26_republic"}, {"from": "wd:Q1029", "title": "wdt:P35", "to": "literal_35_Filipe Nyusi"}, {"from": "wd:Q1029", "title": "wdt:P31", "to": "literal_56_sovereign state"}, {"from": "wd:Q1029", "title": "rdfs:label", "to": "literal_63_Mozambique"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "title": "wtq:hasTotal", "to": "literal_34_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "title": "wtq:hasindex", "to": "literal_41_17"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "title": "wtq:hasBronze", "to": "literal_46_1"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "title": "wtq:hasRank", "to": "literal_52_18"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "title": "wtq:hasSilver", "to": "literal_53_0"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "title": "wtq:hasNation", "to": "literal_64_Central African Republic"}, {"from": "wtq:Athletics_at_the_1999_All-Africa_Games_row_17", "title": "wtq:hasGold", "to": "literal_84_0"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

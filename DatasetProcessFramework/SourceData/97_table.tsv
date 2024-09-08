@@ -1,0 +1,21 @@
+index	STAPLE:	Maize / Corn	Rice	Wheat	Potato	Cassava	Soybean (Green)	Sweet potato	Sorghum	Yam	Plantain
+0	Component (per 100g portion)	Amount	Amount	Amount	Amount	Amount	Amount	Amount	Amount	Amount	Amount
+1	Water (g)	10	12	13	79	60	68	77	9	70	65
+2	Energy (kJ)	1528	1528	1369	322	670	615	360	1419	494	511
+5	Carbohydrates (g)	74	80	71	17	38	11	20	75	28	32
+6	Fiber (g)	7.3	1.3	12.2	2.2	1.8	4.2	3	6.3	4.1	2.3
+7	Sugar (g)	0.64	0.12	0.41	0.78	1.7	0	4.18	0	0.5	15
+8	Calcium (mg)	7	28	29	12	16	197	30	28	17	3
+9	Iron (mg)	2.71	0.8	3.19	0.78	0.27	3.55	0.61	4.4	0.54	0.6
+10	Magnesium (mg)	127	25	126	23	21	65	25	0	21	37
+11	Phosphorus (mg)	210	115	288	57	27	194	47	287	55	34
+12	Potassium (mg)	287	115	363	421	271	620	337	350	816	499
+13	Sodium (mg)	35	5	2	6	14	15	55	6	9	4
+15	Copper (mg)	0.31	0.22	0.43	0.11	0.10	0.13	0.15	-	0.18	0.08
+16	Manganese (mg)	0.49	1.09	3.99	0.15	0.38	0.55	0.26	-	0.40	-
+18	Vitamin C (mg)	0	0	0	19.7	20.6	29	2.4	0	17.1	18.4
+21	Niacin (mg)	3.63	1.6	5.46	1.05	0.85	1.65	0.56	2.93	0.55	0.69
+23	Vitamin B6 (mg)	0.62	0.16	0.3	0.30	0.09	0.07	0.21	-	0.29	0.30
+28	Beta-carotene (μg)	97	0	5	1	8	0	8509	0	83	457
+29	Lutein+zeaxanthin (μg)	1355	0	220	8	0	0	0	0	0	30
+32	Polyunsaturated fatty acids (g)	2.16	0.18	0.63	0.04	0.05	3.20	0.01	1.37	0.08	0.07

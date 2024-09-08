@@ -1,0 +1,117 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Appalachian_Athletic_Conference a wtq:Entity ;
+    wtq:hasRow wtq:Appalachian_Athletic_Conference_row_10,
+        wtq:Appalachian_Athletic_Conference_row_2,
+        wtq:Appalachian_Athletic_Conference_row_3,
+        wtq:Appalachian_Athletic_Conference_row_4 .
+
+wtq:Appalachian_Athletic_Conference_row_10 wtq:hasEnrollment "1,368" ;
+    wtq:hasFounded "1879" ;
+    wtq:hasInstitution "Union College" ;
+    wtq:hasJoined "2001" ;
+    wtq:hasLocation wd:Q807878,
+        "Barbourville, Kentucky" ;
+    wtq:hasNickname wd:Q25099900,
+        "Bulldogs" ;
+    wtq:hasType "Private/Christian (Methodist)" ;
+    wtq:hasindex "10" .
+
+wtq:Appalachian_Athletic_Conference_row_2 wtq:hasEnrollment "1,006" ;
+    wtq:hasFounded "1866" ;
+    wtq:hasInstitution "Milligan College" ;
+    wtq:hasJoined "2001" ;
+    wtq:hasLocation wd:Q1389138,
+        "Elizabethton, Tennessee" ;
+    wtq:hasNickname wd:Q23303249,
+        "Buffaloes" ;
+    wtq:hasType wd:Q1541206,
+        "Private (Disciples of Christ)" ;
+    wtq:hasindex "2" .
+
+wtq:Appalachian_Athletic_Conference_row_3 wtq:hasEnrollment "1,145" ;
+    wtq:hasFounded "1916" ;
+    wtq:hasInstitution wd:Q6906389,
+        "Montreat College" ;
+    wtq:hasJoined "2001" ;
+    wtq:hasLocation wd:Q736831,
+        "Montreat, North Carolina" ;
+    wtq:hasNickname wd:Q23303255,
+        "Cavaliers" ;
+    wtq:hasType "Private (Presbyterian)" ;
+    wtq:hasindex "3" .
+
+wtq:Appalachian_Athletic_Conference_row_4 wtq:hasEnrollment "1,000" ;
+    wtq:hasFounded "1937" ;
+    wtq:hasInstitution wd:Q7208182,
+        "Point University" ;
+    wtq:hasJoined "2011" ;
+    wtq:hasLocation wd:Q2480425,
+        "West Point, Georgia" ;
+    wtq:hasNickname wd:Q22058912,
+        "Skyhawks" ;
+    wtq:hasType wd:Q5110310,
+        "Private (Christian churches and churches of Christ)" ;
+    wtq:hasindex "4" .
+
+wd:Q1389138 rdfs:label "Elizabethton" ;
+    wdt:P1376 "Carter County" ;
+    wdt:P206 "Doe River" ;
+    wdt:P31 "city in the United States" .
+
+wd:Q1541206 rdfs:label "Christian Church (Disciples of Christ)" ;
+    wdt:P355 "Christian Board of Publication",
+        "North American Pacific/Asian Disciples",
+        "Pension Fund of the Christian Church (Disciples of Christ)" .
+
+wd:Q22058912 rdfs:label "Point University Skyhawks" ;
+    wdt:P1268 "Point University" ;
+    wdt:P31 "university and college sports club" ;
+    wdt:P910 "Category:Point Skyhawks" .
+
+wd:Q23303249 rdfs:label "Milligan Buffaloes" ;
+    wdt:P1268 "Milligan University" ;
+    wdt:P17 "United States of America" ;
+    wdt:P910 "Category:Milligan Buffaloes" .
+
+wd:Q23303255 rdfs:label "Montreat Cavaliers" ;
+    wdt:P1268 "Montreat College" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "university and college sports club" .
+
+wd:Q2480425 rdfs:label "West Point" ;
+    wdt:P131 "Harris County" ;
+    wdt:P1792 "Category:People from West Point, Georgia" ;
+    wdt:P31 "city in the United States" .
+
+wd:Q25099900 rdfs:label "Union Bulldogs" ;
+    wdt:P31 "Wikimedia disambiguation page" .
+
+wd:Q5110310 rdfs:label "Christian churches and churches of Christ" ;
+    wdt:P1889 "Churches of Christ" ;
+    wdt:P457 "Declaration and Address",
+        "Last Will and Testament of the Springfield Presbytery" .
+
+wd:Q6906389 rdfs:label "Montreat College" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "church college",
+        "private not-for-profit educational institution" .
+
+wd:Q7208182 rdfs:label "Point University" ;
+    wdt:P131 "West Point" ;
+    wdt:P2643 "four-year, small, highly residential" ;
+    wdt:P355 "Point University Library" .
+
+wd:Q736831 rdfs:label "Montreat" ;
+    wdt:P131 "Buncombe County" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "town in the United States" .
+
+wd:Q807878 rdfs:label "Barbourville" ;
+    wdt:P131 "Knox County" ;
+    wdt:P1889 "Barboursville" ;
+    wdt:P421 "UTC−05:00" .
+

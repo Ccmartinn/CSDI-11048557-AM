@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_27", "label": "wtq:Provinces_of_the_Dominican_Republic_row_27", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic", "label": "wtq:Provinces_of_the_Dominican_Republic", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_26", "label": "wtq:Provinces_of_the_Dominican_Republic_row_26", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_30", "label": "wtq:Provinces_of_the_Dominican_Republic_row_30", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_17", "label": "wtq:Provinces_of_the_Dominican_Republic_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_31", "label": "wtq:Provinces_of_the_Dominican_Republic_row_31", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_20", "label": "wtq:Provinces_of_the_Dominican_Republic_row_20", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1331932", "label": "wd:Q1331932", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_19", "label": "wtq:Provinces_of_the_Dominican_Republic_row_19", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_14", "label": "wtq:Provinces_of_the_Dominican_Republic_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2628384", "label": "wd:Q2628384", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1352536", "label": "wd:Q1352536", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_3", "label": "wtq:Provinces_of_the_Dominican_Republic_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_4", "label": "wtq:Provinces_of_the_Dominican_Republic_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2499228", "label": "wd:Q2499228", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1774848", "label": "wd:Q1774848", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2430320", "label": "wd:Q2430320", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q34820", "label": "wd:Q34820", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_25", "label": "wtq:Provinces_of_the_Dominican_Republic_row_25", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_24", "label": "wtq:Provinces_of_the_Dominican_Republic_row_24", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q592624", "label": "wd:Q592624", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q594405", "label": "wd:Q594405", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2713354", "label": "wd:Q2713354", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1352533", "label": "wd:Q1352533", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Provinces_of_the_Dominican_Republic_row_22", "label": "wtq:Provinces_of_the_Dominican_Republic_row_22", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_208", "label": "208", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_2,517", "label": "2,517", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_264", "label": "264", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Peravia Province", "label": "Peravia Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_2,074.53", "label": "2,074.53", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_La Vega", "label": "La Vega", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_27", "label": "27", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Villagonzalo Pedernales", "label": "Villagonzalo Pedernales", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_86", "label": "86", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_1,255.46", "label": "1,255.46", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_UTC\u221204:00", "label": "UTC\u221204:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Cotu\u00ed", "label": "Cotu\u00ed", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Mao", "label": "Mao", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_26", "label": "26", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_San Juan de la Maguana", "label": "San Juan de la Maguana", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_87,274", "label": "87,274", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_2,287.24", "label": "2,287.24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_274", "label": "274", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_La Paz", "label": "La Paz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_855.40", "label": "855.40", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Monte Cristi Province", "label": "Monte Cristi Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Monte Cristi", "label": "Monte Cristi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_196", "label": "196", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_1,296.35", "label": "1,296.35", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_52,165", "label": "52,165", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_San Juan", "label": "San Juan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_San Jos\u00e9 de Ocoa", "label": "San Jos\u00e9 de Ocoa", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_3,569.39", "label": "3,569.39", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_823.38", "label": "823.38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_San Juan de la Maguana", "label": "San Juan de la Maguana", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Monte Cristi Province", "label": "Monte Cristi Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_San Juan Province", "label": "San Juan Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Taipei", "label": "Taipei", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_San Pedro de Macor\u00eds", "label": "San Pedro de Macor\u00eds", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Santo Domingo Province", "label": "Santo Domingo Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_30", "label": "30", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_Peravia", "label": "Peravia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Azua Province", "label": "Azua Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_1,196.13", "label": "1,196.13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_313", "label": "313", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_Distrito Nacional", "label": "Distrito Nacional", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Barcelona", "label": "Barcelona", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_150,833", "label": "150,833", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Santo Domingo Este", "label": "Santo Domingo Este", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_25", "label": "25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_San Jos\u00e9 de Ocoa", "label": "San Jos\u00e9 de Ocoa", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_S\u00e1nchez Ram\u00edrez", "label": "S\u00e1nchez Ram\u00edrez", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_217,026", "label": "217,026", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_border city", "label": "border city", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Pedernales Province", "label": "Pedernales Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Monte Cristi", "label": "Monte Cristi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_San Pedro de Macor\u00eds", "label": "San Pedro de Macor\u00eds", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_13,431", "label": "13,431", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_Category:People from Peravia Province", "label": "Category:People from Peravia Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_1,020.73", "label": "1,020.73", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Saman\u00e1", "label": "Saman\u00e1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_104.44", "label": "104.44", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_Ban\u00ed", "label": "Ban\u00ed", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_392,911", "label": "392,911", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_La Vega", "label": "La Vega", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_Category:Maps of Distrito Nacional", "label": "Category:Maps of Distrito Nacional", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_792.33", "label": "792.33", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_Distrito Nacional", "label": "Distrito Nacional", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_Santo Domingo", "label": "Santo Domingo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_Distrito Nacional", "label": "Distrito Nacional", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_1,924.35", "label": "1,924.35", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Dajab\u00f3n", "label": "Dajab\u00f3n", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_Pedernales Province", "label": "Pedernales Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_Santo Domingo", "label": "Santo Domingo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_164", "label": "164", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_Pedernales", "label": "Pedernales", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_Saman\u00e1", "label": "Saman\u00e1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_317,293", "label": "317,293", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_1,402,749", "label": "1,402,749", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_Ban\u00ed", "label": "Ban\u00ed", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_Azua Province", "label": "Azua Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_89", "label": "89", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_Dajab\u00f3n", "label": "Dajab\u00f3n", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_25", "label": "25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_78", "label": "78", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_municipality of the Dominican Republic", "label": "municipality of the Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_Independencia", "label": "Independencia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_Pedernales", "label": "Pedernales", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_Pedernales", "label": "Pedernales", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_Concepci\u00f3n de La Vega", "label": "Concepci\u00f3n de La Vega", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_Santo Domingo Province", "label": "Santo Domingo Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_853.74", "label": "853.74", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_Valverde", "label": "Valverde", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_San Juan Province", "label": "San Juan Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_San Pedro de Macor\u00eds", "label": "San Pedro de Macor\u00eds", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_Dominican Republic", "label": "Dominican Republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_97,640", "label": "97,640", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_Puerto Plata Province", "label": "Puerto Plata Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_La Vega Province", "label": "La Vega Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_Monte Cristi", "label": "Monte Cristi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_Santo Domingo Este", "label": "Santo Domingo Este", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_114", "label": "114", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_447,905", "label": "447,905", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_Mao", "label": "Mao", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_139,707", "label": "139,707", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_217,241", "label": "217,241", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_116_Valverde Province", "label": "Valverde Province", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_117_3,263,053", "label": "3,263,053", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_118_Santo Domingo Este", "label": "Santo Domingo Este", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_119_Santo Domingo", "label": "Santo Domingo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_120_248,807", "label": "248,807", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_121_31", "label": "31", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Provinces_of_the_Dominican_Republic_row_27", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_27", "title": "wtq:hasDensity", "to": "literal_0_208"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_27", "title": "wtq:hasindex", "to": "literal_7_27"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_27", "title": "wtq:hasCapital", "to": "literal_12_Cotu\u00ed"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_27", "title": "wtq:hasArea__km\u00b2_", "to": "literal_42_1,196.13"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_27", "title": "wtq:hasProvince", "to": "literal_53_S\u00e1nchez Ram\u00edrez"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_27", "title": "wtq:hasPopulation", "to": "literal_120_248,807"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_26"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_20"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_31"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_14"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_30"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_24"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_19"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_17"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_3"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_4"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_22"}, {"from": "wtq:Provinces_of_the_Dominican_Republic", "title": "wtq:hasRow", "to": "wtq:Provinces_of_the_Dominican_Republic_row_25"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_26", "title": "wtq:hasArea__km\u00b2_", "to": "literal_10_1,255.46"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_26", "title": "wtq:hasindex", "to": "literal_14_26"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_26", "title": "wtq:hasCapital", "to": "literal_37_San Pedro de Macor\u00eds"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_26", "title": "wtq:hasDensity", "to": "literal_43_313"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_26", "title": "wtq:hasProvince", "to": "literal_59_San Pedro de Macor\u00eds"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_26", "title": "wtq:hasPopulation", "to": "literal_67_392,911"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasProvince", "to": "wd:Q1352536"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasCapital", "to": "wd:Q2713354"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasDensity", "to": "literal_1_2,517"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasArea__km\u00b2_", "to": "literal_26_1,296.35"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasindex", "to": "literal_39_30"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasCapital", "to": "literal_48_Santo Domingo Este"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasProvince", "to": "literal_74_Santo Domingo"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_30", "title": "wtq:hasPopulation", "to": "literal_117_3,263,053"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_17", "title": "wtq:hasProvince", "to": "wd:Q592624"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_17", "title": "wtq:hasindex", "to": "literal_2_17"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_17", "title": "wtq:hasPopulation", "to": "literal_47_150,833"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_17", "title": "wtq:hasCapital", "to": "literal_58_Monte Cristi"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_17", "title": "wtq:hasArea__km\u00b2_", "to": "literal_77_1,924.35"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_17", "title": "wtq:hasDensity", "to": "literal_93_78"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_17", "title": "wtq:hasProvince", "to": "literal_109_Monte Cristi"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_31", "title": "wtq:hasProvince", "to": "wd:Q1774848"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_31", "title": "wtq:hasDensity", "to": "literal_3_264"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_31", "title": "wtq:hasArea__km\u00b2_", "to": "literal_31_823.38"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_31", "title": "wtq:hasPopulation", "to": "literal_54_217,026"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_31", "title": "wtq:hasProvince", "to": "literal_102_Valverde"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_31", "title": "wtq:hasCapital", "to": "literal_113_Mao"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_31", "title": "wtq:hasindex", "to": "literal_121_31"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_20", "title": "wtq:hasProvince", "to": "wd:Q1331932"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_20", "title": "wtq:hasDensity", "to": "literal_19_274"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_20", "title": "wtq:hasProvince", "to": "literal_40_Peravia"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_20", "title": "wtq:hasindex", "to": "literal_56_20"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_20", "title": "wtq:hasArea__km\u00b2_", "to": "literal_72_792.33"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_20", "title": "wtq:hasCapital", "to": "literal_88_Ban\u00ed"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_20", "title": "wtq:hasPopulation", "to": "literal_115_217,241"}, {"from": "wd:Q1331932", "title": "rdfs:label", "to": "literal_4_Peravia Province"}, {"from": "wd:Q1331932", "title": "wdt:P1792", "to": "literal_61_Category:People from Peravia Province"}, {"from": "wd:Q1331932", "title": "wdt:P36", "to": "literal_65_Ban\u00ed"}, {"from": "wd:Q1331932", "title": "wdt:P47", "to": "literal_89_Azua Province"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasCapital", "to": "wd:Q2628384"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasProvince", "to": "wd:Q1352533"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasArea__km\u00b2_", "to": "literal_5_2,074.53"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasPopulation", "to": "literal_27_52,165"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasDensity", "to": "literal_50_25"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasProvince", "to": "literal_84_Pedernales"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasCapital", "to": "literal_97_Pedernales"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_19", "title": "wtq:hasindex", "to": "literal_98_19"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_14", "title": "wtq:hasProvince", "to": "wd:Q594405"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_14", "title": "wtq:hasProvince", "to": "literal_6_La Vega"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_14", "title": "wtq:hasArea__km\u00b2_", "to": "literal_18_2,287.24"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_14", "title": "wtq:hasindex", "to": "literal_21_14"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_14", "title": "wtq:hasDensity", "to": "literal_25_196"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_14", "title": "wtq:hasCapital", "to": "literal_99_Concepci\u00f3n de La Vega"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_14", "title": "wtq:hasPopulation", "to": "literal_112_447,905"}, {"from": "wd:Q2628384", "title": "wdt:P190", "to": "literal_8_Villagonzalo Pedernales"}, {"from": "wd:Q2628384", "title": "wdt:P31", "to": "literal_55_border city"}, {"from": "wd:Q2628384", "title": "wdt:P131", "to": "literal_79_Pedernales Province"}, {"from": "wd:Q2628384", "title": "rdfs:label", "to": "literal_96_Pedernales"}, {"from": "wd:Q1352536", "title": "wdt:P47", "to": "literal_75_Distrito Nacional"}, {"from": "wd:Q1352536", "title": "rdfs:label", "to": "literal_100_Santo Domingo Province"}, {"from": "wd:Q1352536", "title": "wdt:P47", "to": "literal_104_San Pedro de Macor\u00eds"}, {"from": "wd:Q1352536", "title": "wdt:P36", "to": "literal_118_Santo Domingo Este"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_3", "title": "wtq:hasDensity", "to": "literal_9_86"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_3", "title": "wtq:hasPopulation", "to": "literal_16_87,274"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_3", "title": "wtq:hasindex", "to": "literal_44_3"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_3", "title": "wtq:hasArea__km\u00b2_", "to": "literal_62_1,020.73"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_3", "title": "wtq:hasProvince", "to": "literal_78_Dajab\u00f3n"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_3", "title": "wtq:hasCapital", "to": "literal_91_Dajab\u00f3n"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasProvince", "to": "wd:Q2499228"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasCapital", "to": "wd:Q34820"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasProvince", "to": "literal_45_Distrito Nacional"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasDensity", "to": "literal_60_13,431"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasArea__km\u00b2_", "to": "literal_64_104.44"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasindex", "to": "literal_76_4"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasPopulation", "to": "literal_87_1,402,749"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_4", "title": "wtq:hasCapital", "to": "literal_119_Santo Domingo"}, {"from": "wd:Q2499228", "title": "wdt:P421", "to": "literal_11_UTC\u221204:00"}, {"from": "wd:Q2499228", "title": "wdt:P17", "to": "literal_17_Dominican Republic"}, {"from": "wd:Q2499228", "title": "wdt:P7867", "to": "literal_70_Category:Maps of Distrito Nacional"}, {"from": "wd:Q2499228", "title": "rdfs:label", "to": "literal_73_Distrito Nacional"}, {"from": "wd:Q1774848", "title": "wdt:P36", "to": "literal_13_Mao"}, {"from": "wd:Q1774848", "title": "wdt:P47", "to": "literal_23_Monte Cristi Province"}, {"from": "wd:Q1774848", "title": "wdt:P17", "to": "literal_80_Dominican Republic"}, {"from": "wd:Q1774848", "title": "rdfs:label", "to": "literal_116_Valverde Province"}, {"from": "wd:Q2430320", "title": "wtq:hasCapital", "to": "wtq:Provinces_of_the_Dominican_Republic_row_25"}, {"from": "wd:Q2430320", "title": "rdfs:label", "to": "literal_15_San Juan de la Maguana"}, {"from": "wd:Q2430320", "title": "wdt:P1376", "to": "literal_34_San Juan Province"}, {"from": "wd:Q2430320", "title": "wdt:P17", "to": "literal_69_Dominican Republic"}, {"from": "wd:Q2430320", "title": "wdt:P131", "to": "literal_103_San Juan Province"}, {"from": "wd:Q34820", "title": "wdt:P190", "to": "literal_20_La Paz"}, {"from": "wd:Q34820", "title": "wdt:P190", "to": "literal_35_Taipei"}, {"from": "wd:Q34820", "title": "wdt:P190", "to": "literal_46_Barcelona"}, {"from": "wd:Q34820", "title": "rdfs:label", "to": "literal_82_Santo Domingo"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_25", "title": "wtq:hasProvince", "to": "literal_28_San Juan"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_25", "title": "wtq:hasArea__km\u00b2_", "to": "literal_30_3,569.39"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_25", "title": "wtq:hasCapital", "to": "literal_32_San Juan de la Maguana"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_25", "title": "wtq:hasPopulation", "to": "literal_86_317,293"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_25", "title": "wtq:hasDensity", "to": "literal_90_89"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_25", "title": "wtq:hasindex", "to": "literal_92_25"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_24", "title": "wtq:hasArea__km\u00b2_", "to": "literal_22_855.40"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_24", "title": "wtq:hasProvince", "to": "literal_29_San Jos\u00e9 de Ocoa"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_24", "title": "wtq:hasCapital", "to": "literal_52_San Jos\u00e9 de Ocoa"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_24", "title": "wtq:hasindex", "to": "literal_66_24"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_24", "title": "wtq:hasPopulation", "to": "literal_106_97,640"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_24", "title": "wtq:hasDensity", "to": "literal_111_114"}, {"from": "wd:Q592624", "title": "wdt:P36", "to": "literal_24_Monte Cristi"}, {"from": "wd:Q592624", "title": "rdfs:label", "to": "literal_33_Monte Cristi Province"}, {"from": "wd:Q592624", "title": "wdt:P131", "to": "literal_49_Dominican Republic"}, {"from": "wd:Q592624", "title": "wdt:P47", "to": "literal_107_Puerto Plata Province"}, {"from": "wd:Q594405", "title": "wdt:P47", "to": "literal_41_Azua Province"}, {"from": "wd:Q594405", "title": "wdt:P36", "to": "literal_68_La Vega"}, {"from": "wd:Q594405", "title": "wdt:P17", "to": "literal_71_Dominican Republic"}, {"from": "wd:Q594405", "title": "rdfs:label", "to": "literal_108_La Vega Province"}, {"from": "wd:Q2713354", "title": "wdt:P1376", "to": "literal_38_Santo Domingo Province"}, {"from": "wd:Q2713354", "title": "wdt:P17", "to": "literal_81_Dominican Republic"}, {"from": "wd:Q2713354", "title": "wdt:P31", "to": "literal_94_municipality of the Dominican Republic"}, {"from": "wd:Q2713354", "title": "rdfs:label", "to": "literal_110_Santo Domingo Este"}, {"from": "wd:Q1352533", "title": "wdt:P131", "to": "literal_36_Dominican Republic"}, {"from": "wd:Q1352533", "title": "rdfs:label", "to": "literal_57_Pedernales Province"}, {"from": "wd:Q1352533", "title": "wdt:P47", "to": "literal_95_Independencia"}, {"from": "wd:Q1352533", "title": "wdt:P17", "to": "literal_105_Dominican Republic"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_22", "title": "wtq:hasindex", "to": "literal_51_22"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_22", "title": "wtq:hasProvince", "to": "literal_63_Saman\u00e1"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_22", "title": "wtq:hasDensity", "to": "literal_83_164"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_22", "title": "wtq:hasCapital", "to": "literal_85_Saman\u00e1"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_22", "title": "wtq:hasArea__km\u00b2_", "to": "literal_101_853.74"}, {"from": "wtq:Provinces_of_the_Dominican_Republic_row_22", "title": "wtq:hasPopulation", "to": "literal_114_139,707"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,198 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2005_British_Grand_Prix a wtq:Entity ;
+    wtq:hasRow wtq:2005_British_Grand_Prix_row_10,
+        wtq:2005_British_Grand_Prix_row_14,
+        wtq:2005_British_Grand_Prix_row_16,
+        wtq:2005_British_Grand_Prix_row_17,
+        wtq:2005_British_Grand_Prix_row_2,
+        wtq:2005_British_Grand_Prix_row_3,
+        wtq:2005_British_Grand_Prix_row_4,
+        wtq:2005_British_Grand_Prix_row_6 .
+
+wtq:2005_British_Grand_Prix_row_10 wtq:hasConstructor wd:Q63928692,
+        "Williams-BMW" ;
+    wtq:hasDriver wd:Q842097,
+        "Mark Webber" ;
+    wtq:hasGrid "11" ;
+    wtq:hasLaps "59" ;
+    wtq:hasNo "7" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "11" ;
+    wtq:hasTime_Retired "+1 Lap" ;
+    wtq:hasindex "10" .
+
+wtq:2005_British_Grand_Prix_row_14 wtq:hasConstructor wd:Q172740,
+        wd:Q173663,
+        "Red Bull-Cosworth" ;
+    wtq:hasDriver wd:Q84178,
+        "Christian Klien" ;
+    wtq:hasGrid "15" ;
+    wtq:hasLaps "59" ;
+    wtq:hasNo "15" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "15" ;
+    wtq:hasTime_Retired "+1 Lap" ;
+    wtq:hasindex "14" .
+
+wtq:2005_British_Grand_Prix_row_16 wtq:hasConstructor wd:Q171367,
+        "Jordan-Toyota" ;
+    wtq:hasDriver wd:Q172001,
+        "Tiago Monteiro" ;
+    wtq:hasGrid "20 ‡" ;
+    wtq:hasLaps "58" ;
+    wtq:hasNo "18" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "17" ;
+    wtq:hasTime_Retired "+2 Laps" ;
+    wtq:hasindex "16" .
+
+wtq:2005_British_Grand_Prix_row_17 wtq:hasConstructor wd:Q142381,
+        wd:Q172740,
+        "Minardi-Cosworth" ;
+    wtq:hasDriver wd:Q171414,
+        "Christijan Albers" ;
+    wtq:hasGrid "18" ;
+    wtq:hasLaps "57" ;
+    wtq:hasNo "21" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "18" ;
+    wtq:hasTime_Retired "+3 Laps" ;
+    wtq:hasindex "17" .
+
+wtq:2005_British_Grand_Prix_row_2 wtq:hasConstructor wd:Q172030,
+        "McLaren-Mercedes" ;
+    wtq:hasDriver "Kimi Räikkönen" ;
+    wtq:hasGrid "12 †" ;
+    wtq:hasLaps "60" ;
+    wtq:hasNo "9" ;
+    wtq:hasPoints "6.0" ;
+    wtq:hasPos "3" ;
+    wtq:hasTime_Retired "+14.436" ;
+    wtq:hasindex "2" .
+
+wtq:2005_British_Grand_Prix_row_3 wtq:hasConstructor wd:Q65954940,
+        "Renault" ;
+    wtq:hasDriver wd:Q172712,
+        "Giancarlo Fisichella" ;
+    wtq:hasGrid "6" ;
+    wtq:hasLaps "60" ;
+    wtq:hasNo "6" ;
+    wtq:hasPoints "5.0" ;
+    wtq:hasPos "4" ;
+    wtq:hasTime_Retired "+17.914" ;
+    wtq:hasindex "3" .
+
+wtq:2005_British_Grand_Prix_row_4 wtq:hasConstructor wd:Q171320,
+        wd:Q65961126,
+        "BAR-Honda" ;
+    wtq:hasDriver wd:Q10510,
+        "Jenson Button" ;
+    wtq:hasGrid "2" ;
+    wtq:hasLaps "60" ;
+    wtq:hasNo "3" ;
+    wtq:hasPoints "4.0" ;
+    wtq:hasPos "5" ;
+    wtq:hasTime_Retired "+40.264" ;
+    wtq:hasindex "4" .
+
+wtq:2005_British_Grand_Prix_row_6 wtq:hasConstructor wd:Q169898,
+        "Ferrari" ;
+    wtq:hasDriver wd:Q169846,
+        "Rubens Barrichello" ;
+    wtq:hasGrid "5" ;
+    wtq:hasLaps "60" ;
+    wtq:hasNo "2" ;
+    wtq:hasPoints "2.0" ;
+    wtq:hasPos "7" ;
+    wtq:hasTime_Retired "+1:16.567" ;
+    wtq:hasindex "6" .
+
+wd:Q10510 rdfs:label "Jenson Button" ;
+    wdt:P1412 "English" ;
+    wdt:P2522 "Formula Ford Festival" ;
+    wdt:P735 "Jenson" .
+
+wd:Q142381 rdfs:label "Minardi" ;
+    wdt:P1424 "Q25910351" ;
+    wdt:P17 "Italy" ;
+    wdt:P31 "Formula One constructor" .
+
+wd:Q169846 rdfs:label "Rubens Barrichello" ;
+    wdt:P106 "television presenter" ;
+    wdt:P27 "Brazil" ;
+    wdt:P40 "Eduardo Barrichello" .
+
+wd:Q169898 rdfs:label "Scuderia Ferrari" ;
+    wdt:P1424 "Q115949623" ;
+    wdt:P859 "Santander Group" ;
+    wdt:P910 "Category:Scuderia Ferrari" .
+
+wd:Q171320 rdfs:label "British American Racing" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P31 "Formula One team" ;
+    wdt:P910 "Category:British American Racing" .
+
+wd:Q171367 rdfs:label "Jordan Grand Prix" ;
+    wdt:P1424 "Q25910324" ;
+    wdt:P31 "Formula One team" ;
+    wdt:P910 "Category:Jordan Grand Prix" .
+
+wd:Q171414 rdfs:label "Christijan Albers" ;
+    wdt:P1344 "24 Hours of Le Mans" ;
+    wdt:P734 "Albers" ;
+    wdt:P735 "Christijan" .
+
+wd:Q172001 rdfs:label "Tiago Monteiro" ;
+    wdt:P19 "Porto" ;
+    wdt:P31 "human" ;
+    wdt:P734 "Monteiro" .
+
+wd:Q172030 rdfs:label "McLaren" ;
+    wdt:P1424 "Q25910305" ;
+    wdt:P159 "Woking" ;
+    wdt:P749 "McLaren Technology Group" .
+
+wd:Q172712 rdfs:label "Giancarlo Fisichella" ;
+    wdt:P106 "racing automobile driver" ;
+    wdt:P19 "Rome" ;
+    wdt:P641 "padel" .
+
+wd:Q173663 rdfs:label "Red Bull Racing" ;
+    wdt:P17 "Austria" ;
+    wdt:P641 "Formula One racing",
+        "auto racing" .
+
+wd:Q63928692 rdfs:label "BMW in Formula One" ;
+    wdt:P31 "Wikipedia article covering multiple topics" ;
+    wdt:P921 "BMW Sauber",
+        "BMW engines in Formula One" .
+
+wd:Q65954940 rdfs:label "Renault in Formula One" ;
+    wdt:P1889 "Renault F1 Team" ;
+    wdt:P921 "Alpine F1 Team",
+        "Renault F1 Team" .
+
+wd:Q65961126 rdfs:label "Honda in Formula One" ;
+    wdt:P1889 "Honda F1" ;
+    wdt:P31 "Wikipedia article covering multiple topics" ;
+    wdt:P921 "Honda F1" .
+
+wd:Q84178 rdfs:label "Christian Klien" ;
+    wdt:P1344 "24 Hours of Le Mans" ;
+    wdt:P21 "male" ;
+    wdt:P910 "Category:Christian Klien" .
+
+wd:Q842097 rdfs:label "Mark Webber" ;
+    wdt:P31 "Wikimedia human name disambiguation page" .
+
+wd:Q172740 rdfs:label "Cosworth" ;
+    wdt:P112 "Mike Costin" ;
+    wdt:P127 "Gerald Forsythe" ;
+    wdt:P31 "automotive supplier" ;
+    wdt:P452 "automotive industry" ;
+    wdt:P910 "Category:Cosworth" .
+

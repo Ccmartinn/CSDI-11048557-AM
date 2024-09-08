@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q577264", "label": "wd:Q577264", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q604551", "label": "wd:Q604551", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q176250", "label": "wd:Q176250", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1263363", "label": "wd:Q1263363", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1755865", "label": "wd:Q1755865", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q641883", "label": "wd:Q641883", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "label": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q599654", "label": "wd:Q599654", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2733256", "label": "wd:Q2733256", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3704258", "label": "wd:Q3704258", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Wollongong", "label": "Wollongong", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_R1", "label": "R1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Ducati Motor Holding", "label": "Ducati Motor Holding", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Suzuki GSX-R series", "label": "Suzuki GSX-R series", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_1.0", "label": "1.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_11.0", "label": "11.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_42", "label": "42", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Yamaha YZF-R1", "label": "Yamaha YZF-R1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Yamaha YZF-R1", "label": "Yamaha YZF-R1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_motorcycle model", "label": "motorcycle model", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_53", "label": "53", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Yamaha YZF-R1", "label": "Yamaha YZF-R1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Suzuki GSX-R1000 K7", "label": "Suzuki GSX-R1000 K7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Ruben Xaus", "label": "Ruben Xaus", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Roberto Rolfo", "label": "Roberto Rolfo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Honda Fireblade", "label": "Honda Fireblade", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Ducati 999", "label": "Ducati 999", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_+27.404", "label": "+27.404", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Yamaha YZF-R1", "label": "Yamaha YZF-R1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Honda", "label": "Honda", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Ducati 999 F06", "label": "Ducati 999 F06", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_41", "label": "41", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_motorcycle racer", "label": "motorcycle racer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_motorcycle model", "label": "motorcycle model", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_Ellison", "label": "Ellison", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_+1:22.584", "label": "+1:22.584", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Roberto Rolfo", "label": "Roberto Rolfo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Haga", "label": "Haga", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Max Biaggi", "label": "Max Biaggi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Suzuki GSX-R1000", "label": "Suzuki GSX-R1000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Max Biaggi", "label": "Max Biaggi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_111", "label": "111", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_+10.143", "label": "+10.143", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_+1 Lap", "label": "+1 Lap", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_team manager", "label": "team manager", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_+18.923", "label": "+18.923", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Suzuki", "label": "Suzuki", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Dean Ellison", "label": "Dean Ellison", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Troy Corser", "label": "Troy Corser", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_44", "label": "44", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Noriyuki", "label": "Noriyuki", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Troy Corser", "label": "Troy Corser", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_9.0", "label": "9.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_13.0", "label": "13.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_Honda RC51", "label": "Honda RC51", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_Honda CBR1000RR", "label": "Honda CBR1000RR", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_+38.067", "label": "+38.067", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_Honda CBR1000RR", "label": "Honda CBR1000RR", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_Alex Polita", "label": "Alex Polita", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_Nagoya", "label": "Nagoya", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_16.0", "label": "16.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_motorcycle model", "label": "motorcycle model", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Rolfo", "label": "Rolfo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_Yamaha Motor Company", "label": "Yamaha Motor Company", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_Noriyuki Haga", "label": "Noriyuki Haga", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_36", "label": "36", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_Jiri Drazdak", "label": "Jiri Drazdak", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_Suzuki GSX-R1000 K6", "label": "Suzuki GSX-R1000 K6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_+1:30.184", "label": "+1:30.184", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_Australian Sports Medal", "label": "Australian Sports Medal", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_four-stroke engine", "label": "four-stroke engine", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_+19.742", "label": "+19.742", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_Ducati 999RS", "label": "Ducati 999RS", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_Yamaha", "label": "Yamaha", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_5.0", "label": "5.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_Noriyuki Haga", "label": "Noriyuki Haga", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_Dean Ellison", "label": "Dean Ellison", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_Turin", "label": "Turin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_Yamaha R series", "label": "Yamaha R series", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_15", "label": "15", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q577264", "title": "wtq:hasRider", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4"}, {"from": "wd:Q577264", "title": "wdt:P19", "to": "literal_0_Wollongong"}, {"from": "wd:Q577264", "title": "rdfs:label", "to": "literal_64_Troy Corser"}, {"from": "wd:Q577264", "title": "wdt:P31", "to": "literal_75_human"}, {"from": "wd:Q577264", "title": "wdt:P166", "to": "literal_91_Australian Sports Medal"}, {"from": "wd:Q604551", "title": "wtq:hasBike", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3"}, {"from": "wd:Q604551", "title": "wtq:hasBike", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4"}, {"from": "wd:Q604551", "title": "wtq:hasBike", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17"}, {"from": "wd:Q604551", "title": "wdt:P1889", "to": "literal_1_R1"}, {"from": "wd:Q604551", "title": "rdfs:label", "to": "literal_12_Yamaha YZF-R1"}, {"from": "wd:Q604551", "title": "wdt:P31", "to": "literal_13_motorcycle model"}, {"from": "wd:Q604551", "title": "wdt:P176", "to": "literal_79_Yamaha Motor Company"}, {"from": "wd:Q604551", "title": "wdt:P1716", "to": "literal_100_Yamaha"}, {"from": "wd:Q604551", "title": "wdt:P179", "to": "literal_107_Yamaha R series"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasRider", "to": "wd:Q176250"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasBike", "to": "wd:Q1755865"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasBike", "to": "literal_17_Suzuki GSX-R1000 K7"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasPos", "to": "literal_22_3"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasindex", "to": "literal_45_2"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasRider", "to": "literal_50_Max Biaggi"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasTime", "to": "literal_52_+10.143"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasGrid", "to": "literal_53_5"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasNo", "to": "literal_62_3"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasPoints", "to": "literal_76_16.0"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2", "title": "wtq:hasLaps", "to": "literal_89_22"}, {"from": "wd:Q176250", "title": "wdt:P106", "to": "literal_34_motorcycle racer"}, {"from": "wd:Q176250", "title": "rdfs:label", "to": "literal_48_Max Biaggi"}, {"from": "wd:Q176250", "title": "wdt:P106", "to": "literal_55_team manager"}, {"from": "wd:Q176250", "title": "wdt:P21", "to": "literal_86_male"}, {"from": "wd:Q1263363", "title": "wtq:hasBike", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6"}, {"from": "wd:Q1263363", "title": "wtq:hasBike", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16"}, {"from": "wd:Q1263363", "title": "wdt:P176", "to": "literal_2_Ducati Motor Holding"}, {"from": "wd:Q1263363", "title": "rdfs:label", "to": "literal_25_Ducati 999"}, {"from": "wd:Q1263363", "title": "wdt:P31", "to": "literal_38_motorcycle model"}, {"from": "wd:Q1755865", "title": "wtq:hasBike", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14"}, {"from": "wd:Q1755865", "title": "wdt:P179", "to": "literal_3_Suzuki GSX-R series"}, {"from": "wd:Q1755865", "title": "rdfs:label", "to": "literal_49_Suzuki GSX-R1000"}, {"from": "wd:Q1755865", "title": "wdt:P176", "to": "literal_57_Suzuki"}, {"from": "wd:Q1755865", "title": "wdt:P31", "to": "literal_77_motorcycle model"}, {"from": "wd:Q1755865", "title": "wdt:P516", "to": "literal_92_four-stroke engine"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasPoints", "to": "literal_4_1.0"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasNo", "to": "literal_15_53"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasPos", "to": "literal_21_15"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasTime", "to": "literal_40_+1:22.584"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasindex", "to": "literal_47_14"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasRider", "to": "literal_73_Alex Polita"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasGrid", "to": "literal_85_18"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasBike", "to": "literal_88_Suzuki GSX-R1000 K6"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14", "title": "wtq:hasLaps", "to": "literal_102_22"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "title": "wtq:hasRow", "to": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasRider", "to": "wd:Q599654"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasBike", "to": "wd:Q2733256"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasPos", "to": "literal_20_11"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasindex", "to": "literal_26_10"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasRider", "to": "literal_41_Roberto Rolfo"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasLaps", "to": "literal_44_22"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasNo", "to": "literal_61_44"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasTime", "to": "literal_71_+38.067"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasBike", "to": "literal_72_Honda CBR1000RR"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasPoints", "to": "literal_101_5.0"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10", "title": "wtq:hasGrid", "to": "literal_109_15"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasPoints", "to": "literal_5_11.0"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasPos", "to": "literal_14_5"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasBike", "to": "literal_29_Yamaha YZF-R1"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasindex", "to": "literal_37_4"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasRider", "to": "literal_59_Troy Corser"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasGrid", "to": "literal_80_3"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasNo", "to": "literal_81_11"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasTime", "to": "literal_94_+19.742"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4", "title": "wtq:hasLaps", "to": "literal_97_22"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasLaps", "to": "literal_6_21"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasBike", "to": "literal_10_Yamaha YZF-R1"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasPos", "to": "literal_11_18"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasGrid", "to": "literal_35_20"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasPoints", "to": "literal_36_nan"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasTime", "to": "literal_54_+1 Lap"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasNo", "to": "literal_84_36"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasRider", "to": "literal_87_Jiri Drazdak"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17", "title": "wtq:hasindex", "to": "literal_98_17"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasRider", "to": "wd:Q3704258"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasGrid", "to": "literal_7_21"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasNo", "to": "literal_8_42"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasPoints", "to": "literal_33_nan"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasindex", "to": "literal_42_16"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasPos", "to": "literal_70_17"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasTime", "to": "literal_90_+1:30.184"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasLaps", "to": "literal_93_22"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasBike", "to": "literal_96_Ducati 999RS"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16", "title": "wtq:hasRider", "to": "literal_104_Dean Ellison"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasRider", "to": "wd:Q641883"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasPos", "to": "literal_9_4"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasBike", "to": "literal_16_Yamaha YZF-R1"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasGrid", "to": "literal_19_4"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasNo", "to": "literal_32_41"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasTime", "to": "literal_56_+18.923"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasPoints", "to": "literal_67_13.0"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasindex", "to": "literal_99_3"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasRider", "to": "literal_103_Noriyuki Haga"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3", "title": "wtq:hasLaps", "to": "literal_108_22"}, {"from": "wd:Q641883", "title": "wdt:P734", "to": "literal_43_Haga"}, {"from": "wd:Q641883", "title": "wdt:P735", "to": "literal_63_Noriyuki"}, {"from": "wd:Q641883", "title": "wdt:P19", "to": "literal_74_Nagoya"}, {"from": "wd:Q641883", "title": "rdfs:label", "to": "literal_83_Noriyuki Haga"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasRider", "to": "literal_18_Ruben Xaus"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasTime", "to": "literal_28_+27.404"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasBike", "to": "literal_31_Ducati 999 F06"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasGrid", "to": "literal_46_8"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasNo", "to": "literal_51_111"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasPoints", "to": "literal_65_9.0"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasLaps", "to": "literal_66_22"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasindex", "to": "literal_95_6"}, {"from": "wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6", "title": "wtq:hasPos", "to": "literal_105_7"}, {"from": "wd:Q599654", "title": "rdfs:label", "to": "literal_23_Roberto Rolfo"}, {"from": "wd:Q599654", "title": "wdt:P21", "to": "literal_60_male"}, {"from": "wd:Q599654", "title": "wdt:P734", "to": "literal_78_Rolfo"}, {"from": "wd:Q599654", "title": "wdt:P19", "to": "literal_106_Turin"}, {"from": "wd:Q2733256", "title": "wdt:P179", "to": "literal_24_Honda Fireblade"}, {"from": "wd:Q2733256", "title": "wdt:P176", "to": "literal_30_Honda"}, {"from": "wd:Q2733256", "title": "wdt:P155", "to": "literal_68_Honda RC51"}, {"from": "wd:Q2733256", "title": "rdfs:label", "to": "literal_69_Honda CBR1000RR"}, {"from": "wd:Q3704258", "title": "wdt:P31", "to": "literal_27_human"}, {"from": "wd:Q3704258", "title": "wdt:P734", "to": "literal_39_Ellison"}, {"from": "wd:Q3704258", "title": "rdfs:label", "to": "literal_58_Dean Ellison"}, {"from": "wd:Q3704258", "title": "wdt:P21", "to": "literal_82_male"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

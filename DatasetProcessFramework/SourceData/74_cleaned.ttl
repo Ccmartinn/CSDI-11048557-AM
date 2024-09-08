@@ -1,0 +1,137 @@
+@prefix ns1: <http://wikitablequestion.org/hasArea__km²> .
+@prefix ns2: <http://wikitablequestion.org/hasDensity__People_km²> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom a wtq:Entity ;
+    wtq:hasRow wtq:List_of_urban_areas_in_the_United_Kingdom_row_2,
+        wtq:List_of_urban_areas_in_the_United_Kingdom_row_4,
+        wtq:List_of_urban_areas_in_the_United_Kingdom_row_6,
+        wtq:List_of_urban_areas_in_the_United_Kingdom_row_9 .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_2 ns1:_ "60.94" ;
+    ns2:_ "3,238" ;
+    wtq:hasMajor_subdivisions wd:Q2374318,
+        wd:Q36405,
+        wd:Q5178917,
+        "Aberdeen, Cove Bay, Dyce" ;
+    wtq:hasMetropolitan_Area "Aberdeen" ;
+    wtq:hasPopulation_n_2001_Census_ "197,328" ;
+    wtq:hasRank "3" ;
+    wtq:hasUrban_Area wd:Q36405,
+        "Aberdeen" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_4 ns1:_ "36.1" ;
+    ns2:_ "2,532" ;
+    wtq:hasMajor_subdivisions wd:Q3358826,
+        wd:Q5046678,
+        wd:Q617845,
+        wd:Q623687,
+        wd:Q972353,
+        "Falkirk, Grangemouth, Carron, Polmont, Stenhousemuir" ;
+    wtq:hasMetropolitan_Area "Falkirk" ;
+    wtq:hasPopulation_n_2001_Census_ "91,402" ;
+    wtq:hasRank "5" ;
+    wtq:hasUrban_Area wd:Q623687,
+        "Falkirk" ;
+    wtq:hasindex "4" .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_6 ns1:_ "20.69" ;
+    ns2:_ "3,557" ;
+    wtq:hasMajor_subdivisions wd:Q1786145,
+        wd:Q217831,
+        wd:Q2469984,
+        "Greenock, Gourock, Port Glasgow" ;
+    wtq:hasMetropolitan_Area "Glasgow" ;
+    wtq:hasPopulation_n_2001_Census_ "73,595" ;
+    wtq:hasRank "7" ;
+    wtq:hasUrban_Area wd:Q217831,
+        "Greenock" ;
+    wtq:hasindex "6" .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_9 ns1:_ "26.07" ;
+    ns2:_ "2,283" ;
+    wtq:hasMajor_subdivisions wd:Q4115,
+        wd:Q5327978,
+        "Livingston, East Calder, Mid Calder" ;
+    wtq:hasMetropolitan_Area "Edinburgh" ;
+    wtq:hasPopulation_n_2001_Census_ "59,511" ;
+    wtq:hasRank "10" ;
+    wtq:hasUrban_Area "Livingston" ;
+    wtq:hasindex "9" .
+
+wd:Q1786145 rdfs:label "Port Glasgow" ;
+    wdt:P1343 "Encyclopædia Britannica 11th edition" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P421 "UTC±00:00" .
+
+wd:Q2374318 rdfs:label "Dyce" ;
+    wdt:P131 "Aberdeen City" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P276 "Aberdeen" .
+
+wd:Q2469984 rdfs:label "Gourock" ;
+    wdt:P131 "Inverclyde" ;
+    wdt:P1343 "Encyclopædia Britannica 11th edition" ;
+    wdt:P910 "Category:Gourock" .
+
+wd:Q3358826 rdfs:label "Stenhousemuir" ;
+    wdt:P131 "Falkirk" ;
+    wdt:P31 "town" ;
+    wdt:P7959 "Stirlingshire" .
+
+wd:Q4115 rdfs:label "Mid Calder" ;
+    wdt:P131 "West Lothian" ;
+    wdt:P31 "village" ;
+    wdt:P421 "UTC±00:00" .
+
+wd:Q5046678 rdfs:label "Carron" ;
+    wdt:P131 "Falkirk" ;
+    wdt:P421 "UTC±00:00" ;
+    wdt:P7959 "Stirlingshire" .
+
+wd:Q5178917 rdfs:label "Cove Bay" ;
+    wdt:P131 "Aberdeen City" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P31 "suburb" .
+
+wd:Q5327978 rdfs:label "East Calder" ;
+    wdt:P131 "West Lothian" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P31 "town" .
+
+wd:Q617845 rdfs:label "Grangemouth" ;
+    wdt:P131 "Falkirk" ;
+    wdt:P1376 "Grangemouth" ;
+    wdt:P31 "town" .
+
+wd:Q972353 rdfs:label "Polmont" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P421 "UTC±00:00" ;
+    wdt:P7959 "Stirlingshire" .
+
+wd:Q217831 rdfs:label "Greenock" ;
+    wdt:P131 "Inverclyde" ;
+    wdt:P1343 "Encyclopædia Britannica 11th edition",
+        "Encyclopædia Britannica Ninth Edition" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P31 "large burgh",
+        "town" .
+
+wd:Q36405 rdfs:label "Aberdeen" ;
+    wdt:P131 "Aberdeen City" ;
+    wdt:P166 "city status in the United Kingdom" ;
+    wdt:P190 "Houston",
+        "Regensburg" ;
+    wdt:P31 "big city" .
+
+wd:Q623687 rdfs:label "Falkirk" ;
+    wdt:P131 "Falkirk" ;
+    wdt:P31 "large burgh" ;
+    wdt:P421 "UTC±00:00" ;
+    wdt:P47 "Stenhousemuir" ;
+    wdt:P910 "Category:Falkirk" .
+

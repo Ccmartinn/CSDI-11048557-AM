@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Stephin_Merritt_discography_row_3", "label": "wtq:Stephin_Merritt_discography_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1921640", "label": "wd:Q1921640", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Stephin_Merritt_discography_row_9", "label": "wtq:Stephin_Merritt_discography_row_9", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q169930", "label": "wd:Q169930", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3986236", "label": "wd:Q3986236", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Stephin_Merritt_discography", "label": "wtq:Stephin_Merritt_discography", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Stephin_Merritt_discography_row_4", "label": "wtq:Stephin_Merritt_discography_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5880344", "label": "wd:Q5880344", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Stephin_Merritt_discography_row_2", "label": "wtq:Stephin_Merritt_discography_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7301206", "label": "wd:Q7301206", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_LP", "label": "LP", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Merge", "label": "Merge", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_#110 (Billboard 200)", "label": "#110 (Billboard 200)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_mini-LP", "label": "mini-LP", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_studio album", "label": "studio album", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Feel Good All Over", "label": "Feel Good All Over", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_The Magnetic Fields", "label": "The Magnetic Fields", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_\u2014", "label": "\u2014", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Durham", "label": "Durham", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Merge Records", "label": "Merge Records", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_album", "label": "album", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_1994", "label": "1994", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_LP", "label": "LP", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Holiday", "label": "Holiday", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_The House of Tomorrow", "label": "The House of Tomorrow", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Feel Good All Over", "label": "Feel Good All Over", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Merge Records", "label": "Merge Records", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_EP", "label": "EP", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_\u2014", "label": "\u2014", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_1992", "label": "1992", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_Distortion", "label": "Distortion", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_music streaming", "label": "music streaming", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Realism", "label": "Realism", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_The Charm of the Highway Strip", "label": "The Charm of the Highway Strip", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_2010", "label": "2010", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_The Charm of the Highway Strip", "label": "The Charm of the Highway Strip", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_\u2014", "label": "\u2014", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Holiday", "label": "Holiday", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_chamber pop", "label": "chamber pop", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_music release type", "label": "music release type", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_synth-pop", "label": "synth-pop", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_1994", "label": "1994", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Realism", "label": "Realism", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Merge Records", "label": "Merge Records", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Nonesuch Records", "label": "Nonesuch Records", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_Merge Records", "label": "Merge Records", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_extended play", "label": "extended play", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Merge Records catalog", "label": "Merge Records catalog", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_release group", "label": "release group", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_LP", "label": "LP", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasRow", "to": "wtq:Stephin_Merritt_discography"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasAlbum_title", "to": "wd:Q3986236"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasOriginal_label", "to": "wd:Q1921640"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasFormat", "to": "literal_0_LP"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasChart_positions", "to": "literal_7_\u2014"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasOriginal_label", "to": "literal_17_Merge Records"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasAlbum_title", "to": "literal_24_The Charm of the Highway Strip"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasYear", "to": "literal_34_1994"}, {"from": "wtq:Stephin_Merritt_discography_row_3", "title": "wtq:hasindex", "to": "literal_35_3"}, {"from": "wd:Q1921640", "title": "wdt:P1889", "to": "literal_1_Merge"}, {"from": "wd:Q1921640", "title": "wdt:P159", "to": "literal_8_Durham"}, {"from": "wd:Q1921640", "title": "rdfs:label", "to": "literal_37_Merge Records"}, {"from": "wd:Q1921640", "title": "wdt:P358", "to": "literal_41_Merge Records catalog"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasRow", "to": "wtq:Stephin_Merritt_discography"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasAlbum_title", "to": "wd:Q7301206"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasChart_positions", "to": "literal_2_#110 (Billboard 200)"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasYear", "to": "literal_25_2010"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasindex", "to": "literal_28_9"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasAlbum_title", "to": "literal_36_Realism"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasOriginal_label", "to": "literal_38_Nonesuch Records"}, {"from": "wtq:Stephin_Merritt_discography_row_9", "title": "wtq:hasFormat", "to": "literal_43_LP"}, {"from": "wd:Q169930", "title": "wtq:hasFormat", "to": "wtq:Stephin_Merritt_discography_row_2"}, {"from": "wd:Q169930", "title": "wdt:P1382", "to": "literal_3_mini-LP"}, {"from": "wd:Q169930", "title": "wdt:P31", "to": "literal_32_music release type"}, {"from": "wd:Q169930", "title": "rdfs:label", "to": "literal_40_extended play"}, {"from": "wd:Q169930", "title": "wdt:P279", "to": "literal_42_release group"}, {"from": "wd:Q3986236", "title": "wdt:P7937", "to": "literal_4_studio album"}, {"from": "wd:Q3986236", "title": "wdt:P264", "to": "literal_9_Merge Records"}, {"from": "wd:Q3986236", "title": "wdt:P31", "to": "literal_10_album"}, {"from": "wd:Q3986236", "title": "rdfs:label", "to": "literal_26_The Charm of the Highway Strip"}, {"from": "wtq:Stephin_Merritt_discography", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Stephin_Merritt_discography", "title": "wtq:hasRow", "to": "wtq:Stephin_Merritt_discography_row_2"}, {"from": "wtq:Stephin_Merritt_discography", "title": "wtq:hasRow", "to": "wtq:Stephin_Merritt_discography_row_4"}, {"from": "wtq:Stephin_Merritt_discography_row_4", "title": "wtq:hasAlbum_title", "to": "wd:Q5880344"}, {"from": "wtq:Stephin_Merritt_discography_row_4", "title": "wtq:hasOriginal_label", "to": "literal_5_Feel Good All Over"}, {"from": "wtq:Stephin_Merritt_discography_row_4", "title": "wtq:hasYear", "to": "literal_11_1994"}, {"from": "wtq:Stephin_Merritt_discography_row_4", "title": "wtq:hasFormat", "to": "literal_13_LP"}, {"from": "wtq:Stephin_Merritt_discography_row_4", "title": "wtq:hasChart_positions", "to": "literal_19_\u2014"}, {"from": "wtq:Stephin_Merritt_discography_row_4", "title": "wtq:hasindex", "to": "literal_27_4"}, {"from": "wtq:Stephin_Merritt_discography_row_4", "title": "wtq:hasAlbum_title", "to": "literal_30_Holiday"}, {"from": "wd:Q5880344", "title": "wdt:P175", "to": "literal_6_The Magnetic Fields"}, {"from": "wd:Q5880344", "title": "rdfs:label", "to": "literal_14_Holiday"}, {"from": "wd:Q5880344", "title": "wdt:P136", "to": "literal_33_synth-pop"}, {"from": "wd:Q5880344", "title": "wdt:P264", "to": "literal_39_Merge Records"}, {"from": "wtq:Stephin_Merritt_discography_row_2", "title": "wtq:hasindex", "to": "literal_12_2"}, {"from": "wtq:Stephin_Merritt_discography_row_2", "title": "wtq:hasAlbum_title", "to": "literal_15_The House of Tomorrow"}, {"from": "wtq:Stephin_Merritt_discography_row_2", "title": "wtq:hasOriginal_label", "to": "literal_16_Feel Good All Over"}, {"from": "wtq:Stephin_Merritt_discography_row_2", "title": "wtq:hasFormat", "to": "literal_18_EP"}, {"from": "wtq:Stephin_Merritt_discography_row_2", "title": "wtq:hasYear", "to": "literal_20_1992"}, {"from": "wtq:Stephin_Merritt_discography_row_2", "title": "wtq:hasChart_positions", "to": "literal_29_\u2014"}, {"from": "wd:Q7301206", "title": "wdt:P155", "to": "literal_21_Distortion"}, {"from": "wd:Q7301206", "title": "wdt:P437", "to": "literal_22_music streaming"}, {"from": "wd:Q7301206", "title": "rdfs:label", "to": "literal_23_Realism"}, {"from": "wd:Q7301206", "title": "wdt:P136", "to": "literal_31_chamber pop"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q71", "label": "wd:Q71", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Thierry_Tulasne_row_8", "label": "wtq:Thierry_Tulasne_row_8", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Thierry_Tulasne", "label": "wtq:Thierry_Tulasne", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Thierry_Tulasne_row_6", "label": "wtq:Thierry_Tulasne_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Thierry_Tulasne_row_2", "label": "wtq:Thierry_Tulasne_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2632546", "label": "wd:Q2632546", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q455322", "label": "wd:Q455322", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q464779", "label": "wd:Q464779", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Carouge", "label": "Carouge", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Runner-up", "label": "Runner-up", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_6\u20132, 6\u20130", "label": "6\u20132, 6\u20130", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_tennis tournament", "label": "tennis tournament", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Runner-up", "label": "Runner-up", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_ATP tennis tournament", "label": "ATP tennis tournament", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Clay", "label": "Clay", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Bologna, Italy", "label": "Bologna, Italy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_2.0", "label": "2.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Clay", "label": "Clay", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_28 April 1986", "label": "28 April 1986", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Patrice Dominguez", "label": "Patrice Dominguez", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Claudio Panatta", "label": "Claudio Panatta", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Clay", "label": "Clay", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Indianapolis Tennis Championships", "label": "Indianapolis Tennis Championships", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Winner", "label": "Winner", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_8 September 1986", "label": "8 September 1986", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_4.0", "label": "4.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Geneva", "label": "Geneva", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_5\u20137, 3\u20136", "label": "5\u20137, 3\u20136", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Claudio Panatta", "label": "Claudio Panatta", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Henri Leconte", "label": "Henri Leconte", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Henri Leconte", "label": "Henri Leconte", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Geneva, Switzerland", "label": "Geneva, Switzerland", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_tennis", "label": "tennis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_2.0", "label": "2.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Andr\u00e9s G\u00f3mez", "label": "Andr\u00e9s G\u00f3mez", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_Lancy", "label": "Lancy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Indianapolis, U.S.", "label": "Indianapolis, U.S.", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_10 June 1985", "label": "10 June 1985", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Claudio", "label": "Claudio", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_municipality of Switzerland", "label": "municipality of Switzerland", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_4\u20136, 6\u20137(1\u20137)", "label": "4\u20136, 6\u20137(1\u20137)", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q71", "title": "wtq:hasChampionship", "to": "wtq:Thierry_Tulasne_row_8"}, {"from": "wd:Q71", "title": "wdt:P47", "to": "literal_0_Carouge"}, {"from": "wd:Q71", "title": "rdfs:label", "to": "literal_22_Geneva"}, {"from": "wd:Q71", "title": "wdt:P47", "to": "literal_32_Lancy"}, {"from": "wd:Q71", "title": "wdt:P31", "to": "literal_38_municipality of Switzerland"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasRow", "to": "wtq:Thierry_Tulasne"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasOpponent_in_the_final", "to": "wd:Q455322"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasOutcome", "to": "literal_1_Runner-up"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasSurface", "to": "literal_6_Clay"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasDate", "to": "literal_19_8 September 1986"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasNo.", "to": "literal_20_4.0"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasScore_in_the_final", "to": "literal_24_5\u20137, 3\u20136"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasOpponent_in_the_final", "to": "literal_27_Henri Leconte"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasChampionship", "to": "literal_28_Geneva, Switzerland"}, {"from": "wtq:Thierry_Tulasne_row_8", "title": "wtq:hasindex", "to": "literal_34_8"}, {"from": "wtq:Thierry_Tulasne", "title": "wtq:hasRow", "to": "wtq:Thierry_Tulasne_row_6"}, {"from": "wtq:Thierry_Tulasne", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Thierry_Tulasne", "title": "wtq:hasRow", "to": "wtq:Thierry_Tulasne_row_2"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasChampionship", "to": "wd:Q2632546"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasOutcome", "to": "literal_4_Runner-up"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasSurface", "to": "literal_9_Clay"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasDate", "to": "literal_11_28 April 1986"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasNo.", "to": "literal_30_2.0"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasOpponent_in_the_final", "to": "literal_31_Andr\u00e9s G\u00f3mez"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasindex", "to": "literal_33_6"}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasChampionship", "to": "literal_35_Indianapolis, U.S."}, {"from": "wtq:Thierry_Tulasne_row_6", "title": "wtq:hasScore_in_the_final", "to": "literal_39_4\u20136, 6\u20137(1\u20137)"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasOpponent_in_the_final", "to": "wd:Q464779"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasScore_in_the_final", "to": "literal_2_6\u20132, 6\u20130"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasChampionship", "to": "literal_7_Bologna, Italy"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasNo.", "to": "literal_8_2.0"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasindex", "to": "literal_15_2"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasSurface", "to": "literal_16_Clay"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasOutcome", "to": "literal_18_Winner"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasOpponent_in_the_final", "to": "literal_25_Claudio Panatta"}, {"from": "wtq:Thierry_Tulasne_row_2", "title": "wtq:hasDate", "to": "literal_36_10 June 1985"}, {"from": "wd:Q2632546", "title": "wdt:P279", "to": "literal_3_tennis tournament"}, {"from": "wd:Q2632546", "title": "wdt:P279", "to": "literal_5_ATP tennis tournament"}, {"from": "wd:Q2632546", "title": "rdfs:label", "to": "literal_17_Indianapolis Tennis Championships"}, {"from": "wd:Q2632546", "title": "wdt:P641", "to": "literal_29_tennis"}, {"from": "wd:Q455322", "title": "wdt:P31", "to": "literal_10_human"}, {"from": "wd:Q455322", "title": "wdt:P21", "to": "literal_12_male"}, {"from": "wd:Q455322", "title": "wdt:P286", "to": "literal_13_Patrice Dominguez"}, {"from": "wd:Q455322", "title": "rdfs:label", "to": "literal_26_Henri Leconte"}, {"from": "wd:Q464779", "title": "rdfs:label", "to": "literal_14_Claudio Panatta"}, {"from": "wd:Q464779", "title": "wdt:P31", "to": "literal_21_human"}, {"from": "wd:Q464779", "title": "wdt:P21", "to": "literal_23_male"}, {"from": "wd:Q464779", "title": "wdt:P735", "to": "literal_37_Claudio"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

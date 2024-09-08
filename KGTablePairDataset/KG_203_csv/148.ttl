@@ -1,0 +1,28 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:German_submarine_U-9_\(1935\) a wtq:Entity ;
+    wtq:hasRow wtq:German_submarine_U-9_\(1935\)_row_2,
+        wtq:German_submarine_U-9_\(1935\)_row_6,
+        wtq:German_submarine_U-9_\(1935\)_row_8 .
+
+wtq:German_submarine_U-9_\(1935\)_row_2 wtq:hasDate "11 February 1940" ;
+    wtq:hasFate "Sunk" ;
+    wtq:hasName "Linda" ;
+    wtq:hasNationality "Estonia" ;
+    wtq:hasTonnage_n_GRT_ "1,213" ;
+    wtq:hasindex "2" .
+
+wtq:German_submarine_U-9_\(1935\)_row_6 wtq:hasDate "11 May 1940" ;
+    wtq:hasFate "Sunk" ;
+    wtq:hasName "Viiu" ;
+    wtq:hasNationality "Estonia" ;
+    wtq:hasTonnage_n_GRT_ "1,908" ;
+    wtq:hasindex "6" .
+
+wtq:German_submarine_U-9_\(1935\)_row_8 wtq:hasDate "11 May 1944" ;
+    wtq:hasFate "Damaged" ;
+    wtq:hasName "Shtorm" ;
+    wtq:hasNationality "Soviet Union" ;
+    wtq:hasTonnage_n_GRT_ "412" ;
+    wtq:hasindex "8" .
+

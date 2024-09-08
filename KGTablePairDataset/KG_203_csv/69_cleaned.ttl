@@ -1,0 +1,288 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:United_States_Ambassador_to_Mexico a wtq:Entity ;
+    wtq:hasRow wtq:United_States_Ambassador_to_Mexico_row_13,
+        wtq:United_States_Ambassador_to_Mexico_row_19,
+        wtq:United_States_Ambassador_to_Mexico_row_2,
+        wtq:United_States_Ambassador_to_Mexico_row_21,
+        wtq:United_States_Ambassador_to_Mexico_row_22,
+        wtq:United_States_Ambassador_to_Mexico_row_26,
+        wtq:United_States_Ambassador_to_Mexico_row_27,
+        wtq:United_States_Ambassador_to_Mexico_row_29,
+        wtq:United_States_Ambassador_to_Mexico_row_3,
+        wtq:United_States_Ambassador_to_Mexico_row_31,
+        wtq:United_States_Ambassador_to_Mexico_row_32,
+        wtq:United_States_Ambassador_to_Mexico_row_35,
+        wtq:United_States_Ambassador_to_Mexico_row_36,
+        wtq:United_States_Ambassador_to_Mexico_row_38,
+        wtq:United_States_Ambassador_to_Mexico_row_39,
+        wtq:United_States_Ambassador_to_Mexico_row_40,
+        wtq:United_States_Ambassador_to_Mexico_row_42,
+        wtq:United_States_Ambassador_to_Mexico_row_46,
+        wtq:United_States_Ambassador_to_Mexico_row_48,
+        wtq:United_States_Ambassador_to_Mexico_row_49 .
+
+wtq:United_States_Ambassador_to_Mexico_row_13 wtq:hasAppointed_by wd:Q11881,
+        "John Tyler" ;
+    wtq:hasFrom "1844" ;
+    wtq:hasRepresentative wd:Q364605,
+        "Wilson Shannon" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1845.0" ;
+    wtq:hasindex "13" .
+
+wtq:United_States_Ambassador_to_Mexico_row_19 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1850" ;
+    wtq:hasRepresentative "George G. Goss" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "1852.0" ;
+    wtq:hasindex "19" .
+
+wtq:United_States_Ambassador_to_Mexico_row_2 wtq:hasAppointed_by "John Quincy Adams" ;
+    wtq:hasFrom "1825" ;
+    wtq:hasRepresentative wd:Q723956,
+        "Joel Roberts Poinsett" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1829.0" ;
+    wtq:hasindex "2" .
+
+wtq:United_States_Ambassador_to_Mexico_row_21 wtq:hasAppointed_by wd:Q12306,
+        "Millard Fillmore" ;
+    wtq:hasFrom "1852" ;
+    wtq:hasRepresentative "Edward Smith" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "21" .
+
+wtq:United_States_Ambassador_to_Mexico_row_22 wtq:hasAppointed_by wd:Q12306,
+        "Millard Fillmore" ;
+    wtq:hasFrom "1852" ;
+    wtq:hasRepresentative wd:Q4722470,
+        "Alfred Conkling" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1853.0" ;
+    wtq:hasindex "22" .
+
+wtq:United_States_Ambassador_to_Mexico_row_26 wtq:hasAppointed_by wd:Q12312,
+        "Franklin Pierce" ;
+    wtq:hasFrom "1854" ;
+    wtq:hasRepresentative "Richard S. Spofford" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "26" .
+
+wtq:United_States_Ambassador_to_Mexico_row_27 wtq:hasAppointed_by wd:Q12312,
+        "Franklin Pierce" ;
+    wtq:hasFrom "1856" ;
+    wtq:hasRepresentative wd:Q6233700,
+        "John Forsyth Jr." ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1858.0" ;
+    wtq:hasindex "27" .
+
+wtq:United_States_Ambassador_to_Mexico_row_29 wtq:hasAppointed_by wd:Q12325,
+        "James Buchanan" ;
+    wtq:hasFrom "1858" ;
+    wtq:hasRepresentative "Alfred Mordecai" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "29" .
+
+wtq:United_States_Ambassador_to_Mexico_row_3 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1829" ;
+    wtq:hasRepresentative "Anthony Butler" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "3" .
+
+wtq:United_States_Ambassador_to_Mexico_row_31 wtq:hasAppointed_by wd:Q12325,
+        "James Buchanan" ;
+    wtq:hasFrom "1859" ;
+    wtq:hasRepresentative wd:Q768487,
+        "David R. Porter" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "31" .
+
+wtq:United_States_Ambassador_to_Mexico_row_32 wtq:hasAppointed_by wd:Q12325,
+        "James Buchanan" ;
+    wtq:hasFrom "1859" ;
+    wtq:hasRepresentative wd:Q886672,
+        "Robert Milligan McLane" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1860.0" ;
+    wtq:hasindex "32" .
+
+wtq:United_States_Ambassador_to_Mexico_row_35 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1861" ;
+    wtq:hasRepresentative wd:Q879077,
+        "Thomas Corwin" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1864.0" ;
+    wtq:hasindex "35" .
+
+wtq:United_States_Ambassador_to_Mexico_row_36 wtq:hasAppointed_by wd:Q91,
+        "Abraham Lincoln" ;
+    wtq:hasFrom "1862" ;
+    wtq:hasRepresentative "Robert W. Shufelt" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "36" .
+
+wtq:United_States_Ambassador_to_Mexico_row_38 wtq:hasAppointed_by wd:Q8612,
+        "Andrew Johnson" ;
+    wtq:hasFrom "1867" ;
+    wtq:hasRepresentative "Marcus Otterbourg" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "38" .
+
+wtq:United_States_Ambassador_to_Mexico_row_39 wtq:hasAppointed_by wd:Q8612,
+        "Andrew Johnson" ;
+    wtq:hasFrom "1868" ;
+    wtq:hasRepresentative "William S. Rosecrans" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1869.0" ;
+    wtq:hasindex "39" .
+
+wtq:United_States_Ambassador_to_Mexico_row_40 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1869" ;
+    wtq:hasRepresentative wd:Q7790307,
+        "Thomas H. Nelson" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1873.0" ;
+    wtq:hasindex "40" .
+
+wtq:United_States_Ambassador_to_Mexico_row_42 wtq:hasAppointed_by wd:Q35686,
+        "Rutherford B. Hayes" ;
+    wtq:hasFrom "1880" ;
+    wtq:hasRepresentative wd:Q7183669,
+        "Philip Hicky Morgan" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1885.0" ;
+    wtq:hasindex "42" .
+
+wtq:United_States_Ambassador_to_Mexico_row_46 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1889" ;
+    wtq:hasRepresentative "Thomas Ryan" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1893.0" ;
+    wtq:hasindex "46" .
+
+wtq:United_States_Ambassador_to_Mexico_row_48 wtq:hasAppointed_by wd:Q35171,
+        "Grover Cleveland" ;
+    wtq:hasFrom "1895" ;
+    wtq:hasRepresentative "Matt Whitaker Ransom" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1897.0" ;
+    wtq:hasindex "48" .
+
+wtq:United_States_Ambassador_to_Mexico_row_49 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1897" ;
+    wtq:hasRepresentative wd:Q365032,
+        "Powell Clayton" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1898.0" ;
+    wtq:hasindex "49" .
+
+wd:Q11881 rdfs:label "John Tyler" ;
+    wdt:P19 "Greenway Plantation" ;
+    wdt:P21 "male" ;
+    wdt:P26 "Julia Gardiner Tyler" .
+
+wd:Q35171 rdfs:label "Grover Cleveland" ;
+    wdt:P31 "human" ;
+    wdt:P39 "President of the United States",
+        "President-elect of the United States" .
+
+wd:Q35686 rdfs:label "Rutherford B. Hayes" ;
+    wdt:P20 "Fremont" ;
+    wdt:P31 "human" ;
+    wdt:P39 "President of the United States" .
+
+wd:Q364605 rdfs:label "Wilson Shannon" ;
+    wdt:P1412 "English" ;
+    wdt:P27 "United States of America" ;
+    wdt:P937 "Washington, D.C." .
+
+wd:Q365032 rdfs:label "Powell Clayton" ;
+    wdt:P21 "male" ;
+    wdt:P27 "United States of America" ;
+    wdt:P39 "United States senator" .
+
+wd:Q4722470 rdfs:label "Alfred Conkling" ;
+    wdt:P22 "Benjamin Conkling" ;
+    wdt:P27 "United States of America" ;
+    wdt:P937 "Washington, D.C." .
+
+wd:Q6233700 rdfs:label "John Forsyth, Jr." ;
+    wdt:P106 "diplomat",
+        "editor" ;
+    wdt:P21 "male" .
+
+wd:Q7183669 rdfs:label "Philip Hickey Morgan" ;
+    wdt:P102 "Republican Party" ;
+    wdt:P25 "Eliza Ann McKennan" ;
+    wdt:P40 "Harry Hays Morgan" .
+
+wd:Q723956 rdfs:label "Joel Roberts Poinsett" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P39 "United States representative" .
+
+wd:Q768487 rdfs:label "David R. Porter" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P39 "member of the Pennsylvania House of Representatives" .
+
+wd:Q7790307 rdfs:label "Thomas H. Nelson" ;
+    wdt:P106 "diplomat" ;
+    wdt:P21 "male" ;
+    wdt:P735 "Thomas" .
+
+wd:Q879077 rdfs:label "Thomas Corwin" ;
+    wdt:P106 "lawyer" ;
+    wdt:P119 "Lebanon Cemetery" ;
+    wdt:P734 "Corwin" .
+
+wd:Q886672 rdfs:label "Robert Milligan McLane" ;
+    wdt:P26 "Georgine Urquhart" ;
+    wdt:P39 "Governor of Maryland",
+        "United States representative" .
+
+wd:Q91 rdfs:label "Abraham Lincoln" ;
+    wdt:P22 "Thomas Lincoln" ;
+    wdt:P31 "human" ;
+    wdt:P39 "President of the United States" .
+
+wd:Q12306 rdfs:label "Millard Fillmore" ;
+    wdt:P1050 "hemiparesis",
+        "obesity" ;
+    wdt:P1196 "natural causes" ;
+    wdt:P910 "Category:Millard Fillmore" ;
+    wdt:P937 "Washington, D.C." .
+
+wd:Q12312 rdfs:label "Franklin Pierce" ;
+    wdt:P20 "Concord" ;
+    wdt:P22 "Benjamin Pierce" ;
+    wdt:P31 "human" ;
+    wdt:P39 "President of the United States" .
+
+wd:Q8612 rdfs:label "Andrew Johnson" ;
+    wdt:P19 "Raleigh" ;
+    wdt:P22 "Jacob Johnson" ;
+    wdt:P25 "Mary McDonough" ;
+    wdt:P31 "human" ;
+    wdt:P39 "President of the United States" .
+
+wd:Q12325 rdfs:label "James Buchanan" ;
+    wdt:P509 "respiratory failure" ;
+    wdt:P551 "Lancaster" ;
+    wdt:P607 "Battle of Baltimore" ;
+    wdt:P735 "James" ;
+    wdt:P910 "Category:James Buchanan" ;
+    wdt:P937 "Lancaster" .
+

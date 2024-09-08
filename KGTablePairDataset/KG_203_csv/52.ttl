@@ -1,0 +1,92 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2008_Canadian_Grand_Prix a wtq:Entity ;
+    wtq:hasRow wtq:2008_Canadian_Grand_Prix_row_10,
+        wtq:2008_Canadian_Grand_Prix_row_14,
+        wtq:2008_Canadian_Grand_Prix_row_16,
+        wtq:2008_Canadian_Grand_Prix_row_17,
+        wtq:2008_Canadian_Grand_Prix_row_2,
+        wtq:2008_Canadian_Grand_Prix_row_3,
+        wtq:2008_Canadian_Grand_Prix_row_4,
+        wtq:2008_Canadian_Grand_Prix_row_6 .
+
+wtq:2008_Canadian_Grand_Prix_row_10 wtq:hasConstructor "Honda" ;
+    wtq:hasDriver "Jenson Button" ;
+    wtq:hasGrid "20" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "16" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "11" ;
+    wtq:hasTime_Retired "+1:07.540" ;
+    wtq:hasindex "10" .
+
+wtq:2008_Canadian_Grand_Prix_row_14 wtq:hasConstructor "Williams-Toyota" ;
+    wtq:hasDriver "Kazuki Nakajima" ;
+    wtq:hasGrid "12" ;
+    wtq:hasLaps "46" ;
+    wtq:hasNo "8" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "Ret" ;
+    wtq:hasTime_Retired "Accident" ;
+    wtq:hasindex "14" .
+
+wtq:2008_Canadian_Grand_Prix_row_16 wtq:hasConstructor "Renault" ;
+    wtq:hasDriver "Nelson Piquet Jr." ;
+    wtq:hasGrid "15" ;
+    wtq:hasLaps "43" ;
+    wtq:hasNo "6" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "Ret" ;
+    wtq:hasTime_Retired "Brakes" ;
+    wtq:hasindex "16" .
+
+wtq:2008_Canadian_Grand_Prix_row_17 wtq:hasConstructor "Ferrari" ;
+    wtq:hasDriver "Kimi Räikkönen" ;
+    wtq:hasGrid "3" ;
+    wtq:hasLaps "19" ;
+    wtq:hasNo "1" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "Ret" ;
+    wtq:hasTime_Retired "Collision" ;
+    wtq:hasindex "17" .
+
+wtq:2008_Canadian_Grand_Prix_row_2 wtq:hasConstructor "Red Bull-Renault" ;
+    wtq:hasDriver "David Coulthard" ;
+    wtq:hasGrid "13" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "9" ;
+    wtq:hasPoints "6.0" ;
+    wtq:hasPos "3" ;
+    wtq:hasTime_Retired "+23.352" ;
+    wtq:hasindex "2" .
+
+wtq:2008_Canadian_Grand_Prix_row_3 wtq:hasConstructor "Toyota" ;
+    wtq:hasDriver "Timo Glock" ;
+    wtq:hasGrid "11" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "12" ;
+    wtq:hasPoints "5.0" ;
+    wtq:hasPos "4" ;
+    wtq:hasTime_Retired "+42.627" ;
+    wtq:hasindex "3" .
+
+wtq:2008_Canadian_Grand_Prix_row_4 wtq:hasConstructor "Ferrari" ;
+    wtq:hasDriver "Felipe Massa" ;
+    wtq:hasGrid "6" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "2" ;
+    wtq:hasPoints "4.0" ;
+    wtq:hasPos "5" ;
+    wtq:hasTime_Retired "+43.934" ;
+    wtq:hasindex "4" .
+
+wtq:2008_Canadian_Grand_Prix_row_6 wtq:hasConstructor "Honda" ;
+    wtq:hasDriver "Rubens Barrichello" ;
+    wtq:hasGrid "9" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "17" ;
+    wtq:hasPoints "2.0" ;
+    wtq:hasPos "7" ;
+    wtq:hasTime_Retired "+53.597" ;
+    wtq:hasindex "6" .
+

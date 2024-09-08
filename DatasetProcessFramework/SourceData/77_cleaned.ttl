@@ -1,0 +1,69 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Stephin_Merritt_discography a wtq:Entity ;
+    wtq:hasRow wtq:Stephin_Merritt_discography_row_2,
+        wtq:Stephin_Merritt_discography_row_3,
+        wtq:Stephin_Merritt_discography_row_4,
+        wtq:Stephin_Merritt_discography_row_9 .
+
+wtq:Stephin_Merritt_discography_row_2 wtq:hasAlbum_title "The House of Tomorrow" ;
+    wtq:hasChart_positions "—" ;
+    wtq:hasFormat wd:Q169930,
+        "EP" ;
+    wtq:hasOriginal_label "Feel Good All Over" ;
+    wtq:hasYear "1992" ;
+    wtq:hasindex "2" .
+
+wtq:Stephin_Merritt_discography_row_3 wtq:hasAlbum_title wd:Q3986236,
+        "The Charm of the Highway Strip" ;
+    wtq:hasChart_positions "—" ;
+    wtq:hasFormat "LP" ;
+    wtq:hasOriginal_label wd:Q1921640,
+        "Merge Records" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "3" .
+
+wtq:Stephin_Merritt_discography_row_4 wtq:hasAlbum_title wd:Q5880344,
+        "Holiday" ;
+    wtq:hasChart_positions "—" ;
+    wtq:hasFormat "LP" ;
+    wtq:hasOriginal_label "Feel Good All Over" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "4" .
+
+wtq:Stephin_Merritt_discography_row_9 wtq:hasAlbum_title wd:Q7301206,
+        "Realism" ;
+    wtq:hasChart_positions "#110 (Billboard 200)" ;
+    wtq:hasFormat "LP" ;
+    wtq:hasOriginal_label "Nonesuch Records" ;
+    wtq:hasYear "2010" ;
+    wtq:hasindex "9" .
+
+wd:Q169930 rdfs:label "extended play" ;
+    wdt:P1382 "mini-LP" ;
+    wdt:P279 "release group" ;
+    wdt:P31 "music release type" .
+
+wd:Q1921640 rdfs:label "Merge Records" ;
+    wdt:P159 "Durham" ;
+    wdt:P1889 "Merge" ;
+    wdt:P358 "Merge Records catalog" .
+
+wd:Q3986236 rdfs:label "The Charm of the Highway Strip" ;
+    wdt:P264 "Merge Records" ;
+    wdt:P31 "album" ;
+    wdt:P7937 "studio album" .
+
+wd:Q5880344 rdfs:label "Holiday" ;
+    wdt:P136 "synth-pop" ;
+    wdt:P175 "The Magnetic Fields" ;
+    wdt:P264 "Merge Records" .
+
+wd:Q7301206 rdfs:label "Realism" ;
+    wdt:P136 "chamber pop" ;
+    wdt:P155 "Distortion" ;
+    wdt:P437 "music streaming" .
+

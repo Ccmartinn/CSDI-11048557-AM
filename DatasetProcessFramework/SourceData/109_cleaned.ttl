@@ -1,0 +1,101 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Human_rights_in_Morocco a wtq:Entity ;
+    wtq:hasRow wtq:Human_rights_in_Morocco_row_10,
+        wtq:Human_rights_in_Morocco_row_14,
+        wtq:Human_rights_in_Morocco_row_16,
+        wtq:Human_rights_in_Morocco_row_17,
+        wtq:Human_rights_in_Morocco_row_2,
+        wtq:Human_rights_in_Morocco_row_3,
+        wtq:Human_rights_in_Morocco_row_4,
+        wtq:Human_rights_in_Morocco_row_6 .
+
+wtq:Human_rights_in_Morocco_row_10 wtq:hasIntroduced "1989" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "-" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty "Second Optional Protocol to the International Covenant on Civil and Political Rights, aiming at the abolition of the death penalty" ;
+    wtq:hasindex "10" .
+
+wtq:Human_rights_in_Morocco_row_14 wtq:hasIntroduced "2000" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "2001" ;
+    wtq:hasSigned "2000" ;
+    wtq:hasTreaty "Optional Protocol to the Convention on the Rights of the Child on the Sale of Children, Child Prostitution and Child Pornography" ;
+    wtq:hasindex "14" .
+
+wtq:Human_rights_in_Morocco_row_16 wtq:hasIntroduced "2006" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "2009" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty "Optional Protocol to the Convention on the Rights of Persons with Disabilities" ;
+    wtq:hasindex "16" .
+
+wtq:Human_rights_in_Morocco_row_17 wtq:hasIntroduced "2006" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "2013" ;
+    wtq:hasSigned "2007" ;
+    wtq:hasTreaty wd:Q1069706,
+        "International Convention for the Protection of All Persons from Enforced Disappearance" ;
+    wtq:hasindex "17" .
+
+wtq:Human_rights_in_Morocco_row_2 wtq:hasIntroduced "1966" ;
+    wtq:hasOrganization wd:Q1065,
+        "United Nations" ;
+    wtq:hasRatified "1979" ;
+    wtq:hasSigned "1977" ;
+    wtq:hasTreaty "International Covenant on Economic, Social and Cultural Rights" ;
+    wtq:hasindex "2" .
+
+wtq:Human_rights_in_Morocco_row_3 wtq:hasIntroduced "1966" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "1979" ;
+    wtq:hasSigned "1977" ;
+    wtq:hasTreaty wd:Q743306,
+        "International Covenant on Civil and Political Rights" ;
+    wtq:hasindex "3" .
+
+wtq:Human_rights_in_Morocco_row_4 wtq:hasIntroduced "1966" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "-" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty wd:Q457862,
+        "First Optional Protocol to the International Covenant on Civil and Political Rights" ;
+    wtq:hasindex "4" .
+
+wtq:Human_rights_in_Morocco_row_6 wtq:hasIntroduced "1973" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "-" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty wd:Q2312098,
+        "International Convention on the Suppression and Punishment of the Crime of Apartheid" ;
+    wtq:hasindex "6" .
+
+wd:Q1065 rdfs:label "United Nations" ;
+    wdt:P17 "United States of America" ;
+    wdt:P37 "Arabic",
+        "French" .
+
+wd:Q1069706 rdfs:label "Convention on the Rights of Persons with Disabilities" ;
+    wdt:P2058 "United Nations Secretary-General" ;
+    wdt:P31 "core international human rights instrument" ;
+    wdt:P361 "international human rights law" .
+
+wd:Q2312098 rdfs:label "First Optional Protocol to the International Covenant on Civil and Political Rights" ;
+    wdt:P276 "New York City" ;
+    wdt:P31 "multilateral treaty" ;
+    wdt:P361 "United Nations General Assembly Resolution 2200 A" .
+
+wd:Q457862 rdfs:label "International Covenant on Economic, Social and Cultural Rights" ;
+    wdt:P31 "international human rights instrument" ;
+    wdt:P361 "International Bill of Human Rights" ;
+    wdt:P457 "United Nations Document A/RES/2200(XXI)" .
+
+wd:Q743306 rdfs:label "International Convention on the Elimination of All Forms of Racial Discrimination" ;
+    wdt:P31 "United Nations treaty" ;
+    wdt:P5008 "WikiForHumanRights 2019",
+        "WikiProject Human Rights" .
+

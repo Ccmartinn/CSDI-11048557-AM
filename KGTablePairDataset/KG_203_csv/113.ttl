@@ -1,0 +1,76 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Shooting_at_the_1988_Summer_Olympics a wtq:Entity ;
+    wtq:hasRow wtq:Shooting_at_the_1988_Summer_Olympics_row_10,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_14,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_16,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_17,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_2,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_3,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_4,
+        wtq:Shooting_at_the_1988_Summer_Olympics_row_6 .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_10 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Chile (CHI)" ;
+    wtq:hasRank "11" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "10" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_14 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Sweden (SWE)" ;
+    wtq:hasRank "11" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "14" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_16 wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Hungary (HUN)" ;
+    wtq:hasRank "17" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "16" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_17 wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Belgium (BEL)" ;
+    wtq:hasRank "18" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "17" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_2 wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "West Germany (FRG)" ;
+    wtq:hasRank "3" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "2" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_3 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Bulgaria (BUL)" ;
+    wtq:hasRank "4" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "3" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_4 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Czechoslovakia (TCH)" ;
+    wtq:hasRank "4" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "4" .
+
+wtq:Shooting_at_the_1988_Summer_Olympics_row_6 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Great Britain (GBR)" ;
+    wtq:hasRank "4" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "6" .
+

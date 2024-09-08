@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Edmonton_Indy_row_7", "label": "wtq:Edmonton_Indy_row_7", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Edmonton_Indy_row_1", "label": "wtq:Edmonton_Indy_row_1", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1157975", "label": "wd:Q1157975", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Edmonton_Indy_row_2", "label": "wtq:Edmonton_Indy_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q745808", "label": "wd:Q745808", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Edmonton_Indy", "label": "wtq:Edmonton_Indy", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q525778", "label": "wd:Q525778", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q4605062", "label": "wd:Q4605062", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q9584", "label": "wd:Q9584", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q780275", "label": "wd:Q780275", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_2012", "label": "2012", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_100.112", "label": "100.112", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Category:Dallara", "label": "Category:Dallara", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Lola", "label": "Lola", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_2007", "label": "2007", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Will Power", "label": "Will Power", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Penske Racing", "label": "Penske Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_189.408 (304.822)", "label": "189.408 (304.822)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Panoz", "label": "Panoz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_2006", "label": "2006", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Downlands College", "label": "Downlands College", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_July 22", "label": "July 22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Justin Wilson", "label": "Justin Wilson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Will Power", "label": "Will Power", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_2005 Champ Car season", "label": "2005 Champ Car season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_1:40:30", "label": "1:40:30", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Cosworth", "label": "Cosworth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_S\u00e9bastien Bourdais", "label": "S\u00e9bastien Bourdais", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Report", "label": "Report", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_2009 Rexall Edmonton Indy", "label": "2009 Rexall Edmonton Indy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_96", "label": "96", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_RuSPORT", "label": "RuSPORT", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Ford-Cosworth", "label": "Ford-Cosworth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Australia", "label": "Australia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_auto racing", "label": "auto racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Ford Motor Company", "label": "Ford Motor Company", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_A. J. Allmendinger", "label": "A. J. Allmendinger", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_2009 IndyCar Series season", "label": "2009 IndyCar Series season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_2005 Champ Car season", "label": "2005 Champ Car season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_1:45:41", "label": "1:45:41", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_auto racing team", "label": "auto racing team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Will Power", "label": "Will Power", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_2005 West Edmonton Mall Grand Prix of Edmonton", "label": "2005 West Edmonton Mall Grand Prix of Edmonton", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Tokio Marine", "label": "Tokio Marine", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Chevrolet", "label": "Chevrolet", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_auto racing", "label": "auto racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_167.705 (269.895)", "label": "167.705 (269.895)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_85", "label": "85", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_Champ Car", "label": "Champ Car", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_H\u00e9lio Castroneves", "label": "H\u00e9lio Castroneves", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Varano de\u0027 Melegari", "label": "Varano de\u0027 Melegari", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_101.246", "label": "101.246", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_169.2 (272.301)", "label": "169.2 (272.301)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_107.517", "label": "107.517", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Newman/Haas/Lanigan Racing", "label": "Newman/Haas/Lanigan Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_Dallara", "label": "Dallara", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Honda", "label": "Honda", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Dallara", "label": "Dallara", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_July 23", "label": "July 23", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_Report", "label": "Report", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Canada", "label": "Canada", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Takeo Fujisawa", "label": "Takeo Fujisawa", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_July 22", "label": "July 22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_1:38:51", "label": "1:38:51", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Report", "label": "Report", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_75", "label": "75", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_The Master Trust Bank of Japan", "label": "The Master Trust Bank of Japan", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasEngine", "to": "wd:Q9584"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasChassis", "to": "wd:Q1157975"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasRow", "to": "wtq:Edmonton_Indy"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasReport", "to": "wd:Q745808"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasDriver", "to": "wd:Q525778"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasSeason", "to": "literal_0_2012"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasTeam", "to": "literal_7_Penske Racing"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasDate", "to": "literal_12_July 22"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasindex", "to": "literal_28_7"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasEngine", "to": "literal_36_Chevrolet"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasDriver", "to": "literal_41_H\u00e9lio Castroneves"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasAverage_Speed_n_mph_", "to": "literal_43_101.246"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasRace_Distance_nMiles__km_", "to": "literal_44_169.2 (272.301)"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasChassis", "to": "literal_47_Dallara"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasReport", "to": "literal_52_Report"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasRace_Time", "to": "literal_56_1:38:51"}, {"from": "wtq:Edmonton_Indy_row_7", "title": "wtq:hasRace_Distance_nLaps", "to": "literal_58_75"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasRow", "to": "wtq:Edmonton_Indy"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasAverage_Speed_n_mph_", "to": "literal_1_100.112"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasChassis", "to": "literal_3_Lola"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasindex", "to": "literal_6_1"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasSeason", "to": "literal_10_2006"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasDriver", "to": "literal_13_Justin Wilson"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasRace_Time", "to": "literal_16_1:40:30"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasReport", "to": "literal_19_Report"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasTeam", "to": "literal_22_RuSPORT"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasEngine", "to": "literal_23_Ford-Cosworth"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasRace_Distance_nMiles__km_", "to": "literal_38_167.705 (269.895)"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasRace_Distance_nLaps", "to": "literal_39_85"}, {"from": "wtq:Edmonton_Indy_row_1", "title": "wtq:hasDate", "to": "literal_50_July 23"}, {"from": "wd:Q1157975", "title": "wdt:P910", "to": "literal_2_Category:Dallara"}, {"from": "wd:Q1157975", "title": "wdt:P31", "to": "literal_32_auto racing team"}, {"from": "wd:Q1157975", "title": "wdt:P740", "to": "literal_42_Varano de\u0027 Melegari"}, {"from": "wd:Q1157975", "title": "rdfs:label", "to": "literal_49_Dallara"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasRow", "to": "wtq:Edmonton_Indy"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasSeason", "to": "wd:Q780275"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasReport", "to": "wd:Q4605062"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasSeason", "to": "literal_4_2007"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasRace_Distance_nMiles__km_", "to": "literal_8_189.408 (304.822)"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasChassis", "to": "literal_9_Panoz"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasEngine", "to": "literal_17_Cosworth"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasDriver", "to": "literal_18_S\u00e9bastien Bourdais"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasRace_Distance_nLaps", "to": "literal_21_96"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasRace_Time", "to": "literal_31_1:45:41"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasAverage_Speed_n_mph_", "to": "literal_45_107.517"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasTeam", "to": "literal_46_Newman/Haas/Lanigan Racing"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasindex", "to": "literal_51_2"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasDate", "to": "literal_55_July 22"}, {"from": "wtq:Edmonton_Indy_row_2", "title": "wtq:hasReport", "to": "literal_57_Report"}, {"from": "wd:Q745808", "title": "wdt:P3764", "to": "literal_5_Will Power"}, {"from": "wd:Q745808", "title": "wdt:P1346", "to": "literal_14_Will Power"}, {"from": "wd:Q745808", "title": "rdfs:label", "to": "literal_20_2009 Rexall Edmonton Indy"}, {"from": "wd:Q745808", "title": "wdt:P361", "to": "literal_29_2009 IndyCar Series season"}, {"from": "wtq:Edmonton_Indy", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wd:Q525778", "title": "wdt:P69", "to": "literal_11_Downlands College"}, {"from": "wd:Q525778", "title": "wdt:P27", "to": "literal_24_Australia"}, {"from": "wd:Q525778", "title": "wdt:P641", "to": "literal_25_auto racing"}, {"from": "wd:Q525778", "title": "rdfs:label", "to": "literal_33_Will Power"}, {"from": "wd:Q4605062", "title": "wdt:P361", "to": "literal_15_2005 Champ Car season"}, {"from": "wd:Q4605062", "title": "wdt:P5053", "to": "literal_27_A. J. Allmendinger"}, {"from": "wd:Q4605062", "title": "rdfs:label", "to": "literal_34_2005 West Edmonton Mall Grand Prix of Edmonton"}, {"from": "wd:Q4605062", "title": "wdt:P17", "to": "literal_53_Canada"}, {"from": "wd:Q9584", "title": "wdt:P127", "to": "literal_35_Tokio Marine"}, {"from": "wd:Q9584", "title": "rdfs:label", "to": "literal_48_Honda"}, {"from": "wd:Q9584", "title": "wdt:P112", "to": "literal_54_Takeo Fujisawa"}, {"from": "wd:Q9584", "title": "wdt:P127", "to": "literal_59_The Master Trust Bank of Japan"}, {"from": "wd:Q780275", "title": "wdt:P859", "to": "literal_26_Ford Motor Company"}, {"from": "wd:Q780275", "title": "rdfs:label", "to": "literal_30_2005 Champ Car season"}, {"from": "wd:Q780275", "title": "wdt:P641", "to": "literal_37_auto racing"}, {"from": "wd:Q780275", "title": "wdt:P3450", "to": "literal_40_Champ Car"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

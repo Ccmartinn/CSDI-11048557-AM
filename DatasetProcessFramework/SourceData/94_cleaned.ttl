@@ -1,0 +1,122 @@
+@prefix ns1: <http://wikitablequestion.org/hasPurse__$> .
+@prefix ns2: <http://wikitablequestion.org/hasWinner's_nshare__$> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:BMW_Championship_\(PGA_Tour\) a wtq:Entity ;
+    wtq:hasRow wtq:BMW_Championship_\(PGA_Tour\)_row_1,
+        wtq:BMW_Championship_\(PGA_Tour\)_row_2,
+        wtq:BMW_Championship_\(PGA_Tour\)_row_7 .
+
+wtq:BMW_Championship_\(PGA_Tour\)_row_1 wtq:hasCountry wd:Q30,
+        "United States" ;
+    wtq:hasCourse wd:Q5166704,
+        "Conway Farms Golf Club" ;
+    wtq:hasLocation wd:Q575355,
+        "Lake Forest, Illinois" ;
+    wtq:hasMargin_nof_victory "2 strokes" ;
+    wtq:hasPlayer wd:Q139360,
+        "Zach Johnson" ;
+    ns1:_ "8,000,000" ;
+    wtq:hasScore "64-70-69-65=268" ;
+    wtq:hasTo_par "–16" ;
+    ns2:_ "1,440,000" ;
+    wtq:hasYear wd:Q4629741,
+        "2013" ;
+    wtq:hasindex "1" .
+
+wtq:BMW_Championship_\(PGA_Tour\)_row_2 wtq:hasCountry wd:Q26,
+        "Northern Ireland" ;
+    wtq:hasCourse wd:Q5187858,
+        "Crooked Stick Golf Club" ;
+    wtq:hasLocation wd:Q537853,
+        "Carmel, Indiana" ;
+    wtq:hasMargin_nof_victory "2 strokes" ;
+    wtq:hasPlayer wd:Q380613,
+        "Rory McIlroy" ;
+    ns1:_ "8,000,000" ;
+    wtq:hasScore "64-68-69-67=268" ;
+    wtq:hasTo_par "–20" ;
+    ns2:_ "1,440,000" ;
+    wtq:hasYear wd:Q4626479,
+        "2012" ;
+    wtq:hasindex "2" .
+
+wtq:BMW_Championship_\(PGA_Tour\)_row_7 wtq:hasCountry wd:Q30,
+        "United States" ;
+    wtq:hasCourse "Cog Hill Golf & Country Club" ;
+    wtq:hasLocation "Lemont, Illinois" ;
+    wtq:hasMargin_nof_victory "2 strokes" ;
+    wtq:hasPlayer wd:Q10993,
+        "Tiger Woods" ;
+    ns1:_ "7,000,000" ;
+    wtq:hasScore "67-67-65-63=262" ;
+    wtq:hasTo_par "–22" ;
+    ns2:_ "1,260,000" ;
+    wtq:hasYear wd:Q3359661,
+        "2007" ;
+    wtq:hasindex "7" .
+
+wd:Q10993 rdfs:label "Tiger Woods" ;
+    wdt:P19 "Cypress" ;
+    wdt:P21 "male" ;
+    wdt:P69 "Stanford University" .
+
+wd:Q139360 rdfs:label "Zach Johnson" ;
+    wdt:P21 "male" ;
+    wdt:P69 "Regis High School" ;
+    wdt:P734 "Johnson" .
+
+wd:Q26 rdfs:label "Northern Ireland" ;
+    wdt:P31 "stateless nation" ;
+    wdt:P37 "English" ;
+    wdt:P38 "pound sterling" .
+
+wd:Q3359661 rdfs:label "2007 PGA Tour" ;
+    wdt:P156 "2008 PGA Tour" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "sports season" .
+
+wd:Q380613 rdfs:label "Rory McIlroy" ;
+    wdt:P106 "golfer" ;
+    wdt:P26 "Erica Stoll" ;
+    wdt:P69 "Sullivan Upper School" .
+
+wd:Q4626479 rdfs:label "2012 PGA Tour" ;
+    wdt:P156 "2013 PGA Tour" ;
+    wdt:P31 "sports season" ;
+    wdt:P641 "golf" .
+
+wd:Q4629741 rdfs:label "2013 PGA Tour" ;
+    wdt:P155 "2012 PGA Tour" ;
+    wdt:P17 "United States of America" ;
+    wdt:P641 "golf" .
+
+wd:Q5166704 rdfs:label "Conway Farms Golf Club" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "sports club" ;
+    wdt:P641 "golf" .
+
+wd:Q5187858 rdfs:label "Crooked Stick Golf Club" ;
+    wdt:P159 "Indiana" ;
+    wdt:P31 "golf club" ;
+    wdt:P641 "golf" .
+
+wd:Q537853 rdfs:label "Carmel" ;
+    wdt:P1465 "Q110149427" ;
+    wdt:P17 "United States of America" ;
+    wdt:P910 "Category:Carmel, Indiana" .
+
+wd:Q575355 rdfs:label "Lake Forest" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "city in the United States" ;
+    wdt:P47 "Lake Bluff" .
+
+wd:Q30 rdfs:label "United States of America" ;
+    wdt:P30 "North America" ;
+    wdt:P31 "democratic republic",
+        "sovereign state" ;
+    wdt:P6 "Joe Biden" .
+

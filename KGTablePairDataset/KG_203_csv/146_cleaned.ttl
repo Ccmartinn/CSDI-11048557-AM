@@ -1,0 +1,93 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Cherry_Jones a wtq:Entity ;
+    wtq:hasRow wtq:Cherry_Jones_row_2,
+        wtq:Cherry_Jones_row_3,
+        wtq:Cherry_Jones_row_4,
+        wtq:Cherry_Jones_row_9 .
+
+wtq:Cherry_Jones_row_2 wtq:hasAssociation wd:Q191874,
+        "Tony Awards" ;
+    wtq:hasCategory wd:Q185299,
+        "Best Actress in a Play" ;
+    wtq:hasNominated_work wd:Q7739316,
+        "The Heiress" ;
+    wtq:hasResult "Won" ;
+    wtq:hasYear "1995" ;
+    wtq:hasindex "2" .
+
+wtq:Cherry_Jones_row_3 wtq:hasAssociation "Drama Desk Awards" ;
+    wtq:hasCategory wd:Q5305704,
+        "Outstanding Actress in a Play" ;
+    wtq:hasNominated_work "Pride's Crossing" ;
+    wtq:hasResult "Won" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "3" .
+
+wtq:Cherry_Jones_row_4 wtq:hasAssociation wd:Q191874,
+        "Tony Awards" ;
+    wtq:hasCategory wd:Q185299,
+        "Best Actress in a Play" ;
+    wtq:hasNominated_work wd:Q3443505,
+        "A Moon for the Misbegotten" ;
+    wtq:hasResult "Nominated" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "4" .
+
+wtq:Cherry_Jones_row_9 wtq:hasAssociation wd:Q1044427,
+        "Primetime Emmy Awards" ;
+    wtq:hasCategory wd:Q1285504,
+        "Outstanding Supporting Actress in a Drama Series" ;
+    wtq:hasNominated_work wd:Q56194,
+        "24" ;
+    wtq:hasResult "Won" ;
+    wtq:hasYear "2009" ;
+    wtq:hasindex "9" .
+
+wd:Q1044427 rdfs:label "Primetime Emmy Award" ;
+    wdt:P1027 "Academy of Television Arts & Sciences" ;
+    wdt:P279 "Emmy Award" ;
+    wdt:P527 "Primetime Emmy Award for Outstanding Production Design for Variety, Nonfiction, Reality, or Reality-Competition Programming" .
+
+wd:Q1285504 rdfs:label "Primetime Emmy Award for Outstanding Supporting Actress in a Drama Series" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "award for best supporting actress" ;
+    wdt:P361 "Primetime Emmy Award" .
+
+wd:Q3443505 rdfs:label "A Moon for the Misbegotten" ;
+    wdt:P31 "literary work" ;
+    wdt:P674 "Josie Hogan",
+        "Mike Hogan" .
+
+wd:Q5305704 rdfs:label "Drama Desk Award for Outstanding Actress in a Play" ;
+    wdt:P2517 "Q107560794" ;
+    wdt:P31 "class of award" ;
+    wdt:P361 "Drama Desk Awards" .
+
+wd:Q56194 rdfs:label "24" ;
+    wdt:P161 "Matt Battaglia",
+        "Michael Gaston",
+        "Rami Malek" .
+
+wd:Q7739316 rdfs:label "The Heiress" ;
+    wdt:P144 "Washington Square" ;
+    wdt:P407 "English" ;
+    wdt:P50 "Augustus Goetz" .
+
+wd:Q185299 rdfs:label "Tony Award for Best Actress in a Play" ;
+    wdt:P1424 "Template:TonyAward PlayLeadActress" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "class of award",
+        "theatre award" ;
+    wdt:P910 "Q32351005" .
+
+wd:Q191874 rdfs:label "Tony Awards" ;
+    wdt:P1027 "American Theatre Wing",
+        "The Broadway League" ;
+    wdt:P17 "United States of America" ;
+    wdt:P279 "theatre award" ;
+    wdt:P910 "Category:Tony Awards" .
+

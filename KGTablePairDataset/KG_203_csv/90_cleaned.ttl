@@ -1,0 +1,59 @@
+@prefix ns1: <http://wikitablequestion.org/hasGrowth_1991–> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Religion_in_India a wtq:Entity ;
+    wtq:hasRow wtq:Religion_in_India_row_2,
+        wtq:Religion_in_India_row_6 .
+
+wtq:Religion_in_India_row_1 wtq:hasReligious_group wd:Q432 .
+
+wtq:Religion_in_India_row_3 wtq:hasReligious_group wd:Q9316 .
+
+wtq:Religion_in_India_row_4 wtq:hasReligious_group wd:Q748 .
+
+wtq:Religion_in_India_row_2 ns1:2001 "22.6%" ;
+    wtq:hasLiteracy "80.3%" ;
+    wtq:hasPopulation "2.34%" ;
+    wtq:hasReligious_group wd:Q5043,
+        "Christian" ;
+    wtq:hasSex_ratio_child "964" ;
+    wtq:hasSex_ratio_rural "1001" ;
+    wtq:hasSex_ratio_total "1009" ;
+    wtq:hasSex_ratio_urban "1026" ;
+    wtq:hasWork_participation "39.7%" ;
+    wtq:hasindex "2" .
+
+wtq:Religion_in_India_row_6 ns1:2001 "26.0%" ;
+    wtq:hasLiteracy "94.1%" ;
+    wtq:hasPopulation "0.41%" ;
+    wtq:hasReligious_group "Jain" ;
+    wtq:hasSex_ratio_child "870" ;
+    wtq:hasSex_ratio_rural "937" ;
+    wtq:hasSex_ratio_total "940" ;
+    wtq:hasSex_ratio_urban "941" ;
+    wtq:hasWork_participation "32.9%" ;
+    wtq:hasindex "6" .
+
+wd:Q432 rdfs:label "Islam" ;
+    wdt:P110 "'ālim" ;
+    wdt:P112 "Muhammad" ;
+    wdt:P37 "Arabic" .
+
+wd:Q5043 rdfs:label "Christianity" ;
+    wdt:P112 "Jesus" ;
+    wdt:P138 "Christ",
+        "Nazareth" .
+
+wd:Q748 rdfs:label "Buddhism" ;
+    wdt:P155 "Historical Vedic religion" ;
+    wdt:P31 "religion",
+        "world view" .
+
+wd:Q9316 rdfs:label "Sikhism" ;
+    wdt:P112 "Guru Nanak" ;
+    wdt:P172 "polyethnicity" ;
+    wdt:P279 "monotheistic religion" .
+

@@ -1,0 +1,50 @@
+@prefix ns1: <http://wikitablequestion.org/hasWomen'> .
+@prefix ns2: <http://wikitablequestion.org/hasMen'> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Old_Four a wtq:Entity ;
+    wtq:hasRow wtq:Old_Four_row_2,
+        wtq:Old_Four_row_3,
+        wtq:Old_Four_row_4,
+        wtq:Old_Four_row_9 .
+
+wtq:Old_Four_row_2 wtq:hasLocation "Montreal" ;
+    ns2:s_runner-up "Queen's" ;
+    ns2:s_winner "Toronto" ;
+    wtq:hasScore "2-1" ;
+    wtq:hasScore.1 "1-0" ;
+    ns1:s_runner-up "Queen's" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "2" .
+
+wtq:Old_Four_row_3 wtq:hasLocation "Toronto" ;
+    ns2:s_runner-up "Queen's" ;
+    ns2:s_winner "Western" ;
+    wtq:hasScore "3-0" ;
+    wtq:hasScore.1 "6-2" ;
+    ns1:s_runner-up "Western" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "3" .
+
+wtq:Old_Four_row_4 wtq:hasLocation "London" ;
+    ns2:s_runner-up "McGill" ;
+    ns2:s_winner "Western" ;
+    wtq:hasScore "1-0" ;
+    wtq:hasScore.1 "1-0" ;
+    ns1:s_runner-up "Queen's" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2007" ;
+    wtq:hasindex "4" .
+
+wtq:Old_Four_row_9 wtq:hasLocation "Toronto" ;
+    ns2:s_runner-up "Western" ;
+    ns2:s_winner "Toronto" ;
+    wtq:hasScore "1-1 (5-4 PK)" ;
+    wtq:hasScore.1 "2-1" ;
+    ns1:s_runner-up "Western" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2012" ;
+    wtq:hasindex "9" .
+

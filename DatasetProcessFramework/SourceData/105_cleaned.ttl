@@ -1,0 +1,35 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_tallest_buildings_in_Minneapolis a wtq:Entity ;
+    wtq:hasRow wtq:List_of_tallest_buildings_in_Minneapolis_row_2,
+        wtq:List_of_tallest_buildings_in_Minneapolis_row_6 .
+
+wtq:List_of_tallest_buildings_in_Minneapolis_row_2 wtq:hasFloors "8" ;
+    wtq:hasHeight_nft__m_ "240 (73)" ;
+    wtq:hasName wd:Q6027618,
+        "Industrial Exposition Building" ;
+    wtq:hasStreet_address "Central Avenue Southeast and Main Street Southeast" ;
+    wtq:hasYears_as_tallest "1887–1890" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_tallest_buildings_in_Minneapolis_row_6 wtq:hasFloors "55" ;
+    wtq:hasHeight_nft__m_ "792 (241)" ;
+    wtq:hasName wd:Q2745898,
+        "IDS Tower" ;
+    wtq:hasStreet_address "80 8th Street South" ;
+    wtq:hasYears_as_tallest "1973–present" ;
+    wtq:hasindex "6" .
+
+wd:Q2745898 rdfs:label "IDS Center" ;
+    wdt:P17 "United States of America" ;
+    wdt:P631 "Severud Associates" ;
+    wdt:P84 "Philip Johnson" .
+
+wd:Q6027618 rdfs:label "Industrial Exposition Building" ;
+    wdt:P131 "Minneapolis" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "building" .
+

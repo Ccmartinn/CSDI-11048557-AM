@@ -1,0 +1,109 @@
+@prefix ns1: <http://wikitablequestion.org/hasArea__km²> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Provinces_of_the_Dominican_Republic a wtq:Entity ;
+    wtq:hasRow wtq:Provinces_of_the_Dominican_Republic_row_14,
+        wtq:Provinces_of_the_Dominican_Republic_row_17,
+        wtq:Provinces_of_the_Dominican_Republic_row_19,
+        wtq:Provinces_of_the_Dominican_Republic_row_20,
+        wtq:Provinces_of_the_Dominican_Republic_row_22,
+        wtq:Provinces_of_the_Dominican_Republic_row_24,
+        wtq:Provinces_of_the_Dominican_Republic_row_25,
+        wtq:Provinces_of_the_Dominican_Republic_row_26,
+        wtq:Provinces_of_the_Dominican_Republic_row_27,
+        wtq:Provinces_of_the_Dominican_Republic_row_3,
+        wtq:Provinces_of_the_Dominican_Republic_row_30,
+        wtq:Provinces_of_the_Dominican_Republic_row_31,
+        wtq:Provinces_of_the_Dominican_Republic_row_4 .
+
+wtq:Provinces_of_the_Dominican_Republic_row_14 ns1:_ "2,287.24" ;
+    wtq:hasCapital "Concepción de La Vega" ;
+    wtq:hasDensity "196" ;
+    wtq:hasPopulation "447,905" ;
+    wtq:hasProvince "La Vega" ;
+    wtq:hasindex "14" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_17 ns1:_ "1,924.35" ;
+    wtq:hasCapital "Monte Cristi" ;
+    wtq:hasDensity "78" ;
+    wtq:hasPopulation "150,833" ;
+    wtq:hasProvince "Monte Cristi" ;
+    wtq:hasindex "17" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_19 ns1:_ "2,074.53" ;
+    wtq:hasCapital "Pedernales" ;
+    wtq:hasDensity "25" ;
+    wtq:hasPopulation "52,165" ;
+    wtq:hasProvince "Pedernales" ;
+    wtq:hasindex "19" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_20 ns1:_ "792.33" ;
+    wtq:hasCapital "Baní" ;
+    wtq:hasDensity "274" ;
+    wtq:hasPopulation "217,241" ;
+    wtq:hasProvince "Peravia" ;
+    wtq:hasindex "20" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_22 ns1:_ "853.74" ;
+    wtq:hasCapital "Samaná" ;
+    wtq:hasDensity "164" ;
+    wtq:hasPopulation "139,707" ;
+    wtq:hasProvince "Samaná" ;
+    wtq:hasindex "22" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_24 ns1:_ "855.40" ;
+    wtq:hasCapital "San José de Ocoa" ;
+    wtq:hasDensity "114" ;
+    wtq:hasPopulation "97,640" ;
+    wtq:hasProvince "San José de Ocoa" ;
+    wtq:hasindex "24" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_25 ns1:_ "3,569.39" ;
+    wtq:hasCapital "San Juan de la Maguana" ;
+    wtq:hasDensity "89" ;
+    wtq:hasPopulation "317,293" ;
+    wtq:hasProvince "San Juan" ;
+    wtq:hasindex "25" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_26 ns1:_ "1,255.46" ;
+    wtq:hasCapital "San Pedro de Macorís" ;
+    wtq:hasDensity "313" ;
+    wtq:hasPopulation "392,911" ;
+    wtq:hasProvince "San Pedro de Macorís" ;
+    wtq:hasindex "26" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_27 ns1:_ "1,196.13" ;
+    wtq:hasCapital "Cotuí" ;
+    wtq:hasDensity "208" ;
+    wtq:hasPopulation "248,807" ;
+    wtq:hasProvince "Sánchez Ramírez" ;
+    wtq:hasindex "27" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_3 ns1:_ "1,020.73" ;
+    wtq:hasCapital "Dajabón" ;
+    wtq:hasDensity "86" ;
+    wtq:hasPopulation "87,274" ;
+    wtq:hasProvince "Dajabón" ;
+    wtq:hasindex "3" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_30 ns1:_ "1,296.35" ;
+    wtq:hasCapital "Santo Domingo Este" ;
+    wtq:hasDensity "2,517" ;
+    wtq:hasPopulation "3,263,053" ;
+    wtq:hasProvince "Santo Domingo" ;
+    wtq:hasindex "30" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_31 ns1:_ "823.38" ;
+    wtq:hasCapital "Mao" ;
+    wtq:hasDensity "264" ;
+    wtq:hasPopulation "217,026" ;
+    wtq:hasProvince "Valverde" ;
+    wtq:hasindex "31" .
+
+wtq:Provinces_of_the_Dominican_Republic_row_4 ns1:_ "104.44" ;
+    wtq:hasCapital "Santo Domingo" ;
+    wtq:hasDensity "13,431" ;
+    wtq:hasPopulation "1,402,749" ;
+    wtq:hasProvince "Distrito Nacional" ;
+    wtq:hasindex "4" .
+

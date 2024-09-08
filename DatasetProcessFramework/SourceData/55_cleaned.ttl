@@ -1,0 +1,87 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Super_Chinese a wtq:Entity ;
+    wtq:hasRow wtq:Super_Chinese_row_1,
+        wtq:Super_Chinese_row_10,
+        wtq:Super_Chinese_row_2,
+        wtq:Super_Chinese_row_3,
+        wtq:Super_Chinese_row_4 .
+
+wtq:Super_Chinese_row_1 wtq:hasGenre "Action" ;
+    wtq:hasJapanese_Title "Super Chinese" ;
+    wtq:hasPlatform_s_ wd:Q172742,
+        "FC/NES" ;
+    wtq:hasRegions "JP, NA" ;
+    wtq:hasRelease "1986" ;
+    wtq:hasWestern_Title "Kung-Fu Heroes" ;
+    wtq:hasindex "1" .
+
+wtq:Super_Chinese_row_10 wtq:hasGenre "Fighting" ;
+    wtq:hasJapanese_Title wd:Q7642250,
+        "Super Chinese Fighter" ;
+    wtq:hasPlatform_s_ wd:Q183259,
+        "SFC" ;
+    wtq:hasRegions "JP" ;
+    wtq:hasRelease "1995" ;
+    wtq:hasWestern_Title "-" ;
+    wtq:hasindex "10" .
+
+wtq:Super_Chinese_row_2 wtq:hasGenre "Role-Playing" ;
+    wtq:hasJapanese_Title "Super Chinese 2" ;
+    wtq:hasPlatform_s_ wd:Q172742,
+        "FC/NES" ;
+    wtq:hasRegions "JP, NA" ;
+    wtq:hasRelease "1989" ;
+    wtq:hasWestern_Title "Little Ninja Brothers" ;
+    wtq:hasindex "2" .
+
+wtq:Super_Chinese_row_3 wtq:hasGenre "Role-Playing" ;
+    wtq:hasJapanese_Title wd:Q7642253,
+        "Super Chinese 3" ;
+    wtq:hasPlatform_s_ wd:Q172742,
+        "FC" ;
+    wtq:hasRegions "JP" ;
+    wtq:hasRelease "1991" ;
+    wtq:hasWestern_Title "-" ;
+    wtq:hasindex "3" .
+
+wtq:Super_Chinese_row_4 wtq:hasGenre "Action" ;
+    wtq:hasJapanese_Title "Super Chinese Land" ;
+    wtq:hasPlatform_s_ wd:Q186437,
+        "GB" ;
+    wtq:hasRegions "JP, NA" ;
+    wtq:hasRelease "1990" ;
+    wtq:hasWestern_Title "Ninja Boy" ;
+    wtq:hasindex "4" .
+
+wd:Q183259 rdfs:label "Super Nintendo Entertainment System" ;
+    wdt:P155 "Family Computer" ;
+    wdt:P361 "fourth generation of video game consoles" ;
+    wdt:P880 "Ricoh 5A22" .
+
+wd:Q186437 rdfs:label "Game Boy" ;
+    wdt:P176 "Nintendo" ;
+    wdt:P279 "handheld game console" ;
+    wdt:P361 "Game Boy family" .
+
+wd:Q7642250 rdfs:label "Super Chinese Fighter" ;
+    wdt:P404 "single-player video game" ;
+    wdt:P437 "ROM cartridge" ;
+    wdt:P495 "Japan" .
+
+wd:Q7642253 rdfs:label "Super Chinese 3" ;
+    wdt:P178 "Culture Brain" ;
+    wdt:P400 "Nintendo Entertainment System" ;
+    wdt:P495 "Japan" .
+
+wd:Q172742 rdfs:label "Nintendo Entertainment System" ;
+    wdt:P155 "Color TV-Game" ;
+    wdt:P17 "Japan" ;
+    wdt:P178 "Nintendo Research & Development 2" ;
+    wdt:P361 "third generation of video game consoles" ;
+    wdt:P460 "Family Computer",
+        "Nintendo Entertainment System" .
+

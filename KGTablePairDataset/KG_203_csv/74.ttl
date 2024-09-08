@@ -1,0 +1,46 @@
+@prefix ns1: <http://wikitablequestion.org/hasArea__km²> .
+@prefix ns2: <http://wikitablequestion.org/hasDensity__People_km²> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom a wtq:Entity ;
+    wtq:hasRow wtq:List_of_urban_areas_in_the_United_Kingdom_row_2,
+        wtq:List_of_urban_areas_in_the_United_Kingdom_row_4,
+        wtq:List_of_urban_areas_in_the_United_Kingdom_row_6,
+        wtq:List_of_urban_areas_in_the_United_Kingdom_row_9 .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_2 ns1:_ "60.94" ;
+    ns2:_ "3,238" ;
+    wtq:hasMajor_subdivisions "Aberdeen, Cove Bay, Dyce" ;
+    wtq:hasMetropolitan_Area "Aberdeen" ;
+    wtq:hasPopulation_n_2001_Census_ "197,328" ;
+    wtq:hasRank "3" ;
+    wtq:hasUrban_Area "Aberdeen" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_4 ns1:_ "36.1" ;
+    ns2:_ "2,532" ;
+    wtq:hasMajor_subdivisions "Falkirk, Grangemouth, Carron, Polmont, Stenhousemuir" ;
+    wtq:hasMetropolitan_Area "Falkirk" ;
+    wtq:hasPopulation_n_2001_Census_ "91,402" ;
+    wtq:hasRank "5" ;
+    wtq:hasUrban_Area "Falkirk" ;
+    wtq:hasindex "4" .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_6 ns1:_ "20.69" ;
+    ns2:_ "3,557" ;
+    wtq:hasMajor_subdivisions "Greenock, Gourock, Port Glasgow" ;
+    wtq:hasMetropolitan_Area "Glasgow" ;
+    wtq:hasPopulation_n_2001_Census_ "73,595" ;
+    wtq:hasRank "7" ;
+    wtq:hasUrban_Area "Greenock" ;
+    wtq:hasindex "6" .
+
+wtq:List_of_urban_areas_in_the_United_Kingdom_row_9 ns1:_ "26.07" ;
+    ns2:_ "2,283" ;
+    wtq:hasMajor_subdivisions "Livingston, East Calder, Mid Calder" ;
+    wtq:hasMetropolitan_Area "Edinburgh" ;
+    wtq:hasPopulation_n_2001_Census_ "59,511" ;
+    wtq:hasRank "10" ;
+    wtq:hasUrban_Area "Livingston" ;
+    wtq:hasindex "9" .
+

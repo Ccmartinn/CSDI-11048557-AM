@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Warsaw_Governorate_row_3", "label": "wtq:Warsaw_Governorate_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Warsaw_Governorate", "label": "wtq:Warsaw_Governorate", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Warsaw_Governorate_row_4", "label": "wtq:Warsaw_Governorate_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7737", "label": "wd:Q7737", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Warsaw_Governorate_row_10", "label": "wtq:Warsaw_Governorate_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q8798", "label": "wd:Q8798", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q188", "label": "wd:Q188", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Warsaw_Governorate_row_1", "label": "wtq:Warsaw_Governorate_row_1", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Warsaw_Governorate_row_2", "label": "wtq:Warsaw_Governorate_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_voiceless dental stop", "label": "voiceless dental stop", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_1 535", "label": "1 535", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Belarus", "label": "Belarus", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_37 984", "label": "37 984", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_German", "label": "German", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_3.99", "label": "3.99", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_voiced alveolar lateral approximant", "label": "voiced alveolar lateral approximant", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_German studies", "label": "German studies", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Ukrainian", "label": "Ukrainian", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_317 169", "label": "317 169", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Moldova", "label": "Moldova", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_15 930", "label": "15 930", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Russian", "label": "Russian", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_0.82", "label": "0.82", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_German", "label": "German", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Hungary", "label": "Hungary", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_15 623", "label": "15 623", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_162 566", "label": "162 566", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_voiced palatal approximant", "label": "voiced palatal approximant", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Germany", "label": "Germany", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_87 850", "label": "87 850", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Trentino", "label": "Trentino", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_154 603", "label": "154 603", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_307", "label": "307", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_1 586", "label": "1 586", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_16.41", "label": "16.41", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Other", "label": "Other", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_13 551", "label": "13 551", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_4.54", "label": "4.54", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Yiddish", "label": "Yiddish", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_Ukrainian", "label": "Ukrainian", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_0.24", "label": "0.24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Russian", "label": "Russian", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_77 160", "label": "77 160", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_4 824", "label": "4 824", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_39 176", "label": "39 176", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_3 289", "label": "3 289", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:hasRow", "to": "wtq:Warsaw_Governorate"}, {"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:hasLanguage", "to": "wd:Q188"}, {"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:hasindex", "to": "literal_0_3"}, {"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:hasmales", "to": "literal_4_37 984"}, {"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:haspercentage", "to": "literal_6_3.99"}, {"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:hasLanguage", "to": "literal_16_German"}, {"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:hasNumber", "to": "literal_37_77 160"}, {"from": "wtq:Warsaw_Governorate_row_3", "title": "wtq:hasfemales", "to": "literal_39_39 176"}, {"from": "wtq:Warsaw_Governorate", "title": "wtq:hasRow", "to": "wtq:Warsaw_Governorate_row_4"}, {"from": "wtq:Warsaw_Governorate", "title": "wtq:hasRow", "to": "wtq:Warsaw_Governorate_row_1"}, {"from": "wtq:Warsaw_Governorate", "title": "wtq:hasRow", "to": "wtq:Warsaw_Governorate_row_10"}, {"from": "wtq:Warsaw_Governorate", "title": "wtq:hasRow", "to": "wtq:Warsaw_Governorate_row_2"}, {"from": "wtq:Warsaw_Governorate", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Warsaw_Governorate_row_4", "title": "wtq:hasLanguage", "to": "wd:Q8798"}, {"from": "wtq:Warsaw_Governorate_row_4", "title": "wtq:hasNumber", "to": "literal_13_15 930"}, {"from": "wtq:Warsaw_Governorate_row_4", "title": "wtq:haspercentage", "to": "literal_15_0.82"}, {"from": "wtq:Warsaw_Governorate_row_4", "title": "wtq:hasmales", "to": "literal_19_15 623"}, {"from": "wtq:Warsaw_Governorate_row_4", "title": "wtq:hasfemales", "to": "literal_27_307"}, {"from": "wtq:Warsaw_Governorate_row_4", "title": "wtq:hasLanguage", "to": "literal_34_Ukrainian"}, {"from": "wtq:Warsaw_Governorate_row_4", "title": "wtq:hasindex", "to": "literal_40_4"}, {"from": "wd:Q7737", "title": "wtq:hasLanguage", "to": "wtq:Warsaw_Governorate_row_2"}, {"from": "wd:Q7737", "title": "wdt:P2587", "to": "literal_1_voiceless dental stop"}, {"from": "wd:Q7737", "title": "wdt:P2587", "to": "literal_7_voiced alveolar lateral approximant"}, {"from": "wd:Q7737", "title": "wdt:P2587", "to": "literal_21_voiced palatal approximant"}, {"from": "wd:Q7737", "title": "rdfs:label", "to": "literal_36_Russian"}, {"from": "wtq:Warsaw_Governorate_row_10", "title": "wtq:hasfemales", "to": "literal_2_1 535"}, {"from": "wtq:Warsaw_Governorate_row_10", "title": "wtq:hasindex", "to": "literal_8_10"}, {"from": "wtq:Warsaw_Governorate_row_10", "title": "wtq:hasLanguage", "to": "literal_30_Other"}, {"from": "wtq:Warsaw_Governorate_row_10", "title": "wtq:haspercentage", "to": "literal_35_0.24"}, {"from": "wtq:Warsaw_Governorate_row_10", "title": "wtq:hasNumber", "to": "literal_38_4 824"}, {"from": "wtq:Warsaw_Governorate_row_10", "title": "wtq:hasmales", "to": "literal_41_3 289"}, {"from": "wd:Q8798", "title": "wdt:P17", "to": "literal_3_Belarus"}, {"from": "wd:Q8798", "title": "rdfs:label", "to": "literal_10_Ukrainian"}, {"from": "wd:Q8798", "title": "wdt:P17", "to": "literal_12_Moldova"}, {"from": "wd:Q8798", "title": "wdt:P17", "to": "literal_18_Hungary"}, {"from": "wd:Q188", "title": "rdfs:label", "to": "literal_5_German"}, {"from": "wd:Q188", "title": "wdt:P2579", "to": "literal_9_German studies"}, {"from": "wd:Q188", "title": "wdt:P2341", "to": "literal_22_Germany"}, {"from": "wd:Q188", "title": "wdt:P2341", "to": "literal_24_Trentino"}, {"from": "wtq:Warsaw_Governorate_row_1", "title": "wtq:hasNumber", "to": "literal_11_317 169"}, {"from": "wtq:Warsaw_Governorate_row_1", "title": "wtq:hasfemales", "to": "literal_20_162 566"}, {"from": "wtq:Warsaw_Governorate_row_1", "title": "wtq:hasindex", "to": "literal_25_1"}, {"from": "wtq:Warsaw_Governorate_row_1", "title": "wtq:hasmales", "to": "literal_26_154 603"}, {"from": "wtq:Warsaw_Governorate_row_1", "title": "wtq:haspercentage", "to": "literal_29_16.41"}, {"from": "wtq:Warsaw_Governorate_row_1", "title": "wtq:hasLanguage", "to": "literal_33_Yiddish"}, {"from": "wtq:Warsaw_Governorate_row_2", "title": "wtq:hasLanguage", "to": "literal_14_Russian"}, {"from": "wtq:Warsaw_Governorate_row_2", "title": "wtq:hasindex", "to": "literal_17_2"}, {"from": "wtq:Warsaw_Governorate_row_2", "title": "wtq:hasNumber", "to": "literal_23_87 850"}, {"from": "wtq:Warsaw_Governorate_row_2", "title": "wtq:hasfemales", "to": "literal_28_1 586"}, {"from": "wtq:Warsaw_Governorate_row_2", "title": "wtq:hasmales", "to": "literal_31_13 551"}, {"from": "wtq:Warsaw_Governorate_row_2", "title": "wtq:haspercentage", "to": "literal_32_4.54"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

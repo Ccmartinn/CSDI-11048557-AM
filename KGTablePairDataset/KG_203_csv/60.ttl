@@ -1,0 +1,34 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Thierry_Tulasne a wtq:Entity ;
+    wtq:hasRow wtq:Thierry_Tulasne_row_2,
+        wtq:Thierry_Tulasne_row_6,
+        wtq:Thierry_Tulasne_row_8 .
+
+wtq:Thierry_Tulasne_row_2 wtq:hasChampionship "Bologna, Italy" ;
+    wtq:hasDate "10 June 1985" ;
+    <http://wikitablequestion.org/hasNo.> "2.0" ;
+    wtq:hasOpponent_in_the_final "Claudio Panatta" ;
+    wtq:hasOutcome "Winner" ;
+    wtq:hasScore_in_the_final "6–2, 6–0" ;
+    wtq:hasSurface "Clay" ;
+    wtq:hasindex "2" .
+
+wtq:Thierry_Tulasne_row_6 wtq:hasChampionship "Indianapolis, U.S." ;
+    wtq:hasDate "28 April 1986" ;
+    <http://wikitablequestion.org/hasNo.> "2.0" ;
+    wtq:hasOpponent_in_the_final "Andrés Gómez" ;
+    wtq:hasOutcome "Runner-up" ;
+    wtq:hasScore_in_the_final "4–6, 6–7(1–7)" ;
+    wtq:hasSurface "Clay" ;
+    wtq:hasindex "6" .
+
+wtq:Thierry_Tulasne_row_8 wtq:hasChampionship "Geneva, Switzerland" ;
+    wtq:hasDate "8 September 1986" ;
+    <http://wikitablequestion.org/hasNo.> "4.0" ;
+    wtq:hasOpponent_in_the_final "Henri Leconte" ;
+    wtq:hasOutcome "Runner-up" ;
+    wtq:hasScore_in_the_final "5–7, 3–6" ;
+    wtq:hasSurface "Clay" ;
+    wtq:hasindex "8" .
+

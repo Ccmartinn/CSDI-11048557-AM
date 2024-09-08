@@ -1,0 +1,74 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Teeratep_Winothai a wtq:Entity ;
+    wtq:hasRow wtq:Teeratep_Winothai_row_13,
+        wtq:Teeratep_Winothai_row_14,
+        wtq:Teeratep_Winothai_row_15,
+        wtq:Teeratep_Winothai_row_2,
+        wtq:Teeratep_Winothai_row_3,
+        wtq:Teeratep_Winothai_row_6,
+        wtq:Teeratep_Winothai_row_7 .
+
+wtq:Teeratep_Winothai_row_13 <http://wikitablequestion.org/has#> "14.0" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "8 November 2009" ;
+    wtq:hasOpponent "Syria" ;
+    wtq:hasResult "Draw" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasVenue "Bangkok, Thailand" ;
+    wtq:hasindex "13" .
+
+wtq:Teeratep_Winothai_row_14 <http://wikitablequestion.org/has#> "15.0" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "8 September 2010" ;
+    wtq:hasOpponent "India" ;
+    wtq:hasResult "Win" ;
+    wtq:hasScore "2–1" ;
+    wtq:hasVenue "New Delhi, India" ;
+    wtq:hasindex "14" .
+
+wtq:Teeratep_Winothai_row_15 <http://wikitablequestion.org/has#> "16.0" ;
+    wtq:hasCompetition "2012 King's Cup" ;
+    wtq:hasDate "15 January 2012" ;
+    wtq:hasOpponent "South Korea" ;
+    wtq:hasResult "Loss" ;
+    wtq:hasScore "1–3" ;
+    wtq:hasVenue "Bangkok, Thailand" ;
+    wtq:hasindex "15" .
+
+wtq:Teeratep_Winothai_row_2 <http://wikitablequestion.org/has#> "3.0" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "26 March 2006" ;
+    wtq:hasOpponent "Philippines" ;
+    wtq:hasResult "Win" ;
+    wtq:hasScore "5–0" ;
+    wtq:hasVenue "Chonburi, Thailand" ;
+    wtq:hasindex "2" .
+
+wtq:Teeratep_Winothai_row_3 <http://wikitablequestion.org/has#> "4.0" ;
+    wtq:hasCompetition "2010 FIFA World Cup Qualification" ;
+    wtq:hasDate "8 October 2007" ;
+    wtq:hasOpponent "Macau" ;
+    wtq:hasResult "Win" ;
+    wtq:hasScore "6–1" ;
+    wtq:hasVenue "Bangkok, Thailand" ;
+    wtq:hasindex "3" .
+
+wtq:Teeratep_Winothai_row_6 <http://wikitablequestion.org/has#> "7.0" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "15 March 2008" ;
+    wtq:hasOpponent "China PR" ;
+    wtq:hasResult "Draw" ;
+    wtq:hasScore "3–3" ;
+    wtq:hasVenue "Kunming, China" ;
+    wtq:hasindex "6" .
+
+wtq:Teeratep_Winothai_row_7 <http://wikitablequestion.org/has#> "8.0" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "20 May 2008" ;
+    wtq:hasOpponent "Nepal" ;
+    wtq:hasResult "Win" ;
+    wtq:hasScore "7–0" ;
+    wtq:hasVenue "Bangkok, Thailand" ;
+    wtq:hasindex "7" .
+

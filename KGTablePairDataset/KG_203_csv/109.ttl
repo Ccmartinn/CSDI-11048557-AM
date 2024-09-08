@@ -1,0 +1,68 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Human_rights_in_Morocco a wtq:Entity ;
+    wtq:hasRow wtq:Human_rights_in_Morocco_row_10,
+        wtq:Human_rights_in_Morocco_row_14,
+        wtq:Human_rights_in_Morocco_row_16,
+        wtq:Human_rights_in_Morocco_row_17,
+        wtq:Human_rights_in_Morocco_row_2,
+        wtq:Human_rights_in_Morocco_row_3,
+        wtq:Human_rights_in_Morocco_row_4,
+        wtq:Human_rights_in_Morocco_row_6 .
+
+wtq:Human_rights_in_Morocco_row_10 wtq:hasIntroduced "1989" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "-" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty "Second Optional Protocol to the International Covenant on Civil and Political Rights, aiming at the abolition of the death penalty" ;
+    wtq:hasindex "10" .
+
+wtq:Human_rights_in_Morocco_row_14 wtq:hasIntroduced "2000" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "2001" ;
+    wtq:hasSigned "2000" ;
+    wtq:hasTreaty "Optional Protocol to the Convention on the Rights of the Child on the Sale of Children, Child Prostitution and Child Pornography" ;
+    wtq:hasindex "14" .
+
+wtq:Human_rights_in_Morocco_row_16 wtq:hasIntroduced "2006" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "2009" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty "Optional Protocol to the Convention on the Rights of Persons with Disabilities" ;
+    wtq:hasindex "16" .
+
+wtq:Human_rights_in_Morocco_row_17 wtq:hasIntroduced "2006" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "2013" ;
+    wtq:hasSigned "2007" ;
+    wtq:hasTreaty "International Convention for the Protection of All Persons from Enforced Disappearance" ;
+    wtq:hasindex "17" .
+
+wtq:Human_rights_in_Morocco_row_2 wtq:hasIntroduced "1966" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "1979" ;
+    wtq:hasSigned "1977" ;
+    wtq:hasTreaty "International Covenant on Economic, Social and Cultural Rights" ;
+    wtq:hasindex "2" .
+
+wtq:Human_rights_in_Morocco_row_3 wtq:hasIntroduced "1966" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "1979" ;
+    wtq:hasSigned "1977" ;
+    wtq:hasTreaty "International Covenant on Civil and Political Rights" ;
+    wtq:hasindex "3" .
+
+wtq:Human_rights_in_Morocco_row_4 wtq:hasIntroduced "1966" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "-" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty "First Optional Protocol to the International Covenant on Civil and Political Rights" ;
+    wtq:hasindex "4" .
+
+wtq:Human_rights_in_Morocco_row_6 wtq:hasIntroduced "1973" ;
+    wtq:hasOrganization "United Nations" ;
+    wtq:hasRatified "-" ;
+    wtq:hasSigned "-" ;
+    wtq:hasTreaty "International Convention on the Suppression and Punishment of the Crime of Apartheid" ;
+    wtq:hasindex "6" .
+

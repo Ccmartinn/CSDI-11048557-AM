@@ -1,0 +1,51 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Filip_Hološko a wtq:Entity ;
+    wtq:hasRow wtq:Filip_Hološko_row_2,
+        wtq:Filip_Hološko_row_6 .
+
+wtq:Filip_Hološko_row_2 <http://wikitablequestion.org/has#> "3.0" ;
+    wtq:hasCompetition wd:Q29185,
+        "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "13 October 2007" ;
+    wtq:hasOpponent wd:Q185350,
+        "San Marino" ;
+    wtq:hasResult "7–0" ;
+    wtq:hasScore "5–0" ;
+    wtq:hasVenue "Štadión Zimný, Dubnica, Slovakia" ;
+    wtq:hasindex "2" .
+
+wtq:Filip_Hološko_row_6 <http://wikitablequestion.org/has#> "7.0" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "29 March 2011" ;
+    wtq:hasOpponent wd:Q131785,
+        "Denmark" ;
+    wtq:hasResult "1–2" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasVenue wd:Q26175,
+        "Štadión Antona Malatinského, Trnava, Slovakia" ;
+    wtq:hasindex "6" .
+
+wd:Q131785 rdfs:label "Denmark national association football team" ;
+    wdt:P115 "Parken Stadium" ;
+    wdt:P17 "Denmark" ;
+    wdt:P641 "association football" .
+
+wd:Q185350 rdfs:label "San Marino national football team" ;
+    wdt:P17 "San Marino" ;
+    wdt:P2094 "men's association football" ;
+    wdt:P641 "association football" .
+
+wd:Q26175 rdfs:label "Trnava" ;
+    wdt:P190 "Casale Monferrato",
+        "Novo Mesto" ;
+    wdt:P31 "city" .
+
+wd:Q29185 rdfs:label "UEFA Euro 2008 qualifying" ;
+    wdt:P2094 "men's association football" ;
+    wdt:P31 "UEFA European Championship qualifying" ;
+    wdt:P641 "association football" .
+

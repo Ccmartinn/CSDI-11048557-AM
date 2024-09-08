@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Human_rights_in_Morocco_row_4", "label": "wtq:Human_rights_in_Morocco_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1065", "label": "wd:Q1065", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q457862", "label": "wd:Q457862", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco_row_16", "label": "wtq:Human_rights_in_Morocco_row_16", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco", "label": "wtq:Human_rights_in_Morocco", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco_row_17", "label": "wtq:Human_rights_in_Morocco_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2312098", "label": "wd:Q2312098", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco_row_14", "label": "wtq:Human_rights_in_Morocco_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco_row_3", "label": "wtq:Human_rights_in_Morocco_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco_row_6", "label": "wtq:Human_rights_in_Morocco_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q743306", "label": "wd:Q743306", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco_row_10", "label": "wtq:Human_rights_in_Morocco_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Human_rights_in_Morocco_row_2", "label": "wtq:Human_rights_in_Morocco_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1069706", "label": "wd:Q1069706", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_First Optional Protocol to the International Covenant on Civil and Political Rights", "label": "First Optional Protocol to the International Covenant on Civil and Political Rights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_2006", "label": "2006", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_2006", "label": "2006", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_multilateral treaty", "label": "multilateral treaty", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_2001", "label": "2001", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_2000", "label": "2000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_International Bill of Human Rights", "label": "International Bill of Human Rights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_1977", "label": "1977", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_First Optional Protocol to the International Covenant on Civil and Political Rights", "label": "First Optional Protocol to the International Covenant on Civil and Political Rights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_international human rights instrument", "label": "international human rights instrument", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_United Nations treaty", "label": "United Nations treaty", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_International Convention for the Protection of All Persons from Enforced Disappearance", "label": "International Convention for the Protection of All Persons from Enforced Disappearance", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_WikiForHumanRights 2019", "label": "WikiForHumanRights 2019", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_1966", "label": "1966", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_International Covenant on Economic, Social and Cultural Rights", "label": "International Covenant on Economic, Social and Cultural Rights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_French", "label": "French", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_International Convention on the Suppression and Punishment of the Crime of Apartheid", "label": "International Convention on the Suppression and Punishment of the Crime of Apartheid", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_International Covenant on Civil and Political Rights", "label": "International Covenant on Civil and Political Rights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Optional Protocol to the Convention on the Rights of Persons with Disabilities", "label": "Optional Protocol to the Convention on the Rights of Persons with Disabilities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_United Nations General Assembly Resolution 2200 A", "label": "United Nations General Assembly Resolution 2200 A", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_2009", "label": "2009", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_1979", "label": "1979", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Second Optional Protocol to the International Covenant on Civil and Political Rights, aiming at the abolition of the death penalty", "label": "Second Optional Protocol to the International Covenant on Civil and Political Rights, aiming at the abolition of the death penalty", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_2013", "label": "2013", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_1966", "label": "1966", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_1973", "label": "1973", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_core international human rights instrument", "label": "core international human rights instrument", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Convention on the Rights of Persons with Disabilities", "label": "Convention on the Rights of Persons with Disabilities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_international human rights law", "label": "international human rights law", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_2000", "label": "2000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Arabic", "label": "Arabic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_2007", "label": "2007", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_1979", "label": "1979", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_New York City", "label": "New York City", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_1989", "label": "1989", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_United Nations Document A/RES/2200(XXI)", "label": "United Nations Document A/RES/2200(XXI)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_International Convention on the Elimination of All Forms of Racial Discrimination", "label": "International Convention on the Elimination of All Forms of Racial Discrimination", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_United Nations Secretary-General", "label": "United Nations Secretary-General", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_International Covenant on Economic, Social and Cultural Rights", "label": "International Covenant on Economic, Social and Cultural Rights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_WikiProject Human Rights", "label": "WikiProject Human Rights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Optional Protocol to the Convention on the Rights of the Child on the Sale of Children, Child Prostitution and Child Pornography", "label": "Optional Protocol to the Convention on the Rights of the Child on the Sale of Children, Child Prostitution and Child Pornography", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_1977", "label": "1977", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_1966", "label": "1966", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_6", "label": "6", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasTreaty", "to": "wd:Q457862"}, {"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco"}, {"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasTreaty", "to": "literal_0_First Optional Protocol to the International Covenant on Civil and Political Rights"}, {"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasRatified", "to": "literal_20_-"}, {"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasIntroduced", "to": "literal_22_1966"}, {"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasindex", "to": "literal_29_4"}, {"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasOrganization", "to": "literal_36_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_4", "title": "wtq:hasSigned", "to": "literal_62_-"}, {"from": "wd:Q1065", "title": "wtq:hasOrganization", "to": "wtq:Human_rights_in_Morocco_row_2"}, {"from": "wd:Q1065", "title": "rdfs:label", "to": "literal_1_United Nations"}, {"from": "wd:Q1065", "title": "wdt:P17", "to": "literal_15_United States of America"}, {"from": "wd:Q1065", "title": "wdt:P37", "to": "literal_25_French"}, {"from": "wd:Q1065", "title": "wdt:P37", "to": "literal_46_Arabic"}, {"from": "wd:Q457862", "title": "wdt:P361", "to": "literal_7_International Bill of Human Rights"}, {"from": "wd:Q457862", "title": "wdt:P31", "to": "literal_12_international human rights instrument"}, {"from": "wd:Q457862", "title": "rdfs:label", "to": "literal_24_International Covenant on Economic, Social and Cultural Rights"}, {"from": "wd:Q457862", "title": "wdt:P457", "to": "literal_53_United Nations Document A/RES/2200(XXI)"}, {"from": "wtq:Human_rights_in_Morocco_row_16", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco"}, {"from": "wtq:Human_rights_in_Morocco_row_16", "title": "wtq:hasIntroduced", "to": "literal_2_2006"}, {"from": "wtq:Human_rights_in_Morocco_row_16", "title": "wtq:hasSigned", "to": "literal_16_-"}, {"from": "wtq:Human_rights_in_Morocco_row_16", "title": "wtq:hasTreaty", "to": "literal_30_Optional Protocol to the Convention on the Rights of Persons with Disabilities"}, {"from": "wtq:Human_rights_in_Morocco_row_16", "title": "wtq:hasRatified", "to": "literal_32_2009"}, {"from": "wtq:Human_rights_in_Morocco_row_16", "title": "wtq:hasOrganization", "to": "literal_58_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_16", "title": "wtq:hasindex", "to": "literal_59_16"}, {"from": "wtq:Human_rights_in_Morocco", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Human_rights_in_Morocco", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco_row_14"}, {"from": "wtq:Human_rights_in_Morocco", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco_row_17"}, {"from": "wtq:Human_rights_in_Morocco", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco_row_3"}, {"from": "wtq:Human_rights_in_Morocco", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco_row_10"}, {"from": "wtq:Human_rights_in_Morocco", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco_row_6"}, {"from": "wtq:Human_rights_in_Morocco", "title": "wtq:hasRow", "to": "wtq:Human_rights_in_Morocco_row_2"}, {"from": "wtq:Human_rights_in_Morocco_row_17", "title": "wtq:hasTreaty", "to": "wd:Q1069706"}, {"from": "wtq:Human_rights_in_Morocco_row_17", "title": "wtq:hasIntroduced", "to": "literal_3_2006"}, {"from": "wtq:Human_rights_in_Morocco_row_17", "title": "wtq:hasTreaty", "to": "literal_14_International Convention for the Protection of All Persons from Enforced Disappearance"}, {"from": "wtq:Human_rights_in_Morocco_row_17", "title": "wtq:hasOrganization", "to": "literal_21_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_17", "title": "wtq:hasRatified", "to": "literal_39_2013"}, {"from": "wtq:Human_rights_in_Morocco_row_17", "title": "wtq:hasindex", "to": "literal_47_17"}, {"from": "wtq:Human_rights_in_Morocco_row_17", "title": "wtq:hasSigned", "to": "literal_48_2007"}, {"from": "wd:Q2312098", "title": "wtq:hasTreaty", "to": "wtq:Human_rights_in_Morocco_row_6"}, {"from": "wd:Q2312098", "title": "wdt:P31", "to": "literal_4_multilateral treaty"}, {"from": "wd:Q2312098", "title": "rdfs:label", "to": "literal_11_First Optional Protocol to the International Covenant on Civil and Political Rights"}, {"from": "wd:Q2312098", "title": "wdt:P361", "to": "literal_31_United Nations General Assembly Resolution 2200 A"}, {"from": "wd:Q2312098", "title": "wdt:P276", "to": "literal_50_New York City"}, {"from": "wtq:Human_rights_in_Morocco_row_14", "title": "wtq:hasRatified", "to": "literal_5_2001"}, {"from": "wtq:Human_rights_in_Morocco_row_14", "title": "wtq:hasSigned", "to": "literal_6_2000"}, {"from": "wtq:Human_rights_in_Morocco_row_14", "title": "wtq:hasIntroduced", "to": "literal_45_2000"}, {"from": "wtq:Human_rights_in_Morocco_row_14", "title": "wtq:hasOrganization", "to": "literal_55_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_14", "title": "wtq:hasindex", "to": "literal_57_14"}, {"from": "wtq:Human_rights_in_Morocco_row_14", "title": "wtq:hasTreaty", "to": "literal_63_Optional Protocol to the Convention on the Rights of the Child on the Sale of Children, Child Prostitution and Child Pornography"}, {"from": "wtq:Human_rights_in_Morocco_row_3", "title": "wtq:hasTreaty", "to": "wd:Q743306"}, {"from": "wtq:Human_rights_in_Morocco_row_3", "title": "wtq:hasOrganization", "to": "literal_8_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_3", "title": "wtq:hasSigned", "to": "literal_9_1977"}, {"from": "wtq:Human_rights_in_Morocco_row_3", "title": "wtq:hasindex", "to": "literal_23_3"}, {"from": "wtq:Human_rights_in_Morocco_row_3", "title": "wtq:hasTreaty", "to": "literal_28_International Covenant on Civil and Political Rights"}, {"from": "wtq:Human_rights_in_Morocco_row_3", "title": "wtq:hasIntroduced", "to": "literal_40_1966"}, {"from": "wtq:Human_rights_in_Morocco_row_3", "title": "wtq:hasRatified", "to": "literal_49_1979"}, {"from": "wtq:Human_rights_in_Morocco_row_6", "title": "wtq:hasOrganization", "to": "literal_10_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_6", "title": "wtq:hasTreaty", "to": "literal_27_International Convention on the Suppression and Punishment of the Crime of Apartheid"}, {"from": "wtq:Human_rights_in_Morocco_row_6", "title": "wtq:hasRatified", "to": "literal_33_-"}, {"from": "wtq:Human_rights_in_Morocco_row_6", "title": "wtq:hasSigned", "to": "literal_34_-"}, {"from": "wtq:Human_rights_in_Morocco_row_6", "title": "wtq:hasIntroduced", "to": "literal_41_1973"}, {"from": "wtq:Human_rights_in_Morocco_row_6", "title": "wtq:hasindex", "to": "literal_67_6"}, {"from": "wd:Q743306", "title": "wdt:P31", "to": "literal_13_United Nations treaty"}, {"from": "wd:Q743306", "title": "wdt:P5008", "to": "literal_19_WikiForHumanRights 2019"}, {"from": "wd:Q743306", "title": "rdfs:label", "to": "literal_54_International Convention on the Elimination of All Forms of Racial Discrimination"}, {"from": "wd:Q743306", "title": "wdt:P5008", "to": "literal_61_WikiProject Human Rights"}, {"from": "wtq:Human_rights_in_Morocco_row_10", "title": "wtq:hasRatified", "to": "literal_17_-"}, {"from": "wtq:Human_rights_in_Morocco_row_10", "title": "wtq:hasOrganization", "to": "literal_26_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_10", "title": "wtq:hasTreaty", "to": "literal_38_Second Optional Protocol to the International Covenant on Civil and Political Rights, aiming at the abolition of the death penalty"}, {"from": "wtq:Human_rights_in_Morocco_row_10", "title": "wtq:hasIntroduced", "to": "literal_51_1989"}, {"from": "wtq:Human_rights_in_Morocco_row_10", "title": "wtq:hasSigned", "to": "literal_52_-"}, {"from": "wtq:Human_rights_in_Morocco_row_10", "title": "wtq:hasindex", "to": "literal_66_10"}, {"from": "wtq:Human_rights_in_Morocco_row_2", "title": "wtq:hasindex", "to": "literal_18_2"}, {"from": "wtq:Human_rights_in_Morocco_row_2", "title": "wtq:hasRatified", "to": "literal_35_1979"}, {"from": "wtq:Human_rights_in_Morocco_row_2", "title": "wtq:hasOrganization", "to": "literal_37_United Nations"}, {"from": "wtq:Human_rights_in_Morocco_row_2", "title": "wtq:hasTreaty", "to": "literal_60_International Covenant on Economic, Social and Cultural Rights"}, {"from": "wtq:Human_rights_in_Morocco_row_2", "title": "wtq:hasSigned", "to": "literal_64_1977"}, {"from": "wtq:Human_rights_in_Morocco_row_2", "title": "wtq:hasIntroduced", "to": "literal_65_1966"}, {"from": "wd:Q1069706", "title": "wdt:P31", "to": "literal_42_core international human rights instrument"}, {"from": "wd:Q1069706", "title": "rdfs:label", "to": "literal_43_Convention on the Rights of Persons with Disabilities"}, {"from": "wd:Q1069706", "title": "wdt:P361", "to": "literal_44_international human rights law"}, {"from": "wd:Q1069706", "title": "wdt:P2058", "to": "literal_56_United Nations Secretary-General"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Cherry_Jones", "label": "wtq:Cherry_Jones", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1044427", "label": "wd:Q1044427", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7739316", "label": "wd:Q7739316", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Cherry_Jones_row_3", "label": "wtq:Cherry_Jones_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Cherry_Jones_row_9", "label": "wtq:Cherry_Jones_row_9", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Cherry_Jones_row_4", "label": "wtq:Cherry_Jones_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5305704", "label": "wd:Q5305704", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3443505", "label": "wd:Q3443505", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q185299", "label": "wd:Q185299", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Cherry_Jones_row_2", "label": "wtq:Cherry_Jones_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q191874", "label": "wd:Q191874", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q56194", "label": "wd:Q56194", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1285504", "label": "wd:Q1285504", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Emmy Award", "label": "Emmy Award", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Washington Square", "label": "Washington Square", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Won", "label": "Won", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Primetime Emmy Awards", "label": "Primetime Emmy Awards", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Academy of Television Arts \u0026 Sciences", "label": "Academy of Television Arts \u0026 Sciences", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_A Moon for the Misbegotten", "label": "A Moon for the Misbegotten", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Drama Desk Awards", "label": "Drama Desk Awards", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Mike Hogan", "label": "Mike Hogan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Tony Awards", "label": "Tony Awards", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Template:TonyAward PlayLeadActress", "label": "Template:TonyAward PlayLeadActress", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Tony Awards", "label": "Tony Awards", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_American Theatre Wing", "label": "American Theatre Wing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_English", "label": "English", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Q32351005", "label": "Q32351005", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_Augustus Goetz", "label": "Augustus Goetz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Primetime Emmy Award for Outstanding Production Design for Variety, Nonfiction, Reality, or Reality-Competition Programming", "label": "Primetime Emmy Award for Outstanding Production Design for Variety, Nonfiction, Reality, or Reality-Competition Programming", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_The Broadway League", "label": "The Broadway League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Matt Battaglia", "label": "Matt Battaglia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Josie Hogan", "label": "Josie Hogan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_The Heiress", "label": "The Heiress", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Primetime Emmy Award", "label": "Primetime Emmy Award", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_2009", "label": "2009", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_class of award", "label": "class of award", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Primetime Emmy Award for Outstanding Supporting Actress in a Drama Series", "label": "Primetime Emmy Award for Outstanding Supporting Actress in a Drama Series", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Primetime Emmy Award", "label": "Primetime Emmy Award", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Michael Gaston", "label": "Michael Gaston", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Best Actress in a Play", "label": "Best Actress in a Play", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Won", "label": "Won", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_Best Actress in a Play", "label": "Best Actress in a Play", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Tony Awards", "label": "Tony Awards", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_award for best supporting actress", "label": "award for best supporting actress", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_theatre award", "label": "theatre award", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_A Moon for the Misbegotten", "label": "A Moon for the Misbegotten", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Q107560794", "label": "Q107560794", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_The Heiress", "label": "The Heiress", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_Outstanding Supporting Actress in a Drama Series", "label": "Outstanding Supporting Actress in a Drama Series", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_class of award", "label": "class of award", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_Tony Award for Best Actress in a Play", "label": "Tony Award for Best Actress in a Play", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Outstanding Actress in a Play", "label": "Outstanding Actress in a Play", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_literary work", "label": "literary work", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Won", "label": "Won", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Category:Tony Awards", "label": "Category:Tony Awards", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_1995", "label": "1995", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_2000", "label": "2000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_Drama Desk Award for Outstanding Actress in a Play", "label": "Drama Desk Award for Outstanding Actress in a Play", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Drama Desk Awards", "label": "Drama Desk Awards", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Rami Malek", "label": "Rami Malek", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Pride\u0027s Crossing", "label": "Pride\u0027s Crossing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_theatre award", "label": "theatre award", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_1998", "label": "1998", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Nominated", "label": "Nominated", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Cherry_Jones", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Cherry_Jones", "title": "wtq:hasRow", "to": "wtq:Cherry_Jones_row_9"}, {"from": "wtq:Cherry_Jones", "title": "wtq:hasRow", "to": "wtq:Cherry_Jones_row_2"}, {"from": "wtq:Cherry_Jones", "title": "wtq:hasRow", "to": "wtq:Cherry_Jones_row_3"}, {"from": "wtq:Cherry_Jones", "title": "wtq:hasRow", "to": "wtq:Cherry_Jones_row_4"}, {"from": "wd:Q1044427", "title": "wtq:hasAssociation", "to": "wtq:Cherry_Jones_row_9"}, {"from": "wd:Q1044427", "title": "wdt:P279", "to": "literal_0_Emmy Award"}, {"from": "wd:Q1044427", "title": "wdt:P1027", "to": "literal_4_Academy of Television Arts \u0026 Sciences"}, {"from": "wd:Q1044427", "title": "wdt:P527", "to": "literal_16_Primetime Emmy Award for Outstanding Production Design for Variety, Nonfiction, Reality, or Reality-Competition Programming"}, {"from": "wd:Q1044427", "title": "rdfs:label", "to": "literal_23_Primetime Emmy Award"}, {"from": "wd:Q7739316", "title": "wtq:hasNominated_work", "to": "wtq:Cherry_Jones_row_2"}, {"from": "wd:Q7739316", "title": "wdt:P144", "to": "literal_1_Washington Square"}, {"from": "wd:Q7739316", "title": "wdt:P407", "to": "literal_13_English"}, {"from": "wd:Q7739316", "title": "wdt:P50", "to": "literal_15_Augustus Goetz"}, {"from": "wd:Q7739316", "title": "rdfs:label", "to": "literal_39_The Heiress"}, {"from": "wtq:Cherry_Jones_row_3", "title": "wtq:hasCategory", "to": "wd:Q5305704"}, {"from": "wtq:Cherry_Jones_row_3", "title": "wtq:hasResult", "to": "literal_2_Won"}, {"from": "wtq:Cherry_Jones_row_3", "title": "wtq:hasindex", "to": "literal_21_3"}, {"from": "wtq:Cherry_Jones_row_3", "title": "wtq:hasCategory", "to": "literal_46_Outstanding Actress in a Play"}, {"from": "wtq:Cherry_Jones_row_3", "title": "wtq:hasAssociation", "to": "literal_53_Drama Desk Awards"}, {"from": "wtq:Cherry_Jones_row_3", "title": "wtq:hasNominated_work", "to": "literal_55_Pride\u0027s Crossing"}, {"from": "wtq:Cherry_Jones_row_3", "title": "wtq:hasYear", "to": "literal_58_1998"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasCategory", "to": "wd:Q1285504"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasNominated_work", "to": "wd:Q56194"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasAssociation", "to": "literal_3_Primetime Emmy Awards"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasYear", "to": "literal_24_2009"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasindex", "to": "literal_38_9"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasCategory", "to": "literal_40_Outstanding Supporting Actress in a Drama Series"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasResult", "to": "literal_48_Won"}, {"from": "wtq:Cherry_Jones_row_9", "title": "wtq:hasNominated_work", "to": "literal_56_24"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasCategory", "to": "wd:Q185299"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasAssociation", "to": "wd:Q191874"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasNominated_work", "to": "wd:Q3443505"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasNominated_work", "to": "literal_5_A Moon for the Misbegotten"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasAssociation", "to": "literal_8_Tony Awards"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasCategory", "to": "literal_32_Best Actress in a Play"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasindex", "to": "literal_43_4"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasYear", "to": "literal_51_2000"}, {"from": "wtq:Cherry_Jones_row_4", "title": "wtq:hasResult", "to": "literal_59_Nominated"}, {"from": "wd:Q5305704", "title": "wdt:P361", "to": "literal_6_Drama Desk Awards"}, {"from": "wd:Q5305704", "title": "wdt:P2517", "to": "literal_37_Q107560794"}, {"from": "wd:Q5305704", "title": "wdt:P31", "to": "literal_44_class of award"}, {"from": "wd:Q5305704", "title": "rdfs:label", "to": "literal_52_Drama Desk Award for Outstanding Actress in a Play"}, {"from": "wd:Q3443505", "title": "wdt:P674", "to": "literal_7_Mike Hogan"}, {"from": "wd:Q3443505", "title": "wdt:P674", "to": "literal_20_Josie Hogan"}, {"from": "wd:Q3443505", "title": "rdfs:label", "to": "literal_36_A Moon for the Misbegotten"}, {"from": "wd:Q3443505", "title": "wdt:P31", "to": "literal_47_literary work"}, {"from": "wd:Q185299", "title": "wtq:hasCategory", "to": "wtq:Cherry_Jones_row_2"}, {"from": "wd:Q185299", "title": "wdt:P1424", "to": "literal_9_Template:TonyAward PlayLeadActress"}, {"from": "wd:Q185299", "title": "wdt:P17", "to": "literal_10_United States of America"}, {"from": "wd:Q185299", "title": "wdt:P910", "to": "literal_14_Q32351005"}, {"from": "wd:Q185299", "title": "wdt:P31", "to": "literal_25_class of award"}, {"from": "wd:Q185299", "title": "rdfs:label", "to": "literal_45_Tony Award for Best Actress in a Play"}, {"from": "wd:Q185299", "title": "wdt:P31", "to": "literal_57_theatre award"}, {"from": "wtq:Cherry_Jones_row_2", "title": "wtq:hasAssociation", "to": "wd:Q191874"}, {"from": "wtq:Cherry_Jones_row_2", "title": "wtq:hasNominated_work", "to": "literal_22_The Heiress"}, {"from": "wtq:Cherry_Jones_row_2", "title": "wtq:hasCategory", "to": "literal_29_Best Actress in a Play"}, {"from": "wtq:Cherry_Jones_row_2", "title": "wtq:hasResult", "to": "literal_30_Won"}, {"from": "wtq:Cherry_Jones_row_2", "title": "wtq:hasAssociation", "to": "literal_33_Tony Awards"}, {"from": "wtq:Cherry_Jones_row_2", "title": "wtq:hasindex", "to": "literal_42_2"}, {"from": "wtq:Cherry_Jones_row_2", "title": "wtq:hasYear", "to": "literal_50_1995"}, {"from": "wd:Q191874", "title": "rdfs:label", "to": "literal_11_Tony Awards"}, {"from": "wd:Q191874", "title": "wdt:P1027", "to": "literal_12_American Theatre Wing"}, {"from": "wd:Q191874", "title": "wdt:P1027", "to": "literal_17_The Broadway League"}, {"from": "wd:Q191874", "title": "wdt:P279", "to": "literal_35_theatre award"}, {"from": "wd:Q191874", "title": "wdt:P17", "to": "literal_41_United States of America"}, {"from": "wd:Q191874", "title": "wdt:P910", "to": "literal_49_Category:Tony Awards"}, {"from": "wd:Q56194", "title": "wdt:P161", "to": "literal_18_Matt Battaglia"}, {"from": "wd:Q56194", "title": "wdt:P161", "to": "literal_28_Michael Gaston"}, {"from": "wd:Q56194", "title": "rdfs:label", "to": "literal_31_24"}, {"from": "wd:Q56194", "title": "wdt:P161", "to": "literal_54_Rami Malek"}, {"from": "wd:Q1285504", "title": "wdt:P17", "to": "literal_19_United States of America"}, {"from": "wd:Q1285504", "title": "rdfs:label", "to": "literal_26_Primetime Emmy Award for Outstanding Supporting Actress in a Drama Series"}, {"from": "wd:Q1285504", "title": "wdt:P361", "to": "literal_27_Primetime Emmy Award"}, {"from": "wd:Q1285504", "title": "wdt:P31", "to": "literal_34_award for best supporting actress"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

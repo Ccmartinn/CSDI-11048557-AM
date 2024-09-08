@@ -1,0 +1,53 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+<http://wikitablequestion.org/Estonia_men's_national_volleyball_team> a wtq:Entity ;
+    wtq:hasRow <http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_10>,
+        <http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_2>,
+        <http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_3>,
+        <http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_4> .
+
+<http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_10> wtq:hasBirth_Date "January 19, 1981 (age 33)" ;
+    wtq:hasCurrent_Club "TTÜ VK" ;
+    wtq:hasHeight "200" ;
+    <http://wikitablequestion.org/hasNo.> "18" ;
+    wtq:hasPlayer "Jaanus Nõmmsalu" ;
+    wtq:hasPosition "Spiker" ;
+    wtq:hasWeight "94" ;
+    wtq:hasindex "10" .
+
+<http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_2> wtq:hasBirth_Date "June 6, 1988 (age 26)" ;
+    wtq:hasCurrent_Club "TV Bühl" ;
+    wtq:hasHeight "196" ;
+    <http://wikitablequestion.org/hasNo.> "6" ;
+    wtq:hasPlayer "Martti Juhkami" ;
+    wtq:hasPosition "Spiker" ;
+    wtq:hasWeight "96" ;
+    wtq:hasindex "2" .
+
+<http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_3> wtq:hasBirth_Date "January 13, 1980 (age 34)" ;
+    wtq:hasCurrent_Club "Bigbank Tartu" ;
+    wtq:hasHeight "206" ;
+    <http://wikitablequestion.org/hasNo.> "7" ;
+    wtq:hasPlayer wd:Q4789630,
+        "Argo Meresaar" ;
+    wtq:hasPosition "Opposite" ;
+    wtq:hasWeight "107" ;
+    wtq:hasindex "3" .
+
+<http://wikitablequestion.org/Estonia_men's_national_volleyball_team_row_4> wtq:hasBirth_Date "November 6, 1991 (age 22)" ;
+    wtq:hasCurrent_Club "TTÜ VK" ;
+    wtq:hasHeight "186" ;
+    <http://wikitablequestion.org/hasNo.> "8" ;
+    wtq:hasPlayer "Kusti Nõlvak" ;
+    wtq:hasPosition "Setter" ;
+    wtq:hasWeight "81" ;
+    wtq:hasindex "4" .
+
+wd:Q4789630 rdfs:label "Argo Meresaar" ;
+    wdt:P19 "Pärnu" ;
+    wdt:P21 "male" ;
+    wdt:P641 "volleyball" .
+

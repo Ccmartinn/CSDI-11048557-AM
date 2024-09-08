@@ -1,0 +1,77 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+<http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho> a wtq:Entity ;
+    wtq:hasRow <http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_10>,
+        <http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_2>,
+        <http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_3>,
+        <http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_4> .
+
+<http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_10> wtq:hasAppointed_Successor wd:Q5628096,
+        "H. Brent Coles" ;
+    wtq:hasDate_of_Appointment "January 5, 1993" ;
+    wtq:hasDate_of_Election "November 1993" ;
+    wtq:hasElected_Successor wd:Q5628096,
+        "H. Brent Coles" ;
+    wtq:hasIncumbent wd:Q737493,
+        "Dirk Kempthorne" ;
+    wtq:hasReason_for_Vacancy "Resigned January 5, 1993" ;
+    wtq:hasindex "10" .
+
+<http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_2> wtq:hasAppointed_Successor "James W. Huston" ;
+    wtq:hasDate_of_Appointment "December 28, 1885" ;
+    wtq:hasDate_of_Election "July 1887" ;
+    wtq:hasElected_Successor "Peter J. Pefley" ;
+    wtq:hasIncumbent wd:Q7555530,
+        "Sol Hasbrouck" ;
+    wtq:hasReason_for_Vacancy "Resigned November 5, 1885" ;
+    wtq:hasindex "2" .
+
+<http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_3> wtq:hasAppointed_Successor "Arthur Hodges" ;
+    wtq:hasDate_of_Appointment "May 25, 1912" ;
+    wtq:hasDate_of_Election "April 1, 1913" ;
+    wtq:hasElected_Successor "Arthur Hodges" ;
+    wtq:hasIncumbent "Harry Fritchman" ;
+    wtq:hasReason_for_Vacancy "Resigned May 25, 1912" ;
+    wtq:hasindex "3" .
+
+<http://wikitablequestion.org/List_of_mayors_of_Boise,_Idaho_row_4> wtq:hasAppointed_Successor wd:Q7387514,
+        "S. H. Hays" ;
+    wtq:hasDate_of_Appointment "June 6, 1916" ;
+    wtq:hasDate_of_Election "April 1917" ;
+    wtq:hasElected_Successor wd:Q7387514,
+        "S. H. Hays" ;
+    wtq:hasIncumbent "J. W. Robinson" ;
+    wtq:hasReason_for_Vacancy wd:Q1196663,
+        "Recalled June 1, 1916" ;
+    wtq:hasindex "4" .
+
+wd:Q1196663 rdfs:label "recall election" ;
+    wdt:P1343 "New Encyclopedic Dictionary" ;
+    wdt:P1889 "Q56057147" ;
+    wdt:P31 "procedure" .
+
+wd:Q737493 rdfs:label "Dirk Kempthorne" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P39 "mayor" .
+
+wd:Q7555530 rdfs:label "Sol Hasbrouck" ;
+    wdt:P21 "male" ;
+    wdt:P734 "Hasbrouck" ;
+    wdt:P735 "Sol" .
+
+wd:Q5628096 rdfs:label "H. Brent Coles" ;
+    wdt:P21 "male" ;
+    wdt:P69 "Brigham Young University" ;
+    wdt:P735 "H." ;
+    wdt:P937 "Boise" .
+
+wd:Q7387514 rdfs:label "S. H. Hays" ;
+    wdt:P102 "Democratic Party" ;
+    wdt:P106 "politician" ;
+    wdt:P27 "United States of America" ;
+    wdt:P734 "Hays" .
+

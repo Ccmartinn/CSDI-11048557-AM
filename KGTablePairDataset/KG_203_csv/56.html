@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q12189", "label": "wd:Q12189", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3427", "label": "wd:Q3427", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q88540091", "label": "wd:Q88540091", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars_row_6", "label": "wtq:Historical_brightest_stars_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars", "label": "wtq:Historical_brightest_stars", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars_row_10", "label": "wtq:Historical_brightest_stars_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q14037", "label": "wd:Q14037", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars_row_2", "label": "wtq:Historical_brightest_stars_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars_row_15", "label": "wtq:Historical_brightest_stars_row_15", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars_row_4", "label": "wtq:Historical_brightest_stars_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q15722", "label": "wd:Q15722", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q14246", "label": "wd:Q14246", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars_row_3", "label": "wtq:Historical_brightest_stars_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Historical_brightest_stars_row_14", "label": "wtq:Historical_brightest_stars_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q938829", "label": "wd:Q938829", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Canopus", "label": "Canopus", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Lyra", "label": "Lyra", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_binary star", "label": "binary star", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_21.5", "label": "21.5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_UV-emission source", "label": "UV-emission source", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_binary star", "label": "binary star", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_30.0", "label": "30.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Zeta Leporis", "label": "Zeta Leporis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_infrared source", "label": "infrared source", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_-1,370,000", "label": "-1,370,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Libra", "label": "Libra", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_UV-emission source", "label": "UV-emission source", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_2.6", "label": "2.6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Zeta Sagittarii", "label": "Zeta Sagittarii", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_-420,000", "label": "-420,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_+2,030,000", "label": "+2,030,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_-210,000", "label": "-210,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Upsilon Librae", "label": "Upsilon Librae", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_UV-emission source", "label": "UV-emission source", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_0.03", "label": "0.03", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_+480,000", "label": "+480,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_-1,370,000", "label": "-1,370,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_65.0", "label": "65.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Canopus (first time)", "label": "Canopus (first time)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_-1,080,000", "label": "-1,080,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_-3,110,000", "label": "-3,110,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_-2.74", "label": "-2.74", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_-0.72", "label": "-0.72", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_+2,030,000", "label": "+2,030,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_+1,550,000", "label": "+1,550,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Great Soviet Encyclopedia (1926\u20131947)", "label": "Great Soviet Encyclopedia (1926\u20131947)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_-1.39", "label": "-1.39", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_star", "label": "star", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_70.0", "label": "70.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_-950,000", "label": "-950,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_-2.05", "label": "-2.05", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Aldebaran", "label": "Aldebaran", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_+1,330,000", "label": "+1,330,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_Star Trek: The Original Series Core Game Book", "label": "Star Trek: The Original Series Core Game Book", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_-1,050,000", "label": "-1,050,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_-3,700,000", "label": "-3,700,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_-0.81", "label": "-0.81", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Castor Moving Group", "label": "Castor Moving Group", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_+210,000", "label": "+210,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_0.85", "label": "0.85", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_-1.86", "label": "-1.86", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Gamma Draconis", "label": "Gamma Draconis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_154.0", "label": "154.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_3.6", "label": "3.6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_8.0", "label": "8.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Canopus in Argos", "label": "Canopus in Argos", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_near-IR source", "label": "near-IR source", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Aldebaran", "label": "Aldebaran", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_Summer Triangle", "label": "Summer Triangle", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_-320,000", "label": "-320,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_5.3", "label": "5.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Category:Aldebaran", "label": "Category:Aldebaran", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_-0.46", "label": "-0.46", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_Upsilon Librae", "label": "Upsilon Librae", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_double star", "label": "double star", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_25.04", "label": "25.04", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_3.55", "label": "3.55", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_Gamma Draconis", "label": "Gamma Draconis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_J2000.0", "label": "J2000.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_star", "label": "star", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_27.7", "label": "27.7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_17.2", "label": "17.2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_310.0", "label": "310.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_89.1", "label": "89.1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_+2,290,000", "label": "+2,290,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_-1,080,000", "label": "-1,080,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_195.0", "label": "195.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_-1.54", "label": "-1.54", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Vega", "label": "Vega", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Zeta Leporis", "label": "Zeta Leporis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_Zeta Sagittarii", "label": "Zeta Sagittarii", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_2.36", "label": "2.36", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_Vega", "label": "Vega", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_+2,670,000", "label": "+2,670,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_-1,200,000", "label": "-1,200,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_+290,000", "label": "+290,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_Draco", "label": "Draco", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_177.0", "label": "177.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_Aldebaran", "label": "Aldebaran", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q12189", "title": "wtq:hasStar", "to": "wtq:Historical_brightest_stars_row_2"}, {"from": "wd:Q12189", "title": "rdfs:label", "to": "literal_0_Canopus"}, {"from": "wd:Q12189", "title": "wdt:P31", "to": "literal_33_star"}, {"from": "wd:Q12189", "title": "wdt:P1441", "to": "literal_40_Star Trek: The Original Series Core Game Book"}, {"from": "wd:Q12189", "title": "wdt:P1441", "to": "literal_53_Canopus in Argos"}, {"from": "wd:Q3427", "title": "wtq:hasStar", "to": "wtq:Historical_brightest_stars_row_10"}, {"from": "wd:Q3427", "title": "wdt:P59", "to": "literal_1_Lyra"}, {"from": "wd:Q3427", "title": "wdt:P31", "to": "literal_4_UV-emission source"}, {"from": "wd:Q3427", "title": "wdt:P361", "to": "literal_56_Summer Triangle"}, {"from": "wd:Q3427", "title": "rdfs:label", "to": "literal_83_Vega"}, {"from": "wd:Q88540091", "title": "wtq:hasStar", "to": "wtq:Historical_brightest_stars_row_6"}, {"from": "wd:Q88540091", "title": "wdt:P31", "to": "literal_2_binary star"}, {"from": "wd:Q88540091", "title": "rdfs:label", "to": "literal_38_Aldebaran"}, {"from": "wd:Q88540091", "title": "wdt:P910", "to": "literal_59_Category:Aldebaran"}, {"from": "wd:Q88540091", "title": "wdt:P527", "to": "literal_90_Aldebaran"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasRow", "to": "wtq:Historical_brightest_stars"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasDistance_at_nmaximum__LY_", "to": "literal_3_21.5"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasStart_nyear", "to": "literal_14_-420,000"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasEnd_nyear", "to": "literal_16_-210,000"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasCurrent_ndistance", "to": "literal_22_65.0"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasindex", "to": "literal_30_6"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasCurrent_nmagnitude", "to": "literal_46_0.85"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasStar", "to": "literal_55_Aldebaran"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasMaximum_nyear", "to": "literal_57_-320,000"}, {"from": "wtq:Historical_brightest_stars_row_6", "title": "wtq:hasMaximum_nmagnitude", "to": "literal_77_-1.54"}, {"from": "wtq:Historical_brightest_stars", "title": "wtq:hasRow", "to": "wtq:Historical_brightest_stars_row_10"}, {"from": "wtq:Historical_brightest_stars", "title": "wtq:hasRow", "to": "wtq:Historical_brightest_stars_row_2"}, {"from": "wtq:Historical_brightest_stars", "title": "wtq:hasRow", "to": "wtq:Historical_brightest_stars_row_15"}, {"from": "wtq:Historical_brightest_stars", "title": "wtq:hasRow", "to": "wtq:Historical_brightest_stars_row_14"}, {"from": "wtq:Historical_brightest_stars", "title": "wtq:hasRow", "to": "wtq:Historical_brightest_stars_row_3"}, {"from": "wtq:Historical_brightest_stars", "title": "wtq:hasRow", "to": "wtq:Historical_brightest_stars_row_4"}, {"from": "wtq:Historical_brightest_stars", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasCurrent_nmagnitude", "to": "literal_19_0.03"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasEnd_nyear", "to": "literal_20_+480,000"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasMaximum_nmagnitude", "to": "literal_43_-0.81"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasStart_nyear", "to": "literal_45_+210,000"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasCurrent_ndistance", "to": "literal_64_25.04"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasDistance_at_nmaximum__LY_", "to": "literal_70_17.2"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasStar", "to": "literal_78_Vega"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasindex", "to": "literal_79_10"}, {"from": "wtq:Historical_brightest_stars_row_10", "title": "wtq:hasMaximum_nyear", "to": "literal_86_+290,000"}, {"from": "wd:Q14037", "title": "wtq:hasStar", "to": "wtq:Historical_brightest_stars_row_3"}, {"from": "wd:Q14037", "title": "wdt:P31", "to": "literal_5_binary star"}, {"from": "wd:Q14037", "title": "wdt:P31", "to": "literal_18_UV-emission source"}, {"from": "wd:Q14037", "title": "wdt:P6259", "to": "literal_67_J2000.0"}, {"from": "wd:Q14037", "title": "rdfs:label", "to": "literal_81_Zeta Sagittarii"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasEnd_nyear", "to": "literal_9_-1,370,000"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasStar", "to": "literal_23_Canopus (first time)"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasMaximum_nyear", "to": "literal_25_-3,110,000"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasCurrent_nmagnitude", "to": "literal_27_-0.72"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasStart_nyear", "to": "literal_42_-3,700,000"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasMaximum_nmagnitude", "to": "literal_47_-1.86"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasindex", "to": "literal_50_2"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasCurrent_ndistance", "to": "literal_72_310.0"}, {"from": "wtq:Historical_brightest_stars_row_2", "title": "wtq:hasDistance_at_nmaximum__LY_", "to": "literal_89_177.0"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasStar", "to": "wd:Q15722"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasDistance_at_nmaximum__LY_", "to": "literal_6_30.0"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasStart_nyear", "to": "literal_15_+2,030,000"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasCurrent_nmagnitude", "to": "literal_51_3.6"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasMaximum_nmagnitude", "to": "literal_60_-0.46"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasStar", "to": "literal_61_Upsilon Librae"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasindex", "to": "literal_71_15"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasMaximum_nyear", "to": "literal_74_+2,290,000"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasCurrent_ndistance", "to": "literal_76_195.0"}, {"from": "wtq:Historical_brightest_stars_row_15", "title": "wtq:hasEnd_nyear", "to": "literal_84_+2,670,000"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasStar", "to": "wd:Q938829"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasStar", "to": "literal_7_Zeta Leporis"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasStart_nyear", "to": "literal_24_-1,080,000"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasCurrent_ndistance", "to": "literal_34_70.0"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasEnd_nyear", "to": "literal_35_-950,000"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasindex", "to": "literal_36_4"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasMaximum_nmagnitude", "to": "literal_37_-2.05"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasMaximum_nyear", "to": "literal_41_-1,050,000"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasDistance_at_nmaximum__LY_", "to": "literal_58_5.3"}, {"from": "wtq:Historical_brightest_stars_row_4", "title": "wtq:hasCurrent_nmagnitude", "to": "literal_65_3.55"}, {"from": "wd:Q15722", "title": "wdt:P31", "to": "literal_8_infrared source"}, {"from": "wd:Q15722", "title": "wdt:P59", "to": "literal_10_Libra"}, {"from": "wd:Q15722", "title": "rdfs:label", "to": "literal_17_Upsilon Librae"}, {"from": "wd:Q15722", "title": "wdt:P31", "to": "literal_63_double star"}, {"from": "wd:Q14246", "title": "wtq:hasStar", "to": "wtq:Historical_brightest_stars_row_14"}, {"from": "wd:Q14246", "title": "wdt:P31", "to": "literal_11_UV-emission source"}, {"from": "wd:Q14246", "title": "wdt:P1343", "to": "literal_31_Great Soviet Encyclopedia (1926\u20131947)"}, {"from": "wd:Q14246", "title": "rdfs:label", "to": "literal_66_Gamma Draconis"}, {"from": "wd:Q14246", "title": "wdt:P59", "to": "literal_87_Draco"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasCurrent_nmagnitude", "to": "literal_12_2.6"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasStar", "to": "literal_13_Zeta Sagittarii"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasStart_nyear", "to": "literal_21_-1,370,000"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasMaximum_nmagnitude", "to": "literal_26_-2.74"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasDistance_at_nmaximum__LY_", "to": "literal_52_8.0"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasindex", "to": "literal_62_3"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasCurrent_ndistance", "to": "literal_73_89.1"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasEnd_nyear", "to": "literal_75_-1,080,000"}, {"from": "wtq:Historical_brightest_stars_row_3", "title": "wtq:hasMaximum_nyear", "to": "literal_85_-1,200,000"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasEnd_nyear", "to": "literal_28_+2,030,000"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasMaximum_nyear", "to": "literal_29_+1,550,000"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasMaximum_nmagnitude", "to": "literal_32_-1.39"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasStart_nyear", "to": "literal_39_+1,330,000"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasStar", "to": "literal_48_Gamma Draconis"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasCurrent_ndistance", "to": "literal_49_154.0"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasDistance_at_nmaximum__LY_", "to": "literal_69_27.7"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasCurrent_nmagnitude", "to": "literal_82_2.36"}, {"from": "wtq:Historical_brightest_stars_row_14", "title": "wtq:hasindex", "to": "literal_88_14"}, {"from": "wd:Q938829", "title": "wdt:P361", "to": "literal_44_Castor Moving Group"}, {"from": "wd:Q938829", "title": "wdt:P31", "to": "literal_54_near-IR source"}, {"from": "wd:Q938829", "title": "wdt:P31", "to": "literal_68_star"}, {"from": "wd:Q938829", "title": "rdfs:label", "to": "literal_80_Zeta Leporis"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

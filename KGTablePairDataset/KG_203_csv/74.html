@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "label": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:List_of_urban_areas_in_the_United_Kingdom", "label": "wtq:List_of_urban_areas_in_the_United_Kingdom", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5046678", "label": "wd:Q5046678", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q217831", "label": "wd:Q217831", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q36405", "label": "wd:Q36405", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q623687", "label": "wd:Q623687", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "label": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "label": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "label": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5327978", "label": "wd:Q5327978", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5178917", "label": "wd:Q5178917", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q4115", "label": "wd:Q4115", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1786145", "label": "wd:Q1786145", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3358826", "label": "wd:Q3358826", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q617845", "label": "wd:Q617845", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q972353", "label": "wd:Q972353", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2469984", "label": "wd:Q2469984", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2374318", "label": "wd:Q2374318", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_60.94", "label": "60.94", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Falkirk", "label": "Falkirk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Greenock", "label": "Greenock", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_big city", "label": "big city", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Aberdeen City", "label": "Aberdeen City", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Falkirk", "label": "Falkirk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_3,238", "label": "3,238", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_20.69", "label": "20.69", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_197,328", "label": "197,328", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Glasgow", "label": "Glasgow", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Livingston, East Calder, Mid Calder", "label": "Livingston, East Calder, Mid Calder", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_town", "label": "town", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_36.1", "label": "36.1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_East Calder", "label": "East Calder", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Aberdeen City", "label": "Aberdeen City", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_suburb", "label": "suburb", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_UTC\u00b100:00", "label": "UTC\u00b100:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_village", "label": "village", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_West Lothian", "label": "West Lothian", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Greenock", "label": "Greenock", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Encyclop\u00e6dia Britannica 11th edition", "label": "Encyclop\u00e6dia Britannica 11th edition", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Port Glasgow", "label": "Port Glasgow", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_2,283", "label": "2,283", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Falkirk", "label": "Falkirk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Falkirk", "label": "Falkirk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_Stenhousemuir", "label": "Stenhousemuir", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Cove Bay", "label": "Cove Bay", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Stirlingshire", "label": "Stirlingshire", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_26.07", "label": "26.07", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Greenock, Gourock, Port Glasgow", "label": "Greenock, Gourock, Port Glasgow", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Aberdeen, Cove Bay, Dyce", "label": "Aberdeen, Cove Bay, Dyce", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_Polmont", "label": "Polmont", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_Aberdeen", "label": "Aberdeen", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Encyclop\u00e6dia Britannica 11th edition", "label": "Encyclop\u00e6dia Britannica 11th edition", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Encyclop\u00e6dia Britannica Ninth Edition", "label": "Encyclop\u00e6dia Britannica Ninth Edition", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Inverclyde", "label": "Inverclyde", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_town", "label": "town", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_UTC\u00b100:00", "label": "UTC\u00b100:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_59,511", "label": "59,511", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_town", "label": "town", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_large burgh", "label": "large burgh", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Category:Falkirk", "label": "Category:Falkirk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_UTC\u00b100:00", "label": "UTC\u00b100:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_2,532", "label": "2,532", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_Aberdeen", "label": "Aberdeen", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Encyclop\u00e6dia Britannica 11th edition", "label": "Encyclop\u00e6dia Britannica 11th edition", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_West Lothian", "label": "West Lothian", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_large burgh", "label": "large burgh", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Regensburg", "label": "Regensburg", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Falkirk", "label": "Falkirk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Mid Calder", "label": "Mid Calder", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_91,402", "label": "91,402", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Dyce", "label": "Dyce", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_3,557", "label": "3,557", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_Stirlingshire", "label": "Stirlingshire", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_Houston", "label": "Houston", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_Falkirk", "label": "Falkirk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_Falkirk, Grangemouth, Carron, Polmont, Stenhousemuir", "label": "Falkirk, Grangemouth, Carron, Polmont, Stenhousemuir", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_town", "label": "town", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_city status in the United Kingdom", "label": "city status in the United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_73,595", "label": "73,595", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_Gourock", "label": "Gourock", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_Aberdeen City", "label": "Aberdeen City", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_Stirlingshire", "label": "Stirlingshire", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_UTC\u00b100:00", "label": "UTC\u00b100:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_UTC\u00b100:00", "label": "UTC\u00b100:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_Stenhousemuir", "label": "Stenhousemuir", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Grangemouth", "label": "Grangemouth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_Livingston", "label": "Livingston", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_Aberdeen", "label": "Aberdeen", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_Inverclyde", "label": "Inverclyde", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_Carron", "label": "Carron", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_Aberdeen", "label": "Aberdeen", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_Edinburgh", "label": "Edinburgh", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_Grangemouth", "label": "Grangemouth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_Category:Gourock", "label": "Category:Gourock", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_Falkirk", "label": "Falkirk", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q36405"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasRow", "to": "wtq:List_of_urban_areas_in_the_United_Kingdom"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q5178917"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q2374318"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasRank", "to": "literal_0_3"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasArea__km\u00b2_", "to": "literal_1_60.94"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasDensity__People_km\u00b2_", "to": "literal_7_3,238"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasPopulation_n_2001_Census_", "to": "literal_11_197,328"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasMajor_subdivisions", "to": "literal_38_Aberdeen, Cove Bay, Dyce"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasUrban_Area", "to": "literal_52_Aberdeen"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasindex", "to": "literal_69_2"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_2", "title": "wtq:hasMetropolitan_Area", "to": "literal_82_Aberdeen"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom", "title": "wtq:hasRow", "to": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom", "title": "wtq:hasRow", "to": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom", "title": "wtq:hasRow", "to": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4"}, {"from": "wd:Q5046678", "title": "wtq:hasMajor_subdivisions", "to": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4"}, {"from": "wd:Q5046678", "title": "wdt:P131", "to": "literal_2_Falkirk"}, {"from": "wd:Q5046678", "title": "wdt:P7959", "to": "literal_35_Stirlingshire"}, {"from": "wd:Q5046678", "title": "wdt:P421", "to": "literal_77_UTC\u00b100:00"}, {"from": "wd:Q5046678", "title": "rdfs:label", "to": "literal_85_Carron"}, {"from": "wd:Q217831", "title": "wtq:hasMajor_subdivisions", "to": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6"}, {"from": "wd:Q217831", "title": "rdfs:label", "to": "literal_3_Greenock"}, {"from": "wd:Q217831", "title": "wdt:P1343", "to": "literal_42_Encyclop\u00e6dia Britannica Ninth Edition"}, {"from": "wd:Q217831", "title": "wdt:P131", "to": "literal_43_Inverclyde"}, {"from": "wd:Q217831", "title": "wdt:P31", "to": "literal_48_large burgh"}, {"from": "wd:Q217831", "title": "wdt:P1343", "to": "literal_54_Encyclop\u00e6dia Britannica 11th edition"}, {"from": "wd:Q217831", "title": "wdt:P17", "to": "literal_64_United Kingdom"}, {"from": "wd:Q217831", "title": "wdt:P31", "to": "literal_71_town"}, {"from": "wd:Q36405", "title": "wdt:P31", "to": "literal_4_big city"}, {"from": "wd:Q36405", "title": "wdt:P131", "to": "literal_5_Aberdeen City"}, {"from": "wd:Q36405", "title": "rdfs:label", "to": "literal_40_Aberdeen"}, {"from": "wd:Q36405", "title": "wdt:P190", "to": "literal_58_Regensburg"}, {"from": "wd:Q36405", "title": "wdt:P190", "to": "literal_67_Houston"}, {"from": "wd:Q36405", "title": "wdt:P166", "to": "literal_72_city status in the United Kingdom"}, {"from": "wd:Q623687", "title": "wtq:hasMajor_subdivisions", "to": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4"}, {"from": "wd:Q623687", "title": "wdt:P131", "to": "literal_6_Falkirk"}, {"from": "wd:Q623687", "title": "wdt:P47", "to": "literal_32_Stenhousemuir"}, {"from": "wd:Q623687", "title": "wdt:P421", "to": "literal_45_UTC\u00b100:00"}, {"from": "wd:Q623687", "title": "wdt:P910", "to": "literal_49_Category:Falkirk"}, {"from": "wd:Q623687", "title": "wdt:P31", "to": "literal_56_large burgh"}, {"from": "wd:Q623687", "title": "rdfs:label", "to": "literal_59_Falkirk"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q617845"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q3358826"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q972353"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasindex", "to": "literal_9_4"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasArea__km\u00b2_", "to": "literal_16_36.1"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasDensity__People_km\u00b2_", "to": "literal_51_2,532"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasPopulation_n_2001_Census_", "to": "literal_61_91,402"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasMetropolitan_Area", "to": "literal_68_Falkirk"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasMajor_subdivisions", "to": "literal_70_Falkirk, Grangemouth, Carron, Polmont, Stenhousemuir"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasRank", "to": "literal_84_5"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_4", "title": "wtq:hasUrban_Area", "to": "literal_90_Falkirk"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q1786145"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q2469984"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasArea__km\u00b2_", "to": "literal_8_20.69"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasMetropolitan_Area", "to": "literal_12_Glasgow"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasRank", "to": "literal_13_7"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasUrban_Area", "to": "literal_25_Greenock"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasindex", "to": "literal_31_6"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasMajor_subdivisions", "to": "literal_37_Greenock, Gourock, Port Glasgow"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasDensity__People_km\u00b2_", "to": "literal_65_3,557"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_6", "title": "wtq:hasPopulation_n_2001_Census_", "to": "literal_73_73,595"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q5327978"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasMajor_subdivisions", "to": "wd:Q4115"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasindex", "to": "literal_10_9"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasMajor_subdivisions", "to": "literal_14_Livingston, East Calder, Mid Calder"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasRank", "to": "literal_18_10"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasDensity__People_km\u00b2_", "to": "literal_28_2,283"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasArea__km\u00b2_", "to": "literal_36_26.07"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasPopulation_n_2001_Census_", "to": "literal_46_59,511"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasUrban_Area", "to": "literal_81_Livingston"}, {"from": "wtq:List_of_urban_areas_in_the_United_Kingdom_row_9", "title": "wtq:hasMetropolitan_Area", "to": "literal_87_Edinburgh"}, {"from": "wd:Q5327978", "title": "wdt:P31", "to": "literal_15_town"}, {"from": "wd:Q5327978", "title": "rdfs:label", "to": "literal_17_East Calder"}, {"from": "wd:Q5327978", "title": "wdt:P17", "to": "literal_21_United Kingdom"}, {"from": "wd:Q5327978", "title": "wdt:P131", "to": "literal_24_West Lothian"}, {"from": "wd:Q5178917", "title": "wdt:P131", "to": "literal_19_Aberdeen City"}, {"from": "wd:Q5178917", "title": "wdt:P31", "to": "literal_20_suburb"}, {"from": "wd:Q5178917", "title": "rdfs:label", "to": "literal_33_Cove Bay"}, {"from": "wd:Q5178917", "title": "wdt:P17", "to": "literal_53_United Kingdom"}, {"from": "wd:Q4115", "title": "wdt:P421", "to": "literal_22_UTC\u00b100:00"}, {"from": "wd:Q4115", "title": "wdt:P31", "to": "literal_23_village"}, {"from": "wd:Q4115", "title": "wdt:P131", "to": "literal_55_West Lothian"}, {"from": "wd:Q4115", "title": "rdfs:label", "to": "literal_60_Mid Calder"}, {"from": "wd:Q1786145", "title": "wdt:P1343", "to": "literal_26_Encyclop\u00e6dia Britannica 11th edition"}, {"from": "wd:Q1786145", "title": "rdfs:label", "to": "literal_27_Port Glasgow"}, {"from": "wd:Q1786145", "title": "wdt:P17", "to": "literal_34_United Kingdom"}, {"from": "wd:Q1786145", "title": "wdt:P421", "to": "literal_50_UTC\u00b100:00"}, {"from": "wd:Q3358826", "title": "wdt:P131", "to": "literal_29_Falkirk"}, {"from": "wd:Q3358826", "title": "wdt:P31", "to": "literal_44_town"}, {"from": "wd:Q3358826", "title": "wdt:P7959", "to": "literal_66_Stirlingshire"}, {"from": "wd:Q3358826", "title": "rdfs:label", "to": "literal_79_Stenhousemuir"}, {"from": "wd:Q617845", "title": "wdt:P131", "to": "literal_30_Falkirk"}, {"from": "wd:Q617845", "title": "wdt:P31", "to": "literal_47_town"}, {"from": "wd:Q617845", "title": "rdfs:label", "to": "literal_80_Grangemouth"}, {"from": "wd:Q617845", "title": "wdt:P1376", "to": "literal_88_Grangemouth"}, {"from": "wd:Q972353", "title": "rdfs:label", "to": "literal_39_Polmont"}, {"from": "wd:Q972353", "title": "wdt:P17", "to": "literal_62_United Kingdom"}, {"from": "wd:Q972353", "title": "wdt:P7959", "to": "literal_76_Stirlingshire"}, {"from": "wd:Q972353", "title": "wdt:P421", "to": "literal_78_UTC\u00b100:00"}, {"from": "wd:Q2469984", "title": "wdt:P1343", "to": "literal_41_Encyclop\u00e6dia Britannica 11th edition"}, {"from": "wd:Q2469984", "title": "rdfs:label", "to": "literal_74_Gourock"}, {"from": "wd:Q2469984", "title": "wdt:P131", "to": "literal_83_Inverclyde"}, {"from": "wd:Q2469984", "title": "wdt:P910", "to": "literal_89_Category:Gourock"}, {"from": "wd:Q2374318", "title": "wdt:P17", "to": "literal_57_United Kingdom"}, {"from": "wd:Q2374318", "title": "rdfs:label", "to": "literal_63_Dyce"}, {"from": "wd:Q2374318", "title": "wdt:P131", "to": "literal_75_Aberdeen City"}, {"from": "wd:Q2374318", "title": "wdt:P276", "to": "literal_86_Aberdeen"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

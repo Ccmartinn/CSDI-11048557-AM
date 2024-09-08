@@ -1,0 +1,40 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1982_British_Formula_One_season a wtq:Entity ;
+    wtq:hasRow wtq:1982_British_Formula_One_season_row_2,
+        wtq:1982_British_Formula_One_season_row_4,
+        wtq:1982_British_Formula_One_season_row_6,
+        wtq:1982_British_Formula_One_season_row_9 .
+
+wtq:1982_British_Formula_One_season_row_2 wtq:hasChassis "M29" ;
+    wtq:hasConstructor "McLaren" ;
+    wtq:hasDriver "Arnold Glass" ;
+    wtq:hasEngine "Cosworth DFV V8" ;
+    wtq:hasEntrant "Colin Bennett Racing" ;
+    wtq:hasNo "6" ;
+    wtq:hasindex "2" .
+
+wtq:1982_British_Formula_One_season_row_4 wtq:hasChassis "F8" ;
+    wtq:hasConstructor "Fittipaldi" ;
+    wtq:hasDriver "Tony Trimmer" ;
+    wtq:hasEngine "Cosworth DFV V8" ;
+    wtq:hasEntrant "Team Sanada" ;
+    wtq:hasNo "8" ;
+    wtq:hasindex "4" .
+
+wtq:1982_British_Formula_One_season_row_6 wtq:hasChassis "P207" ;
+    wtq:hasConstructor "BRM" ;
+    wtq:hasDriver "David Williams" ;
+    wtq:hasEngine "BRM 202 V12" ;
+    wtq:hasEntrant "John Jordan" ;
+    wtq:hasNo "12" ;
+    wtq:hasindex "6" .
+
+wtq:1982_British_Formula_One_season_row_9 wtq:hasChassis "FW07" ;
+    wtq:hasConstructor "Williams" ;
+    wtq:hasDriver "Jorge Koechlin" ;
+    wtq:hasEngine "Cosworth DFV V8" ;
+    wtq:hasEntrant "Team Peru" ;
+    wtq:hasNo "82" ;
+    wtq:hasindex "9" .
+

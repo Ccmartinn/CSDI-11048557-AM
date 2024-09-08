@@ -1,0 +1,28 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Portugal_in_the_Eurovision_Song_Contest_1979 a wtq:Entity ;
+    wtq:hasRow wtq:Portugal_in_the_Eurovision_Song_Contest_1979_row_2,
+        wtq:Portugal_in_the_Eurovision_Song_Contest_1979_row_6,
+        wtq:Portugal_in_the_Eurovision_Song_Contest_1979_row_8 .
+
+wtq:Portugal_in_the_Eurovision_Song_Contest_1979_row_2 wtq:hasArtist "Concha" ;
+    wtq:hasDraw "3" ;
+    wtq:hasPlace "6th" ;
+    wtq:hasPoints "78" ;
+    wtq:hasSong "Qualquer dia, quem diria" ;
+    wtq:hasindex "2" .
+
+wtq:Portugal_in_the_Eurovision_Song_Contest_1979_row_6 wtq:hasArtist "Florência" ;
+    wtq:hasDraw "7" ;
+    wtq:hasPlace "8th" ;
+    wtq:hasPoints "63" ;
+    wtq:hasSong "O combóio do Tua" ;
+    wtq:hasindex "6" .
+
+wtq:Portugal_in_the_Eurovision_Song_Contest_1979_row_8 wtq:hasArtist "Manuela Bravo" ;
+    wtq:hasDraw "9" ;
+    wtq:hasPlace "1st" ;
+    wtq:hasPoints "149" ;
+    wtq:hasSong "Sobe, sobe, balão sobe" ;
+    wtq:hasindex "8" .
+

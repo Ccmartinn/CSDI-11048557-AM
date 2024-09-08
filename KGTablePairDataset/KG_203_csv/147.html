@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Camarines_Sur_row_30", "label": "wtq:Camarines_Sur_row_30", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_22", "label": "wtq:Camarines_Sur_row_22", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_19", "label": "wtq:Camarines_Sur_row_19", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_21", "label": "wtq:Camarines_Sur_row_21", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur", "label": "wtq:Camarines_Sur", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_34", "label": "wtq:Camarines_Sur_row_34", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_24", "label": "wtq:Camarines_Sur_row_24", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_29", "label": "wtq:Camarines_Sur_row_29", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_28", "label": "wtq:Camarines_Sur_row_28", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_17", "label": "wtq:Camarines_Sur_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_2", "label": "wtq:Camarines_Sur_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_27", "label": "wtq:Camarines_Sur_row_27", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_25", "label": "wtq:Camarines_Sur_row_25", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_35", "label": "wtq:Camarines_Sur_row_35", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q209011", "label": "wd:Q209011", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Camarines_Sur_row_3", "label": "wtq:Camarines_Sur_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q208683", "label": "wd:Q208683", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q208886", "label": "wd:Q208886", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q208899", "label": "wd:Q208899", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q208690", "label": "wd:Q208690", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q208878", "label": "wd:Q208878", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_15,476", "label": "15,476", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_42", "label": "42", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_4,497", "label": "4,497", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_31,314", "label": "31,314", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Leovegildo D. Basmayor Jr.", "label": "Leovegildo D. Basmayor Jr.", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_34", "label": "34", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Fidel C. Carido", "label": "Fidel C. Carido", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_9,620", "label": "9,620", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_25", "label": "25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Magarao", "label": "Magarao", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Siruma", "label": "Siruma", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Joey A. Dele\u00f1a", "label": "Joey A. Dele\u00f1a", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_34,282", "label": "34,282", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_4th class", "label": "4th class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_3rd class", "label": "3rd class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Bato", "label": "Bato", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_34,471", "label": "34,471", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Ricardo B. Aquino", "label": "Ricardo B. Aquino", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_27", "label": "27", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_14,380", "label": "14,380", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Gimeno A. Imperial", "label": "Gimeno A. Imperial", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Bombon", "label": "Bombon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_48,162", "label": "48,162", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_1st class", "label": "1st class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Bato", "label": "Bato", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_1st class", "label": "1st class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_3rd municipal income class", "label": "3rd municipal income class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_Diccionario geogr\u00e1fico, estad\u00edstico, hist\u00f3rico de las Islas Filipinas (1850-1851)", "label": "Diccionario geogr\u00e1fico, estad\u00edstico, hist\u00f3rico de las Islas Filipinas (1850-1851)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Arnulf Bryan B. Fuentebella", "label": "Arnulf Bryan B. Fuentebella", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_12,610", "label": "12,610", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Tigaon", "label": "Tigaon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_UTC+08:00", "label": "UTC+08:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_25", "label": "25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Philippines", "label": "Philippines", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_48,611", "label": "48,611", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_48,306", "label": "48,306", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_26", "label": "26", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_3rd class", "label": "3rd class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_12,625", "label": "12,625", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_25", "label": "25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Evelyn B. Fuentebella", "label": "Evelyn B. Fuentebella", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_Central Bikol", "label": "Central Bikol", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Delia C. Simbulan", "label": "Delia C. Simbulan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_14,127", "label": "14,127", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_mayor", "label": "mayor", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Nabua", "label": "Nabua", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_3rd class", "label": "3rd class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Pili", "label": "Pili", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_1st class", "label": "1st class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_Pamplona", "label": "Pamplona", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_15,437", "label": "15,437", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_Camarines Sur\u0027s 3rd congressional district", "label": "Camarines Sur\u0027s 3rd congressional district", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_Sag\u00f1ay", "label": "Sag\u00f1ay", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_Central Bikol", "label": "Central Bikol", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_4th class", "label": "4th class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_43,523", "label": "43,523", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_Libmanan", "label": "Libmanan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_23", "label": "23", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Tigaon", "label": "Tigaon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_Philippines", "label": "Philippines", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_17,050", "label": "17,050", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_Sandy S. Ondis Sr.", "label": "Sandy S. Ondis Sr.", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_2,873", "label": "2,873", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_4th class", "label": "4th class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_Ocampo", "label": "Ocampo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_Ocampo", "label": "Ocampo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_Salvador A. Senar Jr.", "label": "Salvador A. Senar Jr.", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_Marilyn A. Jimenez", "label": "Marilyn A. Jimenez", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_20,023", "label": "20,023", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_54,934", "label": "54,934", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_Jeanette R. Bernaldez", "label": "Jeanette R. Bernaldez", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_Camarines Sur\u0027s 2nd congressional district", "label": "Camarines Sur\u0027s 2nd congressional district", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_municipality of the Philippines", "label": "municipality of the Philippines", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_24,274", "label": "24,274", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_4th class", "label": "4th class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_Minalabac", "label": "Minalabac", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_28", "label": "28", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_11,833", "label": "11,833", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_Presentacion", "label": "Presentacion", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_municipality of the Philippines", "label": "municipality of the Philippines", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_8,060", "label": "8,060", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_7,235", "label": "7,235", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_1st municipal income class", "label": "1st municipal income class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_Camarines Sur", "label": "Camarines Sur", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_Tagalog", "label": "Tagalog", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_33", "label": "33", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_1st class", "label": "1st class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_Ragay", "label": "Ragay", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_Tomas P. Bongalonta, Jr.", "label": "Tomas P. Bongalonta, Jr.", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_3rd class", "label": "3rd class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_82,307", "label": "82,307", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_Inagta Partido", "label": "Inagta Partido", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_116_40,022", "label": "40,022", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_117_30", "label": "30", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_118_5th class", "label": "5th class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_119_Pamplona", "label": "Pamplona", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_120_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_121_Pili", "label": "Pili", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_122_10,712", "label": "10,712", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_123_4th class", "label": "4th class", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_124_Ma. Luisa DC. Angeles", "label": "Ma. Luisa DC. Angeles", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_125_29", "label": "29", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_126_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_127_Philippines", "label": "Philippines", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_128_Tagalog", "label": "Tagalog", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_129_35", "label": "35", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_130_75", "label": "75", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_131_100,002", "label": "100,002", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_132_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_133_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_134_Bombon", "label": "Bombon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_135_80,111", "label": "80,111", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasArea_n_hectares_", "to": "literal_0_15,476"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasPopulation_n_2010_", "to": "literal_4_31,314"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasCity_Municipality", "to": "literal_25_nan"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_54_Evelyn B. Fuentebella"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasCity_Municipality.1", "to": "literal_72_Sag\u00f1ay"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_74_4th class"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasNo._of_nBarangays", "to": "literal_90_19"}, {"from": "wtq:Camarines_Sur_row_30", "title": "wtq:hasindex", "to": "literal_117_30"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasNo._of_nBarangays", "to": "literal_1_42"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasindex", "to": "literal_3_22"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasArea_n_hectares_", "to": "literal_8_9,620"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_32_1st class"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_57_Delia C. Simbulan"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasCity_Municipality.1", "to": "literal_60_Nabua"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasCity_Municipality", "to": "literal_126_nan"}, {"from": "wtq:Camarines_Sur_row_22", "title": "wtq:hasPopulation_n_2010_", "to": "literal_135_80,111"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasArea_n_hectares_", "to": "literal_2_4,497"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasCity_Municipality.1", "to": "literal_10_Magarao"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasindex", "to": "literal_18_19"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasNo._of_nBarangays", "to": "literal_51_15"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasCity_Municipality", "to": "literal_66_nan"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_83_4th class"}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_86_Salvador A. Senar Jr."}, {"from": "wtq:Camarines_Sur_row_19", "title": "wtq:hasPopulation_n_2010_", "to": "literal_94_24,274"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_5_Leovegildo D. Basmayor Jr."}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasindex", "to": "literal_14_21"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasPopulation_n_2010_", "to": "literal_29_48,162"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasArea_n_hectares_", "to": "literal_36_12,610"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasNo._of_nBarangays", "to": "literal_40_25"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasCity_Municipality", "to": "literal_45_nan"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasCity_Municipality.1", "to": "literal_96_Minalabac"}, {"from": "wtq:Camarines_Sur_row_21", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_113_3rd class"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_24"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_29"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_3"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_25"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_28"}, {"from": "wtq:Camarines_Sur", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_35"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_17"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_2"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_27"}, {"from": "wtq:Camarines_Sur", "title": "wtq:hasRow", "to": "wtq:Camarines_Sur_row_34"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasindex", "to": "literal_6_34"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasCity_Municipality.1", "to": "literal_11_Siruma"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_15_4th class"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasNo._of_nBarangays", "to": "literal_48_22"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasArea_n_hectares_", "to": "literal_58_14,127"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasCity_Municipality", "to": "literal_69_nan"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasPopulation_n_2010_", "to": "literal_80_17,050"}, {"from": "wtq:Camarines_Sur_row_34", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_81_Sandy S. Ondis Sr."}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasCity_Municipality.1", "to": "wd:Q208878"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_7_Fidel C. Carido"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasNo._of_nBarangays", "to": "literal_9_25"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasCity_Municipality", "to": "literal_41_nan"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasindex", "to": "literal_55_24"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_62_3rd class"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasPopulation_n_2010_", "to": "literal_75_43,523"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasCity_Municipality.1", "to": "literal_84_Ocampo"}, {"from": "wtq:Camarines_Sur_row_24", "title": "wtq:hasArea_n_hectares_", "to": "literal_98_11,833"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_22_Ricardo B. Aquino"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_30_1st class"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasNo._of_nBarangays", "to": "literal_61_38"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasPopulation_n_2010_", "to": "literal_89_54,934"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasCity_Municipality.1", "to": "literal_111_Ragay"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasArea_n_hectares_", "to": "literal_116_40,022"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasCity_Municipality", "to": "literal_120_nan"}, {"from": "wtq:Camarines_Sur_row_29", "title": "wtq:hasindex", "to": "literal_125_29"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_12_Joey A. Dele\u00f1a"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasArea_n_hectares_", "to": "literal_26_14,380"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasCity_Municipality", "to": "literal_39_nan"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasNo._of_nBarangays", "to": "literal_42_18"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasPopulation_n_2010_", "to": "literal_88_20,023"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_95_4th class"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasindex", "to": "literal_97_28"}, {"from": "wtq:Camarines_Sur_row_28", "title": "wtq:hasCity_Municipality.1", "to": "literal_99_Presentacion"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasArea_n_hectares_", "to": "literal_13_34,282"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasCity_Municipality", "to": "literal_19_nan"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasCity_Municipality.1", "to": "literal_76_Libmanan"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_87_Marilyn A. Jimenez"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_110_1st class"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasNo._of_nBarangays", "to": "literal_130_75"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasPopulation_n_2010_", "to": "literal_131_100,002"}, {"from": "wtq:Camarines_Sur_row_17", "title": "wtq:hasindex", "to": "literal_133_17"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasCity_Municipality.1", "to": "wd:Q208683"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_16_3rd class"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasCity_Municipality.1", "to": "literal_17_Bato"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasPopulation_n_2010_", "to": "literal_46_48,306"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasindex", "to": "literal_67_2"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_91_Jeanette R. Bernaldez"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasNo._of_nBarangays", "to": "literal_109_33"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasArea_n_hectares_", "to": "literal_122_10,712"}, {"from": "wtq:Camarines_Sur_row_2", "title": "wtq:hasCity_Municipality", "to": "literal_132_nan"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasCity_Municipality.1", "to": "wd:Q208899"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasCity_Municipality", "to": "literal_20_nan"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasindex", "to": "literal_23_27"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasNo._of_nBarangays", "to": "literal_47_26"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasArea_n_hectares_", "to": "literal_50_12,625"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasCity_Municipality.1", "to": "literal_63_Pili"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_64_1st class"}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_112_Tomas P. Bongalonta, Jr."}, {"from": "wtq:Camarines_Sur_row_27", "title": "wtq:hasPopulation_n_2010_", "to": "literal_114_82,307"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasCity_Municipality.1", "to": "wd:Q208886"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasPopulation_n_2010_", "to": "literal_21_34,471"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_27_Gimeno A. Imperial"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasindex", "to": "literal_53_25"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasCity_Municipality.1", "to": "literal_65_Pamplona"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasCity_Municipality", "to": "literal_68_nan"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasArea_n_hectares_", "to": "literal_101_8,060"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasNo._of_nBarangays", "to": "literal_106_17"}, {"from": "wtq:Camarines_Sur_row_25", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_123_4th class"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasCity_Municipality.1", "to": "wd:Q209011"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasCity_Municipality", "to": "literal_24_nan"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_35_Arnulf Bryan B. Fuentebella"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasPopulation_n_2010_", "to": "literal_44_48,611"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_49_3rd class"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasNo._of_nBarangays", "to": "literal_77_23"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasCity_Municipality.1", "to": "literal_78_Tigaon"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasArea_n_hectares_", "to": "literal_102_7,235"}, {"from": "wtq:Camarines_Sur_row_35", "title": "wtq:hasindex", "to": "literal_129_35"}, {"from": "wd:Q209011", "title": "rdfs:label", "to": "literal_37_Tigaon"}, {"from": "wd:Q209011", "title": "wdt:P2936", "to": "literal_108_Tagalog"}, {"from": "wd:Q209011", "title": "wdt:P2936", "to": "literal_115_Inagta Partido"}, {"from": "wd:Q209011", "title": "wdt:P17", "to": "literal_127_Philippines"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasCity_Municipality.1", "to": "wd:Q208690"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasCity_Municipality.1", "to": "literal_28_Bombon"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasCity_Municipality", "to": "literal_52_nan"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasPopulation_n_2010_", "to": "literal_70_15,437"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasArea_n_hectares_", "to": "literal_82_2,873"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasNo._of_nBarangays", "to": "literal_103_8"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasindex", "to": "literal_107_3"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasIncome_Class_n_2010_", "to": "literal_118_5th class"}, {"from": "wtq:Camarines_Sur_row_3", "title": "wtq:hasMayor_n_2010\u20132013_", "to": "literal_124_Ma. Luisa DC. Angeles"}, {"from": "wd:Q208683", "title": "rdfs:label", "to": "literal_31_Bato"}, {"from": "wd:Q208683", "title": "wdt:P1879", "to": "literal_33_3rd municipal income class"}, {"from": "wd:Q208683", "title": "wdt:P1343", "to": "literal_34_Diccionario geogr\u00e1fico, estad\u00edstico, hist\u00f3rico de las Islas Filipinas (1850-1851)"}, {"from": "wd:Q208683", "title": "wdt:P17", "to": "literal_43_Philippines"}, {"from": "wd:Q208886", "title": "wdt:P421", "to": "literal_38_UTC+08:00"}, {"from": "wd:Q208886", "title": "wdt:P7938", "to": "literal_92_Camarines Sur\u0027s 2nd congressional district"}, {"from": "wd:Q208886", "title": "wdt:P31", "to": "literal_100_municipality of the Philippines"}, {"from": "wd:Q208886", "title": "rdfs:label", "to": "literal_119_Pamplona"}, {"from": "wd:Q208899", "title": "wdt:P2936", "to": "literal_56_Central Bikol"}, {"from": "wd:Q208899", "title": "wdt:P1313", "to": "literal_59_mayor"}, {"from": "wd:Q208899", "title": "wdt:P1879", "to": "literal_104_1st municipal income class"}, {"from": "wd:Q208899", "title": "rdfs:label", "to": "literal_121_Pili"}, {"from": "wd:Q208690", "title": "wdt:P7938", "to": "literal_71_Camarines Sur\u0027s 3rd congressional district"}, {"from": "wd:Q208690", "title": "wdt:P2936", "to": "literal_73_Central Bikol"}, {"from": "wd:Q208690", "title": "wdt:P131", "to": "literal_105_Camarines Sur"}, {"from": "wd:Q208690", "title": "rdfs:label", "to": "literal_134_Bombon"}, {"from": "wd:Q208878", "title": "wdt:P17", "to": "literal_79_Philippines"}, {"from": "wd:Q208878", "title": "rdfs:label", "to": "literal_85_Ocampo"}, {"from": "wd:Q208878", "title": "wdt:P31", "to": "literal_93_municipality of the Philippines"}, {"from": "wd:Q208878", "title": "wdt:P2936", "to": "literal_128_Tagalog"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

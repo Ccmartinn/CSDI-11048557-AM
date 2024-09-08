@@ -1,0 +1,22 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2008_in_athletics_\(track_and_field\) a wtq:Entity ;
+    wtq:hasRow wtq:2008_in_athletics_\(track_and_field\)_row_2,
+        wtq:2008_in_athletics_\(track_and_field\)_row_6 .
+
+wtq:2008_in_athletics_\(track_and_field\)_row_2 wtq:hasAthlete "Usain Bolt" ;
+    wtq:hasDate "August 20" ;
+    wtq:hasEvent "200 m" ;
+    wtq:hasNation "Jamaica" ;
+    wtq:hasPerformance "19.30" ;
+    wtq:hasPlace "Beijing, China" ;
+    wtq:hasindex "2" .
+
+wtq:2008_in_athletics_\(track_and_field\)_row_6 wtq:hasAthlete "Haile Gebrselassie" ;
+    wtq:hasDate "September 28" ;
+    wtq:hasEvent "Marathon" ;
+    wtq:hasNation "Ethiopia" ;
+    wtq:hasPerformance "2:03:59" ;
+    wtq:hasPlace "Berlin, Germany" ;
+    wtq:hasindex "6" .
+

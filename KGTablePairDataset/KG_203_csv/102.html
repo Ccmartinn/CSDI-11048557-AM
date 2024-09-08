@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q64", "label": "wd:Q64", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q115", "label": "wd:Q115", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2008_in_athletics_(track_and_field)_row_6", "label": "wtq:2008_in_athletics_(track_and_field)_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q183", "label": "wd:Q183", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2008_in_athletics_(track_and_field)_row_2", "label": "wtq:2008_in_athletics_(track_and_field)_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q171500", "label": "wd:Q171500", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2008_in_athletics_(track_and_field)", "label": "wtq:2008_in_athletics_(track_and_field)", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q40244", "label": "wd:Q40244", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Hanseatic city", "label": "Hanseatic city", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Organisation of African, Caribbean and Pacific States", "label": "Organisation of African, Caribbean and Pacific States", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_September 28", "label": "September 28", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Cuba", "label": "Cuba", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_August 20", "label": "August 20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Germany", "label": "Germany", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Ethiopia", "label": "Ethiopia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Montenegro", "label": "Montenegro", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Einheitsgemeinde of Germany", "label": "Einheitsgemeinde of Germany", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Ethiopia", "label": "Ethiopia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_marathon", "label": "marathon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_200 m", "label": "200 m", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Usain Bolt", "label": "Usain Bolt", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_sports discipline", "label": "sports discipline", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Ethiopia", "label": "Ethiopia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_marathon runner", "label": "marathon runner", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Germany", "label": "Germany", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Haile Gebrselassie", "label": "Haile Gebrselassie", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Berlin", "label": "Berlin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_Malta", "label": "Malta", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Jamaica", "label": "Jamaica", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_2:03:59", "label": "2:03:59", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Beijing, China", "label": "Beijing, China", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Haile Gebrselassie", "label": "Haile Gebrselassie", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Interpol", "label": "Interpol", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Marathon", "label": "Marathon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Berlin, Germany", "label": "Berlin, Germany", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_19.30", "label": "19.30", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_athletics competitor", "label": "athletics competitor", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_athletics", "label": "athletics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Encyclop\u00e6dia Britannica 11th edition", "label": "Encyclop\u00e6dia Britannica 11th edition", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q64", "title": "wtq:hasPlace", "to": "wtq:2008_in_athletics_(track_and_field)_row_6"}, {"from": "wd:Q64", "title": "wdt:P31", "to": "literal_0_Hanseatic city"}, {"from": "wd:Q64", "title": "wdt:P17", "to": "literal_6_Germany"}, {"from": "wd:Q64", "title": "wdt:P31", "to": "literal_10_Einheitsgemeinde of Germany"}, {"from": "wd:Q64", "title": "rdfs:label", "to": "literal_20_Berlin"}, {"from": "wd:Q115", "title": "wtq:hasNation", "to": "wtq:2008_in_athletics_(track_and_field)_row_6"}, {"from": "wd:Q115", "title": "wdt:P463", "to": "literal_1_Organisation of African, Caribbean and Pacific States"}, {"from": "wd:Q115", "title": "rdfs:label", "to": "literal_11_Ethiopia"}, {"from": "wd:Q115", "title": "wdt:P463", "to": "literal_26_Interpol"}, {"from": "wd:Q115", "title": "wdt:P463", "to": "literal_30_United Nations"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasPlace", "to": "wd:Q183"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasAthlete", "to": "wd:Q171500"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasEvent", "to": "wd:Q40244"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasRow", "to": "wtq:2008_in_athletics_(track_and_field)"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasDate", "to": "literal_2_September 28"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasindex", "to": "literal_3_6"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasNation", "to": "literal_8_Ethiopia"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasPerformance", "to": "literal_23_2:03:59"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasAthlete", "to": "literal_25_Haile Gebrselassie"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasEvent", "to": "literal_27_Marathon"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_6", "title": "wtq:hasPlace", "to": "literal_28_Berlin, Germany"}, {"from": "wd:Q183", "title": "wdt:P530", "to": "literal_4_Cuba"}, {"from": "wd:Q183", "title": "wdt:P530", "to": "literal_9_Montenegro"}, {"from": "wd:Q183", "title": "rdfs:label", "to": "literal_18_Germany"}, {"from": "wd:Q183", "title": "wdt:P530", "to": "literal_21_Malta"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasRow", "to": "wtq:2008_in_athletics_(track_and_field)"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasDate", "to": "literal_5_August 20"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasindex", "to": "literal_7_2"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasEvent", "to": "literal_13_200 m"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasAthlete", "to": "literal_14_Usain Bolt"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasNation", "to": "literal_22_Jamaica"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasPlace", "to": "literal_24_Beijing, China"}, {"from": "wtq:2008_in_athletics_(track_and_field)_row_2", "title": "wtq:hasPerformance", "to": "literal_29_19.30"}, {"from": "wd:Q171500", "title": "wdt:P19", "to": "literal_16_Ethiopia"}, {"from": "wd:Q171500", "title": "wdt:P106", "to": "literal_17_marathon runner"}, {"from": "wd:Q171500", "title": "rdfs:label", "to": "literal_19_Haile Gebrselassie"}, {"from": "wd:Q171500", "title": "wdt:P106", "to": "literal_31_athletics competitor"}, {"from": "wtq:2008_in_athletics_(track_and_field)", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wd:Q40244", "title": "rdfs:label", "to": "literal_12_marathon"}, {"from": "wd:Q40244", "title": "wdt:P31", "to": "literal_15_sports discipline"}, {"from": "wd:Q40244", "title": "wdt:P641", "to": "literal_32_athletics"}, {"from": "wd:Q40244", "title": "wdt:P1343", "to": "literal_33_Encyclop\u00e6dia Britannica 11th edition"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

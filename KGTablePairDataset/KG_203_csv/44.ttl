@@ -1,0 +1,94 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1964_Tour_de_France a wtq:Entity ;
+    wtq:hasRow wtq:1964_Tour_de_France_row_10,
+        wtq:1964_Tour_de_France_row_13,
+        wtq:1964_Tour_de_France_row_14,
+        wtq:1964_Tour_de_France_row_17,
+        wtq:1964_Tour_de_France_row_18,
+        wtq:1964_Tour_de_France_row_19,
+        wtq:1964_Tour_de_France_row_2,
+        wtq:1964_Tour_de_France_row_21,
+        wtq:1964_Tour_de_France_row_3,
+        wtq:1964_Tour_de_France_row_4 .
+
+wtq:1964_Tour_de_France_row_10 wtq:hasDate "1 July" ;
+    wtq:hasLength "187 km (116 mi)" ;
+    wtq:hasRoute "Monaco – Hyères" ;
+    wtq:hasStage "10A" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "Jan Janssen (NED)" ;
+    wtq:hasindex "10" .
+
+wtq:1964_Tour_de_France_row_13 wtq:hasDate "3 July" ;
+    wtq:hasLength "174 km (108 mi)" ;
+    wtq:hasRoute "Montpellier – Perpignan" ;
+    wtq:hasStage "12" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "Jo de Roo (NED)" ;
+    wtq:hasindex "13" .
+
+wtq:1964_Tour_de_France_row_14 wtq:hasDate "4 July" ;
+    wtq:hasLength "170 km (110 mi)" ;
+    wtq:hasRoute "Perpignan – Andorra" ;
+    wtq:hasStage "13" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Julio Jiménez (ESP)" ;
+    wtq:hasindex "14" .
+
+wtq:1964_Tour_de_France_row_17 wtq:hasDate "8 July" ;
+    wtq:hasLength "197 km (122 mi)" ;
+    wtq:hasRoute "Luchon – Pau" ;
+    wtq:hasStage "16" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Federico Bahamontes (ESP)" ;
+    wtq:hasindex "17" .
+
+wtq:1964_Tour_de_France_row_18 wtq:hasDate "9 July" ;
+    wtq:hasLength "43 km (27 mi)" ;
+    wtq:hasRoute "Peyrehorade – Bayonne" ;
+    wtq:hasStage "17" ;
+    wtq:hasTerrain "Individual time trial" ;
+    wtq:hasWinner "Jacques Anquetil (FRA)" ;
+    wtq:hasindex "18" .
+
+wtq:1964_Tour_de_France_row_19 wtq:hasDate "10 July" ;
+    wtq:hasLength "187 km (116 mi)" ;
+    wtq:hasRoute "Bayonne – Bordeaux" ;
+    wtq:hasStage "18" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "André Darrigade (FRA)" ;
+    wtq:hasindex "19" .
+
+wtq:1964_Tour_de_France_row_2 wtq:hasDate "24 June" ;
+    wtq:hasLength "197 km (122 mi)" ;
+    wtq:hasRoute "Amiens – Forest" ;
+    wtq:hasStage "3A" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "Bernard Vandekerkhove (BEL)" ;
+    wtq:hasindex "2" .
+
+wtq:1964_Tour_de_France_row_21 wtq:hasDate "12 July" ;
+    wtq:hasLength "217 km (135 mi)" ;
+    wtq:hasRoute "Brive – Puy de Dôme" ;
+    wtq:hasStage "20" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Julio Jiménez (ESP)" ;
+    wtq:hasindex "21" .
+
+wtq:1964_Tour_de_France_row_3 wtq:hasDate "24 June" ;
+    wtq:hasLength "21 km (13 mi)" ;
+    wtq:hasRoute "Forest – Forest" ;
+    wtq:hasStage "3B" ;
+    wtq:hasTerrain "Team time trial" ;
+    wtq:hasWinner "Kas-Kaskol" ;
+    wtq:hasindex "3" .
+
+wtq:1964_Tour_de_France_row_4 wtq:hasDate "25 June" ;
+    wtq:hasLength "292 km (181 mi)" ;
+    wtq:hasRoute "Forest – Metz" ;
+    wtq:hasStage "4" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "Rudi Altig (GER)" ;
+    wtq:hasindex "4" .
+

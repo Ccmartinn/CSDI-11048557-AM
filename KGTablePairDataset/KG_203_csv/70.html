@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q1028", "label": "wd:Q1028", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q784", "label": "wd:Q784", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_19", "label": "wtq:1994_Jeux_de_la_Francophonie_row_19", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_2", "label": "wtq:1994_Jeux_de_la_Francophonie_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_21", "label": "wtq:1994_Jeux_de_la_Francophonie_row_21", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_3", "label": "wtq:1994_Jeux_de_la_Francophonie_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q176", "label": "wd:Q176", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1000", "label": "wd:Q1000", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q822", "label": "wd:Q822", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_20", "label": "wtq:1994_Jeux_de_la_Francophonie_row_20", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_17", "label": "wtq:1994_Jeux_de_la_Francophonie_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q424", "label": "wd:Q424", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1019", "label": "wd:Q1019", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q16", "label": "wd:Q16", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_22", "label": "wtq:1994_Jeux_de_la_Francophonie_row_22", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1965", "label": "wd:Q1965", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_14", "label": "wtq:1994_Jeux_de_la_Francophonie_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1027", "label": "wd:Q1027", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_4", "label": "wtq:1994_Jeux_de_la_Francophonie_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie", "label": "wtq:1994_Jeux_de_la_Francophonie", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_10", "label": "wtq:1994_Jeux_de_la_Francophonie_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q912", "label": "wd:Q912", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1994_Jeux_de_la_Francophonie_row_24", "label": "wtq:1994_Jeux_de_la_Francophonie_row_24", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Arab League", "label": "Arab League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Category:People born in Dominica", "label": "Category:People born in Dominica", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_39", "label": "39", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Atlantic Time Zone", "label": "Atlantic Time Zone", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Central Africa", "label": "Central Africa", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Lebanon", "label": "Lebanon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Organization of the Petroleum Exporting Countries", "label": "Organization of the Petroleum Exporting Countries", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Gabon", "label": "Gabon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_New Brunswick", "label": "New Brunswick", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_constitutional monarchy", "label": "constitutional monarchy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Africa", "label": "Africa", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Organization for Economic Cooperation and Development", "label": "Organization for Economic Cooperation and Development", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Asia", "label": "Asia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Fredericton", "label": "Fredericton", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Quebec", "label": "Quebec", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Quebec", "label": "Quebec", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Lebanon", "label": "Lebanon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Eastern European Summer Time", "label": "Eastern European Summer Time", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Interpol", "label": "Interpol", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_UNESCO", "label": "UNESCO", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Mauritius", "label": "Mauritius", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Remembrance Day", "label": "Remembrance Day", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Madagascar", "label": "Madagascar", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Dominica", "label": "Dominica", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Kassonke", "label": "Kassonke", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_Morocco", "label": "Morocco", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Mali", "label": "Mali", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_Hun Manet", "label": "Hun Manet", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Organization of American States", "label": "Organization of American States", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Morocco", "label": "Morocco", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_Canada", "label": "Canada", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_UNESCO", "label": "UNESCO", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Canada", "label": "Canada", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Tadaksahak", "label": "Tadaksahak", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_Gabon", "label": "Gabon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_New Brunswick", "label": "New Brunswick", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_French", "label": "French", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_Eastern Time Zone", "label": "Eastern Time Zone", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_Category:Deaths in Dominica", "label": "Category:Deaths in Dominica", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_Organisation internationale de la Francophonie", "label": "Organisation internationale de la Francophonie", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_25", "label": "25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_United Nations", "label": "United Nations", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_Cambodia", "label": "Cambodia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_28", "label": "28", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_Mauritius", "label": "Mauritius", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_Dominica", "label": "Dominica", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_Middle East", "label": "Middle East", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_Cambodia", "label": "Cambodia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_Canada", "label": "Canada", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_Syenara", "label": "Syenara", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_Antananarivo", "label": "Antananarivo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_Madagascar", "label": "Madagascar", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_23", "label": "23", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_UTC\u00b100:00", "label": "UTC\u00b100:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_Portal:Dominica", "label": "Portal:Dominica", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_Mali", "label": "Mali", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_116_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_117_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_118_Quebec", "label": "Quebec", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_119_African Union", "label": "African Union", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_120_1", "label": "1", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q1028", "title": "wtq:hasNation", "to": "wtq:1994_Jeux_de_la_Francophonie_row_4"}, {"from": "wd:Q1028", "title": "wdt:P463", "to": "literal_0_Arab League"}, {"from": "wd:Q1028", "title": "wdt:P463", "to": "literal_35_UNESCO"}, {"from": "wd:Q1028", "title": "rdfs:label", "to": "literal_47_Morocco"}, {"from": "wd:Q1028", "title": "wdt:P421", "to": "literal_111_UTC\u00b100:00"}, {"from": "wd:Q784", "title": "wtq:hasNation", "to": "wtq:1994_Jeux_de_la_Francophonie_row_19"}, {"from": "wd:Q784", "title": "wdt:P1464", "to": "literal_1_Category:People born in Dominica"}, {"from": "wd:Q784", "title": "wdt:P1465", "to": "literal_68_Category:Deaths in Dominica"}, {"from": "wd:Q784", "title": "rdfs:label", "to": "literal_86_Dominica"}, {"from": "wd:Q784", "title": "wdt:P1151", "to": "literal_112_Portal:Dominica"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasGold", "to": "literal_37_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasNation", "to": "literal_44_Dominica"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasSilver", "to": "literal_55_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasBronze", "to": "literal_71_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasRank", "to": "literal_90_20"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasindex", "to": "literal_100_19"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_19", "title": "wtq:hasTotal", "to": "literal_117_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasNation", "to": "wd:Q16"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasTotal", "to": "literal_2_39"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasGold", "to": "literal_26_14"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasRank", "to": "literal_38_3"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasSilver", "to": "literal_49_10"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasNation", "to": "literal_56_Canada"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasBronze", "to": "literal_114_15"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_2", "title": "wtq:hasindex", "to": "literal_115_2"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasNation", "to": "wd:Q912"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasSilver", "to": "literal_3_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasGold", "to": "literal_9_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasindex", "to": "literal_34_21"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasBronze", "to": "literal_42_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasNation", "to": "literal_50_Mali"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasRank", "to": "literal_95_22"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_21", "title": "wtq:hasTotal", "to": "literal_120_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasNation", "to": "wd:Q176"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasSilver", "to": "literal_4_4"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasRank", "to": "literal_7_4"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasBronze", "to": "literal_14_16"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasindex", "to": "literal_16_3"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasNation", "to": "literal_27_Quebec"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasGold", "to": "literal_61_8"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_3", "title": "wtq:hasTotal", "to": "literal_82_28"}, {"from": "wd:Q176", "title": "wdt:P421", "to": "literal_5_Atlantic Time Zone"}, {"from": "wd:Q176", "title": "rdfs:label", "to": "literal_25_Quebec"}, {"from": "wd:Q176", "title": "wdt:P832", "to": "literal_41_Remembrance Day"}, {"from": "wd:Q176", "title": "wdt:P421", "to": "literal_67_Eastern Time Zone"}, {"from": "wd:Q1000", "title": "wtq:hasNation", "to": "wtq:1994_Jeux_de_la_Francophonie_row_20"}, {"from": "wd:Q1000", "title": "wdt:P361", "to": "literal_6_Central Africa"}, {"from": "wd:Q1000", "title": "wdt:P463", "to": "literal_10_Organization of the Petroleum Exporting Countries"}, {"from": "wd:Q1000", "title": "rdfs:label", "to": "literal_12_Gabon"}, {"from": "wd:Q1000", "title": "wdt:P463", "to": "literal_39_United Nations"}, {"from": "wd:Q822", "title": "wtq:hasNation", "to": "wtq:1994_Jeux_de_la_Francophonie_row_14"}, {"from": "wd:Q822", "title": "rdfs:label", "to": "literal_8_Lebanon"}, {"from": "wd:Q822", "title": "wdt:P421", "to": "literal_30_Eastern European Summer Time"}, {"from": "wd:Q822", "title": "wdt:P463", "to": "literal_57_UNESCO"}, {"from": "wd:Q822", "title": "wdt:P361", "to": "literal_93_Middle East"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasRank", "to": "literal_11_21"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasBronze", "to": "literal_13_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasNation", "to": "literal_62_Gabon"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasTotal", "to": "literal_77_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasSilver", "to": "literal_80_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasGold", "to": "literal_87_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_20", "title": "wtq:hasindex", "to": "literal_96_20"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasNation", "to": "wd:Q1965"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasTotal", "to": "literal_15_3"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasNation", "to": "literal_17_New Brunswick"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasBronze", "to": "literal_51_2"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasRank", "to": "literal_74_18"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasGold", "to": "literal_75_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasSilver", "to": "literal_103_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_17", "title": "wtq:hasindex", "to": "literal_104_17"}, {"from": "wd:Q424", "title": "wtq:hasNation", "to": "wtq:1994_Jeux_de_la_Francophonie_row_22"}, {"from": "wd:Q424", "title": "wdt:P31", "to": "literal_18_constitutional monarchy"}, {"from": "wd:Q424", "title": "wdt:P30", "to": "literal_22_Asia"}, {"from": "wd:Q424", "title": "wdt:P6", "to": "literal_52_Hun Manet"}, {"from": "wd:Q424", "title": "rdfs:label", "to": "literal_79_Cambodia"}, {"from": "wd:Q1019", "title": "wtq:hasNation", "to": "wtq:1994_Jeux_de_la_Francophonie_row_10"}, {"from": "wd:Q1019", "title": "wdt:P30", "to": "literal_19_Africa"}, {"from": "wd:Q1019", "title": "rdfs:label", "to": "literal_43_Madagascar"}, {"from": "wd:Q1019", "title": "wdt:P37", "to": "literal_65_French"}, {"from": "wd:Q1019", "title": "wdt:P36", "to": "literal_106_Antananarivo"}, {"from": "wd:Q16", "title": "wdt:P463", "to": "literal_20_Organization for Economic Cooperation and Development"}, {"from": "wd:Q16", "title": "wdt:P463", "to": "literal_53_Organization of American States"}, {"from": "wd:Q16", "title": "wdt:P463", "to": "literal_69_Organisation internationale de la Francophonie"}, {"from": "wd:Q16", "title": "rdfs:label", "to": "literal_99_Canada"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasTotal", "to": "literal_21_2"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasGold", "to": "literal_23_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasBronze", "to": "literal_28_2"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasSilver", "to": "literal_32_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasNation", "to": "literal_94_Cambodia"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasindex", "to": "literal_105_22"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_22", "title": "wtq:hasRank", "to": "literal_110_23"}, {"from": "wd:Q1965", "title": "wdt:P36", "to": "literal_24_Fredericton"}, {"from": "wd:Q1965", "title": "wdt:P17", "to": "literal_58_Canada"}, {"from": "wd:Q1965", "title": "rdfs:label", "to": "literal_64_New Brunswick"}, {"from": "wd:Q1965", "title": "wdt:P47", "to": "literal_118_Quebec"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasNation", "to": "literal_29_Lebanon"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasRank", "to": "literal_31_15"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasBronze", "to": "literal_48_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasSilver", "to": "literal_76_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasindex", "to": "literal_88_14"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasTotal", "to": "literal_89_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_14", "title": "wtq:hasGold", "to": "literal_116_1"}, {"from": "wd:Q1027", "title": "wtq:hasNation", "to": "wtq:1994_Jeux_de_la_Francophonie_row_24"}, {"from": "wd:Q1027", "title": "wdt:P463", "to": "literal_33_Interpol"}, {"from": "wd:Q1027", "title": "rdfs:label", "to": "literal_36_Mauritius"}, {"from": "wd:Q1027", "title": "wdt:P463", "to": "literal_78_United Nations"}, {"from": "wd:Q1027", "title": "wdt:P463", "to": "literal_119_African Union"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasTotal", "to": "literal_45_24"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasNation", "to": "literal_54_Morocco"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasindex", "to": "literal_59_4"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasGold", "to": "literal_66_6"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasBronze", "to": "literal_81_7"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasRank", "to": "literal_83_5"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_4", "title": "wtq:hasSilver", "to": "literal_109_11"}, {"from": "wtq:1994_Jeux_de_la_Francophonie", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie_row_24"}, {"from": "wtq:1994_Jeux_de_la_Francophonie", "title": "wtq:hasRow", "to": "wtq:1994_Jeux_de_la_Francophonie_row_10"}, {"from": "wtq:1994_Jeux_de_la_Francophonie", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_10", "title": "wtq:hasGold", "to": "literal_40_1"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_10", "title": "wtq:hasBronze", "to": "literal_63_3"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_10", "title": "wtq:hasindex", "to": "literal_70_10"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_10", "title": "wtq:hasRank", "to": "literal_85_11"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_10", "title": "wtq:hasSilver", "to": "literal_92_2"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_10", "title": "wtq:hasNation", "to": "literal_107_Madagascar"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_10", "title": "wtq:hasTotal", "to": "literal_108_6"}, {"from": "wd:Q912", "title": "wdt:P2936", "to": "literal_46_Kassonke"}, {"from": "wd:Q912", "title": "wdt:P2936", "to": "literal_60_Tadaksahak"}, {"from": "wd:Q912", "title": "wdt:P2936", "to": "literal_102_Syenara"}, {"from": "wd:Q912", "title": "rdfs:label", "to": "literal_113_Mali"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_24", "title": "wtq:hasRank", "to": "literal_72_25"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_24", "title": "wtq:hasindex", "to": "literal_73_24"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_24", "title": "wtq:hasNation", "to": "literal_84_Mauritius"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_24", "title": "wtq:hasTotal", "to": "literal_91_2"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_24", "title": "wtq:hasBronze", "to": "literal_97_2"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_24", "title": "wtq:hasGold", "to": "literal_98_-"}, {"from": "wtq:1994_Jeux_de_la_Francophonie_row_24", "title": "wtq:hasSilver", "to": "literal_101_-"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

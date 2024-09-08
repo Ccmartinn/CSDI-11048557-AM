@@ -1,0 +1,138 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Nico_Rosberg a wtq:Entity ;
+    wtq:hasRow wtq:Nico_Rosberg_row_10,
+        wtq:Nico_Rosberg_row_14,
+        wtq:Nico_Rosberg_row_15,
+        wtq:Nico_Rosberg_row_16,
+        wtq:Nico_Rosberg_row_17,
+        wtq:Nico_Rosberg_row_18,
+        wtq:Nico_Rosberg_row_3,
+        wtq:Nico_Rosberg_row_4 .
+
+wtq:Nico_Rosberg_row_10 wtq:hasF_Laps "5" ;
+    wtq:hasPodiums "12" ;
+    wtq:hasPoints "120.0" ;
+    wtq:hasPoles "4" ;
+    wtq:hasPosition "1st" ;
+    wtq:hasRaces "23" ;
+    wtq:hasSeason "2005" ;
+    wtq:hasSeries "GP2 Series" ;
+    wtq:hasTeam wd:Q296934,
+        "ART Grand Prix" ;
+    wtq:hasWins "5" ;
+    wtq:hasindex "10" .
+
+wtq:Nico_Rosberg_row_14 wtq:hasF_Laps "0" ;
+    wtq:hasPodiums "2" ;
+    wtq:hasPoints "17.0" ;
+    wtq:hasPoles "0" ;
+    wtq:hasPosition "13th" ;
+    wtq:hasRaces "18" ;
+    wtq:hasSeason "2008" ;
+    wtq:hasSeries "Formula One" ;
+    wtq:hasTeam "AT&T Williams" ;
+    wtq:hasWins "0" ;
+    wtq:hasindex "14" .
+
+wtq:Nico_Rosberg_row_15 wtq:hasF_Laps "1" ;
+    wtq:hasPodiums "0" ;
+    wtq:hasPoints "34.5" ;
+    wtq:hasPoles "0" ;
+    wtq:hasPosition "7th" ;
+    wtq:hasRaces "17" ;
+    wtq:hasSeason "2009" ;
+    wtq:hasSeries "Formula One" ;
+    wtq:hasTeam "AT&T Williams" ;
+    wtq:hasWins "0" ;
+    wtq:hasindex "15" .
+
+wtq:Nico_Rosberg_row_16 wtq:hasF_Laps "0" ;
+    wtq:hasPodiums "3" ;
+    wtq:hasPoints "142.0" ;
+    wtq:hasPoles "0" ;
+    wtq:hasPosition "7th" ;
+    wtq:hasRaces "19" ;
+    wtq:hasSeason "2010" ;
+    wtq:hasSeries "Formula One" ;
+    wtq:hasTeam wd:Q65954812,
+        "Mercedes GP Petronas F1 Team" ;
+    wtq:hasWins "0" ;
+    wtq:hasindex "16" .
+
+wtq:Nico_Rosberg_row_17 wtq:hasF_Laps "0" ;
+    wtq:hasPodiums "0" ;
+    wtq:hasPoints "89.0" ;
+    wtq:hasPoles "0" ;
+    wtq:hasPosition "7th" ;
+    wtq:hasRaces "19" ;
+    wtq:hasSeason "2011" ;
+    wtq:hasSeries "Formula One" ;
+    wtq:hasTeam wd:Q65954812,
+        "Mercedes GP Petronas F1 Team" ;
+    wtq:hasWins "0" ;
+    wtq:hasindex "17" .
+
+wtq:Nico_Rosberg_row_18 wtq:hasF_Laps "2" ;
+    wtq:hasPodiums "2" ;
+    wtq:hasPoints "93.0" ;
+    wtq:hasPoles "1" ;
+    wtq:hasPosition "9th" ;
+    wtq:hasRaces "20" ;
+    wtq:hasSeason "2012" ;
+    wtq:hasSeries "Formula One" ;
+    wtq:hasTeam wd:Q65954812,
+        "Mercedes AMG Petronas F1 Team" ;
+    wtq:hasWins "1" ;
+    wtq:hasindex "18" .
+
+wtq:Nico_Rosberg_row_3 wtq:hasF_Laps "0" ;
+    wtq:hasPodiums "0" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPoles "0" ;
+    wtq:hasPosition "NC" ;
+    wtq:hasRaces "1" ;
+    wtq:hasSeason wd:Q4601571,
+        "2003" ;
+    wtq:hasSeries "Masters of Formula 3" ;
+    wtq:hasTeam "Team Rosberg" ;
+    wtq:hasWins "0" ;
+    wtq:hasindex "3" .
+
+wtq:Nico_Rosberg_row_4 wtq:hasF_Laps "0" ;
+    wtq:hasPodiums "0" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPoles "0" ;
+    wtq:hasPosition "NC" ;
+    wtq:hasRaces "1" ;
+    wtq:hasSeason wd:Q1346003,
+        "2003" ;
+    wtq:hasSeries "Macau Grand Prix" ;
+    wtq:hasTeam "Carlin Motorsport" ;
+    wtq:hasWins "0" ;
+    wtq:hasindex "4" .
+
+wd:Q1346003 rdfs:label "Macau Grand Prix" ;
+    wdt:P279 "auto race" ;
+    wdt:P31 "recurring sporting event" ;
+    wdt:P641 "motorsport" .
+
+wd:Q296934 rdfs:label "ART Grand Prix" ;
+    wdt:P17 "France" ;
+    wdt:P31 "auto racing team" ;
+    wdt:P910 "Category:ART Grand Prix" .
+
+wd:Q4601571 rdfs:label "2003 Masters of Formula 3" ;
+    wdt:P31 "Masters of Formula 3" ;
+    wdt:P641 "motorsport" .
+
+wd:Q65954812 rdfs:label "Mercedes-Benz in Formula One" ;
+    wdt:P1269 "Mercedes-Benz in motorsport" ;
+    wdt:P1889 "Mercedes F1 Team" ;
+    wdt:P31 "Wikipedia article covering multiple topics" ;
+    wdt:P921 "Mercedes AMG High Performance Powertrains",
+        "Mercedes F1 Team" .
+

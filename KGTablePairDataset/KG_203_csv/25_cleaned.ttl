@@ -1,0 +1,196 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1983_Tour_de_France a wtq:Entity ;
+    wtq:hasRow wtq:1983_Tour_de_France_row_10,
+        wtq:1983_Tour_de_France_row_13,
+        wtq:1983_Tour_de_France_row_16,
+        wtq:1983_Tour_de_France_row_17,
+        wtq:1983_Tour_de_France_row_19,
+        wtq:1983_Tour_de_France_row_2,
+        wtq:1983_Tour_de_France_row_20,
+        wtq:1983_Tour_de_France_row_3,
+        wtq:1983_Tour_de_France_row_4 .
+
+wtq:1983_Tour_de_France_row_10 wtq:hasDate "11 July" ;
+    wtq:hasLength "201 km (125 mi)" ;
+    wtq:hasRoute "Pau – Bagnères-de-Luchon" ;
+    wtq:hasStage "10" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Robert Millar (GBR)" ;
+    wtq:hasindex "10" .
+
+wtq:1983_Tour_de_France_row_13 wtq:hasDate "14 July" ;
+    wtq:hasLength "210 km (130 mi)" ;
+    wtq:hasRoute wd:Q174234,
+        "Roquefort-sur-Soulzon – Aurillac" ;
+    wtq:hasStage "13" ;
+    wtq:hasTerrain "Hilly stage" ;
+    wtq:hasWinner wd:Q1605266,
+        "Henk Lubberding (NED)" ;
+    wtq:hasindex "13" .
+
+wtq:1983_Tour_de_France_row_16 wtq:hasDate "17 July" ;
+    wtq:hasLength "144 km (89 mi)" ;
+    wtq:hasRoute "Issoire – Saint-Étienne" ;
+    wtq:hasStage "16" ;
+    wtq:hasTerrain "Hilly stage" ;
+    wtq:hasWinner wd:Q1358523,
+        "Michel Laurent (FRA)" ;
+    wtq:hasindex "16" .
+
+wtq:1983_Tour_de_France_row_17 wtq:hasDate "18 July" ;
+    wtq:hasLength "223 km (139 mi)" ;
+    wtq:hasRoute wd:Q217591,
+        "La Tour-du-Pin – Alpe d'Huez" ;
+    wtq:hasStage "17" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner wd:Q74944,
+        "Peter Winnen (NED)" ;
+    wtq:hasindex "17" .
+
+wtq:1983_Tour_de_France_row_19 wtq:hasDate "21 July" ;
+    wtq:hasLength "15 km (9.3 mi)" ;
+    wtq:hasRoute wd:Q127037,
+        "Morzine – Avoriaz" ;
+    wtq:hasStage "19" ;
+    wtq:hasTerrain wd:Q2266066,
+        "Individual time trial" ;
+    wtq:hasWinner wd:Q350698,
+        "Lucien Van Impe (BEL)" ;
+    wtq:hasindex "19" .
+
+wtq:1983_Tour_de_France_row_2 wtq:hasDate "3 July" ;
+    wtq:hasLength "100 km (62 mi)" ;
+    wtq:hasRoute wd:Q167152,
+        wd:Q367373,
+        "Soissons – Fontaine-au-Pire" ;
+    wtq:hasStage "2" ;
+    wtq:hasTerrain wd:Q2348250,
+        "Team time trial" ;
+    wtq:hasWinner "Mercier" ;
+    wtq:hasindex "2" .
+
+wtq:1983_Tour_de_France_row_20 wtq:hasDate "22 July" ;
+    wtq:hasLength "291 km (181 mi)" ;
+    wtq:hasRoute wd:Q7003,
+        "Morzine – Dijon" ;
+    wtq:hasStage "20" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner wd:Q520312,
+        "Philippe Leleu (FRA)" ;
+    wtq:hasindex "20" .
+
+wtq:1983_Tour_de_France_row_3 wtq:hasDate "4 July" ;
+    wtq:hasLength "152 km (94 mi)" ;
+    wtq:hasRoute wd:Q163795,
+        wd:Q34001,
+        "Valenciennes – Roubaix" ;
+    wtq:hasStage "3" ;
+    wtq:hasTerrain "Hilly stage" ;
+    wtq:hasWinner wd:Q744923,
+        "Rudy Matthijs (BEL)" ;
+    wtq:hasindex "3" .
+
+wtq:1983_Tour_de_France_row_4 wtq:hasDate "5 July" ;
+    wtq:hasLength "300 km (190 mi)" ;
+    wtq:hasRoute wd:Q42810,
+        "Roubaix – Le Havre" ;
+    wtq:hasStage "4" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner wd:Q463988,
+        "Serge Demierre (SUI)" ;
+    wtq:hasindex "4" .
+
+wd:Q127037 rdfs:label "Avoriaz" ;
+    wdt:P17 "France" ;
+    wdt:P31 "sports venue" ;
+    wdt:P361 "Portes du Soleil" .
+
+wd:Q1358523 rdfs:label "Michel Laurent" ;
+    wdt:P106 "sport cyclist" ;
+    wdt:P31 "human" ;
+    wdt:P54 "Peugeot cycling team" .
+
+wd:Q1605266 rdfs:label "Henk Lubberding" ;
+    wdt:P27 "Kingdom of the Netherlands" ;
+    wdt:P54 "TI-Raleigh" ;
+    wdt:P641 "road bicycle racing" .
+
+wd:Q163795 rdfs:label "Valenciennes" ;
+    wdt:P47 "Petite-Forêt",
+        "Saint-Saulve",
+        "Trith-Saint-Léger" .
+
+wd:Q167152 rdfs:label "Soissons" ;
+    wdt:P31 "commune of France" ;
+    wdt:P47 "Billy-sur-Aisne",
+        "Bucy-le-Long" .
+
+wd:Q174234 rdfs:label "Aurillac" ;
+    wdt:P112 "Gerald of Aurillac" ;
+    wdt:P31 "commune of France" ;
+    wdt:P47 "Arpajon-sur-Cère" .
+
+wd:Q217591 rdfs:label "La Tour-du-Pin" ;
+    wdt:P131 "arrondissement of la Tour-du-Pin" ;
+    wdt:P17 "France" ;
+    wdt:P31 "commune of France" .
+
+wd:Q2266066 rdfs:label "individual time trial" ;
+    wdt:P3095 "cyclist" ;
+    wdt:P31 "sports discipline" ;
+    wdt:P641 "cycle sport" .
+
+wd:Q2348250 rdfs:label "team time trial" ;
+    wdt:P279 "road bicycle racing" ;
+    wdt:P3095 "cycling team" ;
+    wdt:P31 "sports discipline" .
+
+wd:Q34001 rdfs:label "Roubaix" ;
+    wdt:P17 "France" ;
+    wdt:P31 "commune of France" ;
+    wdt:P47 "Tourcoing" .
+
+wd:Q350698 rdfs:label "Lucien Van Impe" ;
+    wdt:P19 "Erpe-Mere" ;
+    wdt:P54 "Boston-Mavic",
+        "Relax-Gam" .
+
+wd:Q367373 rdfs:label "Fontaine-au-Pire" ;
+    wdt:P131 "arrondissement of Cambrai" ;
+    wdt:P17 "France" ;
+    wdt:P47 "Caudry" .
+
+wd:Q42810 rdfs:label "Le Havre" ;
+    wdt:P31 "commune of France" ;
+    wdt:P47 "Montivilliers",
+        "Sainte-Adresse" .
+
+wd:Q463988 rdfs:label "Serge Demierre" ;
+    wdt:P1344 "1976 Summer Olympics",
+        "Tour de France" ;
+    wdt:P734 "Demierre" .
+
+wd:Q520312 rdfs:label "Philippe Leleu" ;
+    wdt:P106 "sport cyclist" ;
+    wdt:P641 "road bicycle racing" ;
+    wdt:P734 "Leleu" .
+
+wd:Q7003 rdfs:label "Dijon" ;
+    wdt:P31 "commune of France" ;
+    wdt:P47 "Chenôve",
+        "Sennecey-lès-Dijon" .
+
+wd:Q744923 rdfs:label "Rudy Matthijs" ;
+    wdt:P27 "Belgium" ;
+    wdt:P31 "human" ;
+    wdt:P734 "Mathys" .
+
+wd:Q74944 rdfs:label "Peter Winnen" ;
+    wdt:P106 "writer" ;
+    wdt:P19 "Venray" ;
+    wdt:P54 "IJsboerke" .
+

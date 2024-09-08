@@ -1,0 +1,65 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Warsaw_Governorate a wtq:Entity ;
+    wtq:hasRow wtq:Warsaw_Governorate_row_1,
+        wtq:Warsaw_Governorate_row_10,
+        wtq:Warsaw_Governorate_row_2,
+        wtq:Warsaw_Governorate_row_3,
+        wtq:Warsaw_Governorate_row_4 .
+
+wtq:Warsaw_Governorate_row_1 wtq:hasLanguage "Yiddish" ;
+    wtq:hasNumber "317 169" ;
+    wtq:hasfemales "162 566" ;
+    wtq:hasindex "1" ;
+    wtq:hasmales "154 603" ;
+    wtq:haspercentage "16.41" .
+
+wtq:Warsaw_Governorate_row_10 wtq:hasLanguage "Other" ;
+    wtq:hasNumber "4 824" ;
+    wtq:hasfemales "1 535" ;
+    wtq:hasindex "10" ;
+    wtq:hasmales "3 289" ;
+    wtq:haspercentage "0.24" .
+
+wtq:Warsaw_Governorate_row_2 wtq:hasLanguage wd:Q7737,
+        "Russian" ;
+    wtq:hasNumber "87 850" ;
+    wtq:hasfemales "1 586" ;
+    wtq:hasindex "2" ;
+    wtq:hasmales "13 551" ;
+    wtq:haspercentage "4.54" .
+
+wtq:Warsaw_Governorate_row_3 wtq:hasLanguage wd:Q188,
+        "German" ;
+    wtq:hasNumber "77 160" ;
+    wtq:hasfemales "39 176" ;
+    wtq:hasindex "3" ;
+    wtq:hasmales "37 984" ;
+    wtq:haspercentage "3.99" .
+
+wtq:Warsaw_Governorate_row_4 wtq:hasLanguage wd:Q8798,
+        "Ukrainian" ;
+    wtq:hasNumber "15 930" ;
+    wtq:hasfemales "307" ;
+    wtq:hasindex "4" ;
+    wtq:hasmales "15 623" ;
+    wtq:haspercentage "0.82" .
+
+wd:Q188 rdfs:label "German" ;
+    wdt:P2341 "Germany",
+        "Trentino" ;
+    wdt:P2579 "German studies" .
+
+wd:Q7737 rdfs:label "Russian" ;
+    wdt:P2587 "voiced alveolar lateral approximant",
+        "voiced palatal approximant",
+        "voiceless dental stop" .
+
+wd:Q8798 rdfs:label "Ukrainian" ;
+    wdt:P17 "Belarus",
+        "Hungary",
+        "Moldova" .
+

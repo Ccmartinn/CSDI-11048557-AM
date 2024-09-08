@@ -1,0 +1,45 @@
+@prefix ns1: <http://wikitablequestion.org/hasPurse__$> .
+@prefix ns2: <http://wikitablequestion.org/hasWinner's_nshare__$> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:BMW_Championship_\(PGA_Tour\) a wtq:Entity ;
+    wtq:hasRow wtq:BMW_Championship_\(PGA_Tour\)_row_1,
+        wtq:BMW_Championship_\(PGA_Tour\)_row_2,
+        wtq:BMW_Championship_\(PGA_Tour\)_row_7 .
+
+wtq:BMW_Championship_\(PGA_Tour\)_row_1 wtq:hasCountry "United States" ;
+    wtq:hasCourse "Conway Farms Golf Club" ;
+    wtq:hasLocation "Lake Forest, Illinois" ;
+    wtq:hasMargin_nof_victory "2 strokes" ;
+    wtq:hasPlayer "Zach Johnson" ;
+    ns1:_ "8,000,000" ;
+    wtq:hasScore "64-70-69-65=268" ;
+    wtq:hasTo_par "–16" ;
+    ns2:_ "1,440,000" ;
+    wtq:hasYear "2013" ;
+    wtq:hasindex "1" .
+
+wtq:BMW_Championship_\(PGA_Tour\)_row_2 wtq:hasCountry "Northern Ireland" ;
+    wtq:hasCourse "Crooked Stick Golf Club" ;
+    wtq:hasLocation "Carmel, Indiana" ;
+    wtq:hasMargin_nof_victory "2 strokes" ;
+    wtq:hasPlayer "Rory McIlroy" ;
+    ns1:_ "8,000,000" ;
+    wtq:hasScore "64-68-69-67=268" ;
+    wtq:hasTo_par "–20" ;
+    ns2:_ "1,440,000" ;
+    wtq:hasYear "2012" ;
+    wtq:hasindex "2" .
+
+wtq:BMW_Championship_\(PGA_Tour\)_row_7 wtq:hasCountry "United States" ;
+    wtq:hasCourse "Cog Hill Golf & Country Club" ;
+    wtq:hasLocation "Lemont, Illinois" ;
+    wtq:hasMargin_nof_victory "2 strokes" ;
+    wtq:hasPlayer "Tiger Woods" ;
+    ns1:_ "7,000,000" ;
+    wtq:hasScore "67-67-65-63=262" ;
+    wtq:hasTo_par "–22" ;
+    ns2:_ "1,260,000" ;
+    wtq:hasYear "2007" ;
+    wtq:hasindex "7" .
+

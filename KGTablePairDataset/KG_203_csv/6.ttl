@@ -1,0 +1,24 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Filip_Hološko a wtq:Entity ;
+    wtq:hasRow wtq:Filip_Hološko_row_2,
+        wtq:Filip_Hološko_row_6 .
+
+wtq:Filip_Hološko_row_2 <http://wikitablequestion.org/has#> "3.0" ;
+    wtq:hasCompetition "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "13 October 2007" ;
+    wtq:hasOpponent "San Marino" ;
+    wtq:hasResult "7–0" ;
+    wtq:hasScore "5–0" ;
+    wtq:hasVenue "Štadión Zimný, Dubnica, Slovakia" ;
+    wtq:hasindex "2" .
+
+wtq:Filip_Hološko_row_6 <http://wikitablequestion.org/has#> "7.0" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "29 March 2011" ;
+    wtq:hasOpponent "Denmark" ;
+    wtq:hasResult "1–2" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasVenue "Štadión Antona Malatinského, Trnava, Slovakia" ;
+    wtq:hasindex "6" .
+

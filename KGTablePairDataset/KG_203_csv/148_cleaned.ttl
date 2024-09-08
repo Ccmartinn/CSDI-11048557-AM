@@ -1,0 +1,45 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:German_submarine_U-9_\(1935\) a wtq:Entity ;
+    wtq:hasRow wtq:German_submarine_U-9_\(1935\)_row_2,
+        wtq:German_submarine_U-9_\(1935\)_row_6,
+        wtq:German_submarine_U-9_\(1935\)_row_8 .
+
+wtq:German_submarine_U-9_\(1935\)_row_2 wtq:hasDate "11 February 1940" ;
+    wtq:hasFate "Sunk" ;
+    wtq:hasName "Linda" ;
+    wtq:hasNationality wd:Q191,
+        "Estonia" ;
+    wtq:hasTonnage_n_GRT_ "1,213" ;
+    wtq:hasindex "2" .
+
+wtq:German_submarine_U-9_\(1935\)_row_6 wtq:hasDate "11 May 1940" ;
+    wtq:hasFate "Sunk" ;
+    wtq:hasName "Viiu" ;
+    wtq:hasNationality wd:Q191,
+        "Estonia" ;
+    wtq:hasTonnage_n_GRT_ "1,908" ;
+    wtq:hasindex "6" .
+
+wtq:German_submarine_U-9_\(1935\)_row_8 wtq:hasDate "11 May 1944" ;
+    wtq:hasFate "Damaged" ;
+    wtq:hasName "Shtorm" ;
+    wtq:hasNationality wd:Q15180,
+        "Soviet Union" ;
+    wtq:hasTonnage_n_GRT_ "412" ;
+    wtq:hasindex "8" .
+
+wd:Q15180 rdfs:label "Soviet Union" ;
+    wdt:P47 "Finland",
+        "Poland",
+        "Turkey" .
+
+wd:Q191 rdfs:label "Estonia" ;
+    wdt:P361 "European Union",
+        "Northern Europe" ;
+    wdt:P463 "UNESCO",
+        "United Nations" .
+

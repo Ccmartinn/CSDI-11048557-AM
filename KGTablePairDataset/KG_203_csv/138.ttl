@@ -1,0 +1,184 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Lukas_Podolski a wtq:Entity ;
+    wtq:hasRow wtq:Lukas_Podolski_row_13,
+        wtq:Lukas_Podolski_row_19,
+        wtq:Lukas_Podolski_row_2,
+        wtq:Lukas_Podolski_row_21,
+        wtq:Lukas_Podolski_row_22,
+        wtq:Lukas_Podolski_row_23,
+        wtq:Lukas_Podolski_row_24,
+        wtq:Lukas_Podolski_row_26,
+        wtq:Lukas_Podolski_row_28,
+        wtq:Lukas_Podolski_row_3,
+        wtq:Lukas_Podolski_row_31,
+        wtq:Lukas_Podolski_row_32,
+        wtq:Lukas_Podolski_row_33,
+        wtq:Lukas_Podolski_row_34,
+        wtq:Lukas_Podolski_row_35,
+        wtq:Lukas_Podolski_row_36,
+        wtq:Lukas_Podolski_row_38,
+        wtq:Lukas_Podolski_row_42 .
+
+wtq:Lukas_Podolski_row_13 <http://wikitablequestion.org/has#> "14" ;
+    wtq:hasCompetition "FIFA World Cup 2006" ;
+    wtq:hasDate "24 June 2006" ;
+    wtq:hasOpponent "Sweden" ;
+    wtq:hasResult "2–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue "Allianz Arena, Munich, Germany" ;
+    wtq:hasindex "13" .
+
+wtq:Lukas_Podolski_row_19 <http://wikitablequestion.org/has#> "20" ;
+    wtq:hasCompetition "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "6 September 2006" ;
+    wtq:hasOpponent "San Marino" ;
+    wtq:hasResult "13–0" ;
+    wtq:hasScore "10–0" ;
+    wtq:hasVenue "Stadio Olimpico, Serravalle, San Marino" ;
+    wtq:hasindex "19" .
+
+wtq:Lukas_Podolski_row_2 <http://wikitablequestion.org/has#> "3" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "26 March 2005" ;
+    wtq:hasOpponent "Slovenia" ;
+    wtq:hasResult "1–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue "Bežigrad Stadium, Ljubljana, Slovenia" ;
+    wtq:hasindex "2" .
+
+wtq:Lukas_Podolski_row_21 <http://wikitablequestion.org/has#> "22" ;
+    wtq:hasCompetition "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "11 October 2006" ;
+    wtq:hasOpponent "Slovakia" ;
+    wtq:hasResult "4–1" ;
+    wtq:hasScore "4–1" ;
+    wtq:hasVenue "Tehelné Pole Stadion, Bratislava, Slovakia" ;
+    wtq:hasindex "21" .
+
+wtq:Lukas_Podolski_row_22 <http://wikitablequestion.org/has#> "23" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "12 September 2007" ;
+    wtq:hasOpponent "Romania" ;
+    wtq:hasResult "3–1" ;
+    wtq:hasScore "3–1" ;
+    wtq:hasVenue "Rhein-Energie Stadion, Cologne, Germany" ;
+    wtq:hasindex "22" .
+
+wtq:Lukas_Podolski_row_23 <http://wikitablequestion.org/has#> "24" ;
+    wtq:hasCompetition "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "17 November 2007" ;
+    wtq:hasOpponent "Cyprus" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasVenue "AWD Arena, Hanover, Germany" ;
+    wtq:hasindex "23" .
+
+wtq:Lukas_Podolski_row_24 <http://wikitablequestion.org/has#> "25" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "26 March 2008" ;
+    wtq:hasOpponent "Switzerland" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasVenue "St. Jakob Park, Basel, Switzerland" ;
+    wtq:hasindex "24" .
+
+wtq:Lukas_Podolski_row_26 <http://wikitablequestion.org/has#> "27" ;
+    wtq:hasCompetition "UEFA Euro 2008" ;
+    wtq:hasDate "8 June 2008" ;
+    wtq:hasOpponent "Poland" ;
+    wtq:hasResult "2–0" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasVenue "Wörthersee Stadion, Klagenfurt, Austria" ;
+    wtq:hasindex "26" .
+
+wtq:Lukas_Podolski_row_28 <http://wikitablequestion.org/has#> "29" ;
+    wtq:hasCompetition "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "6 September 2008" ;
+    wtq:hasOpponent "Liechtenstein" ;
+    wtq:hasResult "6–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue "Rheinpark Stadion, Vaduz, Liechtenstein" ;
+    wtq:hasindex "28" .
+
+wtq:Lukas_Podolski_row_3 <http://wikitablequestion.org/has#> "4" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "4 June 2005" ;
+    wtq:hasOpponent "Northern Ireland" ;
+    wtq:hasResult "4–1" ;
+    wtq:hasScore "4–1" ;
+    wtq:hasVenue "Windsor Park, Belfast, Northern Ireland" ;
+    wtq:hasindex "3" .
+
+wtq:Lukas_Podolski_row_31 <http://wikitablequestion.org/has#> "32" ;
+    wtq:hasCompetition "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "28 March 2009" ;
+    wtq:hasOpponent "Liechtenstein" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasVenue "Zentralstadion, Leipzig, Germany" ;
+    wtq:hasindex "31" .
+
+wtq:Lukas_Podolski_row_32 <http://wikitablequestion.org/has#> "33" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "29 May 2009" ;
+    wtq:hasOpponent "China PR" ;
+    wtq:hasResult "1–1" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasVenue "Shanghai Stadium, Shanghai, China" ;
+    wtq:hasindex "32" .
+
+wtq:Lukas_Podolski_row_33 <http://wikitablequestion.org/has#> "34" ;
+    wtq:hasCompetition "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "9 September 2009" ;
+    wtq:hasOpponent "Azerbaijan" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasVenue "AWD-Arena, Hanover, Germany" ;
+    wtq:hasindex "33" .
+
+wtq:Lukas_Podolski_row_34 <http://wikitablequestion.org/has#> "35" ;
+    wtq:hasCompetition "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "14 October 2009" ;
+    wtq:hasOpponent "Finland" ;
+    wtq:hasResult "1–1" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasVenue "HSH Nordbank Arena, Hamburg, Germany" ;
+    wtq:hasindex "34" .
+
+wtq:Lukas_Podolski_row_35 <http://wikitablequestion.org/has#> "36" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "18 November 2009" ;
+    wtq:hasOpponent "Ivory Coast" ;
+    wtq:hasResult "2–2" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue "Veltins-Arena, Gelsenkirchen, Germany" ;
+    wtq:hasindex "35" .
+
+wtq:Lukas_Podolski_row_36 <http://wikitablequestion.org/has#> "37" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "18 November 2009" ;
+    wtq:hasOpponent "Ivory Coast" ;
+    wtq:hasResult "2–2" ;
+    wtq:hasScore "2–2" ;
+    wtq:hasVenue "Veltins-Arena, Gelsenkirchen, Germany" ;
+    wtq:hasindex "36" .
+
+wtq:Lukas_Podolski_row_38 <http://wikitablequestion.org/has#> "39" ;
+    wtq:hasCompetition "FIFA World Cup 2010" ;
+    wtq:hasDate "13 June 2010" ;
+    wtq:hasOpponent "Australia" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue "Moses Mabhida Stadium, Durban, South Africa" ;
+    wtq:hasindex "38" .
+
+wtq:Lukas_Podolski_row_42 <http://wikitablequestion.org/has#> "43" ;
+    wtq:hasCompetition "UEFA Euro 2012 qualifying" ;
+    wtq:hasDate "2 September 2011" ;
+    wtq:hasOpponent "Austria" ;
+    wtq:hasResult "6–2" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasVenue "Veltins-Arena, Gelsenkirchen, Germany" ;
+    wtq:hasindex "42" .
+

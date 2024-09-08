@@ -1,0 +1,95 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1982_British_Formula_One_season a wtq:Entity ;
+    wtq:hasRow wtq:1982_British_Formula_One_season_row_2,
+        wtq:1982_British_Formula_One_season_row_4,
+        wtq:1982_British_Formula_One_season_row_6,
+        wtq:1982_British_Formula_One_season_row_9 .
+
+wtq:1982_British_Formula_One_season_row_2 wtq:hasChassis wd:Q2561078,
+        "M29" ;
+    wtq:hasConstructor "McLaren" ;
+    wtq:hasDriver "Arnold Glass" ;
+    wtq:hasEngine wd:Q195996,
+        "Cosworth DFV V8" ;
+    wtq:hasEntrant "Colin Bennett Racing" ;
+    wtq:hasNo "6" ;
+    wtq:hasindex "2" .
+
+wtq:1982_British_Formula_One_season_row_4 wtq:hasChassis "F8" ;
+    wtq:hasConstructor wd:Q171665,
+        "Fittipaldi" ;
+    wtq:hasDriver wd:Q509740,
+        "Tony Trimmer" ;
+    wtq:hasEngine wd:Q195996,
+        "Cosworth DFV V8" ;
+    wtq:hasEntrant "Team Sanada" ;
+    wtq:hasNo "8" ;
+    wtq:hasindex "4" .
+
+wtq:1982_British_Formula_One_season_row_6 wtq:hasChassis wd:Q173400,
+        "P207" ;
+    wtq:hasConstructor wd:Q173012,
+        "BRM" ;
+    wtq:hasDriver "David Williams" ;
+    wtq:hasEngine wd:Q173012,
+        "BRM 202 V12" ;
+    wtq:hasEntrant "John Jordan" ;
+    wtq:hasNo "12" ;
+    wtq:hasindex "6" .
+
+wtq:1982_British_Formula_One_season_row_9 wtq:hasChassis wd:Q2561144,
+        "FW07" ;
+    wtq:hasConstructor "Williams" ;
+    wtq:hasDriver wd:Q6278183,
+        "Jorge Koechlin" ;
+    wtq:hasEngine wd:Q195996,
+        "Cosworth DFV V8" ;
+    wtq:hasEntrant "Team Peru" ;
+    wtq:hasNo "82" ;
+    wtq:hasindex "9" .
+
+wd:Q171665 rdfs:label "Fittipaldi Automotive" ;
+    wdt:P1424 "Q25910480" ;
+    wdt:P17 "Brazil" ;
+    wdt:P31 "Formula One team" .
+
+wd:Q173400 rdfs:label "BRM P207" ;
+    wdt:P31 "racing automobile model" ;
+    wdt:P641 "motorsport" .
+
+wd:Q2561078 rdfs:label "McLaren M29" ;
+    wdt:P156 "McLaren M30" ;
+    wdt:P279 "Formula One car" ;
+    wdt:P641 "motorsport" .
+
+wd:Q2561144 rdfs:label "Williams FW07" ;
+    wdt:P279 "Formula One car" ;
+    wdt:P31 "racing automobile model" ;
+    wdt:P641 "motorsport" .
+
+wd:Q509740 rdfs:label "Tony Trimmer" ;
+    wdt:P106 "Formula One driver" ;
+    wdt:P31 "human" ;
+    wdt:P734 "Trimmer" .
+
+wd:Q6278183 rdfs:label "Jorge Koechlin" ;
+    wdt:P106 "racing driver" ;
+    wdt:P19 "Huacho" ;
+    wdt:P31 "human" .
+
+wd:Q173012 rdfs:label "British Racing Motors" ;
+    wdt:P112 "Raymond Mays" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P2522 "1962 Formula One constructors' championship" ;
+    wdt:P31 "Formula One team" ;
+    wdt:P910 "Category:British Racing Motors" .
+
+wd:Q195996 rdfs:label "Cosworth DFV" ;
+    wdt:P176 "Cosworth" ;
+    wdt:P279 "gasoline engine" ;
+    wdt:P366 "Formula One engine" .
+

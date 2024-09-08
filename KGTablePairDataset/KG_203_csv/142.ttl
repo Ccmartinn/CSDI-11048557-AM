@@ -1,0 +1,92 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round a wtq:Entity ;
+    wtq:hasRow wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6 .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10 wtq:hasBike "Honda CBR1000RR" ;
+    wtq:hasGrid "15" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "44" ;
+    wtq:hasPoints "5.0" ;
+    wtq:hasPos "11" ;
+    wtq:hasRider "Roberto Rolfo" ;
+    wtq:hasTime "+38.067" ;
+    wtq:hasindex "10" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14 wtq:hasBike "Suzuki GSX-R1000 K6" ;
+    wtq:hasGrid "18" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "53" ;
+    wtq:hasPoints "1.0" ;
+    wtq:hasPos "15" ;
+    wtq:hasRider "Alex Polita" ;
+    wtq:hasTime "+1:22.584" ;
+    wtq:hasindex "14" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16 wtq:hasBike "Ducati 999RS" ;
+    wtq:hasGrid "21" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "42" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "17" ;
+    wtq:hasRider "Dean Ellison" ;
+    wtq:hasTime "+1:30.184" ;
+    wtq:hasindex "16" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17 wtq:hasBike "Yamaha YZF-R1" ;
+    wtq:hasGrid "20" ;
+    wtq:hasLaps "21" ;
+    wtq:hasNo "36" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "18" ;
+    wtq:hasRider "Jiri Drazdak" ;
+    wtq:hasTime "+1 Lap" ;
+    wtq:hasindex "17" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2 wtq:hasBike "Suzuki GSX-R1000 K7" ;
+    wtq:hasGrid "5" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "3" ;
+    wtq:hasPoints "16.0" ;
+    wtq:hasPos "3" ;
+    wtq:hasRider "Max Biaggi" ;
+    wtq:hasTime "+10.143" ;
+    wtq:hasindex "2" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3 wtq:hasBike "Yamaha YZF-R1" ;
+    wtq:hasGrid "4" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "41" ;
+    wtq:hasPoints "13.0" ;
+    wtq:hasPos "4" ;
+    wtq:hasRider "Noriyuki Haga" ;
+    wtq:hasTime "+18.923" ;
+    wtq:hasindex "3" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4 wtq:hasBike "Yamaha YZF-R1" ;
+    wtq:hasGrid "3" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "11" ;
+    wtq:hasPoints "11.0" ;
+    wtq:hasPos "5" ;
+    wtq:hasRider "Troy Corser" ;
+    wtq:hasTime "+19.742" ;
+    wtq:hasindex "4" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6 wtq:hasBike "Ducati 999 F06" ;
+    wtq:hasGrid "8" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "111" ;
+    wtq:hasPoints "9.0" ;
+    wtq:hasPos "7" ;
+    wtq:hasRider "Ruben Xaus" ;
+    wtq:hasTime "+27.404" ;
+    wtq:hasindex "6" .
+

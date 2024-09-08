@@ -1,0 +1,36 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Cherry_Jones a wtq:Entity ;
+    wtq:hasRow wtq:Cherry_Jones_row_2,
+        wtq:Cherry_Jones_row_3,
+        wtq:Cherry_Jones_row_4,
+        wtq:Cherry_Jones_row_9 .
+
+wtq:Cherry_Jones_row_2 wtq:hasAssociation "Tony Awards" ;
+    wtq:hasCategory "Best Actress in a Play" ;
+    wtq:hasNominated_work "The Heiress" ;
+    wtq:hasResult "Won" ;
+    wtq:hasYear "1995" ;
+    wtq:hasindex "2" .
+
+wtq:Cherry_Jones_row_3 wtq:hasAssociation "Drama Desk Awards" ;
+    wtq:hasCategory "Outstanding Actress in a Play" ;
+    wtq:hasNominated_work "Pride's Crossing" ;
+    wtq:hasResult "Won" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "3" .
+
+wtq:Cherry_Jones_row_4 wtq:hasAssociation "Tony Awards" ;
+    wtq:hasCategory "Best Actress in a Play" ;
+    wtq:hasNominated_work "A Moon for the Misbegotten" ;
+    wtq:hasResult "Nominated" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "4" .
+
+wtq:Cherry_Jones_row_9 wtq:hasAssociation "Primetime Emmy Awards" ;
+    wtq:hasCategory "Outstanding Supporting Actress in a Drama Series" ;
+    wtq:hasNominated_work "24" ;
+    wtq:hasResult "Won" ;
+    wtq:hasYear "2009" ;
+    wtq:hasindex "9" .
+

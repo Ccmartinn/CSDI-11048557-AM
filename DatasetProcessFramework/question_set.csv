@@ -1,0 +1,605 @@
+question_num,type,utterance,page,targetValue,csv_file
+1751,3,how many v8 engines competed in the 1982 british formula one season?,1,8,203
+4154,3,"how many entrants have names that contain the word ""team""?",1,3,203
+4420,3,name an entrant with no cosworth engines.,1,John Jordan,203
+5862,3,how many drivers use v8 engines?,1,8,203
+5918,3,what is the total number of drivers listed?,1,10,203
+7588,3,who is the only driver to use a v12 engine?,1,John Jordan,203
+7959,3,are there any other engines listed besides cosworth or brm?,1,no,203
+12514,2,which is the only driver whose vehicle used a brm 202 v12 engine?,1,David Williams,203
+12666,3,what is the last chassis listed?,1,FW07,203
+151,3,which province in andalusia has the largest population?,3,Seville,203
+467,3,what province has the least population?,3,Huelva,203
+1927,3,does cadiz or granada have a laerger population?,3,Cadiz,203
+2010,3,how many provinces in andalusia have at least 100 municipalities?,3,4,203
+5535,1,what is the number of legal districts in almeria province?,3,8,203
+5979,3,which province in andalusia has the highest density?,3,Málaga,203
+6310,3,which province has the most legal districts?,3,Seville,203
+7103,3,"which province has a lower population density, almeria or jaen?",3,Jaen,203
+7408,3,which province is the only province with a higher population than malaga?,3,Seville,203
+8327,3,which province has the largest density in square miles?,3,Malaga,203
+10678,3,what is the province with the most municipalities?,3,Granada,203
+12336,3,the population of cadiz is how much greater than jaen?,3,"572,919",203
+12941,1,is almería or córdoba's density 72.4/km2?,3,Córdoba,203
+13643,2,how many municipalities exist in the province of cadiz?,3,44,203
+98,3,how many received a gold or silver medal in cycling?,4,6,203
+1666,3,what was the total number of silver medals earned?,4,14,203
+3848,3,how many medals did france win at the 2000 olympics?,4,37,203
+6856,3,how many earned their gold medals in rowing?,4,6,203
+8676,3,what sport won the most gold medals?,4,Cycling,203
+9052,3,which french competitor won the largest amount of medals in the 2000 summer olympics?,4,Florian Rousseau,203
+4288,3,what is the last competition listed on the table?,5,UEFA Europa League,203
+5249,3,who scored more points in the second round of the uefa cup?,5,Club Brugge,203
+7243,1,group a or group b in 2013-2014 uefa europa leauge,5,Group A,203
+9558,3,what is the number of competitions listed on the table?,5,7,203
+10240,3,what is the season listed after 2002?,5,2007,203
+10990,3,what was the last competition they took place in?,5,UEFA Europa League,203
+11002,3,how many home games did st. gallen win?,5,5,203
+12961,3,does each competition have an opponent listed?,5,yes,203
+13673,3,how many times did they make it to the first round?,5,3,203
+816,3,what is the total number of international goals that holosko has scored?,6,13,203
+2916,1,what is the name of the venue where the last competition was played?,6,"Štadión Antona Malatinského, Trnava, Slovakia",203
+3574,3,what were the number of times san marino was an opponent?,6,2,203
+6607,3,against which team did holosko score the most goals?,6,San Marino,203
+7393,3,how many games were in uefa or world cup qualifying matches?,6,5,203
+7775,3,what was the first date of the first international competition?,6,16 November 2005,203
+10249,1,how many goals were scored against spain on november 2005?,6,1,203
+1318,3,how many singles did celine dion sing?,7,4,203
+2138,3,"eiffel 65 had a top 100 hit of the 1990s, ""blue (da ba dee)"", as well as one other 1990s top 100 hit single. what was that other hit single?",7,Move Your Body,203
+2812,3,what were the total number of songs that peaked at number one according to this chart?,7,61,203
+4423,3,"how many artists had sales above 900,000?",7,18,203
+5843,3,which single had the largest amount of sales in germany?,7,Mambo No. 5,203
+7075,3,which song on the list of top 100 of the 1990s is the only one from brazil?,7,"Tic, Tic Tac",203
+7117,3,candle in the wind had how many more sales than freed from desire?,7,1016000,203
+8711,1,"how many sales did the single ""tic tic tac"" have?",7,"980,000",203
+9085,2,how many more sales did elton john have than lou bega?,7,497000,203
+11338,1,"what were the total sales of eiffel 65's ""blue (da ba dee)""?",7,"1,001,000",203
+11892,2,"elton john released the ""candle in the wind"", the #2 hit single of the 1990s, in 1997. what was an earlier top 100 hit single of elton john's in the 1990s?",7,Can You Feel The Love Tonight,203
+13419,3,what is the difference in sales from the highest sales to the lowest sales?,7,1872000,203
+502,3,how many players scored a greater number of touchdowns than anthony hines?,8,3,203
+629,3,what is the difference in yards averaged between cecil moore and raymond philyaw?,8,15 yards,203
+950,3,which player has the most touch downs?,8,Charles Frederick,203
+989,1,which player received the most yards in 2007?,8,Charles Frederick,203
+4152,1,who is the only player to have a negative yard average?,8,Raymond Philyaw,203
+4514,1,which player did not have positive yardage?,8,Raymond Philyaw,203
+4957,3,which players did not score a touchdown?,8,Kevin Beard|Larrell Johnson|Jamarr Wood|Raymond Philyaw,203
+5069,3,who had the most touchdowns: jerel myers or cecil moore?,8,Jerel Myers,203
+6460,3,which player got the most yards?,8,Charles Frederick,203
+8256,3,which player had the most receptions but no touchdowns?,8,Kevin Beard,203
+8258,3,what is the difference between the highest average and the lowest avaerage?,8,20.2,203
+9380,1,what is the difference in touchdowns between raymond philyaw and jerel myers?,8,21,203
+10152,3,who was the next player besides charles frederick that received the most yards in 2007?,8,Jerel Myers,203
+11148,3,which player's average is higher than ira gooch's?,8,Anthony Hines,203
+11517,2,how many touchdowns did anthony hines and boo williams have altogether?,8,29,203
+552,3,how many states have never used capital punishment?,9,3,203
+752,2,which state had their last execution on 5 february 2014?,9,Texas,203
+5190,3,how long has it been since the first hanging occurred?,9,169 years,203
+5589,3,how many states had their last execution take place in 1997?,9,3,203
+8596,2,which state had an execution done by the method of lethal injection and occurred in december of 2005?,9,Maryland,203
+10251,3,arizona last put someone to death in october 2013 what state had the closest previous execution?,9,Alabama,203
+10619,3,which state had a more recent execution take place delaware or mississippi?,9,Mississippi,203
+11952,3,what is the total number of states that have never used capital punishment?,9,3,203
+12180,3,how many states have never executed anyone?,9,3,203
+12768,2,alabama last put someone to death in 2013 what was its means of execution?,9,lethal injection,203
+13099,3,how many states have done executions in 2014?,9,5,203
+13478,3,alphabetically what is the largest consecutive amount of states that use lethal injection?,9,8,203
+256,3,what is the total number of wins for macau?,14,6,203
+1592,3,"how many consecutive events took place in bangkok, thailand starting 20 may, 2008?",14,6,203
+3358,3,when was his last match?,14,5 March 2014,203
+3545,3,how many winning scores were at least 3?,14,6,203
+4136,3,what was the date of the first international goal?,14,24 December 2005,203
+4440,3,what competition was teeratep winothai in when he made his last international goal of 2008?,14,2008 AFF Suzuki Cup,203
+9626,3,how many international goals did teeratep winothai make in 2009?,14,2,203
+10473,1,who had more draws? south korea or north korea?,14,North Korea,203
+12964,3,number of years with no victories,14,4,203
+2556,3,which year saw the greatest final point total in the women's tournament finals?,15,2006,203
+4023,3,which team won the most games in london after 2005?,15,Western,203
+7530,1,what was the only year a men's runner-up was from toronto?,15,2008,203
+8539,1,what school was the top winner in the women's tournament in 2003?,15,Western,203
+8750,3,"of mcgill, western, and toronto, who won the least final matches between 2003-13?",15,Toronto,203
+9899,3,"after western men's team win in 2007, who won the men's game next?",15,McGill,203
+10252,3,how many total times was the location in montreal?,15,2,203
+11662,3,what is the greatest number of consecutive wins of the women's tournament between 2003 and 2013?,15,7,203
+12310,3,how many consecutive wins did western's men's team have?,15,2,203
+12841,3,what is the number of times queen's was runner-up in men's?,15,3,203
+4289,3,"in 1906, how many total rolling stock vehicles were in service?",19,12,203
+4377,2,how long did it take number 71 to retire?,19,24,203
+5949,1,did american car company or w.l. holman car company build cars that were 44' in length?,19,W. L. Holman Car Company,203
+11678,3,what was the total number of cars listed?,19,13,203
+12495,3,what was the number of cars built by american car company?,19,4,203
+1037,3,is dean winstanley listed above or below kyle anderson?,20,Above,203
+1707,1,"other than kyle anderson, who else lost in 2014?",20,Terry Jenkins,203
+1850,3,who was the last to win against his opponent?,20,Michael van Gerwen,203
+3826,1,did terry jenkins or per laursen win in 2014?,20,Per Laursen,203
+9691,2,who are the only players listed that played in 2011?,20,Adrian Lewis,203
+10943,1,name a year with more than one game listed.,20,2013,203
+10959,3,who won the first world darts championship?,20,Raymond van Barneveld,203
+13142,3,how many champions were from norway?,20,0,203
+652,3,who scored the most points?,22,Manuela Bravo,203
+1053,3,who was the last draw?,22,Manuela Bravo,203
+1884,2,"who sang ""eu só quero"" as their song in the eurovision song contest of 1979?",22,Gabriela Schaaf,203
+5987,1,which artist came in last place?,22,Teresa Silva Carvalho,203
+13449,1,what is the total amount of points for florencia?,22,63,203
+243,3,what is the average score of all home team members for all dates?,24,1.75,203
+553,2,on which date did the home team member not score?,24,4 March 2008,203
+671,3,how many ties are listed total?,24,4,203
+1629,1,which team has the same score as rah ahan?,24,Steel Azin,203
+2491,3,at most 8 were scored on what date,24,17 December 2007,203
+5767,3,on what date did the home team score zero points against their opponent?,24,4 March 2008,203
+9158,3,which team's score was better than sanaye arak?,24,Pegah Gilan,203
+9637,3,what is the total number of points earned by all away team members in december?,24,9,203
+11689,3,each of these teams both scored 4 goals,24,Foolad|Esteghlal Ahvaz,203
+3181,1,has frits pirard won more or less than bert oosterbosch?,25,Less,203
+12748,3,what was the number of stages in the 1983 tour de france?,25,22,203
+13894,3,what was the total number of days for the tour?,25,23,203
+2790,3,what is the number of winners from kenya?,26,19,203
+6606,1,name the male and female winners for 2013.,26,Yemane Tsegay (ETH)|Ruth Wanjiru (KEN),203
+7397,3,how many times did philip singoei win?,26,2,203
+7451,3,who was the first recorded winner of the eindhoven marathon?,26,Fritz Schöning (FRG),203
+9865,3,who was the last european woman to win the eindhoven marathon?,26,Agnes Hijman (NED),203
+10570,3,what is the number of times the eindhoven marathon has been held since 1959,26,30,203
+11434,3,what was the number of times that mieke hombergen won?,26,3,203
+1035,2,"how long, in km, was the event in helsinki,finland?",28,20 km,203
+2030,3,how many times did they place 1st after 2008?,28,1,203
+3918,3,how many years consecutive featured the 20 km event?,28,7,203
+7063,1,what was the only year that a 5 km event took place?,28,2002,203
+7131,3,how long was the shortest event?,28,5 km,203
+8568,1,where was the only 5km event held?,28,"Bridgetown, Barbados",203
+9897,3,how many times did they participate in the olympic games?,28,1,203
+11563,3,what was the last year that they received first?,28,2010,203
+12401,1,"in 2004, 4th position was achieved. in this same year, what other position was also achieved?",28,1st,203
+13497,3,how many times did they participate in the world championships?,28,4,203
+285,3,who was the next rider after tetsuya harada?,35,Jean-Philippe Ruggia,203
+998,1,who was the only rider to score 9 points?,35,Jean-Philippe Ruggia,203
+1800,3,how many riders were faster than massimo ottobre?,35,10,203
+2752,3,who was the last rider in the 250cc class?,35,Takeshi Tsujimura,203
+3158,3,what is the total number of japanese riders in the top 20?,35,3,203
+4075,3,which rider scored more than 16 points but less than 25?,35,Marcellino Lucchi,203
+4179,3,what is the difference between marcellino lucchi's points and max biaggi's points?,35,5,203
+5966,3,how many riders in the top 15 were riding a honda?,35,9,203
+6884,3,does olivier jacque have the same time as tetsuya harada?,35,No,203
+7769,3,what is the number of italian riders that placed in the top 10?,35,3,203
+7867,1,what manufacturer is listed for max biaggi and marcellino lucchi?,35,Aprilia,203
+25,3,what's the number of parishes founded in the 1800s?,36,4,203
+2147,3,how many parishes were founded before 1900?,36,4,203
+2237,2,how many parishes had fr frank thorpe as their parish priest?,36,2,203
+4973,1,name a parish that no parish priest is listed.,36,St Joseph,203
+9387,1,"other than st mary, which parish was founded by fr frank thorpe?",36,Our Immaculate Mother & St Anselm,203
+10905,1,which parish was founded after 1950?,36,St Veronica (Chapel of Ease),203
+11741,2,which parish is the only one to have closed?,36,St Joseph,203
+13965,3,which parish was founded earlier between st. joseph and st james the less?,36,St James the Less,203
+770,2,which school was in the columbus neighborhood and was demolished?,40,School 73,203
+1597,3,how many schools were turned into private apartments?,40,3,203
+6126,3,how many schools are vacant?,40,16,203
+10769,3,what is the total number of schools that are now vacant?,40,16,203
+12354,1,which school is the first school to have been closed?,40,School 35,203
+12831,3,what is the total number of schools that were demolished?,40,24,203
+4874,1,which route had plain stage terrain and was used on the 27th of june?,44,Freiburg - Besançon,203
+10036,3,how many different countries won at least one stage in the 1964 tour de france?,44,5,203
+2367,3,"how many television channels in nambour, queensland are in hd?",51,4,203
+4625,3,what is the definition of the last channel?,51,SD,203
+4871,3,what number of organisations have private ownership?,51,10,203
+4923,3,how many private owned channels are there?,51,10,203
+5703,3,how many channels are in hd?,51,4,203
+7964,2,"which organization has more television channels in nambour, queensland, nine network or australian broadcasting commission?",51,Australian Broadcasting Corporation,203
+8024,3,how many channels are not an abc channel?,51,12,203
+9226,3,what are the number of channels owned by the government?,51,6,203
+11344,3,whats is the number of channel's that broadcast in hd?,51,4,203
+11479,3,"which television channels in nambour, queensland are owned by the same organization as abc1?",51,ABC2|ABC3|ABC News 24,203
+2836,3,how many laps total were completed by all drivers?,52,1144,203
+3488,3,how many total laps were there in the 2008 canadian grand prix?,52,70,203
+4298,3,who placed first in the 2008 canadian grand prix?,52,Robert Kubica,203
+5613,3,what is the number of drivers that finished the 2008 canadian grand prix before jarno trulli?,52,5,203
+6798,3,who had the fastest lap time?,52,Robert Kubica,203
+7106,3,who finished after nico rosberg?,52,Jenson Button,203
+8077,3,adrian sutil had to retire before which driver?,52,Lewis Hamilton,203
+8576,1,who was the last driver listed to receive points?,52,Sebastian Vettel,203
+8704,3,"of all the retired drivers, which of them completed the least amount of laps?",52,Adrian Sutil,203
+10114,3,which country did most drivers represent?,52,Germany,203
+13137,3,how long did robert kubica take to complete the race?,52,1:36:24.227,203
+13520,3,how many drivers completed at least 45 laps?,52,15,203
+13854,3,how many cars spun off the track?,52,2,203
+227,3,when was the last super chinese game released?,55,1999,203
+1797,3,"of the titles released in north america, which had the least releases?",55,Super Chinese World,203
+3966,3,what are the total of super chinese games released?,55,13,203
+5472,1,number of super chinese world games released,55,3,203
+7262,3,the first year a game was released in north america,55,1986,203
+8739,3,how many action games were released in north america?,55,2,203
+13316,3,which platforms had the most titles released?,55,GB,203
+332,3,how many stars have a magnitude greater than zero?,56,14,203
+1883,3,how many stars have a current magnitude of at least 1.0?,56,11,203
+1939,3,how much farther (in ly) is epsilon canis majoris than zeta sagittarii?,56,26,203
+7830,3,how many stars have a distance at maximum of 30 light years or higher?,56,9,203
+8961,3,is capella's current magnitude more than vega's current magnitude?,56,Yes,203
+9313,3,what is the difference in the nearest current distance and farthest current distance?,56,491.4,203
+10860,3,how many stars do not have a current magnitude greater than zero?,56,5,203
+11053,3,which star has the highest distance at maximum?,56,Canopus (fourth time),203
+12149,1,what is the only star with a distance at maximum of 80?,56,Beta Cygni,203
+13956,3,what is the number of stars that have a maximum magnitude less than zero?,56,5,203
+6322,3,"based on the table of brazil's results at the fifa world cup between 1930 and 2010, in which listed year did brazil play on average only a single match in round 1?",57,1934,203
+9639,3,how many goals did brazil score in the 1950 world cup?,57,22,203
+9707,3,largest victory,57,7-1,203
+10189,3,"based on the table of brazil's results at the fifa world cup between 1930 and 2010, in which year did brazil's player romeu score a point in brazil's bronze final match against sweden after previously scoring a point in the semi-final match against italy?",57,1938,203
+10253,3,the most goals scored in a game,57,11,203
+11170,3,"based on the table of brazil's results at the fifa world cup between 1930 and 2010, in which year did teams score no match points at all during the final between brazil and italy?",57,1994,203
+460,1,"according to usgs estimates of mine production, what was the total estimated mine production of niobium minerals from the nation of brazil in 2006?",59,"40,000",203
+3167,1,what is the total amount of niobium produced in rwanda in 2000?,59,28,203
+3382,3,"which countries did not produce more than 1,000 in the year 2006?",59,Australia|Mozambique|Nigeria|Rwanda,203
+4017,3,after brazil which country produced the most niobium?,59,Canada,203
+4897,1,which country produced 50 in 2002 but only 13 in 2003?,59,Congo D.R.,203
+6085,2,what country was the top producer of niobium in the year 2003?,59,Brazil,203
+10106,1,"according to usgs estimates of mine production, which nation in 2005 produced a larger quantity of niobium mineral production, nigeria or rwanda?",59,Rwanda,203
+10236,2,a total of how many (t) of niobium was produced in the world in the year 2000?,59,"32,600",203
+12446,2,besides australia which other countries produced more than 100 in the year 2000?,59,Brazil|Canada,203
+13132,2,"in 2000, did world mine production according to usgs estimates produce more tons or less tons of output of niobium minerals than in 2002, when a total of 29,900 tons was estimated to have been mined?",59,more,203
+138,2,in which country did thierry tulasne win his last singles title?,60,Switzerland,203
+709,2,"what are the total games won against claudio pannata on june 10,1985 in bologna,italy?",60,1,203
+1658,3,what is thierry tulasne number of clay court titles?,60,4,203
+2870,3,how many tournaments were played indoor?,60,1,203
+3676,3,how many singles finals did thierry tulasne win against swedish opponents?,60,3,203
+4019,3,who was the opponent in the last tournament?,60,Henri Leconte,203
+4239,3,what were the total number of times the championship was held in italy?,60,2,203
+5643,2,in which country did thierry tulasne win 2 consecutive titles in 1985,60,Italy,203
+5744,3,who is the only player to be listed twice as an opponent in the finals?,60,Andrés Gómez,203
+6299,3,which surface was used the least?,60,Indoor,203
+8053,3,how many were played before 1985?,60,2,203
+8274,3,how many indoor titles did therry tulasnewin?,60,1,203
+9168,3,which month were the most championships played?,60,September,203
+11656,3,how many atp tour titles did thierry tulasne win?,60,5,203
+993,3,"nigeria has the most gold medals, but who has the most medals overall?",61,South Africa,203
+1587,1,the total number of medals won by south africa was how many?,61,30,203
+4765,2,how many gold medals has kenya won?,61,5,203
+4929,1,"which african country had 8 silver medal wins, but no gold medals?",61,Algeria,203
+5306,3,what is the difference of silver medals between south africa and kenya?,61,7,203
+6227,1,which african country had more total medal wins then nigeria?,61,South Africa,203
+7391,3,which nation won the same amount og golds as ghana?,61,Senegal|Tunisia,203
+7391,3,which nation won the same amount og golds as ghana?,61,Senegal|Tunisia,203
+7813,3,which nation won more gold medals than south africa?,61,Nigeria,203
+11006,3,what was the total number of medals won by madagascar?,61,3,203
+11794,3,which nation won the most gold medals?,61,Nigeria,203
+12394,3,how many gold medals did the ivory coast and namibia win combined?,61,0,203
+12786,1,"which 4 countries were scored last, with only 1 bronze medal each?",61,Central African Republic|Uganda|Namibia|Ivory Coast,203
+13778,1,which country was ranked as the top in the 1999 all-africa games?,61,Nigeria,203
+294,1,what is difference in points between c.d. aguila and chalatenango?,67,14,203
+921,3,what is the difference between the number of goals scored from the highest scoring team and the lowest scoring team?,67,25,203
+2906,1,besides c.d. arcense which other team has 17 points?,67,Chalatenango,203
+5191,3,how many games were played?,67,180,203
+5608,3,which team scored the most points?,67,C.D. FAS,203
+5697,3,which team conceded the least goals?,67,C.D. FAS,203
+5784,1,which team earned more than 30 points besides c.d. fas?,67,C.D. Águila,203
+6512,3,which team scored the most goals?,67,C.D. Águila,203
+7473,3,how many points did alianza f.c. receive?,67,28,203
+10360,3,who was the top team of the apertura 2003 standings?,67,C.D. FAS,203
+12579,3,what two teams ended the season with the same record of wins/loses/draws?,67,San Salvador F.C.|Alianza F.C.,203
+14141,3,which team earned the least amount of points in the apertura 2003 standings?,67,C.D. Atlético Balboa,203
+5009,3,who was the first ambassador the united states has sent to mexico?,69,William Shaler,203
+5277,3,how many years has does this table cover?,69,88,203
+8514,3,what is the total number of representatives?,69,50,203
+8875,3,at least what number of people have the title minister,69,26,203
+9542,3,who was the last person appointed on this table?,69,Powell Clayton,203
+11468,3,which united states president appointed the most ambassador's to mexico,69,James Buchanan,203
+12655,3,count the number of special diplomatic agents and give that number.,69,22,203
+876,3,how many nations won at least 10 medals?,70,8,203
+1212,1,how many more medals did egypt win than ivory coast?,70,5,203
+2062,1,how many bronze medals does togo have?,70,1,203
+10467,1,what was the total medal count of switzerland?,70,8,203
+10732,3,how many counties have at least one silver medal?,70,18,203
+10744,1,what is the difference between france's and egypt's silver medals?,70,23,203
+12554,3,who placed in first according to medals?,70,France,203
+1329,2,yes or no: dundee is ranked in the top third of this for population.,74,No,203
+1392,3,which urban area has the least people per square kilometer?,74,Livingston,203
+2645,1,what is the total area of edinburg?,74,120.11,203
+5805,3,"how many urban areas have a density below 2,500?",74,1,203
+7983,3,which urban area ranks first in population density?,74,Edinburgh,203
+8811,3,"which has a higher population density, greater glasgow or falkirk?",74,Greater Glasgow,203
+9268,1,which urban area is ranked first overall?,74,Greater Glasgow,203
+11064,3,"how many urban areas have a population above 90,000?",74,5,203
+11199,3,which urban area has the largest population?,74,Greater Glasgow,203
+881,1,which driver has the least amount of points?,76,Ralf Schumacher,203
+1386,3,"which driver in the top 8, drives a mclaran-mercedes but is not in first place?",76,Kimi Räikkönen,203
+1427,1,is there a points difference between the 9th position and 19th position on the list?,76,No,203
+4849,3,how many drivers received points from the race?,76,8,203
+5512,3,how many drivers from germany?,76,3,203
+6176,3,what is the number of toyota's on the list?,76,4,203
+11191,2,which driver has his grid at 2?,76,Jenson Button,203
+11391,3,"after 8th position, how many points does a driver receive?",76,0,203
+12221,3,which driver came after giancarlo fisichella?,76,Jenson Button,203
+391,3,which album was the least acclaimed but did reach the billboard 200?,77,i,203
+2502,1,which album by the magnetic fields reached higher than 100 on the billboard chart?,77,Distortion|Love at the Bottom of the Sea,203
+3722,1,was distortion or love at the bottom of the sea the highest rated album?,77,Distortion,203
+4815,3,what is the total number of albus from this chart that made the billboard 200?,77,4,203
+6936,3,what was the earliest released album?,77,Distant Plastic Trees,203
+7561,3,how many years after 1999 did merge records release their next album?,77,5,203
+9072,3,what album title came next after get lost?,77,69 Love Songs,203
+12048,1,realism and i were above or below number 100 on the billboard 200?,77,Below,203
+398,3,which company has the least number of employees?,83,Vitol,203
+1365,3,what company has the top revenue?,83,"Wal-Mart Stores, Inc.",203
+2242,1,who earned the same revenue as hon hai precision industry?,83,Ford Motor Company,203
+3427,1,how many employees does vitol have?,83,"2,800",203
+3718,3,how many oil and gas industries made the top 10 in ranking of revenue list?,83,6,203
+4348,3,what is the company with the highest revenue in the automotive industry?,83,Volkswagen Group,203
+6984,3,how many companies have at least 200 billion in revenue for oil and gas?,83,8,203
+10039,3,which company is ranked at the top with the largest revenue?,83,"Wal-Mart Stores, Inc.",203
+11825,3,what company is ranked below apple?,83,Japan Post Holdings,203
+1772,3,the least amount of females,88,Romanian,203
+3155,3,which language had the least female speakers?,88,Romanian,203
+4436,3,which language had the smallest number of females speaking it.,88,Romanian,203
+7569,2,is german above or below russia in the number of people who speak that language?,88,below,203
+9363,2,number of male russian speakers,88,13 551,203
+10542,3,what was the top language from the one's whose percentage was >0.01,88,Romanian,203
+11390,3,what was the next most commonly spoken language in poland after russian?,88,German,203
+11748,3,what is the highest percentage of speakers other than polish?,88,Yiddish,203
+11933,3,which language had the most number of people speaking it.,88,Polish,203
+973,2,what religious group is the only one with at least 90% literacy %?,90,Jain,203
+2630,3,how many of these religious groups have a literacy rate of above 60%?,90,5,203
+3608,1,how long was the timespan in which growth was measured?,90,10 years,203
+4756,3,what has the least percentage in india?,90,Jain,203
+5674,3,the number of religious groups with a sex ratio of more than 1000 is how many?,90,1,203
+7163,2,which is the only religious group to have a literacy rate above 90%?,90,Jain,203
+7806,3,which religion has the highest percentage represented in india?,90,Hindu,203
+10636,3,how many religious groups have a leteracy rate of 70% at most?,90,3,203
+12704,3,which religious group has the highest population %?,90,Hindu,203
+769,1,in which olympic games did arasay thondike not finish in the top 20?,91,2012,203
+3935,3,does arasay thondike have more/less than 4 1st place tournament finishes?,91,less,203
+10802,3,how many times was the number one position earned?,91,3,203
+13610,3,what is the number of competitions held in cuba?,91,3,203
+365,3,which elected successor took office the earliest?,93,Henry E. Prickett,203
+829,3,who was appointed before h.w. whillock?,93,Byron E. Hyatt,203
+3819,3,"who resigned earlier, james p. pope or h. w. whillock?",93,James P. Pope,203
+4087,1,what number of years did john hailey serve?,93,0,203
+6081,3,how many never took office?,93,2,203
+12206,1,who was appointed after dirk kempthorne?,93,H. Brent Coles,203
+935,1,how many strokes marked the margin of victory for justin rose in 2011?,94,2,203
+1025,3,first player to win with a score over 70 for one round?,94,Justin Rose,203
+1165,3,besides tiger woods what other player won between 2007 and 2009?,94,Camilo Villegas,203
+1220,3,after justin rose won in 2011 who won next?,94,Rory McIlroy,203
+6905,3,what is the total amount of american players that have won the western open since 2007?,94,3,203
+12314,3,which player earned the most between 2007 and 2013 in the western open?,94,Tiger Woods,203
+12866,3,who was the last winner of the western open(2013)?,94,Zach Johnson,203
+13857,1,who won after tiger woods in 2010?,94,Dustin Johnson,203
+14072,3,which player won by the least number of strokes?,94,Dustin Johnson,203
+14074,3,count the number of times the western open has been held at the cog hill golf and country club since 2007.,94,4,203
+925,1,"in equal sized portions, do potatoes or plantains contain more grams of protein?",97,potatoes,203
+1124,3,what food has the highest amount of magnesium?,97,Maize / Corn,203
+4933,3,what staple has the least amount of fat?,97,Sweet potato,203
+5013,3,which of the major staple foods contains the highest number of grams of carbohydrates in a 100 gram portion?,97,Rice,203
+9207,2,what is the difference in grams of water between 100g of wheat and 100g of rice?,97,1,203
+10759,3,how many staples have more than 5 grams of fiber?,97,3,203
+11091,3,how many staples have at least 1 mg of zinc?,97,3,203
+12744,3,what staple has the most potassium?,97,Yam,203
+13651,3,at least how many grams of water do the staple foods have?,97,9,203
+1272,3,which morgan creek film grossed the most money prior to 1994?,98,Robin Hood: Prince of Thieves,203
+1369,3,what is the top grossing film?,98,Robin Hood: Prince of Thieves,203
+3293,2,did true romance make more or less money than diabolique?,98,Less,203
+4500,1,was the budget for young guns more or less than freejack's budget?,98,less,203
+4932,3,what movie came out after bad moon?,98,Wild America,203
+5199,3,what movie was made immediately before the pledge?,98,The In Crowd,203
+6665,3,what was the last movie morgan creek made for a budget under thirty million?,98,Ace Ventura Jr: Pet Detective,203
+7002,1,what was the only movie with a 48 million dollar budget?,98,Robin Hood: Prince of Thieves,203
+7758,3,which morgan creek film grossed the most worldwide?,98,Robin Hood: Prince of Thieves,203
+8248,2,"which film had a higher budget, ace ventura: when nature calls, or major league: back to the minors?",98,Ace Ventura: When Nature Calls,203
+9426,3,how many films were there in 1990?,98,5,203
+11207,2,what is the number of films directed by david s. ward?,98,2,203
+12650,3,"after young guns, what was the next movie with the exact same budget?",98,Major League,203
+13801,2,how many films did morgan creek make in 2006?,98,2,203
+668,3,what is the total number dallara chassis listed in the table?,99,5,203
+1456,3,which team won the champ car world series the year before rusport?,99,Newman/Haas Racing,203
+3237,3,how many times did sébastien bourdais win the champ car world series between 2005 and 2007?,99,2,203
+4221,3,was the average speed in the year 2011 of the indycar series above or below the average speed of the year before?,99,below,203
+6057,3,how many different teams are represented in the table?,99,4,203
+7857,3,how many flags other than france (the first flag) are represented?,99,3,203
+9163,3,what is the least amount of laps completed?,99,75,203
+13002,3,how many total honda engines were there?,99,4,203
+128,3,"in 2008 in track and field events who broke more world records, usain bolt or haile gebrselassie?",102,Usain Bolt,203
+526,3,in 2008 in track and field events how many world records did usain bolt break?,102,4,203
+952,3,is the best time for the 100 m more or less than the time for the 110 m hurdles?,102,less,203
+1417,3,"which record is faster, 50km race walk or marathon",102,Marathon,203
+2538,3,what country's 200 m was the quickest?,102,Jamaica,203
+3983,1,in 2008 in track and field events how long did it take for dayron robles to run the 110 m hurdles when he broke the world record.,102,12.87,203
+4048,3,in how many places were the records made?,102,5,203
+5638,3,what is the longest time on the table?,102,3:34:14,203
+6091,3,what is last city in china to host world record,102,"Beijing, China",203
+7577,3,what is the number of countries listed in the table,102,4,203
+8036,3,how many world records does ethiopia hold?,102,1,203
+8529,3,what is the number of world records that were recorded in august?,102,3,203
+9436,1,who set consecutive world records in the 100m?,102,Usain Bolt,203
+9539,1,what is the average speed on each runner in the 4 x 100 m relay?,102,37.10,203
+10288,3,how many records were set in beijing?,102,3,203
+12702,3,which person set at least 2 world records?,102,Usain Bolt,203
+14,3,which athlete was from south korea after the year 2010?,104,Kim Yu-na,203
+284,3,how many total medals has the united states won in women's figure skating?,104,16,203
+3169,1,how many silver medals did evgeni plushenko get?,104,2,203
+3261,3,what was the greatest number of gold medals won by a single athlete?,104,3,203
+7018,3,how many more silver medals did gillis grafström have compared to sonja henie?,104,1,203
+8573,3,how many medals have sweden and norway won combined?,104,7,203
+13431,3,which nation was the first to win three gold medals for olympic figure skating?,104,Sweden,203
+711,2,which building has 8 floors and is 240 ft tall?,105,Industrial Exposition Building,203
+4309,2,how tall is it to the top of the ids tower in feet?,105,792,203
+5642,1,which building has the same number of floors as the lumber exchange building?,105,Metropolitan Building,203
+8687,1,how many floors does the foshay tower have?,105,32,203
+8887,1,how long did the lumber exchange building stand as the tallest building?,105,1 year,203
+9476,3,name the tallest building.,105,IDS Tower,203
+9903,1,is the metropolitan building or the lumber exchange building taller?,105,Metropolitan Building,203
+10812,3,what was the first building named as the tallest?,105,Globe Building,203
+11845,3,after ids tower what is the second tallest building in minneapolis?,105,Foshay Tower,203
+13848,3,how many buildings on the list are taller than 200 feet?,105,5,203
+1149,1,which 2 super middleweight champions both had the same about of successful defenses?,107,Joe Calzaghe|Sven Ottke,203
+1887,3,what were the total amount of successful defenses andre ward had?,107,6,203
+2881,3,what is the total number of title defenses completed by german champions?,107,27,203
+3023,3,how long was the longest title reign?,107,"10 years, 11 months, 15 days",203
+3251,3,what is the difference between the number of successful defenses by joe calzaghe and robert stieglitz?,107,15,203
+5735,3,who had the most successful defenses?,107,Joe Calzaghe|Sven Ottke,203
+6428,3,what is the number of times the title reign was longer than 3 years?,107,9,203
+8156,3,what country does the least amount of successful defenses come from?,107,Denmark,203
+10918,1,who is the only champion to reign for more than 10 years?,107,Joe Calzaghe,203
+12886,3,what is the longest title reign after champion joe calzaghe?,107,"5 years, 5 months, 3 days",203
+13244,3,how many champions had at least 10 title defenses?,107,4,203
+231,1,what year did monaco ratify more international human rights treaties than they did in 1979?,109,1993,203
+1113,3,which was the first treaty in morocco to be ratified?,109,Convention on the Prevention and Punishment of the Crime of Genocide,203
+1818,3,"at most, how many international human rights treaties has monaco ratified in one year?",109,4,203
+3204,3,how many total international human rights treaties from the united nations has monaco ratified?,109,13,203
+6509,2,what is the only organization whose treaties morocco has signed?,109,United Nations,203
+7339,2,how long did it take for the international covenant on civil and political rights to be signed before it was ratified?,109,11 years,203
+7410,3,which was the first human rights treaty to be signed?,109,International Convention on the Elimination of All Forms of Racial Discrimination,203
+10901,3,what is the last treaty morocco ratified?,109,International Convention for the Protection of All Persons from Enforced Disappearance,203
+11047,3,how many treaties had been introduced by 1986?,109,9,203
+12140,3,what is the earliest treaty signed by morocco?,109,International Convention on the Elimination of All Forms of Racial Discrimination,203
+1045,1,what country won the most medals in shooting at the 1988 summer olympics?,113,Soviet Union,203
+2512,3,which country was in the top of the 11 rank group?,113,Chile (CHI),203
+3863,3,who were the top ranked countries in medal rank?,113,Soviet Union (URS)|Yugoslavia (YUG)|West Germany (FRG),203
+4410,1,which of these countries is ranked first?,113,Soviet Union (URS),203
+5027,1,who had more gold medals than the soviet union?,113,No one,203
+8331,3,which of these countries was ranked next after yugoslavia?,113,West Germany (FRG),203
+13922,1,which country earned the most gold medals?,113,Soviet Union (URS),203
+9,1,which players played the same position as ardo kreek?,116,Siim Ennemuist|Andri Aganits,203
+1283,3,kert toobal is the oldest who is the next oldest player listed?,116,Argo Meresaar,203
+4750,3,which player is taller than andri agantis?,116,Oliver Venno,203
+7134,1,how much taller in oliver venno than rait rikberg?,116,36,203
+7730,3,who is at least 25 years or older?,116,Ardo Kreek|Kert Toobal|Martti Juhkami|Argo Meresaar|Rait Rikberg|Edgar Järvekülg|Jaanus Nõmmsalu,203
+8659,3,how many players are middle blockers?,116,3,203
+12017,3,how many members of estonia's men's national volleyball team were born in 1988?,116,2,203
+12277,3,who is the tallest member of estonia's men's national volleyball team?,116,Oliver Venno,203
+12544,3,what are the total number of players from france?,116,2,203
+12925,3,how many players were born before 1988?,116,5,203
+119,3,how many defensive (df) players are there on the national team?,121,4,203
+742,3,"played on the same team as rune ""killing"" emanuelsson",121,"Gunnar ""Il Professore"" Gren",203
+3831,3,how many people have no goals?,121,20,203
+5754,3,what was the total number of goals scored by all of the national team players in the 1947/1948 season?,121,20,203
+5867,3,which club had more midfield (mf) players on the national team: aik solna or ifk norrkoping?,121,AIK Solna,203
+7235,3,who has the most goals plus caps?,121,Gunnar Nordahl,203
+7865,2,how many goals did the malmö ff player(s) score?,121,1,203
+9075,3,how many people have less than 3 caps?,121,15,203
+4453,3,which opponent had the largest amount of points scored?,126,Florida State,203
+5759,3,what was ohio states rank before playing michigan state?,126,#13,203
+7035,3,who was the last opponent?,126,BYU,203
+11523,3,how many games did ohio state win in this 1982 season?,126,9,203
+11827,3,what was the score of the top game?,126,21-14,203
+12937,1,who did ohio state play before indiana on october 23?,126,at #15 Illinois,203
+13114,3,how many games were won?,126,9,203
+13692,3,who was the opponent on the first game of the season?,126,Baylor*,203
+13708,3,did ohio state win the game previous to the game against michigan state?,126,yes,203
+1309,3,how many chevrolets finished in the top ten?,131,4,203
+5413,3,the number of cars finishing in the top ten for braun racing.,131,2,203
+6106,3,how many chevrolets were in the top 10?,131,4,203
+7587,3,the percent of toyotas in the top ten.,131,30,203
+8588,3,how many toyotas were there in the top 10 finishes?,131,3,203
+8921,1,which driver earned 4th place?,131,Carl Edwards,203
+9668,1,who placed first in the race?,131,Jason Leffler,203
+11083,3,did scott wimmer place before or after carl edwards?,131,after,203
+11189,3,who was the first driver to finish?,131,Jason Leffler,203
+12909,1,did jason leffler race for braun racing or michael waltrip racing?,131,Braun Racing,203
+757,3,"what is the total number of players who tied for fourth, seventh, and tenth combined?",134,8,203
+1471,3,how many golfers shot at least 2 under par at the 2010 us open?,134,2,203
+5652,3,who was the top player?,134,Dustin Johnson,203
+5750,3,how many americans were in the top 10?,134,5,203
+6769,3,what was the total number of players?,134,12,203
+7388,3,how many golfers in the third round are from the united states?,134,5,203
+8227,3,who had the least number of strokes at the 2010 us open?,134,Dustin Johnson,203
+10163,3,how many players tied for fourth place?,134,2,203
+10477,1,who was the only player to place 6th?,134,Phil Mickelson,203
+11867,1,which golfers other than tim clark shot 3 over par at the 2010 us open?,134,Alex Cejka|Ryo Ishikawa,203
+13930,3,how many golfers shot 4 over par at the 2010 us open?,134,3,203
+14044,3,what player placed nest after dustin johnson?,134,Graeme McDowell,203
+1861,3,what is the last school to be founded in the aac?,135,Savannah College of Art and Design at Atlanta,203
+2266,2,what is the only conference school located in kentucky?,135,Union College,203
+2780,3,how many institutions have at least 1000 listed for enrollment?,135,9,203
+3695,1,which institution began with the most enrollment?,135,Savannah College of Art and Design at Atlanta,203
+7177,3,which aac school has the most students?,135,Savannah College of Art and Design at Atlanta,203
+7874,3,how many conference schools were founded before 1900?,135,6,203
+9033,3,how many institutions were founded before 1950?,135,10,203
+9990,2,which conference school was founded earlier: bryan college or montreat college?,135,Montreat College,203
+10771,2,is union college located in tennesse or kentucky?,135,Kentucky,203
+446,3,what is the highest number of goals podolski has scored in an international game?,138,10,203
+2757,3,"who did lukas podolski's team face after thailand in december 21, 2004?",138,Slovenia,203
+2871,2,how many times was liechtenstein the opponent?,138,2,203
+4237,1,"where was the first ""friendly"" competition held?",138,"Rajamangala Stadium, Bangkok, Thailand",203
+7071,2,what year was the only time china was the opponent?,138,2009,203
+7119,3,what was the total number of goals that was scored against romania in 2007?,138,3,203
+9741,3,what are the total number of non-friendly competitions?,138,22,203
+9751,3,in what country were the most games held?,138,Germany,203
+13902,3,how many competitions were not friendly?,138,22,203
+1721,3,how many riders finished less than a minute out of first?,142,12,203
+3149,1,in the 2007 phillip island superbike world championship round superbike race 1 classification who was in the top position?,142,Troy Bayliss,203
+3262,3,in the 2007 phillip island superbike world championship round superbike race 1 classification how many riders scored at least 10 points?,142,6,203
+3299,3,who rides a bike that is the same as troy bayliss' bike?,142,Lorenzo Lanzi,203
+5279,1,did james toseland score more or less points than shinichi nakatomi?,142,more,203
+7449,3,how many riders scored at least 9 points?,142,7,203
+7470,3,did alex polita finish above or below lorenzo lanzi?,142,Below,203
+11399,3,name 3 that scored more points than steve martin.,142,Troy Bayliss|James Toseland|Max Biaggi,203
+12711,3,what is the number of non-retired riders?,142,18,203
+12813,1,in the 2007 phillip island superbike world championship round superbike race 1 classification what was the point difference between position 1 and 2?,142,5,203
+127,2,what is the name of the first club on this chart?,145,UE Lleida,203
+204,3,how many teams had at least 15 wins?,145,8,203
+1012,3,which team had the highest number of losses?,145,CE Sabadell FC,203
+1755,3,what is the name of the next club after real betis?,145,Real Madrid B,203
+3576,3,did any clubs have no losses?,145,no,203
+7693,3,"what is the average number of ""goals for"" of the top 5 teams?",145,53.6,203
+10079,3,what are the number of times 13 or greater was listed in the wins column?,145,12,203
+11937,3,how many teams had less than 10 wins?,145,4,203
+12176,3,how many clubs had a positive goal difference?,145,10,203
+12367,1,which is the only team to have 9 wins?,145,Athletic de Bilbao B,203
+13219,3,what team has the same amount of wins as sd compostela?,145,SD Eibar,203
+297,2,jones won best actress in a play in 2005. which other award did she win that year?,146,Outstanding Actress in a Play,203
+687,3,what award does cherry jones have the most of?,146,Drama Desk Awards,203
+3328,3,which association awarded jones' first award after the year 2000?,146,GLAAD Media Awards,203
+4692,3,what category was the last nomination?,146,"Best Supporting Actress - Series, Miniseries or Television Film",203
+6391,3,total number of times she was nominated for 'best actress in a play' by the tony awards?,146,4,203
+7862,3,how many total awards does cherry jones have?,146,7,203
+8154,3,which movie was the first win?,146,The Heiress,203
+9475,3,"when cherry jones won a primetime emmy for her work on 24, what was her previous award winning role?",146,Doubt,203
+10626,3,how many awards did jones win in 2009?,146,1,203
+854,3,how many subdivisions are there in camarines sur?,147,37,203
+3240,3,what is the least populated municipality in camarines sur?,147,Gainza,203
+3420,3,which city has the largest number of people in camarines sur?,147,Naga City,203
+3499,3,what is the largest city/municipality by area?,147,Ragay,203
+3820,3,who is the mayor with the least city area to govern over?,147,Marilou Marquez-Hirose,203
+5059,3,how many barangays are there in sipocot?,147,46,203
+5365,3,"how many cities in camarines sur have at least 50,000 people?",147,14,203
+6015,3,how many total municipalities are there in camarines sur?,147,37,203
+7403,3,what is the most populated city in camarines sur?,147,Naga City,203
+8162,1,what is the only city to start with the letter r?,147,Ragay,203
+9189,3,what is the number of mayors during 2010-2013 who were part of the 1st class?,147,8,203
+12056,3,how many municipalities are in camarines sur?,147,35,203
+1332,3,which submarine had the most tonnage?,148,San Tiburcio,203
+1672,2,what two nationalities have a tonnage of around 1900 and both sunk?,148,United Kingdom|Estonia,203
+2615,2,what was the soviet ship that did not sink on 11 may 1944?,148,Shtorm,203
+2949,1,the flandria and the patria are ships that both fly under what country's flag?,148,Sweden,203
+7671,3,"other than ""damaged"", how many vessels were reported lost between january 1, 1940 and may 11, 1940?",148,7,203
+8242,1,"which submarine was from the uk and was almost at 2,000 in tonnage?",148,Tringa,203
+10213,3,what was the top (most frequent) fate reported for losses?,148,Sunk,203
+10437,3,what was the first vessel sunk in may 1940?,148,San Tiburcio,203
+10450,3,what was the number of tonnage for sweden?,148,2367,203
+14077,3,what nationality is on top of french navy?,148,United Kingdom,203
+310,3,how many players named jeff were drafted?,149,2,203
+639,3,who is the only player in the top 26 picks that was from louisiana state university?,149,Ben McDonald,203
+1209,1,who is the only player from hamden?,149,Scott Burrell,203
+2500,3,was kiki jones picked before or after greg gohr?,149,Before,203
+2837,1,who was the top pick of the 1989 major league baseball draft?,149,Ben McDonald,203
+8630,3,who was the last player selected in the first round of the 1989 major league baseball draft?,149,Scott Burrell,203
+9876,1,who was the only draft pick from salem high school?,149,Jeff Juden,203
+9931,3,"which was a higher round pick for rhp, the pick from the seattle mariners, baltimore orioles, los angeles dodgers, or the houston astros?",149,Baltimore Orioles,203
+10273,3,how many pitchers were chosen in the first round of the 1989 major league baseball draft?,149,8,203
+10298,2,steve hosey was picked above or below mo vaughn?,149,above,203
+1994,3,in how many consecutive races did he get a 7th place finish?,150,3,203
+4724,3,in what year did he first race?,150,2001,203
+6409,3,what is nico rosberg's total number of wins throughout his career?,150,22,203
+7440,3,how long has nico rosberg competed in the formula one series?,150,13 years,203
+9059,3,how many times was the position listed as 1st?,150,3,203
+9081,3,in how many races did he not place in the top 10?,150,7,203
+11065,3,what was the highest position achieved in 2003?,150,8th,203
+12431,3,how many times was 1st position achieved?,150,3,203
+1397,3,who had the top score in the pga championship?,151,Bubba Watson,203
+4265,3,how many total tournaments has he won?,151,10,203
+6709,3,how many tournaments has he won by 3 or more strokes?,151,5,203
+7045,3,how many winning scores were less than -14?,151,2,203
+9346,3,how long separated the playoff victory at bmw international open and the 4 stroke victory at the klm open?,151,2 years,203
+13414,3,how many more strokes were in the klm open than the barclays scottish open?,151,2 strokes,203
+6555,2,what is the only province with population density under 30?,152,Pedernales,203
+9348,3,which province has the most area?,152,San Juan,203
+9755,3,which province in the dominican republic has the smallest area (in square kilometers)?,152,Distrito Nacional,203
+11495,3,"how many provinces have populations higher than 300,000?",152,12,203
+12148,1,"in the dominican republic, does the province of independencia or the province of barahona have a smaller population?",152,Independencia,203
+12311,1,what is the difference between the area of san cristobal and puerto plata?,152,587.13,203
+12328,3,what is the difference between the population of san juan and sanchez ramirez?,152,"68,486",203
+12511,3,which province has less population density than independencia?,152,Pedernales,203
+13634,3,which province in the dominican republic has the same density of people per square kilometer as san juan?,152,Santiago Rodríguez,203

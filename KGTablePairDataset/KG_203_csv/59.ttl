@@ -1,0 +1,52 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Niobium a wtq:Entity ;
+    wtq:hasRow wtq:Niobium_row_1,
+        wtq:Niobium_row_2,
+        wtq:Niobium_row_7 .
+
+wtq:Niobium_row_1 wtq:has2000 "30,000" ;
+    wtq:has2001 "22,000" ;
+    wtq:has2002 "26,000" ;
+    wtq:has2003 "29,000" ;
+    wtq:has2004 "29,900" ;
+    wtq:has2005 "35,000" ;
+    wtq:has2006 "40,000" ;
+    wtq:has2007 "57,300" ;
+    wtq:has2008 "58,000" ;
+    wtq:has2009 "58,000" ;
+    wtq:has2010 "58,000" ;
+    wtq:has2011 "58,000" ;
+    wtq:hasCountry "Brazil" ;
+    wtq:hasindex "1" .
+
+wtq:Niobium_row_2 wtq:has2000 "2,290" ;
+    wtq:has2001 "3,200" ;
+    wtq:has2002 "3,410" ;
+    wtq:has2003 "3,280" ;
+    wtq:has2004 "3,400" ;
+    wtq:has2005 "3,310" ;
+    wtq:has2006 "4,167" ;
+    wtq:has2007 "3,020" ;
+    wtq:has2008 "4,380" ;
+    wtq:has2009 "4,330" ;
+    wtq:has2010 "4,420" ;
+    wtq:has2011 "4,400" ;
+    wtq:hasCountry "Canada" ;
+    wtq:hasindex "2" .
+
+wtq:Niobium_row_7 wtq:has2000 "32,600" ;
+    wtq:has2001 "25,600" ;
+    wtq:has2002 "29,900" ;
+    wtq:has2003 "32,800" ;
+    wtq:has2004 "34,000" ;
+    wtq:has2005 "38,700" ;
+    wtq:has2006 "44,500" ;
+    wtq:has2007 "60,400" ;
+    wtq:has2008 "62,900" ;
+    wtq:has2009 "62,900" ;
+    wtq:has2010 "62,900" ;
+    wtq:has2011 "63,000" ;
+    wtq:hasCountry "World" ;
+    wtq:hasindex "7" .
+

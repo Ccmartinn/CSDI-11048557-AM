@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q373397", "label": "wd:Q373397", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:PDC_World_Darts_Championship_row_6", "label": "wtq:PDC_World_Darts_Championship_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q6451041", "label": "wd:Q6451041", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5983251", "label": "wd:Q5983251", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q973413", "label": "wd:Q973413", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:PDC_World_Darts_Championship_row_2", "label": "wtq:PDC_World_Darts_Championship_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2043929", "label": "wd:Q2043929", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:PDC_World_Darts_Championship", "label": "wtq:PDC_World_Darts_Championship", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q15304561", "label": "wd:Q15304561", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_darts", "label": "darts", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Adrian Lewis", "label": "Adrian Lewis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Adrian Lewis", "label": "Adrian Lewis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Kyle", "label": "Kyle", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_darts", "label": "darts", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_English", "label": "English", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_PDC World Darts Championship", "label": "PDC World Darts Championship", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Gary Anderson", "label": "Gary Anderson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_1st Round", "label": "1st Round", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_darts player", "label": "darts player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Eyemouth", "label": "Eyemouth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Alexandra Palace", "label": "Alexandra Palace", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Musselburgh Grammar School", "label": "Musselburgh Grammar School", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Ian White", "label": "Ian White", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_darts", "label": "darts", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Won", "label": "Won", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Lost", "label": "Lost", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Kyle Anderson", "label": "Kyle Anderson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_2011 PDC World Darts Championship", "label": "2011 PDC World Darts Championship", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Kyle Anderson", "label": "Kyle Anderson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Gary Anderson", "label": "Gary Anderson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_PDC World Darts Championship", "label": "PDC World Darts Championship", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Australia", "label": "Australia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Adrian Lewis", "label": "Adrian Lewis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_2014", "label": "2014", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Ian White", "label": "Ian White", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_2011", "label": "2011", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_sports season", "label": "sports season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_2014 PDC World Darts Championship", "label": "2014 PDC World Darts Championship", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Final", "label": "Final", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q373397", "title": "wtq:hasPlayer", "to": "wtq:PDC_World_Darts_Championship_row_2"}, {"from": "wd:Q373397", "title": "wdt:P641", "to": "literal_0_darts"}, {"from": "wd:Q373397", "title": "rdfs:label", "to": "literal_3_Adrian Lewis"}, {"from": "wd:Q373397", "title": "wdt:P1412", "to": "literal_7_English"}, {"from": "wd:Q373397", "title": "wdt:P1532", "to": "literal_22_United Kingdom"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasPlayer", "to": "wd:Q6451041"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasRow", "to": "wtq:PDC_World_Darts_Championship"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasOpponent", "to": "wd:Q5983251"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasYear", "to": "wd:Q15304561"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasRound", "to": "literal_10_1st Round"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasindex", "to": "literal_15_6"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasResult", "to": "literal_19_Lost"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasPlayer", "to": "literal_20_Kyle Anderson"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasYear", "to": "literal_29_2014"}, {"from": "wtq:PDC_World_Darts_Championship_row_6", "title": "wtq:hasOpponent", "to": "literal_31_Ian White"}, {"from": "wd:Q6451041", "title": "wdt:P735", "to": "literal_5_Kyle"}, {"from": "wd:Q6451041", "title": "wdt:P106", "to": "literal_11_darts player"}, {"from": "wd:Q6451041", "title": "rdfs:label", "to": "literal_23_Kyle Anderson"}, {"from": "wd:Q6451041", "title": "wdt:P1532", "to": "literal_27_Australia"}, {"from": "wd:Q5983251", "title": "wdt:P21", "to": "literal_1_male"}, {"from": "wd:Q5983251", "title": "rdfs:label", "to": "literal_16_Ian White"}, {"from": "wd:Q5983251", "title": "wdt:P641", "to": "literal_17_darts"}, {"from": "wd:Q5983251", "title": "wdt:P27", "to": "literal_30_United Kingdom"}, {"from": "wd:Q973413", "title": "wtq:hasOpponent", "to": "wtq:PDC_World_Darts_Championship_row_2"}, {"from": "wd:Q973413", "title": "wdt:P21", "to": "literal_2_male"}, {"from": "wd:Q973413", "title": "wdt:P19", "to": "literal_12_Eyemouth"}, {"from": "wd:Q973413", "title": "wdt:P69", "to": "literal_14_Musselburgh Grammar School"}, {"from": "wd:Q973413", "title": "rdfs:label", "to": "literal_24_Gary Anderson"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasRow", "to": "wtq:PDC_World_Darts_Championship"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasYear", "to": "wd:Q2043929"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasPlayer", "to": "literal_4_Adrian Lewis"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasOpponent", "to": "literal_9_Gary Anderson"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasResult", "to": "literal_18_Won"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasindex", "to": "literal_25_2"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasYear", "to": "literal_32_2011"}, {"from": "wtq:PDC_World_Darts_Championship_row_2", "title": "wtq:hasRound", "to": "literal_35_Final"}, {"from": "wd:Q2043929", "title": "wdt:P641", "to": "literal_6_darts"}, {"from": "wd:Q2043929", "title": "wdt:P3450", "to": "literal_8_PDC World Darts Championship"}, {"from": "wd:Q2043929", "title": "rdfs:label", "to": "literal_21_2011 PDC World Darts Championship"}, {"from": "wd:Q2043929", "title": "wdt:P1346", "to": "literal_28_Adrian Lewis"}, {"from": "wtq:PDC_World_Darts_Championship", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wd:Q15304561", "title": "wdt:P276", "to": "literal_13_Alexandra Palace"}, {"from": "wd:Q15304561", "title": "wdt:P3450", "to": "literal_26_PDC World Darts Championship"}, {"from": "wd:Q15304561", "title": "wdt:P31", "to": "literal_33_sports season"}, {"from": "wd:Q15304561", "title": "rdfs:label", "to": "literal_34_2014 PDC World Darts Championship"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

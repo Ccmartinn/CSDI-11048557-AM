@@ -1,0 +1,40 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Martin_Kaymer a wtq:Entity ;
+    wtq:hasRow wtq:Martin_Kaymer_row_2,
+        wtq:Martin_Kaymer_row_4,
+        wtq:Martin_Kaymer_row_6,
+        wtq:Martin_Kaymer_row_9 .
+
+wtq:Martin_Kaymer_row_2 wtq:hasDate "5 Jul 2009" ;
+    wtq:hasMargin_of_nvictory "Playoff" ;
+    <http://wikitablequestion.org/hasNo.> "3" ;
+    wtq:hasRunner_s_-up "Lee Westwood" ;
+    wtq:hasTournament "Open de France ALSTOM" ;
+    wtq:hasWinning_score "−13 (62-72-69-68=271)" ;
+    wtq:hasindex "2" .
+
+wtq:Martin_Kaymer_row_4 wtq:hasDate "24 Jan 2010" ;
+    wtq:hasMargin_of_nvictory "1 stroke" ;
+    <http://wikitablequestion.org/hasNo.> "5" ;
+    wtq:hasRunner_s_-up "Ian Poulter" ;
+    wtq:hasTournament "Abu Dhabi Golf Championship" ;
+    wtq:hasWinning_score "−21 (67-67-67-66=267)" ;
+    wtq:hasindex "4" .
+
+wtq:Martin_Kaymer_row_6 wtq:hasDate "12 Sep 2010" ;
+    wtq:hasMargin_of_nvictory "4 strokes" ;
+    <http://wikitablequestion.org/hasNo.> "7" ;
+    wtq:hasRunner_s_-up "Christian Nilsson, Fabrizio Zanotti" ;
+    wtq:hasTournament "KLM Open" ;
+    wtq:hasWinning_score "−14 (67-67-66-66=266)" ;
+    wtq:hasindex "6" .
+
+wtq:Martin_Kaymer_row_9 wtq:hasDate "6 Nov 2011" ;
+    wtq:hasMargin_of_nvictory "3 strokes" ;
+    <http://wikitablequestion.org/hasNo.> "10" ;
+    wtq:hasRunner_s_-up "Fredrik Jacobson" ;
+    wtq:hasTournament "WGC-HSBC Champions" ;
+    wtq:hasWinning_score "−20 (69-68-68-63=268)" ;
+    wtq:hasindex "9" .
+

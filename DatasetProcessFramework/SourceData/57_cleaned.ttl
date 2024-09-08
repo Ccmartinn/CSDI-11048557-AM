@@ -1,0 +1,427 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Brazil_at_the_FIFA_World_Cup a wtq:Entity ;
+    wtq:hasRow wtq:Brazil_at_the_FIFA_World_Cup_row_10,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_19,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_2,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_23,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_27,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_31,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_32,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_33,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_34,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_35,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_36,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_38,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_39,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_40,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_44,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_45,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_46,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_52,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_54,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_55,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_56,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_58,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_59,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_66,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_67,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_70,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_74,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_77,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_78,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_81,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_83,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_86,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_89,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_90,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_91,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_92,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_94,
+        wtq:Brazil_at_the_FIFA_World_Cup_row_96 .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_10 wtq:hasAgainst "Yugoslavia" ;
+    wtq:hasRound "Group A" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasScorers "Ademir, Zizinho" ;
+    wtq:hasYear wd:Q188363,
+        "1950" ;
+    wtq:hasindex "10" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_19 wtq:hasAgainst "Soviet Union" ;
+    wtq:hasRound "Group D" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasScorers "Vavá (2)" ;
+    wtq:hasYear wd:Q189275,
+        "1958" ;
+    wtq:hasindex "19" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_2 wtq:hasAgainst "Spain" ;
+    wtq:hasRound wd:Q42267,
+        "Round 1" ;
+    wtq:hasScore "1–3" ;
+    wtq:hasScorers "Leônidas" ;
+    wtq:hasYear "1934" ;
+    wtq:hasindex wd:Q1477177,
+        "2" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_23 wtq:hasAgainst "Mexico" ;
+    wtq:hasRound wd:Q164089,
+        "Group C" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasScorers "Pelé, Zagallo" ;
+    wtq:hasYear "1962" ;
+    wtq:hasindex wd:Q160813,
+        "23" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_27 wtq:hasAgainst "Chile" ;
+    wtq:hasRound "Semi-Final" ;
+    wtq:hasScore "4–2" ;
+    wtq:hasScorers "Garrincha (2), Vavá (2)" ;
+    wtq:hasYear wd:Q172025,
+        "1962" ;
+    wtq:hasindex "27" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_31 wtq:hasAgainst "Portugal" ;
+    wtq:hasRound "Group C" ;
+    wtq:hasScore "1–3" ;
+    wtq:hasScorers "Rildo" ;
+    wtq:hasYear wd:Q267245,
+        "1966" ;
+    wtq:hasindex "31" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_32 wtq:hasAgainst "Czechoslovakia" ;
+    wtq:hasRound wd:Q182072,
+        "Group C" ;
+    wtq:hasScore "4–1" ;
+    wtq:hasScorers "Rivelino, Pelé, Jairzinho (2)" ;
+    wtq:hasYear "1970" ;
+    wtq:hasindex wd:Q132664,
+        "32" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_33 wtq:hasAgainst "England" ;
+    wtq:hasRound "Group C" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasScorers "Jairzinho" ;
+    wtq:hasYear wd:Q47762,
+        "1970" ;
+    wtq:hasindex "33" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_34 wtq:hasAgainst "Romania" ;
+    wtq:hasRound "Group C" ;
+    wtq:hasScore "3–2" ;
+    wtq:hasScorers "Pelé (2), Jairzinho" ;
+    wtq:hasYear wd:Q168397,
+        "1970" ;
+    wtq:hasindex "34" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_35 wtq:hasAgainst "Peru" ;
+    wtq:hasRound "Quarter-Final" ;
+    wtq:hasScore "4–2" ;
+    wtq:hasScorers "Rivelino, Tostão (2), Jairzinho" ;
+    wtq:hasYear wd:Q212166,
+        "1970" ;
+    wtq:hasindex "35" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_36 wtq:hasAgainst "Uruguay" ;
+    wtq:hasRound "Semi-Final" ;
+    wtq:hasScore "3–1" ;
+    wtq:hasScorers "Clodoaldo, Jairzinho, Rivelino" ;
+    wtq:hasYear wd:Q134916,
+        "1970" ;
+    wtq:hasindex "36" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_38 wtq:hasAgainst "Yugoslavia" ;
+    wtq:hasRound wd:Q188363,
+        "Group B" ;
+    wtq:hasScore "0–0" ;
+    wtq:hasScorers "nan" ;
+    wtq:hasYear "1974" ;
+    wtq:hasindex wd:Q166121,
+        "38" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_39 wtq:hasAgainst "Scotland" ;
+    wtq:hasRound "Group B" ;
+    wtq:hasScore "0–0" ;
+    wtq:hasScorers "nan" ;
+    wtq:hasYear wd:Q34044,
+        "1974" ;
+    wtq:hasindex "39" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_40 wtq:hasAgainst "Zaire" ;
+    wtq:hasRound "Group B" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasScorers "Jairzinho, Rivelino, Valdomiro" ;
+    wtq:hasYear "1974" ;
+    wtq:hasindex "40" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_44 wtq:hasAgainst "Poland" ;
+    wtq:hasRound "Bronze Final" ;
+    wtq:hasScore "0–1" ;
+    wtq:hasScorers "nan" ;
+    wtq:hasYear wd:Q166196,
+        "1974" ;
+    wtq:hasindex "44" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_45 wtq:hasAgainst "Sweden" ;
+    wtq:hasRound "Group C" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasScorers "Reinaldo" ;
+    wtq:hasYear "1978" ;
+    wtq:hasindex wd:Q46943,
+        "45" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_46 wtq:hasAgainst "Spain" ;
+    wtq:hasRound "Group C" ;
+    wtq:hasScore "0–0" ;
+    wtq:hasScorers "nan" ;
+    wtq:hasYear wd:Q42267,
+        "1978" ;
+    wtq:hasindex "46" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_52 wtq:hasAgainst "Soviet Union" ;
+    wtq:hasRound wd:Q189275,
+        "Group F" ;
+    wtq:hasScore "2–1" ;
+    wtq:hasScorers "Sócrates, Éder" ;
+    wtq:hasYear "1982" ;
+    wtq:hasindex wd:Q46934,
+        "52" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_54 wtq:hasAgainst "New Zealand" ;
+    wtq:hasRound "Group F" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasScorers "Zico (2), Falcão, Serginho" ;
+    wtq:hasYear "1982" ;
+    wtq:hasindex "54" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_55 wtq:hasAgainst "Argentina" ;
+    wtq:hasRound "Group C Round 2" ;
+    wtq:hasScore "3–1" ;
+    wtq:hasScorers "Zico, Serginho, Júnior" ;
+    wtq:hasYear wd:Q79800,
+        "1982" ;
+    wtq:hasindex "55" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_56 wtq:hasAgainst "Italy" ;
+    wtq:hasRound "Group C Round 2" ;
+    wtq:hasScore "2–3" ;
+    wtq:hasScorers "Sócrates, Falcão" ;
+    wtq:hasYear wd:Q676899,
+        "1982" ;
+    wtq:hasindex "56" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_58 wtq:hasAgainst "Algeria" ;
+    wtq:hasRound "Group D" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasScorers "Careca" ;
+    wtq:hasYear wd:Q181903,
+        "1986" ;
+    wtq:hasindex "58" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_59 wtq:hasAgainst "Northern Ireland" ;
+    wtq:hasRound "Group D" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasScorers "Careca (2), Josimar" ;
+    wtq:hasYear wd:Q190978,
+        "1986" ;
+    wtq:hasindex "59" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_66 wtq:hasAgainst "Russia" ;
+    wtq:hasRound wd:Q726080,
+        "Group B" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasScorers "Romário, Raí" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex wd:Q101751,
+        "66" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_67 wtq:hasAgainst "Cameroon" ;
+    wtq:hasRound "Group B" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasScorers "Romário, Márcio Santos, Bebeto" ;
+    wtq:hasYear wd:Q175309,
+        "1994" ;
+    wtq:hasindex "67" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_70 wtq:hasAgainst "Netherlands" ;
+    wtq:hasRound "Quarter-Final" ;
+    wtq:hasScore "3–2" ;
+    wtq:hasScorers "Romário, Bebeto, Branco" ;
+    wtq:hasYear wd:Q47050,
+        "1994" ;
+    wtq:hasindex "70" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_74 wtq:hasAgainst "Morocco" ;
+    wtq:hasRound "Group A" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasScorers "Ronaldo, Rivaldo, Bebeto" ;
+    wtq:hasYear wd:Q207337,
+        "1998" ;
+    wtq:hasindex "74" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_77 wtq:hasAgainst "Denmark" ;
+    wtq:hasRound "Quarter-Final" ;
+    wtq:hasScore "3–2" ;
+    wtq:hasScorers "Bebeto, Rivaldo (2)" ;
+    wtq:hasYear wd:Q131785,
+        "1998" ;
+    wtq:hasindex "77" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_78 wtq:hasAgainst "Netherlands" ;
+    wtq:hasRound "Semi-Final" ;
+    wtq:hasScore "1–1 (AET)" ;
+    wtq:hasScorers "Ronaldo" ;
+    wtq:hasYear wd:Q47050,
+        "1998" ;
+    wtq:hasindex "78" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_81 wtq:hasAgainst "China PR" ;
+    wtq:hasRound "Group C" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasScorers "Roberto Carlos, Rivaldo, Ronaldinho, Ronaldo" ;
+    wtq:hasYear wd:Q130582,
+        "2002" ;
+    wtq:hasindex "81" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_83 wtq:hasAgainst "Belgium" ;
+    wtq:hasRound "Round of 16" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasScorers "Rivaldo, Ronaldo" ;
+    wtq:hasYear wd:Q166776,
+        "2002" ;
+    wtq:hasindex "83" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_86 wtq:hasAgainst "Germany" ;
+    wtq:hasRound "Final" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasScorers "Ronaldo (2)" ;
+    wtq:hasYear wd:Q43310,
+        "2002" ;
+    wtq:hasindex "86" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_89 wtq:hasAgainst "Japan" ;
+    wtq:hasRound "Group F" ;
+    wtq:hasScore "4–1" ;
+    wtq:hasScorers "Ronaldo (2), Juninho, Gilberto" ;
+    wtq:hasYear wd:Q170566,
+        "2006" ;
+    wtq:hasindex "89" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_90 wtq:hasAgainst "Ghana" ;
+    wtq:hasRound "Round of 16" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasScorers "Adriano, Ronaldo, Zé Roberto" ;
+    wtq:hasYear wd:Q172014,
+        "2006" ;
+    wtq:hasindex "90" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_91 wtq:hasAgainst "France" ;
+    wtq:hasRound "Quarter-Final" ;
+    wtq:hasScore "0–1" ;
+    wtq:hasScorers "nan" ;
+    wtq:hasYear wd:Q47774,
+        "2006" ;
+    wtq:hasindex "91" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_92 wtq:hasAgainst "North Korea" ;
+    wtq:hasRound wd:Q14132,
+        "Group G" ;
+    wtq:hasScore "2–1" ;
+    wtq:hasScorers "Maicon, Elano" ;
+    wtq:hasYear "2010" ;
+    wtq:hasindex wd:Q176883,
+        "92" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_94 wtq:hasAgainst "Portugal" ;
+    wtq:hasRound "Group G" ;
+    wtq:hasScore "0–0" ;
+    wtq:hasScorers "nan" ;
+    wtq:hasYear wd:Q267245,
+        "2010" ;
+    wtq:hasindex "94" .
+
+wtq:Brazil_at_the_FIFA_World_Cup_row_96 wtq:hasAgainst "Netherlands" ;
+    wtq:hasRound "Quarter-Final" ;
+    wtq:hasScore "1–2" ;
+    wtq:hasScorers "Robinho" ;
+    wtq:hasYear wd:Q47050,
+        "2010" ;
+    wtq:hasindex "96" .
+
+wd:Q101751 rdfs:label "1994 FIFA World Cup" .
+
+wd:Q130582 rdfs:label "China national football team" .
+
+wd:Q131785 rdfs:label "Denmark national association football team" .
+
+wd:Q132664 rdfs:label "1970 FIFA World Cup" .
+
+wd:Q134916 rdfs:label "Uruguay national football team" .
+
+wd:Q14132 rdfs:label "North Korea national football team" .
+
+wd:Q1477177 rdfs:label "1934 FIFA World Cup" .
+
+wd:Q160813 rdfs:label "1962 FIFA World Cup" .
+
+wd:Q164089 rdfs:label "Mexico national football team" .
+
+wd:Q166121 rdfs:label "1974 FIFA World Cup" .
+
+wd:Q166196 rdfs:label "Poland national association football team" .
+
+wd:Q166776 rdfs:label "Belgium national football team" .
+
+wd:Q168397 rdfs:label "Romania national association football team" .
+
+wd:Q170566 rdfs:label "Japan national football team" .
+
+wd:Q172014 rdfs:label "Ghana national football team" .
+
+wd:Q172025 rdfs:label "Chile national football team" .
+
+wd:Q175309 rdfs:label "Cameroon national football team" .
+
+wd:Q176883 rdfs:label "2010 FIFA World Cup" .
+
+wd:Q181903 rdfs:label "Algeria national football team" .
+
+wd:Q182072 rdfs:label "Czechoslovakia national association football team" .
+
+wd:Q190978 rdfs:label "Northern Ireland national association football team" .
+
+wd:Q207337 rdfs:label "Morocco national football team" .
+
+wd:Q212166 rdfs:label "Peru national football team" .
+
+wd:Q34044 rdfs:label "Scotland national football team" .
+
+wd:Q43310 rdfs:label "Germany national association football team" .
+
+wd:Q46934 rdfs:label "1982 FIFA World Cup" .
+
+wd:Q46943 rdfs:label "1978 FIFA World Cup" .
+
+wd:Q47762 rdfs:label "England national association football team" .
+
+wd:Q47774 rdfs:label "France national association football team" .
+
+wd:Q676899 rdfs:label "Italy national association football team" .
+
+wd:Q726080 rdfs:label "Russia national football team" .
+
+wd:Q79800 rdfs:label "Argentina national association football team" .
+
+wd:Q188363 rdfs:label "Yugoslavia national association football team" .
+
+wd:Q189275 rdfs:label "Soviet Union national association football team" .
+
+wd:Q267245 rdfs:label "Portugal national association football team" .
+
+wd:Q42267 rdfs:label "Spain national association football team" .
+
+wd:Q47050 rdfs:label "Netherlands national association football team" .
+

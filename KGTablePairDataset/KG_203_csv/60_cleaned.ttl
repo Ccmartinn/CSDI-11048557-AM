@@ -1,0 +1,61 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Thierry_Tulasne a wtq:Entity ;
+    wtq:hasRow wtq:Thierry_Tulasne_row_2,
+        wtq:Thierry_Tulasne_row_6,
+        wtq:Thierry_Tulasne_row_8 .
+
+wtq:Thierry_Tulasne_row_2 wtq:hasChampionship "Bologna, Italy" ;
+    wtq:hasDate "10 June 1985" ;
+    <http://wikitablequestion.org/hasNo.> "2.0" ;
+    wtq:hasOpponent_in_the_final wd:Q464779,
+        "Claudio Panatta" ;
+    wtq:hasOutcome "Winner" ;
+    wtq:hasScore_in_the_final "6–2, 6–0" ;
+    wtq:hasSurface "Clay" ;
+    wtq:hasindex "2" .
+
+wtq:Thierry_Tulasne_row_6 wtq:hasChampionship wd:Q2632546,
+        "Indianapolis, U.S." ;
+    wtq:hasDate "28 April 1986" ;
+    <http://wikitablequestion.org/hasNo.> "2.0" ;
+    wtq:hasOpponent_in_the_final "Andrés Gómez" ;
+    wtq:hasOutcome "Runner-up" ;
+    wtq:hasScore_in_the_final "4–6, 6–7(1–7)" ;
+    wtq:hasSurface "Clay" ;
+    wtq:hasindex "6" .
+
+wtq:Thierry_Tulasne_row_8 wtq:hasChampionship wd:Q71,
+        "Geneva, Switzerland" ;
+    wtq:hasDate "8 September 1986" ;
+    <http://wikitablequestion.org/hasNo.> "4.0" ;
+    wtq:hasOpponent_in_the_final wd:Q455322,
+        "Henri Leconte" ;
+    wtq:hasOutcome "Runner-up" ;
+    wtq:hasScore_in_the_final "5–7, 3–6" ;
+    wtq:hasSurface "Clay" ;
+    wtq:hasindex "8" .
+
+wd:Q2632546 rdfs:label "Indianapolis Tennis Championships" ;
+    wdt:P279 "ATP tennis tournament",
+        "tennis tournament" ;
+    wdt:P641 "tennis" .
+
+wd:Q455322 rdfs:label "Henri Leconte" ;
+    wdt:P21 "male" ;
+    wdt:P286 "Patrice Dominguez" ;
+    wdt:P31 "human" .
+
+wd:Q464779 rdfs:label "Claudio Panatta" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P735 "Claudio" .
+
+wd:Q71 rdfs:label "Geneva" ;
+    wdt:P31 "municipality of Switzerland" ;
+    wdt:P47 "Carouge",
+        "Lancy" .
+

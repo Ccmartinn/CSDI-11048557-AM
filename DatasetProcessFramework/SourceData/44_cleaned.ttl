@@ -1,0 +1,183 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1964_Tour_de_France a wtq:Entity ;
+    wtq:hasRow wtq:1964_Tour_de_France_row_10,
+        wtq:1964_Tour_de_France_row_13,
+        wtq:1964_Tour_de_France_row_14,
+        wtq:1964_Tour_de_France_row_17,
+        wtq:1964_Tour_de_France_row_18,
+        wtq:1964_Tour_de_France_row_19,
+        wtq:1964_Tour_de_France_row_2,
+        wtq:1964_Tour_de_France_row_21,
+        wtq:1964_Tour_de_France_row_3,
+        wtq:1964_Tour_de_France_row_4 .
+
+wtq:1964_Tour_de_France_row_10 wtq:hasDate "1 July" ;
+    wtq:hasLength "187 km (116 mi)" ;
+    wtq:hasRoute "Monaco – Hyères" ;
+    wtq:hasStage "10A" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner wd:Q380930,
+        "Jan Janssen (NED)" ;
+    wtq:hasindex "10" .
+
+wtq:1964_Tour_de_France_row_13 wtq:hasDate "3 July" ;
+    wtq:hasLength "174 km (108 mi)" ;
+    wtq:hasRoute wd:Q6730,
+        "Montpellier – Perpignan" ;
+    wtq:hasStage "12" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner wd:Q150537,
+        "Jo de Roo (NED)" ;
+    wtq:hasindex "13" .
+
+wtq:1964_Tour_de_France_row_14 wtq:hasDate "4 July" ;
+    wtq:hasLength "170 km (110 mi)" ;
+    wtq:hasRoute wd:Q228,
+        "Perpignan – Andorra" ;
+    wtq:hasStage "13" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Julio Jiménez (ESP)" ;
+    wtq:hasindex "14" .
+
+wtq:1964_Tour_de_France_row_17 wtq:hasDate "8 July" ;
+    wtq:hasLength "197 km (122 mi)" ;
+    wtq:hasRoute "Luchon – Pau" ;
+    wtq:hasStage "16" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner wd:Q121976,
+        "Federico Bahamontes (ESP)" ;
+    wtq:hasindex "17" .
+
+wtq:1964_Tour_de_France_row_18 wtq:hasDate "9 July" ;
+    wtq:hasLength "43 km (27 mi)" ;
+    wtq:hasRoute wd:Q134674,
+        "Peyrehorade – Bayonne" ;
+    wtq:hasStage "17" ;
+    wtq:hasTerrain wd:Q2266066,
+        "Individual time trial" ;
+    wtq:hasWinner wd:Q221001,
+        "Jacques Anquetil (FRA)" ;
+    wtq:hasindex "18" .
+
+wtq:1964_Tour_de_France_row_19 wtq:hasDate "10 July" ;
+    wtq:hasLength "187 km (116 mi)" ;
+    wtq:hasRoute wd:Q1479,
+        "Bayonne – Bordeaux" ;
+    wtq:hasStage "18" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "André Darrigade (FRA)" ;
+    wtq:hasindex "19" .
+
+wtq:1964_Tour_de_France_row_2 wtq:hasDate "24 June" ;
+    wtq:hasLength "197 km (122 mi)" ;
+    wtq:hasRoute wd:Q72946,
+        "Amiens – Forest" ;
+    wtq:hasStage "3A" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "Bernard Vandekerkhove (BEL)" ;
+    wtq:hasindex "2" .
+
+wtq:1964_Tour_de_France_row_21 wtq:hasDate "12 July" ;
+    wtq:hasLength "217 km (135 mi)" ;
+    wtq:hasRoute "Brive – Puy de Dôme" ;
+    wtq:hasStage "20" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Julio Jiménez (ESP)" ;
+    wtq:hasindex "21" .
+
+wtq:1964_Tour_de_France_row_3 wtq:hasDate wd:Q72946,
+        "24 June" ;
+    wtq:hasLength wd:Q1734763,
+        "21 km (13 mi)" ;
+    wtq:hasRoute wd:Q2348250,
+        "Forest – Forest" ;
+    wtq:hasStage "3B" ;
+    wtq:hasTerrain "Team time trial" ;
+    wtq:hasWinner "Kas-Kaskol" ;
+    wtq:hasindex "3" .
+
+wtq:1964_Tour_de_France_row_4 wtq:hasDate "25 June" ;
+    wtq:hasLength "292 km (181 mi)" ;
+    wtq:hasRoute wd:Q22690,
+        "Forest – Metz" ;
+    wtq:hasStage "4" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner wd:Q62204,
+        "Rudi Altig (GER)" ;
+    wtq:hasindex "4" .
+
+wd:Q121976 rdfs:label "Federico Bahamontes" ;
+    wdt:P19 "Val de Santo Domingo" ;
+    wdt:P20 "Valladolid" ;
+    wdt:P21 "male" .
+
+wd:Q134674 rdfs:label "Bayonne" ;
+    wdt:P17 "France" ;
+    wdt:P47 "Tarnos",
+        "Villefranque" .
+
+wd:Q1479 rdfs:label "Bordeaux" ;
+    wdt:P17 "France" ;
+    wdt:P47 "Le Bouscat",
+        "Talence" .
+
+wd:Q150537 rdfs:label "Jo de Roo" ;
+    wdt:P106 "sport cyclist",
+        "track cyclist" ;
+    wdt:P31 "human" .
+
+wd:Q1734763 rdfs:label "Kas" ;
+    wdt:P17 "Belgium",
+        "France" ;
+    wdt:P910 "Category:Kas cycling team" .
+
+wd:Q221001 rdfs:label "Jacques Anquetil" ;
+    wdt:P1344 "1961 Super Prestige Pernod",
+        "1963 Super Prestige Pernod",
+        "1964 Super Prestige Pernod" .
+
+wd:Q2266066 rdfs:label "individual time trial" ;
+    wdt:P279 "time trial" ;
+    wdt:P31 "sports discipline" ;
+    wdt:P910 "Category:Individual time trial" .
+
+wd:Q22690 rdfs:label "Metz" ;
+    wdt:P31 "big city" ;
+    wdt:P47 "Vantoux" ;
+    wdt:P6 "Dominique Gros" .
+
+wd:Q228 rdfs:label "Andorra" ;
+    wdt:P35 "Joan Enric Vives Sicília" ;
+    wdt:P38 "Euro" ;
+    wdt:P6 "Xavier Espot Zamora" .
+
+wd:Q2348250 rdfs:label "team time trial" ;
+    wdt:P279 "road bicycle racing" ;
+    wdt:P3095 "cycling team" ;
+    wdt:P641 "road bicycle racing" .
+
+wd:Q380930 rdfs:label "Jan Janssen" ;
+    wdt:P106 "sport cyclist",
+        "track cyclist" ;
+    wdt:P54 "Bic" .
+
+wd:Q62204 rdfs:label "Rudi Altig" ;
+    wdt:P19 "Mannheim" ;
+    wdt:P27 "Germany" ;
+    wdt:P54 "Margnat-Paloma-Inuri" .
+
+wd:Q6730 rdfs:label "Perpignan" ;
+    wdt:P31 "commune of France" ;
+    wdt:P47 "Peyrestortes",
+        "Pia" .
+
+wd:Q72946 rdfs:label "Forest" ;
+    wdt:P131 "Arrondissement of Brussels-Capital" ;
+    wdt:P17 "Belgium" ;
+    wdt:P37 "Dutch" ;
+    wdt:P47 "Uccle - Ukkel" .
+

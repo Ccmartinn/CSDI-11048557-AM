@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:2007_Kansas_City_Brigade_season_row_4", "label": "wtq:2007_Kansas_City_Brigade_season_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Kansas_City_Brigade_season_row_2", "label": "wtq:2007_Kansas_City_Brigade_season_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Kansas_City_Brigade_season_row_1", "label": "wtq:2007_Kansas_City_Brigade_season_row_1", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Kansas_City_Brigade_season_row_10", "label": "wtq:2007_Kansas_City_Brigade_season_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Kansas_City_Brigade_season", "label": "wtq:2007_Kansas_City_Brigade_season", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q4942751", "label": "wd:Q4942751", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q6180670", "label": "wd:Q6180670", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_Kansas_City_Brigade_season_row_3", "label": "wtq:2007_Kansas_City_Brigade_season_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_822", "label": "822", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_38", "label": "38", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Ira Gooch", "label": "Ira Gooch", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_American football player", "label": "American football player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Jerel Myers", "label": "Jerel Myers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_12", "label": "12", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_14.2", "label": "14.2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_14.1", "label": "14.1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Jerel Myers", "label": "Jerel Myers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_39", "label": "39", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_58", "label": "58", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_University of Arkansas", "label": "University of Arkansas", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_Jamarr Wood", "label": "Jamarr Wood", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Canadian football player", "label": "Canadian football player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_35", "label": "35", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_45", "label": "45", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_11.4", "label": "11.4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Boo Williams", "label": "Boo Williams", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_339", "label": "339", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_10.5", "label": "10.5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_104", "label": "104", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_BC Lions", "label": "BC Lions", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_13.0", "label": "13.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_American football player", "label": "American football player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Anthony Hines", "label": "Anthony Hines", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Boo Williams", "label": "Boo Williams", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_1183", "label": "1183", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_474", "label": "474", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_32", "label": "32", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_10", "label": "10", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasRow", "to": "wtq:2007_Kansas_City_Brigade_season"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasTD\u0027s", "to": "literal_0_6"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasPlayer", "to": "literal_4_Ira Gooch"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasindex", "to": "literal_7_4"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasRec.", "to": "literal_10_24"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasAvg.", "to": "literal_13_14.1"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasYards", "to": "literal_28_339"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_4", "title": "wtq:hasLong", "to": "literal_41_32"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasRow", "to": "wtq:2007_Kansas_City_Brigade_season"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasYards", "to": "literal_1_822"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasindex", "to": "literal_8_2"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasTD\u0027s", "to": "literal_11_12"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasAvg.", "to": "literal_12_14.2"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasLong", "to": "literal_17_39"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasRec.", "to": "literal_19_58"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_2", "title": "wtq:hasPlayer", "to": "literal_37_Anthony Hines"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasPlayer", "to": "wd:Q6180670"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasRow", "to": "wtq:2007_Kansas_City_Brigade_season"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasLong", "to": "literal_2_38"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasPlayer", "to": "literal_14_Jerel Myers"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasTD\u0027s", "to": "literal_15_21"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasindex", "to": "literal_18_1"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasAvg.", "to": "literal_25_11.4"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasRec.", "to": "literal_30_104"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_1", "title": "wtq:hasYards", "to": "literal_39_1183"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasRow", "to": "wtq:2007_Kansas_City_Brigade_season"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasTD\u0027s", "to": "literal_3_0"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasRec.", "to": "literal_5_1"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasPlayer", "to": "literal_21_Jamarr Wood"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasAvg.", "to": "literal_32_13.0"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasLong", "to": "literal_33_13"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasYards", "to": "literal_34_13"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_10", "title": "wtq:hasindex", "to": "literal_42_10"}, {"from": "wtq:2007_Kansas_City_Brigade_season", "title": "wtq:hasRow", "to": "wtq:2007_Kansas_City_Brigade_season_row_3"}, {"from": "wtq:2007_Kansas_City_Brigade_season", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wd:Q4942751", "title": "wtq:hasPlayer", "to": "wtq:2007_Kansas_City_Brigade_season_row_3"}, {"from": "wd:Q4942751", "title": "wdt:P106", "to": "literal_6_American football player"}, {"from": "wd:Q4942751", "title": "wdt:P69", "to": "literal_20_University of Arkansas"}, {"from": "wd:Q4942751", "title": "wdt:P27", "to": "literal_36_United States of America"}, {"from": "wd:Q4942751", "title": "rdfs:label", "to": "literal_38_Boo Williams"}, {"from": "wd:Q6180670", "title": "rdfs:label", "to": "literal_9_Jerel Myers"}, {"from": "wd:Q6180670", "title": "wdt:P106", "to": "literal_22_Canadian football player"}, {"from": "wd:Q6180670", "title": "wdt:P54", "to": "literal_31_BC Lions"}, {"from": "wd:Q6180670", "title": "wdt:P106", "to": "literal_35_American football player"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_3", "title": "wtq:hasTD\u0027s", "to": "literal_16_17"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_3", "title": "wtq:hasLong", "to": "literal_23_35"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_3", "title": "wtq:hasRec.", "to": "literal_24_45"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_3", "title": "wtq:hasPlayer", "to": "literal_26_Boo Williams"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_3", "title": "wtq:hasindex", "to": "literal_27_3"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_3", "title": "wtq:hasAvg.", "to": "literal_29_10.5"}, {"from": "wtq:2007_Kansas_City_Brigade_season_row_3", "title": "wtq:hasYards", "to": "literal_40_474"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

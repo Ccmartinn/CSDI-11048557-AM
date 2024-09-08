@@ -1,0 +1,67 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1982_Ohio_State_Buckeyes_football_team a wtq:Entity ;
+    wtq:hasRow wtq:1982_Ohio_State_Buckeyes_football_team_row_10,
+        wtq:1982_Ohio_State_Buckeyes_football_team_row_2,
+        wtq:1982_Ohio_State_Buckeyes_football_team_row_3,
+        wtq:1982_Ohio_State_Buckeyes_football_team_row_4 .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_10 wtq:hasAttendance "90,252" ;
+    wtq:hasDate "November 20" ;
+    <http://wikitablequestion.org/hasOpponent#> wd:Q4580513,
+        "#13 Michigan" ;
+    <http://wikitablequestion.org/hasRank#> "nan" ;
+    wtq:hasResult "W 24–14" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "10" .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_2 wtq:hasAttendance "89,436" ;
+    wtq:hasDate "September 25" ;
+    <http://wikitablequestion.org/hasOpponent#> wd:Q4580621,
+        "Stanford*" ;
+    <http://wikitablequestion.org/hasRank#> "#13" ;
+    wtq:hasResult "L 20–23" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "2" .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_3 wtq:hasAttendance "89,491" ;
+    wtq:hasDate "October 2" ;
+    <http://wikitablequestion.org/hasOpponent#> wd:Q4580448,
+        "Florida State*" ;
+    <http://wikitablequestion.org/hasRank#> "nan" ;
+    wtq:hasResult "L 17–34" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "3" .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_4 wtq:hasAttendance "88,344" ;
+    wtq:hasDate "October 9" ;
+    <http://wikitablequestion.org/hasOpponent#> wd:Q4580682,
+        "Wisconsin" ;
+    <http://wikitablequestion.org/hasRank#> "nan" ;
+    wtq:hasResult "L 0–6" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "4" .
+
+wd:Q4580448 rdfs:label "1982 Florida State Seminoles football team" ;
+    wdt:P115 "Doak Campbell Stadium" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "American football team season" .
+
+wd:Q4580513 rdfs:label "1982 Michigan Wolverines football team" ;
+    wdt:P115 "Michigan Stadium" ;
+    wdt:P5138 "Michigan Wolverines football" ;
+    wdt:P641 "American football" .
+
+wd:Q4580621 rdfs:label "1982 Stanford Cardinal football team" ;
+    wdt:P115 "Stanford Stadium" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "American football team season" .
+
+wd:Q4580682 rdfs:label "1982 Wisconsin Badgers football team" ;
+    wdt:P115 "Camp Randall Stadium" ;
+    wdt:P286 "Dave McClain" ;
+    wdt:P31 "American football team season" .
+

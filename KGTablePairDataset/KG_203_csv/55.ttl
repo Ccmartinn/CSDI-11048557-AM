@@ -1,0 +1,49 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Super_Chinese a wtq:Entity ;
+    wtq:hasRow wtq:Super_Chinese_row_1,
+        wtq:Super_Chinese_row_10,
+        wtq:Super_Chinese_row_2,
+        wtq:Super_Chinese_row_3,
+        wtq:Super_Chinese_row_4 .
+
+wtq:Super_Chinese_row_1 wtq:hasGenre "Action" ;
+    wtq:hasJapanese_Title "Super Chinese" ;
+    wtq:hasPlatform_s_ "FC/NES" ;
+    wtq:hasRegions "JP, NA" ;
+    wtq:hasRelease "1986" ;
+    wtq:hasWestern_Title "Kung-Fu Heroes" ;
+    wtq:hasindex "1" .
+
+wtq:Super_Chinese_row_10 wtq:hasGenre "Fighting" ;
+    wtq:hasJapanese_Title "Super Chinese Fighter" ;
+    wtq:hasPlatform_s_ "SFC" ;
+    wtq:hasRegions "JP" ;
+    wtq:hasRelease "1995" ;
+    wtq:hasWestern_Title "-" ;
+    wtq:hasindex "10" .
+
+wtq:Super_Chinese_row_2 wtq:hasGenre "Role-Playing" ;
+    wtq:hasJapanese_Title "Super Chinese 2" ;
+    wtq:hasPlatform_s_ "FC/NES" ;
+    wtq:hasRegions "JP, NA" ;
+    wtq:hasRelease "1989" ;
+    wtq:hasWestern_Title "Little Ninja Brothers" ;
+    wtq:hasindex "2" .
+
+wtq:Super_Chinese_row_3 wtq:hasGenre "Role-Playing" ;
+    wtq:hasJapanese_Title "Super Chinese 3" ;
+    wtq:hasPlatform_s_ "FC" ;
+    wtq:hasRegions "JP" ;
+    wtq:hasRelease "1991" ;
+    wtq:hasWestern_Title "-" ;
+    wtq:hasindex "3" .
+
+wtq:Super_Chinese_row_4 wtq:hasGenre "Action" ;
+    wtq:hasJapanese_Title "Super Chinese Land" ;
+    wtq:hasPlatform_s_ "GB" ;
+    wtq:hasRegions "JP, NA" ;
+    wtq:hasRelease "1990" ;
+    wtq:hasWestern_Title "Ninja Boy" ;
+    wtq:hasindex "4" .
+

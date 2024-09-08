@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Niobium_row_7", "label": "wtq:Niobium_row_7", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Niobium_row_2", "label": "wtq:Niobium_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q16", "label": "wd:Q16", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Niobium_row_1", "label": "wtq:Niobium_row_1", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q16502", "label": "wd:Q16502", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q155", "label": "wd:Q155", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Niobium", "label": "wtq:Niobium", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_62,900", "label": "62,900", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_4,330", "label": "4,330", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_58,000", "label": "58,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Organisation for the Prohibition of Chemical Weapons", "label": "Organisation for the Prohibition of Chemical Weapons", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Asia-Pacific Economic Cooperation", "label": "Asia-Pacific Economic Cooperation", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Community of Latin American and Caribbean States", "label": "Community of Latin American and Caribbean States", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_58,000", "label": "58,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_34,000", "label": "34,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_3,280", "label": "3,280", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_4,420", "label": "4,420", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_58,000", "label": "58,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_40,000", "label": "40,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Brazil", "label": "Brazil", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Canada", "label": "Canada", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Portal:World", "label": "Portal:World", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_29,900", "label": "29,900", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_3,310", "label": "3,310", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_32,800", "label": "32,800", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_62,900", "label": "62,900", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_58,000", "label": "58,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Earth", "label": "Earth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_38,700", "label": "38,700", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_30,000", "label": "30,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_22,000", "label": "22,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_60,400", "label": "60,400", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_World", "label": "World", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_29,000", "label": "29,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_57,300", "label": "57,300", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_62,900", "label": "62,900", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Encyclop\u00e6dia Britannica 11th edition", "label": "Encyclop\u00e6dia Britannica 11th edition", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_29,900", "label": "29,900", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_26,000", "label": "26,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_World Meteorological Organization", "label": "World Meteorological Organization", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Canada", "label": "Canada", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_Brazil", "label": "Brazil", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_3,200", "label": "3,200", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Organization for Security and Co-operation in Europe", "label": "Organization for Security and Co-operation in Europe", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_35,000", "label": "35,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_44,500", "label": "44,500", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_63,000", "label": "63,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_3,400", "label": "3,400", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_4,167", "label": "4,167", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_25,600", "label": "25,600", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_world", "label": "world", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_3,410", "label": "3,410", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_3,020", "label": "3,020", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_4,380", "label": "4,380", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_32,600", "label": "32,600", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Multilateral Investment Guarantee Agency", "label": "Multilateral Investment Guarantee Agency", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_4,400", "label": "4,400", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_2,290", "label": "2,290", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_1", "label": "1", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Niobium_row_7", "title": "wtq:hasCountry", "to": "wd:Q16502"}, {"from": "wtq:Niobium_row_7", "title": "wtq:hasRow", "to": "wtq:Niobium"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2009", "to": "literal_0_62,900"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2004", "to": "literal_7_34,000"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2003", "to": "literal_17_32,800"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2008", "to": "literal_18_62,900"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2005", "to": "literal_21_38,700"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2007", "to": "literal_24_60,400"}, {"from": "wtq:Niobium_row_7", "title": "wtq:hasCountry", "to": "literal_25_World"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2010", "to": "literal_28_62,900"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2002", "to": "literal_30_29,900"}, {"from": "wtq:Niobium_row_7", "title": "wtq:hasindex", "to": "literal_36_7"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2006", "to": "literal_39_44,500"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2011", "to": "literal_41_63,000"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2001", "to": "literal_44_25,600"}, {"from": "wtq:Niobium_row_7", "title": "wtq:has2000", "to": "literal_49_32,600"}, {"from": "wtq:Niobium_row_2", "title": "wtq:hasCountry", "to": "wd:Q16"}, {"from": "wtq:Niobium_row_2", "title": "wtq:hasRow", "to": "wtq:Niobium"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2009", "to": "literal_1_4,330"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2003", "to": "literal_8_3,280"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2010", "to": "literal_9_4,420"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2005", "to": "literal_16_3,310"}, {"from": "wtq:Niobium_row_2", "title": "wtq:hasCountry", "to": "literal_33_Canada"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2001", "to": "literal_35_3,200"}, {"from": "wtq:Niobium_row_2", "title": "wtq:hasindex", "to": "literal_40_2"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2004", "to": "literal_42_3,400"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2006", "to": "literal_43_4,167"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2002", "to": "literal_46_3,410"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2007", "to": "literal_47_3,020"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2008", "to": "literal_48_4,380"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2011", "to": "literal_51_4,400"}, {"from": "wtq:Niobium_row_2", "title": "wtq:has2000", "to": "literal_52_2,290"}, {"from": "wd:Q16", "title": "wdt:P463", "to": "literal_4_Asia-Pacific Economic Cooperation"}, {"from": "wd:Q16", "title": "rdfs:label", "to": "literal_13_Canada"}, {"from": "wd:Q16", "title": "wdt:P463", "to": "literal_32_World Meteorological Organization"}, {"from": "wd:Q16", "title": "wdt:P463", "to": "literal_37_Organization for Security and Co-operation in Europe"}, {"from": "wtq:Niobium_row_1", "title": "wtq:hasCountry", "to": "wd:Q155"}, {"from": "wtq:Niobium_row_1", "title": "wtq:hasRow", "to": "wtq:Niobium"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2011", "to": "literal_2_58,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2010", "to": "literal_6_58,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2008", "to": "literal_10_58,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2006", "to": "literal_11_40,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2004", "to": "literal_15_29,900"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2009", "to": "literal_19_58,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2000", "to": "literal_22_30,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2001", "to": "literal_23_22,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2003", "to": "literal_26_29,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2007", "to": "literal_27_57,300"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2002", "to": "literal_31_26,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:hasCountry", "to": "literal_34_Brazil"}, {"from": "wtq:Niobium_row_1", "title": "wtq:has2005", "to": "literal_38_35,000"}, {"from": "wtq:Niobium_row_1", "title": "wtq:hasindex", "to": "literal_53_1"}, {"from": "wd:Q16502", "title": "wdt:P1151", "to": "literal_14_Portal:World"}, {"from": "wd:Q16502", "title": "wdt:P460", "to": "literal_20_Earth"}, {"from": "wd:Q16502", "title": "wdt:P1343", "to": "literal_29_Encyclop\u00e6dia Britannica 11th edition"}, {"from": "wd:Q16502", "title": "rdfs:label", "to": "literal_45_world"}, {"from": "wd:Q155", "title": "wdt:P463", "to": "literal_3_Organisation for the Prohibition of Chemical Weapons"}, {"from": "wd:Q155", "title": "wdt:P463", "to": "literal_5_Community of Latin American and Caribbean States"}, {"from": "wd:Q155", "title": "rdfs:label", "to": "literal_12_Brazil"}, {"from": "wd:Q155", "title": "wdt:P463", "to": "literal_50_Multilateral Investment Guarantee Agency"}, {"from": "wtq:Niobium", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

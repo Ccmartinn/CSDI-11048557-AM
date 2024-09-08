@@ -1,0 +1,29 @@
+@prefix ns1: <http://wikitablequestion.org/hasGrowth_1991–> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Religion_in_India a wtq:Entity ;
+    wtq:hasRow wtq:Religion_in_India_row_2,
+        wtq:Religion_in_India_row_6 .
+
+wtq:Religion_in_India_row_2 ns1:2001 "22.6%" ;
+    wtq:hasLiteracy "80.3%" ;
+    wtq:hasPopulation "2.34%" ;
+    wtq:hasReligious_group "Christian" ;
+    wtq:hasSex_ratio_child "964" ;
+    wtq:hasSex_ratio_rural "1001" ;
+    wtq:hasSex_ratio_total "1009" ;
+    wtq:hasSex_ratio_urban "1026" ;
+    wtq:hasWork_participation "39.7%" ;
+    wtq:hasindex "2" .
+
+wtq:Religion_in_India_row_6 ns1:2001 "26.0%" ;
+    wtq:hasLiteracy "94.1%" ;
+    wtq:hasPopulation "0.41%" ;
+    wtq:hasReligious_group "Jain" ;
+    wtq:hasSex_ratio_child "870" ;
+    wtq:hasSex_ratio_rural "937" ;
+    wtq:hasSex_ratio_total "940" ;
+    wtq:hasSex_ratio_urban "941" ;
+    wtq:hasWork_participation "32.9%" ;
+    wtq:hasindex "6" .
+

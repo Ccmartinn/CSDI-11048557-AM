@@ -1,0 +1,41 @@
+index	Ranking	Company	Industry	Revenue_USD billions	FY	Capitalization_USD billions	Employees	Listing	Headquarters	CEO
+0	1	Wal-Mart Stores, Inc.	Retail	$469	January 31, 2013	$248	2,200,000	NYSE: WMT	Bentonville, Arkansas	Doug Mcmillon
+1	2	Royal Dutch Shell	Oil and gas	$467	December 31, 2012	$132	90,000	LSE: RDSA	The Hague; London	Ben van Beurden
+4	5	Sinopec Group	Oil and gas	$411	December 31, 2012	$81	401,000	NYSE: SNP	Beijing	Wang Tianpu
+5	6	BP	Oil and gas	$379	December 31, 2013	$89	83,900	LSE: BP	London	Bob Dudley
+6	7	Saudi Aramco	Oil and gas	$311	2012		54,041	—	Dhahran	Khalid A. Al-Falih
+7	8	Vitol	Commodities	$303	January 10, 2013		2,800	—	Rotterdam; Geneva	Ian Taylor
+8	9	State Grid Corporation of China	Electric utility	$290	2012		1,564,000	—	Beijing	Liu Zhenya
+9	10	Samsung	Conglomerate	$268	December 31, 2014		427,000	KRX: 005930; KRX: 005935	Samsung Town	Lee Kun-hee
+11	12	Chevron	Oil and gas	$242	December 31, 2012	$211	61,000	NYSE: CVX	San Ramon, California	John Watson
+12	13	Total	Oil and gas	$240	December 31, 2013	$120	111,000	Euronext: FP	Courbevoie	Christophe de Margerie
+13	14	Toyota	Automotive	$222	March 31, 2013	$149	326,000	TYO: 7203; NYSE: TM	Toyota, Aichi	Akio Toyoda
+14	15	Glencore Xstrata	Commodities	$214	December 31, 2012	$41.66	58,000	LSE: GLEN; SEHK: 0805	Baar	Ivan Glasenberg
+15	16	Phillips 66	Oil and gas	$182	December 31, 2012	$39	13,500	NYSE: PSX	Houston, Texas	Greg Garland
+16	17	E.ON	Electric utility	$174	December 31, 2012	$47	79,000	FWB: EOAN	Düsseldorf	Johannes Teyssen
+18	19	Japan Post Holdings	Conglomerate	$168	March 31, 2013		229,000	—	Tokyo	Jiro Saito
+20	21	Gazprom	Oil and gas	$164	December 31, 2012	$145	432,000	MCX: GAZP	Moscow	Alexei Miller
+22	23	General Motors	Automotive	$152	December 31, 2012	$40	284,000	NYSE: GM	Detroit, Michigan	Daniel Akerson
+23	24	Daimler	Automotive	$150	December 31, 2012	$64	275,087	FWB: DAI	Stuttgart	Dieter Zetsche
+25	26	Kuwait Petroleum Corporation	Oil and gas	$145	March 31, 2012		17,927		Kuwait City	Saad Al Shuwaib
+28	29	Valero Energy	Oil and gas	$139	December 31, 2012	$16	22,000	NYSE: VLO	San Antonio, Texas	William R. Klesse
+29	30	Lukoil	Oil and gas	$139	December 31, 2012	$51	120,000	MCX: LKOH	Moscow	Vagit Alekperov
+30	31	Cargill	Food processing	$136	May 31, 2013		158,000	—	Wayzata, Minnesota	Gregory R. Page
+31	32	Hon Hai Precision Industry	Electronics	$134	December 31, 2012	$41	1,290,000	TWSE: 2317	Tucheng	Terry Gou
+32	33	Ford Motor Company	Automotive	$134	December 31, 2012	$47	164,000	NYSE: F	Dearborn, Michigan	Alan Mulally
+35	36	GDF Suez	Electricity and gas utility	$128	December 31, 2012	$58	161,000	Euronext: SZE	Paris	Gérard Mestrallet
+37	38	Pemex	Oil and gas	$127	December 31, 2012		138,000	—	Mexico City	Juan José Suárez Coppel
+39	40	CVS Caremark	Retail	$123	December 31, 2012	$59	202,000	NYSE: CVS	Woonsocket, Rhode Island	Larry J. Merlo
+42	43	AXA	Financial services	$118	December 31, 2012	$39	240,000	Euronext: CS	Paris	Henri de Castries
+44	45	Verizon	Telecommunications	$115	December 31, 2012	$108	203,000	NYSE: VZ	New York City, New York	Ivan Seidenberg
+45	46	Koch Industries	Conglomerate	$115	December 31, 2012		60,000	—	Wichita, Kansas	Charles Koch
+49	50	Enel	Electric utility	$111	December 31, 2012	$34	59,000	BIT: ENEL	Rome	Fulvio Conti
+50	51	Fiat	Automotive	$110	December 31, 2012	$7	214,836	BIT: F	Turin	Sergio Marchionne
+51	52	UnitedHealth Group	Health care	$110	December 31, 2012	$62	99,000	NYSE: UNH	Minnetonka, Minnesota	Stephen Hemsley
+54	55	Tata Group	Conglomerate	$105	March 31, 2014	$109	455,000	FWB: BMW	Mumbai	Cyrus Pallonji Mistry
+56	56	IBM	Information Technology	$104	December 31, 2012	$242	433,000	NYSE: IBM	Armonk, New York	Ginni Rometty
+58	58	Costco	Retail	$102	September 1, 2013	$39	132,000	NASDAQ: COST	Issaquah, Washington	W. Craig Jelinek
+61	61	Carrefour	Retail	$101	December 31, 2012	$17	476,000	Euronext: CA	Levallois-Perret	Georges Plassat
+62	62	Rosneft	Oil and gas	$101	December 31, 2012	$75	166,100	MCX: ROSN	Moscow	Igor Sechin
+64	64	BMW	Automotive	$100	March 17, 2013	$58.8	105,876	FWB: BMW	Munich	Norbert Reithofer
+65	65	Nestlé	Food processing	$100	December 31, 2012	$207	339,000	SIX: NESN	Vevey	Paul Bulcke

@@ -1,0 +1,65 @@
+@prefix ns1: <http://wikitablequestion.org/hasTD'> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2007_Kansas_City_Brigade_season a wtq:Entity ;
+    wtq:hasRow wtq:2007_Kansas_City_Brigade_season_row_1,
+        wtq:2007_Kansas_City_Brigade_season_row_10,
+        wtq:2007_Kansas_City_Brigade_season_row_2,
+        wtq:2007_Kansas_City_Brigade_season_row_3,
+        wtq:2007_Kansas_City_Brigade_season_row_4 .
+
+wtq:2007_Kansas_City_Brigade_season_row_1 <http://wikitablequestion.org/hasAvg.> "11.4" ;
+    wtq:hasLong "38" ;
+    wtq:hasPlayer wd:Q6180670,
+        "Jerel Myers" ;
+    <http://wikitablequestion.org/hasRec.> "104" ;
+    ns1:s "21" ;
+    wtq:hasYards "1183" ;
+    wtq:hasindex "1" .
+
+wtq:2007_Kansas_City_Brigade_season_row_10 <http://wikitablequestion.org/hasAvg.> "13.0" ;
+    wtq:hasLong "13" ;
+    wtq:hasPlayer "Jamarr Wood" ;
+    <http://wikitablequestion.org/hasRec.> "1" ;
+    ns1:s "0" ;
+    wtq:hasYards "13" ;
+    wtq:hasindex "10" .
+
+wtq:2007_Kansas_City_Brigade_season_row_2 <http://wikitablequestion.org/hasAvg.> "14.2" ;
+    wtq:hasLong "39" ;
+    wtq:hasPlayer "Anthony Hines" ;
+    <http://wikitablequestion.org/hasRec.> "58" ;
+    ns1:s "12" ;
+    wtq:hasYards "822" ;
+    wtq:hasindex "2" .
+
+wtq:2007_Kansas_City_Brigade_season_row_3 <http://wikitablequestion.org/hasAvg.> "10.5" ;
+    wtq:hasLong "35" ;
+    wtq:hasPlayer wd:Q4942751,
+        "Boo Williams" ;
+    <http://wikitablequestion.org/hasRec.> "45" ;
+    ns1:s "17" ;
+    wtq:hasYards "474" ;
+    wtq:hasindex "3" .
+
+wtq:2007_Kansas_City_Brigade_season_row_4 <http://wikitablequestion.org/hasAvg.> "14.1" ;
+    wtq:hasLong "32" ;
+    wtq:hasPlayer "Ira Gooch" ;
+    <http://wikitablequestion.org/hasRec.> "24" ;
+    ns1:s "6" ;
+    wtq:hasYards "339" ;
+    wtq:hasindex "4" .
+
+wd:Q4942751 rdfs:label "Boo Williams" ;
+    wdt:P106 "American football player" ;
+    wdt:P27 "United States of America" ;
+    wdt:P69 "University of Arkansas" .
+
+wd:Q6180670 rdfs:label "Jerel Myers" ;
+    wdt:P106 "American football player",
+        "Canadian football player" ;
+    wdt:P54 "BC Lions" .
+

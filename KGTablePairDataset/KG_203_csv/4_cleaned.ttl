@@ -1,0 +1,261 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:France_at_the_2000_Summer_Olympics a wtq:Entity ;
+    wtq:hasRow wtq:France_at_the_2000_Summer_Olympics_row_17,
+        wtq:France_at_the_2000_Summer_Olympics_row_19,
+        wtq:France_at_the_2000_Summer_Olympics_row_2,
+        wtq:France_at_the_2000_Summer_Olympics_row_21,
+        wtq:France_at_the_2000_Summer_Olympics_row_22,
+        wtq:France_at_the_2000_Summer_Olympics_row_24,
+        wtq:France_at_the_2000_Summer_Olympics_row_25,
+        wtq:France_at_the_2000_Summer_Olympics_row_27,
+        wtq:France_at_the_2000_Summer_Olympics_row_28,
+        wtq:France_at_the_2000_Summer_Olympics_row_29,
+        wtq:France_at_the_2000_Summer_Olympics_row_3,
+        wtq:France_at_the_2000_Summer_Olympics_row_30,
+        wtq:France_at_the_2000_Summer_Olympics_row_31,
+        wtq:France_at_the_2000_Summer_Olympics_row_34,
+        wtq:France_at_the_2000_Summer_Olympics_row_35 .
+
+wtq:France_at_the_2000_Summer_Olympics_row_17 wtq:hasDate "September 16" ;
+    wtq:hasEvent "Men's épée" ;
+    wtq:hasMedal wd:Q2629890,
+        "Silver" ;
+    wtq:hasName "Hugues Obry" ;
+    wtq:hasSport wd:Q1115192,
+        "Fencing" ;
+    wtq:hasindex "17" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_19 wtq:hasDate "September 21" ;
+    wtq:hasEvent "Men's sabre" ;
+    wtq:hasMedal wd:Q2518919,
+        "Silver" ;
+    wtq:hasName "Mathieu Gourdain" ;
+    wtq:hasSport "Fencing" ;
+    wtq:hasindex "19" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_2 wtq:hasDate "September 21" ;
+    wtq:hasEvent "Men's Keirin" ;
+    wtq:hasMedal "Gold" ;
+    wtq:hasName wd:Q609877,
+        "Florian Rousseau" ;
+    wtq:hasSport wd:Q847738,
+        "Cycling" ;
+    wtq:hasindex "2" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_21 wtq:hasDate "September 24" ;
+    wtq:hasEvent "Men's pommel horse" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName wd:Q609877,
+        "Éric Poujade" ;
+    wtq:hasSport wd:Q847738,
+        "Gymnastics" ;
+    wtq:hasindex "21" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_22 wtq:hasDate "September 25" ;
+    wtq:hasEvent "Men's horizontal bar" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName wd:Q276226,
+        "Benjamin Varonian" ;
+    wtq:hasSport wd:Q847738,
+        "Gymnastics" ;
+    wtq:hasindex "22" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_24 wtq:hasDate "September 21" ;
+    wtq:hasEvent "Women's 78 kg" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName wd:Q2659320,
+        "Céline Lebrun" ;
+    wtq:hasSport wd:Q579844,
+        "Judo" ;
+    wtq:hasindex "24" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_25 wtq:hasDate "September 18" ;
+    wtq:hasEvent "Women's trap" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName wd:Q116218,
+        "Delphine Racinet" ;
+    wtq:hasSport wd:Q579844,
+        "Shooting" ;
+    wtq:hasindex "25" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_27 wtq:hasDate "October 1" ;
+    wtq:hasEvent "Flyweight" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Jérôme Thomas" ;
+    wtq:hasSport wd:Q843715,
+        "Boxing" ;
+    wtq:hasindex "27" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_28 wtq:hasDate "September 18" ;
+    wtq:hasEvent "Women's slalom K-1" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName wd:Q887041,
+        "Anne-Lise Bardet" ;
+    wtq:hasSport wd:Q843715,
+        "Canoeing" ;
+    wtq:hasindex "28" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_29 wtq:hasDate "September 30" ;
+    wtq:hasEvent "Women's road time trial" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName wd:Q2251657,
+        "Jeannie Longo" ;
+    wtq:hasSport wd:Q679703,
+        "Cycling" ;
+    wtq:hasindex "29" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_3 wtq:hasDate "September 17" ;
+    wtq:hasEvent "Men's team sprint" ;
+    wtq:hasMedal "Gold" ;
+    wtq:hasName wd:Q559088,
+        wd:Q609877,
+        "Florian Rousseau, Laurent Gané, Arnaud Tournant" ;
+    wtq:hasSport wd:Q847738,
+        "Cycling" ;
+    wtq:hasindex "3" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_30 wtq:hasDate "September 17" ;
+    wtq:hasEvent "Women's épée" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Laura Flessel-Colovic" ;
+    wtq:hasSport wd:Q679703,
+        "Fencing" ;
+    wtq:hasindex "30" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_31 wtq:hasDate "September 20" ;
+    wtq:hasEvent "Men's 90 kg" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Frédéric Demontfaucon" ;
+    wtq:hasSport wd:Q843708,
+        "Judo" ;
+    wtq:hasindex "31" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_34 wtq:hasDate "September 26" ;
+    wtq:hasEvent "Women's duet" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName wd:Q2850813,
+        "Virginie Dedieu, Myriam Lignot" ;
+    wtq:hasSport wd:Q855408,
+        "Synchronized swimming" ;
+    wtq:hasindex "34" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_35 wtq:hasDate "September 23" ;
+    wtq:hasEvent "Men's doubles" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName wd:Q233834,
+        "Patrick Chila, Jean-Philippe Gatien" ;
+    wtq:hasSport wd:Q847738,
+        "Table tennis" ;
+    wtq:hasindex "35" .
+
+wd:Q1115192 rdfs:label "Laurent Sciarra" ;
+    wdt:P19 "Nice" ;
+    wdt:P21 "male" ;
+    wdt:P54 "BCM Gravelines" .
+
+wd:Q116218 rdfs:label "Matthieu Gourdain" ;
+    wdt:P21 "male" ;
+    wdt:P27 "France" ;
+    wdt:P31 "human" .
+
+wd:Q2251657 rdfs:label "Larbi Benboudaoud" ;
+    wdt:P1344 "2004 Summer Olympics",
+        "judo at the 2000 Summer Olympics – men's 66 kg" ;
+    wdt:P641 "judo" .
+
+wd:Q233834 rdfs:label "Jeannie Longo" ;
+    wdt:P106 "sport cyclist" ;
+    wdt:P19 "Annecy" ;
+    wdt:P21 "female" .
+
+wd:Q2518919 rdfs:label "Cyril Julian" ;
+    wdt:P27 "France" ;
+    wdt:P54 "Tarbes Gespe Bigorre" ;
+    wdt:P734 "Julian" .
+
+wd:Q2629890 rdfs:label "Laurent Foirest" ;
+    wdt:P106 "basketball coach",
+        "basketball player" ;
+    wdt:P21 "male" .
+
+wd:Q2659320 rdfs:label "Hugues Obry" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P734 "Obry" .
+
+wd:Q276226 rdfs:label "Marion Clignet" ;
+    wdt:P166 "Officer of the National Order of Merit" ;
+    wdt:P19 "Chicago" ;
+    wdt:P31 "human" .
+
+wd:Q2850813 rdfs:label "Anne-Lise Bardet" ;
+    wdt:P106 "kayaker" ;
+    wdt:P19 "Oyonnax" ;
+    wdt:P21 "female" .
+
+wd:Q559088 rdfs:label "Arnaud Tournant" ;
+    wdt:P106 "track cyclist" ;
+    wdt:P27 "France" ;
+    wdt:P31 "human" .
+
+wd:Q843708 rdfs:label "shooting at the 2000 Summer Olympics" ;
+    wdt:P17 "Australia" ;
+    wdt:P31 "Olympic sports discipline event" ;
+    wdt:P527 "shooting at the 2000 Summer Olympics – women's 10 metre air rifle" .
+
+wd:Q855408 rdfs:label "canoeing at the 2000 Summer Olympics" ;
+    wdt:P155 "canoeing at the 1996 Summer Olympics" ;
+    wdt:P17 "Australia" ;
+    wdt:P527 "canoeing at the 2000 Summer Olympics – men's slalom C-1" .
+
+wd:Q887041 rdfs:label "Benjamin Varonian" ;
+    wdt:P1344 "gymnastics at the 2000 Summer Olympics – men's horizontal bar" ;
+    wdt:P19 "Nice" ;
+    wdt:P735 "Benjamin" .
+
+wd:Q579844 rdfs:label "fencing at the 2000 Summer Olympics" ;
+    wdt:P155 "fencing at the 1996 Summer Olympics" ;
+    wdt:P156 "fencing at the 2004 Summer Olympics" ;
+    wdt:P17 "Australia" ;
+    wdt:P361 "2000 Summer Olympics" ;
+    wdt:P527 "fencing at the 2000 Summer Olympics – men's foil",
+        "fencing at the 2000 Summer Olympics – men's team épée" .
+
+wd:Q679703 rdfs:label "judo at the 2000 Summer Olympics" ;
+    wdt:P156 "judo at the 2004 Summer Olympics" ;
+    wdt:P17 "Australia" ;
+    wdt:P276 "Sydney Convention and Exhibition Centre" ;
+    wdt:P31 "Olympic sports discipline event" ;
+    wdt:P361 "2000 Summer Olympics" .
+
+wd:Q843715 rdfs:label "gymnastics at the 2000 Summer Olympics" ;
+    wdt:P17 "Australia" ;
+    wdt:P276 "Sydney SuperDome" ;
+    wdt:P361 "2000 Summer Olympics" ;
+    wdt:P527 "artistic gymnastics at the 2000 Summer Olympics",
+        "rhythmic gymnastics at the 2000 Summer Olympics" .
+
+wd:Q609877 rdfs:label "Florian Rousseau" ;
+    wdt:P106 "sport cyclist",
+        "track cyclist" ;
+    wdt:P166 "Knight of the Legion of Honour" ;
+    wdt:P19 "Orléans" ;
+    wdt:P21 "male" ;
+    wdt:P27 "France" ;
+    wdt:P31 "human" .
+
+wd:Q847738 rdfs:label "cycling at the 2000 Summer Olympics" ;
+    wdt:P155 "cycling at the 1996 Summer Olympics" ;
+    wdt:P156 "cycling at the 2004 Summer Olympics" ;
+    wdt:P17 "Australia" ;
+    wdt:P31 "Olympic sports discipline event" ;
+    wdt:P361 "2000 Summer Olympics" ;
+    wdt:P527 "cycling at the 2000 Summer Olympics – men's cross-country",
+        "cycling at the 2000 Summer Olympics – men's team pursuit",
+        "cycling at the 2000 Summer Olympics – women's cross-country",
+        "cycling at the 2000 Summer Olympics – women's road race" .
+

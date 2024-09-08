@@ -1,0 +1,36 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Stephin_Merritt_discography a wtq:Entity ;
+    wtq:hasRow wtq:Stephin_Merritt_discography_row_2,
+        wtq:Stephin_Merritt_discography_row_3,
+        wtq:Stephin_Merritt_discography_row_4,
+        wtq:Stephin_Merritt_discography_row_9 .
+
+wtq:Stephin_Merritt_discography_row_2 wtq:hasAlbum_title "The House of Tomorrow" ;
+    wtq:hasChart_positions "—" ;
+    wtq:hasFormat "EP" ;
+    wtq:hasOriginal_label "Feel Good All Over" ;
+    wtq:hasYear "1992" ;
+    wtq:hasindex "2" .
+
+wtq:Stephin_Merritt_discography_row_3 wtq:hasAlbum_title "The Charm of the Highway Strip" ;
+    wtq:hasChart_positions "—" ;
+    wtq:hasFormat "LP" ;
+    wtq:hasOriginal_label "Merge Records" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "3" .
+
+wtq:Stephin_Merritt_discography_row_4 wtq:hasAlbum_title "Holiday" ;
+    wtq:hasChart_positions "—" ;
+    wtq:hasFormat "LP" ;
+    wtq:hasOriginal_label "Feel Good All Over" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "4" .
+
+wtq:Stephin_Merritt_discography_row_9 wtq:hasAlbum_title "Realism" ;
+    wtq:hasChart_positions "#110 (Billboard 200)" ;
+    wtq:hasFormat "LP" ;
+    wtq:hasOriginal_label "Nonesuch Records" ;
+    wtq:hasYear "2010" ;
+    wtq:hasindex "9" .
+

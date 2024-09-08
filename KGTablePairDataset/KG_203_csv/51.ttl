@@ -1,0 +1,52 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+<http://wikitablequestion.org/Nambour,_Queensland> a wtq:Entity ;
+    wtq:hasRow <http://wikitablequestion.org/Nambour,_Queensland_row_10>,
+        <http://wikitablequestion.org/Nambour,_Queensland_row_13>,
+        <http://wikitablequestion.org/Nambour,_Queensland_row_2>,
+        <http://wikitablequestion.org/Nambour,_Queensland_row_3>,
+        <http://wikitablequestion.org/Nambour,_Queensland_row_6>,
+        <http://wikitablequestion.org/Nambour,_Queensland_row_7> .
+
+<http://wikitablequestion.org/Nambour,_Queensland_row_10> wtq:hasChannel "Nine HD" ;
+    wtq:hasDefinition "HD" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasOrganisation "Nine Network" ;
+    wtq:hasOwnership "Private" ;
+    wtq:hasindex "10" .
+
+<http://wikitablequestion.org/Nambour,_Queensland_row_13> wtq:hasChannel "10" ;
+    wtq:hasDefinition "SD" ;
+    wtq:hasNotes "Regional affiliate of Network Ten" ;
+    wtq:hasOrganisation "Southern Cross Ten" ;
+    wtq:hasOwnership "Private" ;
+    wtq:hasindex "13" .
+
+<http://wikitablequestion.org/Nambour,_Queensland_row_2> wtq:hasChannel "ABC3" ;
+    wtq:hasDefinition "SD" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasOrganisation "Australian Broadcasting Commission" ;
+    wtq:hasOwnership "Government" ;
+    wtq:hasindex "2" .
+
+<http://wikitablequestion.org/Nambour,_Queensland_row_3> wtq:hasChannel "ABC News 24" ;
+    wtq:hasDefinition "HD" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasOrganisation "Australian Broadcasting Commission" ;
+    wtq:hasOwnership "Government" ;
+    wtq:hasindex "3" .
+
+<http://wikitablequestion.org/Nambour,_Queensland_row_6> wtq:hasChannel "7" ;
+    wtq:hasDefinition "SD" ;
+    wtq:hasNotes "Regional affiliate of the Seven Network in Brisbane" ;
+    wtq:hasOrganisation "Seven Queensland" ;
+    wtq:hasOwnership "Private" ;
+    wtq:hasindex "6" .
+
+<http://wikitablequestion.org/Nambour,_Queensland_row_7> wtq:hasChannel "7Two" ;
+    wtq:hasDefinition "SD" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasOrganisation "Seven Network" ;
+    wtq:hasOwnership "Private" ;
+    wtq:hasindex "7" .
+

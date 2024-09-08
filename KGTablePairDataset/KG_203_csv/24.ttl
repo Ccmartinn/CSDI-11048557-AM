@@ -1,0 +1,28 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup> a wtq:Entity ;
+    wtq:hasRow <http://wikitablequestion.org/2007–08_Hazfi_Cup_row_1>,
+        <http://wikitablequestion.org/2007–08_Hazfi_Cup_row_2>,
+        <http://wikitablequestion.org/2007–08_Hazfi_Cup_row_7> .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup_row_1> wtq:hasAway_team "Steel Azin" ;
+    wtq:hasDate "21 December 2007" ;
+    wtq:hasHome_team "Rah Ahan" ;
+    wtq:hasNotes "Rah Ahan progress 5-2 on penalties" ;
+    wtq:hasScore "2-2" ;
+    wtq:hasindex "1" .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup_row_2> wtq:hasAway_team "Esteghlal" ;
+    wtq:hasDate "21 December 2007" ;
+    wtq:hasHome_team "Zob Ahan" ;
+    wtq:hasNotes "Esteghlal progress 3-1 on penalties" ;
+    wtq:hasScore "1-1" ;
+    wtq:hasindex "2" .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup_row_7> wtq:hasAway_team "Pegah Gilan" ;
+    wtq:hasDate "4 March 2008" ;
+    wtq:hasHome_team "Sanaye Arak" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasScore "0-1" ;
+    wtq:hasindex "7" .
+

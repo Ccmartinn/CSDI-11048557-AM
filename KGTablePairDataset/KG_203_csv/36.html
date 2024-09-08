@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:List_of_parishes_in_the_Diocese_of_Salford", "label": "wtq:List_of_parishes_in_the_Diocese_of_Salford", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "label": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "label": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2201943", "label": "wd:Q2201943", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7595992", "label": "wd:Q7595992", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_2005", "label": "2005", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_St Joseph", "label": "St Joseph", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_town", "label": "town", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_1947", "label": "1947", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_----", "label": "----", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Fr David Lupton, Rural Dean", "label": "Fr David Lupton, Rural Dean", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Lancashire", "label": "Lancashire", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Stacksteads", "label": "Stacksteads", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Rossendale", "label": "Rossendale", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_1828", "label": "1828", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_St James the Less", "label": "St James the Less", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_village", "label": "village", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Rawtenstall", "label": "Rawtenstall", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_Stacksteads", "label": "Stacksteads", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Rawtenstall", "label": "Rawtenstall", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_UTC\u00b100:00", "label": "UTC\u00b100:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_----", "label": "----", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford", "title": "wtq:hasRow", "to": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford", "title": "wtq:hasRow", "to": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "title": "wtq:hasLocality", "to": "wd:Q7595992"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "title": "wtq:hasClosed", "to": "literal_0_2005"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "title": "wtq:hasParish", "to": "literal_1_St Joseph"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "title": "wtq:hasFounded", "to": "literal_3_1947"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "title": "wtq:hasParish_Priest", "to": "literal_4_----"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "title": "wtq:hasindex", "to": "literal_10_2"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2", "title": "wtq:hasLocality", "to": "literal_15_Stacksteads"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "title": "wtq:hasLocality", "to": "wd:Q2201943"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "title": "wtq:hasParish_Priest", "to": "literal_5_Fr David Lupton, Rural Dean"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "title": "wtq:hasindex", "to": "literal_6_6"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "title": "wtq:hasFounded", "to": "literal_11_1828"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "title": "wtq:hasParish", "to": "literal_12_St James the Less"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "title": "wtq:hasLocality", "to": "literal_14_Rawtenstall"}, {"from": "wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6", "title": "wtq:hasClosed", "to": "literal_19_----"}, {"from": "wd:Q2201943", "title": "wdt:P31", "to": "literal_2_town"}, {"from": "wd:Q2201943", "title": "wdt:P131", "to": "literal_9_Rossendale"}, {"from": "wd:Q2201943", "title": "rdfs:label", "to": "literal_16_Rawtenstall"}, {"from": "wd:Q2201943", "title": "wdt:P421", "to": "literal_17_UTC\u00b100:00"}, {"from": "wd:Q7595992", "title": "wdt:P7959", "to": "literal_7_Lancashire"}, {"from": "wd:Q7595992", "title": "rdfs:label", "to": "literal_8_Stacksteads"}, {"from": "wd:Q7595992", "title": "wdt:P31", "to": "literal_13_village"}, {"from": "wd:Q7595992", "title": "wdt:P17", "to": "literal_18_United Kingdom"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

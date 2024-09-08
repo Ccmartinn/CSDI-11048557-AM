@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q585894", "label": "wd:Q585894", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q615937", "label": "wd:Q615937", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3467811", "label": "wd:Q3467811", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q334939", "label": "wd:Q334939", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2070623", "label": "wd:Q2070623", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Martin_Kaymer_row_9", "label": "wtq:Martin_Kaymer_row_9", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2374093", "label": "wd:Q2374093", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Martin_Kaymer", "label": "wtq:Martin_Kaymer", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Martin_Kaymer_row_4", "label": "wtq:Martin_Kaymer_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Martin_Kaymer_row_2", "label": "wtq:Martin_Kaymer_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2974039", "label": "wd:Q2974039", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q590399", "label": "wd:Q590399", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q114193795", "label": "wd:Q114193795", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Martin_Kaymer_row_6", "label": "wtq:Martin_Kaymer_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_golf", "label": "golf", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_sports season", "label": "sports season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_golf tournament", "label": "golf tournament", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Shanghai", "label": "Shanghai", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_5 Jul 2009", "label": "5 Jul 2009", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Q9014439", "label": "Q9014439", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Abu Dhabi Golf Championship", "label": "Abu Dhabi Golf Championship", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_2010 European Tour", "label": "2010 European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Fabrizio Zanotti", "label": "Fabrizio Zanotti", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Lee Westwood", "label": "Lee Westwood", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_WGC-HSBC Champions", "label": "WGC-HSBC Champions", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_\u221220 (69-68-68-63=268)", "label": "\u221220 (69-68-68-63=268)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_Ian Poulter", "label": "Ian Poulter", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Christian Nilsson", "label": "Christian Nilsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Wikimedia disambiguation page", "label": "Wikimedia disambiguation page", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_2008 European Tour", "label": "2008 European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_6 Nov 2011", "label": "6 Nov 2011", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_European Ryder Cup team", "label": "European Ryder Cup team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_sports season", "label": "sports season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_4 strokes", "label": "4 strokes", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_golf tournament", "label": "golf tournament", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Abu Dhabi Golf Championship", "label": "Abu Dhabi Golf Championship", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Ian Poulter", "label": "Ian Poulter", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Fredrik Jacobson", "label": "Fredrik Jacobson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Playoff", "label": "Playoff", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_KLM Open", "label": "KLM Open", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_12 Sep 2010", "label": "12 Sep 2010", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_2010 European Tour", "label": "2010 European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_2010 European Tour", "label": "2010 European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_golf", "label": "golf", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_2011 European Tour", "label": "2011 European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_PGA European Tour", "label": "PGA European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_PGA European Tour", "label": "PGA European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_People\u0027s Republic of China", "label": "People\u0027s Republic of China", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_WGC-HSBC Champions", "label": "WGC-HSBC Champions", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_\u221221 (67-67-67-66=267)", "label": "\u221221 (67-67-67-66=267)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_2009 European Tour", "label": "2009 European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_golf", "label": "golf", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Poulter", "label": "Poulter", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_\u221213 (62-72-69-68=271)", "label": "\u221213 (62-72-69-68=271)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_Fabrizio", "label": "Fabrizio", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_2009 European Tour", "label": "2009 European Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Abu Dhabi", "label": "Abu Dhabi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_United Arab Emirates", "label": "United Arab Emirates", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_3 strokes", "label": "3 strokes", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_sports season", "label": "sports season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Christian Nilsson, Fabrizio Zanotti", "label": "Christian Nilsson, Fabrizio Zanotti", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_24 Jan 2010", "label": "24 Jan 2010", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_1 stroke", "label": "1 stroke", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Open de France ALSTOM", "label": "Open de France ALSTOM", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_golf", "label": "golf", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_\u221214 (67-67-66-66=266)", "label": "\u221214 (67-67-66-66=266)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Lee Westwood", "label": "Lee Westwood", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q585894", "title": "wtq:hasRunner_s_-up", "to": "wtq:Martin_Kaymer_row_2"}, {"from": "wd:Q585894", "title": "wdt:P27", "to": "literal_0_United Kingdom"}, {"from": "wd:Q585894", "title": "wdt:P31", "to": "literal_13_human"}, {"from": "wd:Q585894", "title": "wdt:P641", "to": "literal_47_golf"}, {"from": "wd:Q585894", "title": "rdfs:label", "to": "literal_63_Lee Westwood"}, {"from": "wd:Q615937", "title": "wtq:hasRunner_s_-up", "to": "wtq:Martin_Kaymer_row_4"}, {"from": "wd:Q615937", "title": "wdt:P641", "to": "literal_1_golf"}, {"from": "wd:Q615937", "title": "rdfs:label", "to": "literal_15_Ian Poulter"}, {"from": "wd:Q615937", "title": "wdt:P54", "to": "literal_20_European Ryder Cup team"}, {"from": "wd:Q615937", "title": "wdt:P734", "to": "literal_49_Poulter"}, {"from": "wd:Q3467811", "title": "wtq:hasDate", "to": "wtq:Martin_Kaymer_row_2"}, {"from": "wd:Q3467811", "title": "wdt:P31", "to": "literal_2_sports season"}, {"from": "wd:Q3467811", "title": "wdt:P156", "to": "literal_9_2010 European Tour"}, {"from": "wd:Q3467811", "title": "wdt:P155", "to": "literal_18_2008 European Tour"}, {"from": "wd:Q3467811", "title": "rdfs:label", "to": "literal_52_2009 European Tour"}, {"from": "wd:Q334939", "title": "wtq:hasTournament", "to": "wtq:Martin_Kaymer_row_4"}, {"from": "wd:Q334939", "title": "wdt:P279", "to": "literal_3_golf tournament"}, {"from": "wd:Q334939", "title": "rdfs:label", "to": "literal_27_Abu Dhabi Golf Championship"}, {"from": "wd:Q334939", "title": "wdt:P276", "to": "literal_53_Abu Dhabi"}, {"from": "wd:Q334939", "title": "wdt:P17", "to": "literal_54_United Arab Emirates"}, {"from": "wd:Q2070623", "title": "wtq:hasTournament", "to": "wtq:Martin_Kaymer_row_9"}, {"from": "wd:Q2070623", "title": "wdt:P276", "to": "literal_4_Shanghai"}, {"from": "wd:Q2070623", "title": "rdfs:label", "to": "literal_12_WGC-HSBC Champions"}, {"from": "wd:Q2070623", "title": "wdt:P279", "to": "literal_26_golf tournament"}, {"from": "wd:Q2070623", "title": "wdt:P17", "to": "literal_42_People\u0027s Republic of China"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasDate", "to": "wd:Q2374093"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasRow", "to": "wtq:Martin_Kaymer"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasNo.", "to": "literal_6_10"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasWinning_score", "to": "literal_14_\u221220 (69-68-68-63=268)"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasDate", "to": "literal_19_6 Nov 2011"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasRunner_s_-up", "to": "literal_30_Fredrik Jacobson"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasindex", "to": "literal_32_9"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasTournament", "to": "literal_43_WGC-HSBC Champions"}, {"from": "wtq:Martin_Kaymer_row_9", "title": "wtq:hasMargin_of_nvictory", "to": "literal_55_3 strokes"}, {"from": "wd:Q2374093", "title": "wdt:P155", "to": "literal_35_2010 European Tour"}, {"from": "wd:Q2374093", "title": "rdfs:label", "to": "literal_38_2011 European Tour"}, {"from": "wd:Q2374093", "title": "wdt:P3450", "to": "literal_41_PGA European Tour"}, {"from": "wd:Q2374093", "title": "wdt:P31", "to": "literal_56_sports season"}, {"from": "wtq:Martin_Kaymer", "title": "wtq:hasRow", "to": "wtq:Martin_Kaymer_row_4"}, {"from": "wtq:Martin_Kaymer", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Martin_Kaymer", "title": "wtq:hasRow", "to": "wtq:Martin_Kaymer_row_2"}, {"from": "wtq:Martin_Kaymer", "title": "wtq:hasRow", "to": "wtq:Martin_Kaymer_row_6"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasDate", "to": "wd:Q2974039"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasTournament", "to": "literal_8_Abu Dhabi Golf Championship"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasRunner_s_-up", "to": "literal_28_Ian Poulter"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasNo.", "to": "literal_29_5"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasWinning_score", "to": "literal_44_\u221221 (67-67-67-66=267)"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasindex", "to": "literal_46_4"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasDate", "to": "literal_58_24 Jan 2010"}, {"from": "wtq:Martin_Kaymer_row_4", "title": "wtq:hasMargin_of_nvictory", "to": "literal_59_1 stroke"}, {"from": "wtq:Martin_Kaymer_row_2", "title": "wtq:hasDate", "to": "literal_5_5 Jul 2009"}, {"from": "wtq:Martin_Kaymer_row_2", "title": "wtq:hasRunner_s_-up", "to": "literal_11_Lee Westwood"}, {"from": "wtq:Martin_Kaymer_row_2", "title": "wtq:hasindex", "to": "literal_21_2"}, {"from": "wtq:Martin_Kaymer_row_2", "title": "wtq:hasMargin_of_nvictory", "to": "literal_31_Playoff"}, {"from": "wtq:Martin_Kaymer_row_2", "title": "wtq:hasNo.", "to": "literal_40_3"}, {"from": "wtq:Martin_Kaymer_row_2", "title": "wtq:hasWinning_score", "to": "literal_50_\u221213 (62-72-69-68=271)"}, {"from": "wtq:Martin_Kaymer_row_2", "title": "wtq:hasTournament", "to": "literal_60_Open de France ALSTOM"}, {"from": "wd:Q2974039", "title": "wtq:hasDate", "to": "wtq:Martin_Kaymer_row_6"}, {"from": "wd:Q2974039", "title": "wdt:P910", "to": "literal_7_Q9014439"}, {"from": "wd:Q2974039", "title": "wdt:P31", "to": "literal_23_sports season"}, {"from": "wd:Q2974039", "title": "rdfs:label", "to": "literal_36_2010 European Tour"}, {"from": "wd:Q2974039", "title": "wdt:P3450", "to": "literal_39_PGA European Tour"}, {"from": "wd:Q2974039", "title": "wdt:P155", "to": "literal_45_2009 European Tour"}, {"from": "wd:Q2974039", "title": "wdt:P641", "to": "literal_61_golf"}, {"from": "wd:Q590399", "title": "wtq:hasRunner_s_-up", "to": "wtq:Martin_Kaymer_row_6"}, {"from": "wd:Q590399", "title": "rdfs:label", "to": "literal_10_Fabrizio Zanotti"}, {"from": "wd:Q590399", "title": "wdt:P641", "to": "literal_37_golf"}, {"from": "wd:Q590399", "title": "wdt:P21", "to": "literal_48_male"}, {"from": "wd:Q590399", "title": "wdt:P735", "to": "literal_51_Fabrizio"}, {"from": "wd:Q114193795", "title": "wtq:hasRunner_s_-up", "to": "wtq:Martin_Kaymer_row_6"}, {"from": "wd:Q114193795", "title": "rdfs:label", "to": "literal_16_Christian Nilsson"}, {"from": "wd:Q114193795", "title": "wdt:P31", "to": "literal_17_Wikimedia disambiguation page"}, {"from": "wtq:Martin_Kaymer_row_6", "title": "wtq:hasNo.", "to": "literal_22_7"}, {"from": "wtq:Martin_Kaymer_row_6", "title": "wtq:hasMargin_of_nvictory", "to": "literal_24_4 strokes"}, {"from": "wtq:Martin_Kaymer_row_6", "title": "wtq:hasindex", "to": "literal_25_6"}, {"from": "wtq:Martin_Kaymer_row_6", "title": "wtq:hasTournament", "to": "literal_33_KLM Open"}, {"from": "wtq:Martin_Kaymer_row_6", "title": "wtq:hasDate", "to": "literal_34_12 Sep 2010"}, {"from": "wtq:Martin_Kaymer_row_6", "title": "wtq:hasRunner_s_-up", "to": "literal_57_Christian Nilsson, Fabrizio Zanotti"}, {"from": "wtq:Martin_Kaymer_row_6", "title": "wtq:hasWinning_score", "to": "literal_62_\u221214 (67-67-66-66=266)"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

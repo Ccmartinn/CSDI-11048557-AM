@@ -1,0 +1,81 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Historical_brightest_stars a wtq:Entity ;
+    wtq:hasRow wtq:Historical_brightest_stars_row_10,
+        wtq:Historical_brightest_stars_row_14,
+        wtq:Historical_brightest_stars_row_15,
+        wtq:Historical_brightest_stars_row_2,
+        wtq:Historical_brightest_stars_row_3,
+        wtq:Historical_brightest_stars_row_4,
+        wtq:Historical_brightest_stars_row_6 .
+
+wtq:Historical_brightest_stars_row_10 wtq:hasCurrent_ndistance "25.04" ;
+    wtq:hasCurrent_nmagnitude "0.03" ;
+    wtq:hasDistance_at_nmaximum__LY_ "17.2" ;
+    wtq:hasEnd_nyear "+480,000" ;
+    wtq:hasMaximum_nmagnitude "-0.81" ;
+    wtq:hasMaximum_nyear "+290,000" ;
+    wtq:hasStar "Vega" ;
+    wtq:hasStart_nyear "+210,000" ;
+    wtq:hasindex "10" .
+
+wtq:Historical_brightest_stars_row_14 wtq:hasCurrent_ndistance "154.0" ;
+    wtq:hasCurrent_nmagnitude "2.36" ;
+    wtq:hasDistance_at_nmaximum__LY_ "27.7" ;
+    wtq:hasEnd_nyear "+2,030,000" ;
+    wtq:hasMaximum_nmagnitude "-1.39" ;
+    wtq:hasMaximum_nyear "+1,550,000" ;
+    wtq:hasStar "Gamma Draconis" ;
+    wtq:hasStart_nyear "+1,330,000" ;
+    wtq:hasindex "14" .
+
+wtq:Historical_brightest_stars_row_15 wtq:hasCurrent_ndistance "195.0" ;
+    wtq:hasCurrent_nmagnitude "3.6" ;
+    wtq:hasDistance_at_nmaximum__LY_ "30.0" ;
+    wtq:hasEnd_nyear "+2,670,000" ;
+    wtq:hasMaximum_nmagnitude "-0.46" ;
+    wtq:hasMaximum_nyear "+2,290,000" ;
+    wtq:hasStar "Upsilon Librae" ;
+    wtq:hasStart_nyear "+2,030,000" ;
+    wtq:hasindex "15" .
+
+wtq:Historical_brightest_stars_row_2 wtq:hasCurrent_ndistance "310.0" ;
+    wtq:hasCurrent_nmagnitude "-0.72" ;
+    wtq:hasDistance_at_nmaximum__LY_ "177.0" ;
+    wtq:hasEnd_nyear "-1,370,000" ;
+    wtq:hasMaximum_nmagnitude "-1.86" ;
+    wtq:hasMaximum_nyear "-3,110,000" ;
+    wtq:hasStar "Canopus (first time)" ;
+    wtq:hasStart_nyear "-3,700,000" ;
+    wtq:hasindex "2" .
+
+wtq:Historical_brightest_stars_row_3 wtq:hasCurrent_ndistance "89.1" ;
+    wtq:hasCurrent_nmagnitude "2.6" ;
+    wtq:hasDistance_at_nmaximum__LY_ "8.0" ;
+    wtq:hasEnd_nyear "-1,080,000" ;
+    wtq:hasMaximum_nmagnitude "-2.74" ;
+    wtq:hasMaximum_nyear "-1,200,000" ;
+    wtq:hasStar "Zeta Sagittarii" ;
+    wtq:hasStart_nyear "-1,370,000" ;
+    wtq:hasindex "3" .
+
+wtq:Historical_brightest_stars_row_4 wtq:hasCurrent_ndistance "70.0" ;
+    wtq:hasCurrent_nmagnitude "3.55" ;
+    wtq:hasDistance_at_nmaximum__LY_ "5.3" ;
+    wtq:hasEnd_nyear "-950,000" ;
+    wtq:hasMaximum_nmagnitude "-2.05" ;
+    wtq:hasMaximum_nyear "-1,050,000" ;
+    wtq:hasStar "Zeta Leporis" ;
+    wtq:hasStart_nyear "-1,080,000" ;
+    wtq:hasindex "4" .
+
+wtq:Historical_brightest_stars_row_6 wtq:hasCurrent_ndistance "65.0" ;
+    wtq:hasCurrent_nmagnitude "0.85" ;
+    wtq:hasDistance_at_nmaximum__LY_ "21.5" ;
+    wtq:hasEnd_nyear "-210,000" ;
+    wtq:hasMaximum_nmagnitude "-1.54" ;
+    wtq:hasMaximum_nyear "-320,000" ;
+    wtq:hasStar "Aldebaran" ;
+    wtq:hasStart_nyear "-420,000" ;
+    wtq:hasindex "6" .
+

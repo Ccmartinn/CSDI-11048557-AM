@@ -1,0 +1,164 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:United_States_Ambassador_to_Mexico a wtq:Entity ;
+    wtq:hasRow wtq:United_States_Ambassador_to_Mexico_row_13,
+        wtq:United_States_Ambassador_to_Mexico_row_19,
+        wtq:United_States_Ambassador_to_Mexico_row_2,
+        wtq:United_States_Ambassador_to_Mexico_row_21,
+        wtq:United_States_Ambassador_to_Mexico_row_22,
+        wtq:United_States_Ambassador_to_Mexico_row_26,
+        wtq:United_States_Ambassador_to_Mexico_row_27,
+        wtq:United_States_Ambassador_to_Mexico_row_29,
+        wtq:United_States_Ambassador_to_Mexico_row_3,
+        wtq:United_States_Ambassador_to_Mexico_row_31,
+        wtq:United_States_Ambassador_to_Mexico_row_32,
+        wtq:United_States_Ambassador_to_Mexico_row_35,
+        wtq:United_States_Ambassador_to_Mexico_row_36,
+        wtq:United_States_Ambassador_to_Mexico_row_38,
+        wtq:United_States_Ambassador_to_Mexico_row_39,
+        wtq:United_States_Ambassador_to_Mexico_row_40,
+        wtq:United_States_Ambassador_to_Mexico_row_42,
+        wtq:United_States_Ambassador_to_Mexico_row_46,
+        wtq:United_States_Ambassador_to_Mexico_row_48,
+        wtq:United_States_Ambassador_to_Mexico_row_49 .
+
+wtq:United_States_Ambassador_to_Mexico_row_13 wtq:hasAppointed_by "John Tyler" ;
+    wtq:hasFrom "1844" ;
+    wtq:hasRepresentative "Wilson Shannon" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1845.0" ;
+    wtq:hasindex "13" .
+
+wtq:United_States_Ambassador_to_Mexico_row_19 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1850" ;
+    wtq:hasRepresentative "George G. Goss" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "1852.0" ;
+    wtq:hasindex "19" .
+
+wtq:United_States_Ambassador_to_Mexico_row_2 wtq:hasAppointed_by "John Quincy Adams" ;
+    wtq:hasFrom "1825" ;
+    wtq:hasRepresentative "Joel Roberts Poinsett" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1829.0" ;
+    wtq:hasindex "2" .
+
+wtq:United_States_Ambassador_to_Mexico_row_21 wtq:hasAppointed_by "Millard Fillmore" ;
+    wtq:hasFrom "1852" ;
+    wtq:hasRepresentative "Edward Smith" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "21" .
+
+wtq:United_States_Ambassador_to_Mexico_row_22 wtq:hasAppointed_by "Millard Fillmore" ;
+    wtq:hasFrom "1852" ;
+    wtq:hasRepresentative "Alfred Conkling" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1853.0" ;
+    wtq:hasindex "22" .
+
+wtq:United_States_Ambassador_to_Mexico_row_26 wtq:hasAppointed_by "Franklin Pierce" ;
+    wtq:hasFrom "1854" ;
+    wtq:hasRepresentative "Richard S. Spofford" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "26" .
+
+wtq:United_States_Ambassador_to_Mexico_row_27 wtq:hasAppointed_by "Franklin Pierce" ;
+    wtq:hasFrom "1856" ;
+    wtq:hasRepresentative "John Forsyth Jr." ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1858.0" ;
+    wtq:hasindex "27" .
+
+wtq:United_States_Ambassador_to_Mexico_row_29 wtq:hasAppointed_by "James Buchanan" ;
+    wtq:hasFrom "1858" ;
+    wtq:hasRepresentative "Alfred Mordecai" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "29" .
+
+wtq:United_States_Ambassador_to_Mexico_row_3 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1829" ;
+    wtq:hasRepresentative "Anthony Butler" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "3" .
+
+wtq:United_States_Ambassador_to_Mexico_row_31 wtq:hasAppointed_by "James Buchanan" ;
+    wtq:hasFrom "1859" ;
+    wtq:hasRepresentative "David R. Porter" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "31" .
+
+wtq:United_States_Ambassador_to_Mexico_row_32 wtq:hasAppointed_by "James Buchanan" ;
+    wtq:hasFrom "1859" ;
+    wtq:hasRepresentative "Robert Milligan McLane" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1860.0" ;
+    wtq:hasindex "32" .
+
+wtq:United_States_Ambassador_to_Mexico_row_35 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1861" ;
+    wtq:hasRepresentative "Thomas Corwin" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1864.0" ;
+    wtq:hasindex "35" .
+
+wtq:United_States_Ambassador_to_Mexico_row_36 wtq:hasAppointed_by "Abraham Lincoln" ;
+    wtq:hasFrom "1862" ;
+    wtq:hasRepresentative "Robert W. Shufelt" ;
+    wtq:hasTitle "Special Diplomatic Agent" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "36" .
+
+wtq:United_States_Ambassador_to_Mexico_row_38 wtq:hasAppointed_by "Andrew Johnson" ;
+    wtq:hasFrom "1867" ;
+    wtq:hasRepresentative "Marcus Otterbourg" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "nan" ;
+    wtq:hasindex "38" .
+
+wtq:United_States_Ambassador_to_Mexico_row_39 wtq:hasAppointed_by "Andrew Johnson" ;
+    wtq:hasFrom "1868" ;
+    wtq:hasRepresentative "William S. Rosecrans" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1869.0" ;
+    wtq:hasindex "39" .
+
+wtq:United_States_Ambassador_to_Mexico_row_40 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1869" ;
+    wtq:hasRepresentative "Thomas H. Nelson" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1873.0" ;
+    wtq:hasindex "40" .
+
+wtq:United_States_Ambassador_to_Mexico_row_42 wtq:hasAppointed_by "Rutherford B. Hayes" ;
+    wtq:hasFrom "1880" ;
+    wtq:hasRepresentative "Philip Hicky Morgan" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1885.0" ;
+    wtq:hasindex "42" .
+
+wtq:United_States_Ambassador_to_Mexico_row_46 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1889" ;
+    wtq:hasRepresentative "Thomas Ryan" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1893.0" ;
+    wtq:hasindex "46" .
+
+wtq:United_States_Ambassador_to_Mexico_row_48 wtq:hasAppointed_by "Grover Cleveland" ;
+    wtq:hasFrom "1895" ;
+    wtq:hasRepresentative "Matt Whitaker Ransom" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1897.0" ;
+    wtq:hasindex "48" .
+
+wtq:United_States_Ambassador_to_Mexico_row_49 wtq:hasAppointed_by "nan" ;
+    wtq:hasFrom "1897" ;
+    wtq:hasRepresentative "Powell Clayton" ;
+    wtq:hasTitle "Minister" ;
+    wtq:hasTo "1898.0" ;
+    wtq:hasindex "49" .
+

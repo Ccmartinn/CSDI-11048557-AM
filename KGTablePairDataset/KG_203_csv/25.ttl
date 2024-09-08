@@ -1,0 +1,85 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1983_Tour_de_France a wtq:Entity ;
+    wtq:hasRow wtq:1983_Tour_de_France_row_10,
+        wtq:1983_Tour_de_France_row_13,
+        wtq:1983_Tour_de_France_row_16,
+        wtq:1983_Tour_de_France_row_17,
+        wtq:1983_Tour_de_France_row_19,
+        wtq:1983_Tour_de_France_row_2,
+        wtq:1983_Tour_de_France_row_20,
+        wtq:1983_Tour_de_France_row_3,
+        wtq:1983_Tour_de_France_row_4 .
+
+wtq:1983_Tour_de_France_row_10 wtq:hasDate "11 July" ;
+    wtq:hasLength "201 km (125 mi)" ;
+    wtq:hasRoute "Pau – Bagnères-de-Luchon" ;
+    wtq:hasStage "10" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Robert Millar (GBR)" ;
+    wtq:hasindex "10" .
+
+wtq:1983_Tour_de_France_row_13 wtq:hasDate "14 July" ;
+    wtq:hasLength "210 km (130 mi)" ;
+    wtq:hasRoute "Roquefort-sur-Soulzon – Aurillac" ;
+    wtq:hasStage "13" ;
+    wtq:hasTerrain "Hilly stage" ;
+    wtq:hasWinner "Henk Lubberding (NED)" ;
+    wtq:hasindex "13" .
+
+wtq:1983_Tour_de_France_row_16 wtq:hasDate "17 July" ;
+    wtq:hasLength "144 km (89 mi)" ;
+    wtq:hasRoute "Issoire – Saint-Étienne" ;
+    wtq:hasStage "16" ;
+    wtq:hasTerrain "Hilly stage" ;
+    wtq:hasWinner "Michel Laurent (FRA)" ;
+    wtq:hasindex "16" .
+
+wtq:1983_Tour_de_France_row_17 wtq:hasDate "18 July" ;
+    wtq:hasLength "223 km (139 mi)" ;
+    wtq:hasRoute "La Tour-du-Pin – Alpe d'Huez" ;
+    wtq:hasStage "17" ;
+    wtq:hasTerrain "Stage with mountain(s)" ;
+    wtq:hasWinner "Peter Winnen (NED)" ;
+    wtq:hasindex "17" .
+
+wtq:1983_Tour_de_France_row_19 wtq:hasDate "21 July" ;
+    wtq:hasLength "15 km (9.3 mi)" ;
+    wtq:hasRoute "Morzine – Avoriaz" ;
+    wtq:hasStage "19" ;
+    wtq:hasTerrain "Individual time trial" ;
+    wtq:hasWinner "Lucien Van Impe (BEL)" ;
+    wtq:hasindex "19" .
+
+wtq:1983_Tour_de_France_row_2 wtq:hasDate "3 July" ;
+    wtq:hasLength "100 km (62 mi)" ;
+    wtq:hasRoute "Soissons – Fontaine-au-Pire" ;
+    wtq:hasStage "2" ;
+    wtq:hasTerrain "Team time trial" ;
+    wtq:hasWinner "Mercier" ;
+    wtq:hasindex "2" .
+
+wtq:1983_Tour_de_France_row_20 wtq:hasDate "22 July" ;
+    wtq:hasLength "291 km (181 mi)" ;
+    wtq:hasRoute "Morzine – Dijon" ;
+    wtq:hasStage "20" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "Philippe Leleu (FRA)" ;
+    wtq:hasindex "20" .
+
+wtq:1983_Tour_de_France_row_3 wtq:hasDate "4 July" ;
+    wtq:hasLength "152 km (94 mi)" ;
+    wtq:hasRoute "Valenciennes – Roubaix" ;
+    wtq:hasStage "3" ;
+    wtq:hasTerrain "Hilly stage" ;
+    wtq:hasWinner "Rudy Matthijs (BEL)" ;
+    wtq:hasindex "3" .
+
+wtq:1983_Tour_de_France_row_4 wtq:hasDate "5 July" ;
+    wtq:hasLength "300 km (190 mi)" ;
+    wtq:hasRoute "Roubaix – Le Havre" ;
+    wtq:hasStage "4" ;
+    wtq:hasTerrain "Plain stage" ;
+    wtq:hasWinner "Serge Demierre (SUI)" ;
+    wtq:hasindex "4" .
+

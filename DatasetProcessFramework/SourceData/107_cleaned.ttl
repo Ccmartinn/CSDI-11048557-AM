@@ -1,0 +1,58 @@
+@prefix ns1: <http://wikitablequestion.org/hasUnnamed:> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Super_middleweight a wtq:Entity ;
+    wtq:hasRow wtq:Super_middleweight_row_2,
+        wtq:Super_middleweight_row_4,
+        wtq:Super_middleweight_row_6,
+        wtq:Super_middleweight_row_9 .
+
+wtq:Super_middleweight_row_2 wtq:hasName wd:Q3082915,
+        "Frankie Liles" ;
+    wtq:hasSuccessful_Defenses "8" ;
+    wtq:hasTitle_Recognition "WBA" ;
+    wtq:hasTitle_Reign "4 years, 10 months, 0 days" ;
+    ns1:_0 "3.0" ;
+    wtq:hasindex "2" .
+
+wtq:Super_middleweight_row_4 wtq:hasName wd:Q718631,
+        "Chris Eubank" ;
+    wtq:hasSuccessful_Defenses "14" ;
+    wtq:hasTitle_Recognition "WBO" ;
+    wtq:hasTitle_Reign "4 years, 4 months, 0 days" ;
+    ns1:_0 "5.0" ;
+    wtq:hasindex "4" .
+
+wtq:Super_middleweight_row_6 wtq:hasName "Chong-Pal Park" ;
+    wtq:hasSuccessful_Defenses "10" ;
+    wtq:hasTitle_Recognition "IBF, WBA" ;
+    wtq:hasTitle_Reign "3 years, 7 months, 17 days" ;
+    ns1:_0 "7.0" ;
+    wtq:hasindex "6" .
+
+wtq:Super_middleweight_row_9 wtq:hasName wd:Q443795,
+        "Mikkel Kessler" ;
+    wtq:hasSuccessful_Defenses "4" ;
+    wtq:hasTitle_Recognition "WBA (Super)" ;
+    wtq:hasTitle_Reign "2 years, 11 months, 23 days" ;
+    ns1:_0 "10.0" ;
+    wtq:hasindex "9" .
+
+wd:Q3082915 rdfs:label "Frankie Liles" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P735 "Frankie" .
+
+wd:Q443795 rdfs:label "Mikkel Kessler" ;
+    wdt:P106 "boxer" ;
+    wdt:P21 "male" ;
+    wdt:P2416 "light heavyweight" .
+
+wd:Q718631 rdfs:label "Chris Eubank" ;
+    wdt:P106 "boxer" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" .
+

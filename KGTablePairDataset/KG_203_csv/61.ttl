@@ -1,0 +1,76 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Athletics_at_the_1999_All-Africa_Games a wtq:Entity ;
+    wtq:hasRow wtq:Athletics_at_the_1999_All-Africa_Games_row_10,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_14,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_15,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_16,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_17,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_18,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_3,
+        wtq:Athletics_at_the_1999_All-Africa_Games_row_4 .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_10 wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Mozambique" ;
+    wtq:hasRank "11" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "10" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_14 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Tanzania" ;
+    wtq:hasRank "15" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "14" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_15 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Togo" ;
+    wtq:hasRank "15" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "15" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_16 wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Burkina Faso" ;
+    wtq:hasRank "15" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "16" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_17 wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Central African Republic" ;
+    wtq:hasRank "18" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "17" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_18 wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation "Uganda" ;
+    wtq:hasRank "18" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "18" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_3 wtq:hasBronze "8" ;
+    wtq:hasGold "5" ;
+    wtq:hasNation "Kenya" ;
+    wtq:hasRank "4" ;
+    wtq:hasSilver "4" ;
+    wtq:hasTotal "17" ;
+    wtq:hasindex "3" .
+
+wtq:Athletics_at_the_1999_All-Africa_Games_row_4 wtq:hasBronze "1" ;
+    wtq:hasGold "2" ;
+    wtq:hasNation "Tunisia" ;
+    wtq:hasRank "5" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "5" ;
+    wtq:hasindex "4" .
+

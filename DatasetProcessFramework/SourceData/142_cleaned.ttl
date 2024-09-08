@@ -1,0 +1,155 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round a wtq:Entity ;
+    wtq:hasRow wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4,
+        wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6 .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_10 wtq:hasBike wd:Q2733256,
+        "Honda CBR1000RR" ;
+    wtq:hasGrid "15" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "44" ;
+    wtq:hasPoints "5.0" ;
+    wtq:hasPos "11" ;
+    wtq:hasRider wd:Q599654,
+        "Roberto Rolfo" ;
+    wtq:hasTime "+38.067" ;
+    wtq:hasindex "10" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_14 wtq:hasBike wd:Q1755865,
+        "Suzuki GSX-R1000 K6" ;
+    wtq:hasGrid "18" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "53" ;
+    wtq:hasPoints "1.0" ;
+    wtq:hasPos "15" ;
+    wtq:hasRider "Alex Polita" ;
+    wtq:hasTime "+1:22.584" ;
+    wtq:hasindex "14" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_16 wtq:hasBike wd:Q1263363,
+        "Ducati 999RS" ;
+    wtq:hasGrid "21" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "42" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "17" ;
+    wtq:hasRider wd:Q3704258,
+        "Dean Ellison" ;
+    wtq:hasTime "+1:30.184" ;
+    wtq:hasindex "16" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_17 wtq:hasBike wd:Q604551,
+        "Yamaha YZF-R1" ;
+    wtq:hasGrid "20" ;
+    wtq:hasLaps "21" ;
+    wtq:hasNo "36" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "18" ;
+    wtq:hasRider "Jiri Drazdak" ;
+    wtq:hasTime "+1 Lap" ;
+    wtq:hasindex "17" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_2 wtq:hasBike wd:Q1755865,
+        "Suzuki GSX-R1000 K7" ;
+    wtq:hasGrid "5" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "3" ;
+    wtq:hasPoints "16.0" ;
+    wtq:hasPos "3" ;
+    wtq:hasRider wd:Q176250,
+        "Max Biaggi" ;
+    wtq:hasTime "+10.143" ;
+    wtq:hasindex "2" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_3 wtq:hasBike wd:Q604551,
+        "Yamaha YZF-R1" ;
+    wtq:hasGrid "4" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "41" ;
+    wtq:hasPoints "13.0" ;
+    wtq:hasPos "4" ;
+    wtq:hasRider wd:Q641883,
+        "Noriyuki Haga" ;
+    wtq:hasTime "+18.923" ;
+    wtq:hasindex "3" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_4 wtq:hasBike wd:Q604551,
+        "Yamaha YZF-R1" ;
+    wtq:hasGrid "3" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "11" ;
+    wtq:hasPoints "11.0" ;
+    wtq:hasPos "5" ;
+    wtq:hasRider wd:Q577264,
+        "Troy Corser" ;
+    wtq:hasTime "+19.742" ;
+    wtq:hasindex "4" .
+
+wtq:2007_Phillip_Island_Superbike_World_Championship_round_row_6 wtq:hasBike wd:Q1263363,
+        "Ducati 999 F06" ;
+    wtq:hasGrid "8" ;
+    wtq:hasLaps "22" ;
+    wtq:hasNo "111" ;
+    wtq:hasPoints "9.0" ;
+    wtq:hasPos "7" ;
+    wtq:hasRider "Ruben Xaus" ;
+    wtq:hasTime "+27.404" ;
+    wtq:hasindex "6" .
+
+wd:Q176250 rdfs:label "Max Biaggi" ;
+    wdt:P106 "motorcycle racer",
+        "team manager" ;
+    wdt:P21 "male" .
+
+wd:Q2733256 rdfs:label "Honda CBR1000RR" ;
+    wdt:P155 "Honda RC51" ;
+    wdt:P176 "Honda" ;
+    wdt:P179 "Honda Fireblade" .
+
+wd:Q3704258 rdfs:label "Dean Ellison" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P734 "Ellison" .
+
+wd:Q577264 rdfs:label "Troy Corser" ;
+    wdt:P166 "Australian Sports Medal" ;
+    wdt:P19 "Wollongong" ;
+    wdt:P31 "human" .
+
+wd:Q599654 rdfs:label "Roberto Rolfo" ;
+    wdt:P19 "Turin" ;
+    wdt:P21 "male" ;
+    wdt:P734 "Rolfo" .
+
+wd:Q641883 rdfs:label "Noriyuki Haga" ;
+    wdt:P19 "Nagoya" ;
+    wdt:P734 "Haga" ;
+    wdt:P735 "Noriyuki" .
+
+wd:Q1263363 rdfs:label "Ducati 999" ;
+    wdt:P176 "Ducati Motor Holding" ;
+    wdt:P31 "motorcycle model" .
+
+wd:Q1755865 rdfs:label "Suzuki GSX-R1000" ;
+    wdt:P176 "Suzuki" ;
+    wdt:P179 "Suzuki GSX-R series" ;
+    wdt:P31 "motorcycle model" ;
+    wdt:P516 "four-stroke engine" .
+
+wd:Q604551 rdfs:label "Yamaha YZF-R1" ;
+    wdt:P1716 "Yamaha" ;
+    wdt:P176 "Yamaha Motor Company" ;
+    wdt:P179 "Yamaha R series" ;
+    wdt:P1889 "R1" ;
+    wdt:P31 "motorcycle model" .
+

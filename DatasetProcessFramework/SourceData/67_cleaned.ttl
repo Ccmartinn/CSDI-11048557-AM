@@ -1,0 +1,66 @@
+@prefix ns1: <http://wikitablequestion.org/has+> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003 a wtq:Entity ;
+    wtq:hasRow wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_2,
+        wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_4,
+        wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_6,
+        wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_9 .
+
+wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_2 ns1:_- "7" ;
+    wtq:hasDraw "7" ;
+    wtq:hasGoals_nConceded "18" ;
+    wtq:hasGoals_nScored "25" ;
+    wtq:hasLost "4" ;
+    wtq:hasPlace "3.0" ;
+    wtq:hasPlayed "18" ;
+    wtq:hasPoints "28" ;
+    wtq:hasTeam "C.D. Luis Ángel Firpo" ;
+    wtq:hasWon "7" ;
+    wtq:hasindex "2" .
+
+wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_4 ns1:_- "2" ;
+    wtq:hasDraw "4" ;
+    wtq:hasGoals_nConceded "24" ;
+    wtq:hasGoals_nScored "26" ;
+    wtq:hasLost "6" ;
+    wtq:hasPlace "5.0" ;
+    wtq:hasPlayed "18" ;
+    wtq:hasPoints "28" ;
+    wtq:hasTeam wd:Q1969256,
+        "Alianza F.C." ;
+    wtq:hasWon "8" ;
+    wtq:hasindex "4" .
+
+wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_6 ns1:_- "-2" ;
+    wtq:hasDraw "5" ;
+    wtq:hasGoals_nConceded "29" ;
+    wtq:hasGoals_nScored "27" ;
+    wtq:hasLost "8" ;
+    wtq:hasPlace "7.0" ;
+    wtq:hasPlayed "18" ;
+    wtq:hasPoints "20" ;
+    wtq:hasTeam "Municipal Limeño" ;
+    wtq:hasWon "5" ;
+    wtq:hasindex "6" .
+
+wtq:Primera_División_de_Fútbol_Profesional_Apertura_2003_row_9 ns1:_- "-24" ;
+    wtq:hasDraw "3" ;
+    wtq:hasGoals_nConceded "31" ;
+    wtq:hasGoals_nScored "15" ;
+    wtq:hasLost "11" ;
+    wtq:hasPlace "10.0" ;
+    wtq:hasPlayed "18" ;
+    wtq:hasPoints "15" ;
+    wtq:hasTeam "C.D. Atlético Balboa" ;
+    wtq:hasWon "4" ;
+    wtq:hasindex "9" .
+
+wd:Q1969256 rdfs:label "Alianza Fútbol Cub" ;
+    wdt:P115 "Estadio Cuscatlán" ;
+    wdt:P118 "Primera División de El Salvador" ;
+    wdt:P641 "association football" .
+

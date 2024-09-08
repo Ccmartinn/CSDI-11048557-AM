@@ -1,0 +1,36 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2010_U.S._Open_\(golf\) a wtq:Entity ;
+    wtq:hasRow wtq:2010_U.S._Open_\(golf\)_row_10,
+        wtq:2010_U.S._Open_\(golf\)_row_2,
+        wtq:2010_U.S._Open_\(golf\)_row_3,
+        wtq:2010_U.S._Open_\(golf\)_row_4 .
+
+wtq:2010_U.S._Open_\(golf\)_row_10 wtq:hasCountry "United States" ;
+    wtq:hasPlace "T10" ;
+    wtq:hasPlayer "Davis Love III" ;
+    wtq:hasScore "75-74-68=217" ;
+    wtq:hasTo_par "+4" ;
+    wtq:hasindex "10" .
+
+wtq:2010_U.S._Open_\(golf\)_row_2 wtq:hasCountry "United States" ;
+    wtq:hasPlace "3" ;
+    wtq:hasPlayer "Tiger Woods" ;
+    wtq:hasScore "74-72-66=212" ;
+    wtq:hasTo_par "–1" ;
+    wtq:hasindex "2" .
+
+wtq:2010_U.S._Open_\(golf\)_row_3 wtq:hasCountry "South Africa" ;
+    wtq:hasPlace "T4" ;
+    wtq:hasPlayer "Ernie Els" ;
+    wtq:hasScore "73-68-72=213" ;
+    wtq:hasTo_par "E" ;
+    wtq:hasindex "3" .
+
+wtq:2010_U.S._Open_\(golf\)_row_4 wtq:hasCountry "France" ;
+    wtq:hasPlace "T4" ;
+    wtq:hasPlayer "Grégory Havret" ;
+    wtq:hasScore "73-71-69=213" ;
+    wtq:hasTo_par "E" ;
+    wtq:hasindex "4" .
+

@@ -1,0 +1,165 @@
+@prefix ns1: <http://wikitablequestion.org/hasMen'> .
+@prefix ns2: <http://wikitablequestion.org/hasWomen'> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Eindhoven_Marathon a wtq:Entity ;
+    wtq:hasRow wtq:Eindhoven_Marathon_row_10,
+        wtq:Eindhoven_Marathon_row_14,
+        wtq:Eindhoven_Marathon_row_17,
+        wtq:Eindhoven_Marathon_row_18,
+        wtq:Eindhoven_Marathon_row_19,
+        wtq:Eindhoven_Marathon_row_20,
+        wtq:Eindhoven_Marathon_row_21,
+        wtq:Eindhoven_Marathon_row_22,
+        wtq:Eindhoven_Marathon_row_23,
+        wtq:Eindhoven_Marathon_row_25,
+        wtq:Eindhoven_Marathon_row_27,
+        wtq:Eindhoven_Marathon_row_3 .
+
+wtq:Eindhoven_Marathon_row_10 wtq:hasEdition "20th" ;
+    ns1:s_winner "Willy Cheruiyot (KEN)" ;
+    wtq:hasTime "2:09:05" ;
+    wtq:hasTime.1 "2:36:36" ;
+    ns2:s_winner "Vivian Ruijters (NED)" ;
+    wtq:hasYear "October 12, 2003" ;
+    wtq:hasindex "10" .
+
+wtq:Eindhoven_Marathon_row_14 wtq:hasEdition "16th" ;
+    ns1:s_winner "David Ngetich (KEN)" ;
+    wtq:hasTime "2:09:24" ;
+    wtq:hasTime.1 "2:28:45" ;
+    ns2:s_winner wd:Q275854,
+        "Nadezhda Wijenberg (NED)" ;
+    wtq:hasYear "October 10, 1999" ;
+    wtq:hasindex "14" .
+
+wtq:Eindhoven_Marathon_row_17 wtq:hasEdition "13th" ;
+    ns1:s_winner wd:Q2459680,
+        "Tumo Turbo (ETH)" ;
+    wtq:hasTime "2:11:26" ;
+    wtq:hasTime.1 "2:37:47" ;
+    ns2:s_winner "Simona Staicu (ROU)" ;
+    wtq:hasYear "October 13, 1996" ;
+    wtq:hasindex "17" .
+
+wtq:Eindhoven_Marathon_row_18 wtq:hasEdition "12th" ;
+    ns1:s_winner "Pyotro Sarafinyuk (UKR)" ;
+    wtq:hasTime "2:16:40" ;
+    wtq:hasTime.1 "2:35:16" ;
+    ns2:s_winner wd:Q459521,
+        "Carla Beurskens (NED)" ;
+    wtq:hasYear "October 8, 1995" ;
+    wtq:hasindex "18" .
+
+wtq:Eindhoven_Marathon_row_19 wtq:hasEdition "11th" ;
+    ns1:s_winner "Aiduna Aitnafa (ETH)" ;
+    wtq:hasTime "2:11:37" ;
+    wtq:hasTime.1 "2:45:03" ;
+    ns2:s_winner "Jeanne Jansen (NED)" ;
+    wtq:hasYear "October 9, 1994" ;
+    wtq:hasindex "19" .
+
+wtq:Eindhoven_Marathon_row_20 wtq:hasEdition "10th" ;
+    ns1:s_winner wd:Q6891300,
+        "Mohamed Kamel Selmi (ALG)" ;
+    wtq:hasTime "2:12:47" ;
+    wtq:hasTime.1 "2:40:57" ;
+    ns2:s_winner "Liesbeth van Ast (NED)" ;
+    wtq:hasYear "October 10, 1993" ;
+    wtq:hasindex "20" .
+
+wtq:Eindhoven_Marathon_row_21 wtq:hasEdition "9th" ;
+    ns1:s_winner "Andy Green (ENG)" ;
+    wtq:hasTime "2:15:09" ;
+    wtq:hasTime.1 "2:37:18" ;
+    ns2:s_winner "Adriana Andrescu (ROU)" ;
+    wtq:hasYear "October 11, 1992" ;
+    wtq:hasindex "21" .
+
+wtq:Eindhoven_Marathon_row_22 wtq:hasEdition "8th" ;
+    ns1:s_winner wd:Q7938419,
+        "Vladimir Kotov (BLR)" ;
+    wtq:hasTime "2:14:03" ;
+    wtq:hasTime.1 "2:46:28" ;
+    ns2:s_winner "Mieke Hombergen (NED)" ;
+    wtq:hasYear "October 13, 1991" ;
+    wtq:hasindex "22" .
+
+wtq:Eindhoven_Marathon_row_23 wtq:hasEdition "7th" ;
+    ns1:s_winner "John Vermeule (NED)" ;
+    wtq:hasTime "2:15:03" ;
+    wtq:hasTime.1 "2:44:59" ;
+    ns2:s_winner "Mieke Hombergen (NED)" ;
+    wtq:hasYear "October 14, 1990" ;
+    wtq:hasindex "23" .
+
+wtq:Eindhoven_Marathon_row_25 wtq:hasEdition "5th" ;
+    ns1:s_winner wd:Q6409268,
+        "Kim Reynierse (NED)" ;
+    wtq:hasTime "2:15:13" ;
+    wtq:hasTime.1 "2:55:39" ;
+    ns2:s_winner "Heather MacDuff (ENG)" ;
+    wtq:hasYear "October 12, 1986" ;
+    wtq:hasindex "25" .
+
+wtq:Eindhoven_Marathon_row_27 wtq:hasEdition "3rd" ;
+    ns1:s_winner "Lucien Rottiers (BEL)" ;
+    wtq:hasTime "2:16:27" ;
+    wtq:hasTime.1 "2:59:07" ;
+    ns2:s_winner "Ann Rindt (NED)" ;
+    wtq:hasYear "October 24, 1982" ;
+    wtq:hasindex "27" .
+
+wtq:Eindhoven_Marathon_row_3 wtq:hasEdition "27th" ;
+    ns1:s_winner wd:Q704592,
+        "Charles Kamathi (KEN)" ;
+    wtq:hasTime "2:07:38" ;
+    wtq:hasTime.1 "2:25:35" ;
+    ns2:s_winner wd:Q299896,
+        "Atsede Habtamu (ETH)" ;
+    wtq:hasYear "October 10, 2010" ;
+    wtq:hasindex "3" .
+
+wd:Q2459680 rdfs:label "Tumo Turbo" ;
+    wdt:P1344 "1996 Summer Olympics" ;
+    wdt:P21 "male" ;
+    wdt:P641 "athletics" .
+
+wd:Q275854 rdfs:label "Nadezhda Wijenberg" ;
+    wdt:P1344 "2000 Summer Olympics" ;
+    wdt:P27 "Kingdom of the Netherlands" ;
+    wdt:P734 "Wijenberg" .
+
+wd:Q299896 rdfs:label "Atsede Habtamu" ;
+    wdt:P106 "athletics competitor" ;
+    wdt:P21 "female" ;
+    wdt:P31 "human" .
+
+wd:Q459521 rdfs:label "Carla Beurskens" ;
+    wdt:P106 "athletics competitor" ;
+    wdt:P19 "Tegelen" ;
+    wdt:P641 "athletics" .
+
+wd:Q6409268 rdfs:label "Kim Reynierse" ;
+    wdt:P1344 "1992 Summer Olympics" ;
+    wdt:P27 "Kingdom of the Netherlands" ;
+    wdt:P641 "athletics" .
+
+wd:Q6891300 rdfs:label "Mohamed Salmi" ;
+    wdt:P1344 "1992 Summer Olympics" ;
+    wdt:P27 "Algeria" ;
+    wdt:P735 "Mohamed" .
+
+wd:Q704592 rdfs:label "Charles Kamathi" ;
+    wdt:P106 "athletics competitor",
+        "marathon runner" ;
+    wdt:P735 "Charles" .
+
+wd:Q7938419 rdfs:label "Uladzimir Kotaw" ;
+    wdt:P106 "marathon runner" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" .
+

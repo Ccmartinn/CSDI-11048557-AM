@@ -1,0 +1,153 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+<http://wikitablequestion.org/1992–93_Segunda_División> a wtq:Entity ;
+    wtq:hasRow <http://wikitablequestion.org/1992–93_Segunda_División_row_10>,
+        <http://wikitablequestion.org/1992–93_Segunda_División_row_14>,
+        <http://wikitablequestion.org/1992–93_Segunda_División_row_16>,
+        <http://wikitablequestion.org/1992–93_Segunda_División_row_17>,
+        <http://wikitablequestion.org/1992–93_Segunda_División_row_2>,
+        <http://wikitablequestion.org/1992–93_Segunda_División_row_3>,
+        <http://wikitablequestion.org/1992–93_Segunda_División_row_4>,
+        <http://wikitablequestion.org/1992–93_Segunda_División_row_6> .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_10> wtq:hasClub wd:Q853043,
+        "CD Badajoz" ;
+    wtq:hasDraws "8" ;
+    wtq:hasGoal_Difference "1" ;
+    wtq:hasGoals_against "36" ;
+    wtq:hasGoals_for "37" ;
+    wtq:hasLosses "16" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "36-2" ;
+    wtq:hasPosition "11" ;
+    wtq:hasWins "14" ;
+    wtq:hasindex "10" .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_14> wtq:hasClub "Athletic de Bilbao B" ;
+    wtq:hasDraws "15" ;
+    wtq:hasGoal_Difference "-1" ;
+    wtq:hasGoals_against "34" ;
+    wtq:hasGoals_for "33" ;
+    wtq:hasLosses "14" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "33-5" ;
+    wtq:hasPosition "15" ;
+    wtq:hasWins "9" ;
+    wtq:hasindex "14" .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_16> wtq:hasClub wd:Q742953,
+        "UE Figueres" ;
+    wtq:hasDraws "10" ;
+    wtq:hasGoal_Difference "-18" ;
+    wtq:hasGoals_against "59" ;
+    wtq:hasGoals_for "41" ;
+    wtq:hasLosses "17" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "32-6" ;
+    wtq:hasPosition "17" ;
+    wtq:hasWins "11" ;
+    wtq:hasindex "16" .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_17> wtq:hasClub wd:Q11984,
+        "CD Lugo" ;
+    wtq:hasDraws "11" ;
+    wtq:hasGoal_Difference "-18" ;
+    wtq:hasGoals_against "41" ;
+    wtq:hasGoals_for "23" ;
+    wtq:hasLosses "20" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "25-13" ;
+    wtq:hasPosition "18" ;
+    wtq:hasWins "7" ;
+    wtq:hasindex "17" .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_2> wtq:hasClub wd:Q12236,
+        "Racing de Santander" ;
+    wtq:hasDraws "6" ;
+    wtq:hasGoal_Difference "18" ;
+    wtq:hasGoals_against "38" ;
+    wtq:hasGoals_for "56" ;
+    wtq:hasLosses "9" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "52+14" ;
+    wtq:hasPosition "3" ;
+    wtq:hasWins "23" ;
+    wtq:hasindex "2" .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_3> wtq:hasClub wd:Q8835,
+        "RCD Mallorca" ;
+    wtq:hasDraws "8" ;
+    wtq:hasGoal_Difference "23" ;
+    wtq:hasGoals_against "34" ;
+    wtq:hasGoals_for "57" ;
+    wtq:hasLosses "9" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "50+12" ;
+    wtq:hasPosition "4" ;
+    wtq:hasWins "21" ;
+    wtq:hasindex "3" .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_4> wtq:hasClub wd:Q8723,
+        "Real Betis" ;
+    wtq:hasDraws "11" ;
+    wtq:hasGoal_Difference "16" ;
+    wtq:hasGoals_against "33" ;
+    wtq:hasGoals_for "49" ;
+    wtq:hasLosses "11" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "43+5" ;
+    wtq:hasPosition "5" ;
+    wtq:hasWins "16" ;
+    wtq:hasindex "4" .
+
+<http://wikitablequestion.org/1992–93_Segunda_División_row_6> wtq:hasClub wd:Q613222,
+        "Atlético Marbella" ;
+    wtq:hasDraws "8" ;
+    wtq:hasGoal_Difference "4" ;
+    wtq:hasGoals_against "41" ;
+    wtq:hasGoals_for "45" ;
+    wtq:hasLosses "13" ;
+    wtq:hasPlayed "38" ;
+    wtq:hasPoints "42+4" ;
+    wtq:hasPosition "7" ;
+    wtq:hasWins "17" ;
+    wtq:hasindex "6" .
+
+wd:Q11984 rdfs:label "Club Deportivo Lugo" ;
+    wdt:P118 "LaLiga 2" ;
+    wdt:P17 "Spain" ;
+    wdt:P641 "association football" .
+
+wd:Q12236 rdfs:label "Racing de Santander" ;
+    wdt:P118 "LaLiga 2" ;
+    wdt:P159 "Santander" ;
+    wdt:P641 "association football" .
+
+wd:Q613222 rdfs:label "CA Marbella" ;
+    wdt:P115 "Estadio Municipal de Marbella" ;
+    wdt:P118 "Segunda Federación" ;
+    wdt:P1424 "Q25879626" .
+
+wd:Q742953 rdfs:label "UE Figueres" ;
+    wdt:P286 "Moisés Hurtado" ;
+    wdt:P488 "Narcís Bardalet Viñals" ;
+    wdt:P910 "Category:UE Figueres" .
+
+wd:Q853043 rdfs:label "Club Deportivo Badajoz" ;
+    wdt:P131 "Badajoz" ;
+    wdt:P17 "Spain" ;
+    wdt:P31 "association football club" .
+
+wd:Q8723 rdfs:label "Real Betis Balompié" ;
+    wdt:P159 "Seville" ;
+    wdt:P31 "professional sports team" ;
+    wdt:P641 "association football" .
+
+wd:Q8835 rdfs:label "RCD Mallorca" ;
+    wdt:P127 "Robert Sarver" ;
+    wdt:P159 "Palma" ;
+    wdt:P31 "association football club" .
+

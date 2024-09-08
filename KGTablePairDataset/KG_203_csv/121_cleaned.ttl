@@ -1,0 +1,135 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football> a wtq:Entity ;
+    wtq:hasRow <http://wikitablequestion.org/1947–48_in_Swedish_football_row_10>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_13>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_14>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_17>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_18>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_19>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_2>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_21>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_3>,
+        <http://wikitablequestion.org/1947–48_in_Swedish_football_row_4> .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_10> wtq:hascaps "5" ;
+    wtq:hasclub "IFK Norrköping" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "10" ;
+    wtq:hasname wd:Q1336279,
+        "Torsten \"Lindy\" Lindberg" ;
+    <http://wikitablequestion.org/haspos.> "GK" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_13> wtq:hascaps "4" ;
+    wtq:hasclub "Malmö FF" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "13" ;
+    wtq:hasname wd:Q704463,
+        "Erik Nilsson" ;
+    <http://wikitablequestion.org/haspos.> "DF" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_14> wtq:hascaps "2" ;
+    wtq:hasclub "AIK Solna" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "14" ;
+    wtq:hasname wd:Q973638,
+        "Harry Nilsson" ;
+    <http://wikitablequestion.org/haspos.> "DF" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_17> wtq:hascaps "4" ;
+    wtq:hasclub "Degerfors IF" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "17" ;
+    wtq:hasname wd:Q183274,
+        "Bertil Nordahl" ;
+    <http://wikitablequestion.org/haspos.> "MF" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_18> wtq:hascaps "6" ;
+    wtq:hasclub "IFK Norrköping" ;
+    wtq:hasgoals "8" ;
+    wtq:hasindex "18" ;
+    wtq:hasname wd:Q110111,
+        "Gunnar Nordahl" ;
+    <http://wikitablequestion.org/haspos.> "FW" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_19> wtq:hascaps "5" ;
+    wtq:hasclub "IFK Norrköping" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "19" ;
+    wtq:hasname wd:Q305262,
+        "Knut Nordahl" ;
+    <http://wikitablequestion.org/haspos.> "DF" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_2> wtq:hascaps "2" ;
+    wtq:hasclub "AIK Solna" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "2" ;
+    wtq:hasname wd:Q1375621,
+        "Henry \"Garvis\" Carlsson" ;
+    <http://wikitablequestion.org/haspos.> "FW" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_21> wtq:hascaps "4" ;
+    wtq:hasclub "Malmö FF" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "21" ;
+    wtq:hasname "Kjell Rosén" ;
+    <http://wikitablequestion.org/haspos.> "MF/FW" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_3> wtq:hascaps "2" ;
+    wtq:hasclub "IFK Göteborg" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "3" ;
+    wtq:hasname wd:Q3942718,
+        "Rune \"Killing\" Emanuelsson" ;
+    <http://wikitablequestion.org/haspos.> "MF" .
+
+<http://wikitablequestion.org/1947–48_in_Swedish_football_row_4> wtq:hascaps "1" ;
+    wtq:hasclub "IS Halmia Halmstad" ;
+    wtq:hasgoals "0" ;
+    wtq:hasindex "4" ;
+    wtq:hasname "Thure Grahn" ;
+    <http://wikitablequestion.org/haspos.> "DF" .
+
+wd:Q110111 rdfs:label "Gunnar Nordahl" ;
+    wdt:P19 "Hörnefors" ;
+    wdt:P20 "Alghero" ;
+    wdt:P21 "male" .
+
+wd:Q1336279 rdfs:label "Torsten Lindberg" ;
+    wdt:P19 "Nässjö" ;
+    wdt:P54 "Sweden national association football team" ;
+    wdt:P6087 "Djurgårdens IF Fotboll" .
+
+wd:Q1375621 rdfs:label "Henry Carlsson" ;
+    wdt:P1343 "Vem är det 1955",
+        "Vem är det 1967",
+        "Vem är det 1977" .
+
+wd:Q183274 rdfs:label "Bertil Nordahl" ;
+    wdt:P19 "Hörnefors" ;
+    wdt:P3373 "Gunnar Nordahl" ;
+    wdt:P54 "Atalanta BC" .
+
+wd:Q305262 rdfs:label "Knut Nordahl" ;
+    wdt:P21 "male" ;
+    wdt:P54 "Degerfors IF",
+        "IFK Norrköping FK" .
+
+wd:Q3942718 rdfs:label "Rune Emanuelsson" ;
+    wdt:P106 "association football player" ;
+    wdt:P166 "Q10549123" ;
+    wdt:P21 "male" .
+
+wd:Q704463 rdfs:label "Erik Nilsson" ;
+    wdt:P1344 "1952 Summer Olympics" ;
+    wdt:P1532 "Sweden" ;
+    wdt:P735 "Erik" .
+
+wd:Q973638 rdfs:label "Harry Nilsson" ;
+    wdt:P119 "Solna cemetery" ;
+    wdt:P27 "Sweden" ;
+    wdt:P31 "human" .
+

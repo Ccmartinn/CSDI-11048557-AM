@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q739", "label": "wd:Q739", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Eder_S\u00e1nchez", "label": "wtq:Eder_S\u00e1nchez", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Eder_S\u00e1nchez_row_4", "label": "wtq:Eder_S\u00e1nchez_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Eder_S\u00e1nchez_row_9", "label": "wtq:Eder_S\u00e1nchez_row_9", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q208675", "label": "wd:Q208675", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Eder_S\u00e1nchez_row_2", "label": "wtq:Eder_S\u00e1nchez_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q38", "label": "wd:Q38", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2869137", "label": "wd:Q2869137", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q20927", "label": "wd:Q20927", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q630307", "label": "wd:Q630307", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Eder_S\u00e1nchez_row_3", "label": "wtq:Eder_S\u00e1nchez_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q6716", "label": "wd:Q6716", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q657461", "label": "wd:Q657461", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q884", "label": "wd:Q884", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1757", "label": "wd:Q1757", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q280944", "label": "wd:Q280944", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q33", "label": "wd:Q33", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Colombia", "label": "Colombia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_athletics at the 2006 Central American and Caribbean Games", "label": "athletics at the 2006 Central American and Caribbean Games", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Daegu", "label": "Daegu", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_2005 World Championships in Athletics \u2013 women\u0027s 5000 metres", "label": "2005 World Championships in Athletics \u2013 women\u0027s 5000 metres", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_20 km", "label": "20 km", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_2005 World Championships in Athletics \u2013 Women\u0027s Marathon", "label": "2005 World Championships in Athletics \u2013 Women\u0027s Marathon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Grosseto", "label": "Grosseto", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Cartagena, Colombia", "label": "Cartagena, Colombia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_1:23:05", "label": "1:23:05", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Grosseto, Italy", "label": "Grosseto, Italy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_41:01.64", "label": "41:01.64", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_mayor of Cartagena de Indias", "label": "mayor of Cartagena de Indias", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_2005 World Championships in Athletics", "label": "2005 World Championships in Athletics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_World Junior Championships", "label": "World Junior Championships", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_Korea Standard Time", "label": "Korea Standard Time", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_.co", "label": ".co", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_2005 World Championships in Athletics \u2013 women\u0027s discus throw", "label": "2005 World Championships in Athletics \u2013 women\u0027s discus throw", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_South Korea", "label": "South Korea", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Panama", "label": "Panama", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_UNESCO", "label": "UNESCO", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_1:20:45", "label": "1:20:45", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_World Athletics Championships", "label": "World Athletics Championships", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_15th", "label": "15th", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Campagnatico", "label": "Campagnatico", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Cartagena de Indias", "label": "Cartagena de Indias", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Italy", "label": "Italy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_1:26:30", "label": "1:26:30", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_commune of Italy", "label": "commune of Italy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_10 km", "label": "10 km", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_2011", "label": "2011", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Cartagena de Indias", "label": "Cartagena de Indias", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_list of cities in Colombia", "label": "list of cities in Colombia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_World Championships", "label": "World Championships", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_UTC\u221205:00", "label": "UTC\u221205:00", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_8th", "label": "8th", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_2005", "label": "2005", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Helsinki", "label": "Helsinki", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_2006", "label": "2006", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_Gavorrano", "label": "Gavorrano", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_2004 World Junior Championships in Athletics", "label": "2004 World Junior Championships in Athletics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Italy", "label": "Italy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Daegu Stadium", "label": "Daegu Stadium", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_World Athletics U20 Championships", "label": "World Athletics U20 Championships", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Espoo", "label": "Espoo", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_Nuclear Suppliers Group", "label": "Nuclear Suppliers Group", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Central American and Caribbean Games", "label": "Central American and Caribbean Games", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_South Korea", "label": "South Korea", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_athletics at the 2010 Central American and Caribbean Games", "label": "athletics at the 2010 Central American and Caribbean Games", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_World Championships", "label": "World Championships", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_20 km", "label": "20 km", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_International Holocaust Remembrance Alliance", "label": "International Holocaust Remembrance Alliance", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Helsinki, Finland", "label": "Helsinki, Finland", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_European Southern Observatory", "label": "European Southern Observatory", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Nicaragua", "label": "Nicaragua", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_athletics", "label": "athletics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_4th", "label": "4th", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Dalseong County", "label": "Dalseong County", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Gustav I of Sweden", "label": "Gustav I of Sweden", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_2011 World Championships in Athletics", "label": "2011 World Championships in Athletics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_20\u00a0km", "label": "20\u00a0km", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_Finland", "label": "Finland", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_2011 World Championships in Athletics \u2013 men\u0027s pole vault", "label": "2011 World Championships in Athletics \u2013 men\u0027s pole vault", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_2nd", "label": "2nd", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_Daegu, Korea", "label": "Daegu, Korea", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_Latin Union", "label": "Latin Union", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_MIKTA", "label": "MIKTA", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_metropolitan city of South Korea", "label": "metropolitan city of South Korea", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_International Civil Aviation Organization", "label": "International Civil Aviation Organization", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_municipality of Finland", "label": "municipality of Finland", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_2004", "label": "2004", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_2006 World Junior Championships in Athletics", "label": "2006 World Junior Championships in Athletics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_International Development Association", "label": "International Development Association", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q739", "title": "wtq:hasVenue", "to": "wtq:Eder_S\u00e1nchez_row_4"}, {"from": "wd:Q739", "title": "rdfs:label", "to": "literal_0_Colombia"}, {"from": "wd:Q739", "title": "wdt:P78", "to": "literal_16_.co"}, {"from": "wd:Q739", "title": "wdt:P47", "to": "literal_19_Panama"}, {"from": "wd:Q739", "title": "wdt:P47", "to": "literal_55_Nicaragua"}, {"from": "wtq:Eder_S\u00e1nchez", "title": "wtq:hasRow", "to": "wtq:Eder_S\u00e1nchez_row_4"}, {"from": "wtq:Eder_S\u00e1nchez", "title": "wtq:hasRow", "to": "wtq:Eder_S\u00e1nchez_row_2"}, {"from": "wtq:Eder_S\u00e1nchez", "title": "wtq:hasRow", "to": "wtq:Eder_S\u00e1nchez_row_9"}, {"from": "wtq:Eder_S\u00e1nchez", "title": "wtq:hasRow", "to": "wtq:Eder_S\u00e1nchez_row_3"}, {"from": "wtq:Eder_S\u00e1nchez", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasCompetition", "to": "wd:Q2869137"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasVenue", "to": "wd:Q657461"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasVenue", "to": "literal_8_Cartagena, Colombia"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasNotes", "to": "literal_27_1:26:30"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasYear", "to": "literal_38_2006"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasCompetition", "to": "literal_46_Central American and Caribbean Games"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasindex", "to": "literal_47_4"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasEvent", "to": "literal_61_20\u00a0km"}, {"from": "wtq:Eder_S\u00e1nchez_row_4", "title": "wtq:hasPosition", "to": "literal_64_2nd"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasCompetition", "to": "wd:Q208675"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasVenue", "to": "wd:Q884"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasVenue", "to": "wd:Q20927"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasindex", "to": "literal_5_9"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasNotes", "to": "literal_9_1:23:05"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasPosition", "to": "literal_23_15th"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasYear", "to": "literal_30_2011"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasCompetition", "to": "literal_50_World Championships"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasEvent", "to": "literal_51_20 km"}, {"from": "wtq:Eder_S\u00e1nchez_row_9", "title": "wtq:hasVenue", "to": "literal_65_Daegu, Korea"}, {"from": "wd:Q208675", "title": "wdt:P31", "to": "literal_22_World Athletics Championships"}, {"from": "wd:Q208675", "title": "wdt:P276", "to": "literal_42_Daegu Stadium"}, {"from": "wd:Q208675", "title": "rdfs:label", "to": "literal_60_2011 World Championships in Athletics"}, {"from": "wd:Q208675", "title": "wdt:P527", "to": "literal_63_2011 World Championships in Athletics \u2013 men\u0027s pole vault"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasCompetition", "to": "wd:Q38"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasCompetition", "to": "wd:Q6716"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasYear", "to": "wd:Q280944"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasVenue", "to": "literal_10_Grosseto, Italy"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasNotes", "to": "literal_11_41:01.64"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasCompetition", "to": "literal_14_World Junior Championships"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasEvent", "to": "literal_29_10 km"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasPosition", "to": "literal_57_4th"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasYear", "to": "literal_72_2004"}, {"from": "wtq:Eder_S\u00e1nchez_row_2", "title": "wtq:hasindex", "to": "literal_73_2"}, {"from": "wd:Q38", "title": "rdfs:label", "to": "literal_26_Italy"}, {"from": "wd:Q38", "title": "wdt:P463", "to": "literal_54_European Southern Observatory"}, {"from": "wd:Q38", "title": "wdt:P463", "to": "literal_66_Latin Union"}, {"from": "wd:Q38", "title": "wdt:P463", "to": "literal_69_International Civil Aviation Organization"}, {"from": "wd:Q2869137", "title": "rdfs:label", "to": "literal_1_athletics at the 2006 Central American and Caribbean Games"}, {"from": "wd:Q2869137", "title": "wdt:P276", "to": "literal_25_Cartagena de Indias"}, {"from": "wd:Q2869137", "title": "wdt:P156", "to": "literal_49_athletics at the 2010 Central American and Caribbean Games"}, {"from": "wd:Q2869137", "title": "wdt:P641", "to": "literal_56_athletics"}, {"from": "wd:Q20927", "title": "rdfs:label", "to": "literal_2_Daegu"}, {"from": "wd:Q20927", "title": "wdt:P17", "to": "literal_18_South Korea"}, {"from": "wd:Q20927", "title": "wdt:P150", "to": "literal_58_Dalseong County"}, {"from": "wd:Q20927", "title": "wdt:P31", "to": "literal_68_metropolitan city of South Korea"}, {"from": "wd:Q630307", "title": "wtq:hasCompetition", "to": "wtq:Eder_S\u00e1nchez_row_3"}, {"from": "wd:Q630307", "title": "wdt:P527", "to": "literal_3_2005 World Championships in Athletics \u2013 women\u0027s 5000 metres"}, {"from": "wd:Q630307", "title": "wdt:P527", "to": "literal_6_2005 World Championships in Athletics \u2013 Women\u0027s Marathon"}, {"from": "wd:Q630307", "title": "rdfs:label", "to": "literal_13_2005 World Championships in Athletics"}, {"from": "wd:Q630307", "title": "wdt:P527", "to": "literal_17_2005 World Championships in Athletics \u2013 women\u0027s discus throw"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasVenue", "to": "wd:Q1757"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasVenue", "to": "wd:Q33"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasEvent", "to": "literal_4_20 km"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasNotes", "to": "literal_21_1:20:45"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasCompetition", "to": "literal_33_World Championships"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasPosition", "to": "literal_35_8th"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasYear", "to": "literal_36_2005"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasVenue", "to": "literal_53_Helsinki, Finland"}, {"from": "wtq:Eder_S\u00e1nchez_row_3", "title": "wtq:hasindex", "to": "literal_70_3"}, {"from": "wd:Q6716", "title": "rdfs:label", "to": "literal_7_Grosseto"}, {"from": "wd:Q6716", "title": "wdt:P47", "to": "literal_24_Campagnatico"}, {"from": "wd:Q6716", "title": "wdt:P31", "to": "literal_28_commune of Italy"}, {"from": "wd:Q6716", "title": "wdt:P47", "to": "literal_39_Gavorrano"}, {"from": "wd:Q657461", "title": "wdt:P1313", "to": "literal_12_mayor of Cartagena de Indias"}, {"from": "wd:Q657461", "title": "rdfs:label", "to": "literal_31_Cartagena de Indias"}, {"from": "wd:Q657461", "title": "wdt:P361", "to": "literal_32_list of cities in Colombia"}, {"from": "wd:Q657461", "title": "wdt:P421", "to": "literal_34_UTC\u221205:00"}, {"from": "wd:Q884", "title": "wdt:P421", "to": "literal_15_Korea Standard Time"}, {"from": "wd:Q884", "title": "wdt:P463", "to": "literal_20_UNESCO"}, {"from": "wd:Q884", "title": "rdfs:label", "to": "literal_48_South Korea"}, {"from": "wd:Q884", "title": "wdt:P361", "to": "literal_67_MIKTA"}, {"from": "wd:Q1757", "title": "rdfs:label", "to": "literal_37_Helsinki"}, {"from": "wd:Q1757", "title": "wdt:P47", "to": "literal_44_Espoo"}, {"from": "wd:Q1757", "title": "wdt:P112", "to": "literal_59_Gustav I of Sweden"}, {"from": "wd:Q1757", "title": "wdt:P31", "to": "literal_71_municipality of Finland"}, {"from": "wd:Q280944", "title": "rdfs:label", "to": "literal_40_2004 World Junior Championships in Athletics"}, {"from": "wd:Q280944", "title": "wdt:P17", "to": "literal_41_Italy"}, {"from": "wd:Q280944", "title": "wdt:P31", "to": "literal_43_World Athletics U20 Championships"}, {"from": "wd:Q280944", "title": "wdt:P156", "to": "literal_74_2006 World Junior Championships in Athletics"}, {"from": "wd:Q33", "title": "wdt:P463", "to": "literal_45_Nuclear Suppliers Group"}, {"from": "wd:Q33", "title": "wdt:P463", "to": "literal_52_International Holocaust Remembrance Alliance"}, {"from": "wd:Q33", "title": "rdfs:label", "to": "literal_62_Finland"}, {"from": "wd:Q33", "title": "wdt:P463", "to": "literal_75_International Development Association"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,351 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Lukas_Podolski a wtq:Entity ;
+    wtq:hasRow wtq:Lukas_Podolski_row_13,
+        wtq:Lukas_Podolski_row_19,
+        wtq:Lukas_Podolski_row_2,
+        wtq:Lukas_Podolski_row_21,
+        wtq:Lukas_Podolski_row_22,
+        wtq:Lukas_Podolski_row_23,
+        wtq:Lukas_Podolski_row_24,
+        wtq:Lukas_Podolski_row_26,
+        wtq:Lukas_Podolski_row_28,
+        wtq:Lukas_Podolski_row_3,
+        wtq:Lukas_Podolski_row_31,
+        wtq:Lukas_Podolski_row_32,
+        wtq:Lukas_Podolski_row_33,
+        wtq:Lukas_Podolski_row_34,
+        wtq:Lukas_Podolski_row_35,
+        wtq:Lukas_Podolski_row_36,
+        wtq:Lukas_Podolski_row_38,
+        wtq:Lukas_Podolski_row_42 .
+
+wtq:Lukas_Podolski_row_13 <http://wikitablequestion.org/has#> "14" ;
+    wtq:hasCompetition "FIFA World Cup 2006" ;
+    wtq:hasDate "24 June 2006" ;
+    wtq:hasOpponent "Sweden" ;
+    wtq:hasResult "2–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue wd:Q127429,
+        "Allianz Arena, Munich, Germany" ;
+    wtq:hasindex "13" .
+
+wtq:Lukas_Podolski_row_19 <http://wikitablequestion.org/has#> "20" ;
+    wtq:hasCompetition "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "6 September 2006" ;
+    wtq:hasOpponent "San Marino" ;
+    wtq:hasResult "13–0" ;
+    wtq:hasScore "10–0" ;
+    wtq:hasVenue "Stadio Olimpico, Serravalle, San Marino" ;
+    wtq:hasindex "19" .
+
+wtq:Lukas_Podolski_row_2 <http://wikitablequestion.org/has#> "3" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "26 March 2005" ;
+    wtq:hasOpponent wd:Q172221,
+        "Slovenia" ;
+    wtq:hasResult "1–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue wd:Q437,
+        "Bežigrad Stadium, Ljubljana, Slovenia" ;
+    wtq:hasindex "2" .
+
+wtq:Lukas_Podolski_row_21 <http://wikitablequestion.org/has#> "22" ;
+    wtq:hasCompetition "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "11 October 2006" ;
+    wtq:hasOpponent "Slovakia" ;
+    wtq:hasResult "4–1" ;
+    wtq:hasScore "4–1" ;
+    wtq:hasVenue "Tehelné Pole Stadion, Bratislava, Slovakia" ;
+    wtq:hasindex "21" .
+
+wtq:Lukas_Podolski_row_22 <http://wikitablequestion.org/has#> "23" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "12 September 2007" ;
+    wtq:hasOpponent wd:Q168397,
+        "Romania" ;
+    wtq:hasResult "3–1" ;
+    wtq:hasScore "3–1" ;
+    wtq:hasVenue wd:Q365,
+        "Rhein-Energie Stadion, Cologne, Germany" ;
+    wtq:hasindex "22" .
+
+wtq:Lukas_Podolski_row_23 <http://wikitablequestion.org/has#> "24" ;
+    wtq:hasCompetition "UEFA Euro 2008 qualifying" ;
+    wtq:hasDate "17 November 2007" ;
+    wtq:hasOpponent wd:Q188791,
+        "Cyprus" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasVenue wd:Q1715,
+        "AWD Arena, Hanover, Germany" ;
+    wtq:hasindex "23" .
+
+wtq:Lukas_Podolski_row_24 <http://wikitablequestion.org/has#> "25" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "26 March 2008" ;
+    wtq:hasOpponent wd:Q165141,
+        "Switzerland" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasVenue wd:Q78,
+        "St. Jakob Park, Basel, Switzerland" ;
+    wtq:hasindex "24" .
+
+wtq:Lukas_Podolski_row_26 <http://wikitablequestion.org/has#> "27" ;
+    wtq:hasCompetition "UEFA Euro 2008" ;
+    wtq:hasDate "8 June 2008" ;
+    wtq:hasOpponent "Poland" ;
+    wtq:hasResult "2–0" ;
+    wtq:hasScore "2–0" ;
+    wtq:hasVenue "Wörthersee Stadion, Klagenfurt, Austria" ;
+    wtq:hasindex "26" .
+
+wtq:Lukas_Podolski_row_28 <http://wikitablequestion.org/has#> "29" ;
+    wtq:hasCompetition wd:Q211814,
+        "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "6 September 2008" ;
+    wtq:hasOpponent wd:Q186690,
+        "Liechtenstein" ;
+    wtq:hasResult "6–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue wd:Q1844,
+        wd:Q597004,
+        "Rheinpark Stadion, Vaduz, Liechtenstein" ;
+    wtq:hasindex "28" .
+
+wtq:Lukas_Podolski_row_3 <http://wikitablequestion.org/has#> "4" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "4 June 2005" ;
+    wtq:hasOpponent wd:Q190978,
+        "Northern Ireland" ;
+    wtq:hasResult "4–1" ;
+    wtq:hasScore "4–1" ;
+    wtq:hasVenue wd:Q1049601,
+        wd:Q10686,
+        "Windsor Park, Belfast, Northern Ireland" ;
+    wtq:hasindex "3" .
+
+wtq:Lukas_Podolski_row_31 <http://wikitablequestion.org/has#> "32" ;
+    wtq:hasCompetition "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "28 March 2009" ;
+    wtq:hasOpponent wd:Q186690,
+        "Liechtenstein" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasVenue "Zentralstadion, Leipzig, Germany" ;
+    wtq:hasindex "31" .
+
+wtq:Lukas_Podolski_row_32 <http://wikitablequestion.org/has#> "33" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "29 May 2009" ;
+    wtq:hasOpponent wd:Q130582,
+        "China PR" ;
+    wtq:hasResult "1–1" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasVenue wd:Q739528,
+        "Shanghai Stadium, Shanghai, China" ;
+    wtq:hasindex "32" .
+
+wtq:Lukas_Podolski_row_33 <http://wikitablequestion.org/has#> "34" ;
+    wtq:hasCompetition "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "9 September 2009" ;
+    wtq:hasOpponent wd:Q180800,
+        "Azerbaijan" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "4–0" ;
+    wtq:hasVenue wd:Q1715,
+        "AWD-Arena, Hanover, Germany" ;
+    wtq:hasindex "33" .
+
+wtq:Lukas_Podolski_row_34 <http://wikitablequestion.org/has#> "35" ;
+    wtq:hasCompetition "FIFA World Cup 2010 qualifying" ;
+    wtq:hasDate "14 October 2009" ;
+    wtq:hasOpponent wd:Q186532,
+        "Finland" ;
+    wtq:hasResult "1–1" ;
+    wtq:hasScore "1–1" ;
+    wtq:hasVenue "HSH Nordbank Arena, Hamburg, Germany" ;
+    wtq:hasindex "34" .
+
+wtq:Lukas_Podolski_row_35 <http://wikitablequestion.org/has#> "36" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "18 November 2009" ;
+    wtq:hasOpponent wd:Q175145,
+        "Ivory Coast" ;
+    wtq:hasResult "2–2" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue wd:Q2765,
+        "Veltins-Arena, Gelsenkirchen, Germany" ;
+    wtq:hasindex "35" .
+
+wtq:Lukas_Podolski_row_36 <http://wikitablequestion.org/has#> "37" ;
+    wtq:hasCompetition "Friendly" ;
+    wtq:hasDate "18 November 2009" ;
+    wtq:hasOpponent "Ivory Coast" ;
+    wtq:hasResult "2–2" ;
+    wtq:hasScore "2–2" ;
+    wtq:hasVenue "Veltins-Arena, Gelsenkirchen, Germany" ;
+    wtq:hasindex "36" .
+
+wtq:Lukas_Podolski_row_38 <http://wikitablequestion.org/has#> "39" ;
+    wtq:hasCompetition wd:Q176883,
+        "FIFA World Cup 2010" ;
+    wtq:hasDate "13 June 2010" ;
+    wtq:hasOpponent "Australia" ;
+    wtq:hasResult "4–0" ;
+    wtq:hasScore "1–0" ;
+    wtq:hasVenue wd:Q175289,
+        wd:Q5468,
+        "Moses Mabhida Stadium, Durban, South Africa" ;
+    wtq:hasindex "38" .
+
+wtq:Lukas_Podolski_row_42 <http://wikitablequestion.org/has#> "43" ;
+    wtq:hasCompetition "UEFA Euro 2012 qualifying" ;
+    wtq:hasDate "2 September 2011" ;
+    wtq:hasOpponent wd:Q163534,
+        "Austria" ;
+    wtq:hasResult "6–2" ;
+    wtq:hasScore "3–0" ;
+    wtq:hasVenue wd:Q2765,
+        "Veltins-Arena, Gelsenkirchen, Germany" ;
+    wtq:hasindex "42" .
+
+wd:Q1049601 rdfs:label "Windsor Park" ;
+    wdt:P127 "Irish Football Association" ;
+    wdt:P131 "Belfast" ;
+    wdt:P466 "Linfield F.C." .
+
+wd:Q10686 rdfs:label "Belfast" ;
+    wdt:P131 "Belfast" ;
+    wdt:P190 "Guadalajara" ;
+    wdt:P31 "city" .
+
+wd:Q127429 rdfs:label "Allianz Arena" ;
+    wdt:P127 "FC Bayern Munich" ;
+    wdt:P131 "Schwabing-Freimann" ;
+    wdt:P17 "Germany" .
+
+wd:Q130582 rdfs:label "China national football team" ;
+    wdt:P279 "national association football team" ;
+    wdt:P31 "national association football team" ;
+    wdt:P910 "Category:China national football team" .
+
+wd:Q163534 rdfs:label "Austria national association football team" ;
+    wdt:P1344 "1990 FIFA World Cup",
+        "1998 FIFA World Cup",
+        "Miracle of Cordoba" .
+
+wd:Q165141 rdfs:label "Switzerland national association football team" ;
+    wdt:P1344 "1966 FIFA World Cup",
+        "2010 FIFA World Cup",
+        "Austria v Switzerland (1954)" .
+
+wd:Q168397 rdfs:label "Romania national association football team" ;
+    wdt:P115 "National Arena" ;
+    wdt:P641 "association football" ;
+    wdt:P910 "Category:Romania national football team" .
+
+wd:Q172221 rdfs:label "Slovenia national football team" ;
+    wdt:P115 "Ljudski vrt" ;
+    wdt:P634 "Jan Oblak" ;
+    wdt:P641 "association football" .
+
+wd:Q175145 rdfs:label "Ivory Coast national football team" ;
+    wdt:P127 "Fédération Ivoirienne de Football" ;
+    wdt:P1344 "2006 FIFA World Cup",
+        "2014 FIFA World Cup" .
+
+wd:Q175289 rdfs:label "Moses Mabhida Stadium" ;
+    wdt:P127 "eThekwini Metropolitan Municipality" ;
+    wdt:P131 "Durban" ;
+    wdt:P138 "Moses Mabhida" .
+
+wd:Q176883 rdfs:label "2010 FIFA World Cup" ;
+    wdt:P527 "2010 FIFA World Cup knockout stage" ;
+    wdt:P641 "association football" ;
+    wdt:P822 "Zakami" .
+
+wd:Q180800 rdfs:label "Azerbaijan national football team" ;
+    wdt:P115 "Baku Olympic Stadium" ;
+    wdt:P127 "Association of Football Federations of Azerbaijan" ;
+    wdt:P910 "Category:Azerbaijan national football team" .
+
+wd:Q1844 rdfs:label "Vaduz" ;
+    wdt:P37 "German" ;
+    wdt:P47 "Planken",
+        "Triesen" .
+
+wd:Q186532 rdfs:label "Finland national football team" ;
+    wdt:P115 "Helsinki Olympic Stadium" ;
+    wdt:P17 "Finland" ;
+    wdt:P910 "Category:Finland national football team" .
+
+wd:Q188791 rdfs:label "Cyprus national football team" ;
+    wdt:P127 "Cyprus Football Association" ;
+    wdt:P2094 "men's association football" ;
+    wdt:P634 "Giorgos Merkis" .
+
+wd:Q190978 rdfs:label "Northern Ireland national association football team" ;
+    wdt:P127 "Irish Football Association" ;
+    wdt:P634 "Steven Davis" ;
+    wdt:P910 "Category:Northern Ireland national football team" .
+
+wd:Q211814 rdfs:label "2010 FIFA World Cup qualification (UEFA)" ;
+    wdt:P2094 "men's association football" ;
+    wdt:P276 "Europe" ;
+    wdt:P361 "2010 FIFA World Cup qualification" .
+
+wd:Q365 rdfs:label "Cologne" ;
+    wdt:P31 "Hanseatic city",
+        "urban municipality in Germany" ;
+    wdt:P47 "Rhein-Kreis Neuss" .
+
+wd:Q437 rdfs:label "Ljubljana" ;
+    wdt:P166 "Order of the People's Hero" ;
+    wdt:P17 "Slovenia" ;
+    wdt:P190 "Tbilisi" .
+
+wd:Q5468 rdfs:label "Durban" ;
+    wdt:P138 "Benjamin d'Urban" ;
+    wdt:P190 "Alexandria" ;
+    wdt:P31 "city" .
+
+wd:Q597004 rdfs:label "Rheinpark Stadion" ;
+    wdt:P127 "FC Vaduz" ;
+    wdt:P131 "Vaduz" ;
+    wdt:P641 "association football" .
+
+wd:Q739528 rdfs:label "Shanghai Stadium" ;
+    wdt:P131 "Xuhui District" ;
+    wdt:P31 "stadium" ;
+    wdt:P466 "Shanghai Port F.C." .
+
+wd:Q78 rdfs:label "Basel" ;
+    wdt:P31 "big city",
+        "city of Switzerland" ;
+    wdt:P47 "Riehen" .
+
+wd:Q1715 rdfs:label "Hanover" ;
+    wdt:P17 "Germany" ;
+    wdt:P31 "district capital" ;
+    wdt:P421 "UTC+02:00" ;
+    wdt:P460 "Q32052205" ;
+    wdt:P463 "Mayors for Peace" .
+
+wd:Q186690 rdfs:label "Liechtenstein national football team" ;
+    wdt:P1532 "Liechtenstein" ;
+    wdt:P31 "national association football team" ;
+    wdt:P641 "association football" ;
+    wdt:P910 "Category:Liechtenstein national football team" .
+
+wd:Q2765 rdfs:label "Gelsenkirchen" ;
+    wdt:P361 "Regionalverband Ruhr" ;
+    wdt:P463 "Emschergenossenschaft",
+        "Landschaftsverband Westfalen-Lippe",
+        "Lippeverband",
+        "Mayors for Peace" .
+

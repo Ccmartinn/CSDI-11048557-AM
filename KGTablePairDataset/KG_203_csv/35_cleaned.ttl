@@ -1,0 +1,166 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1996_Italian_motorcycle_Grand_Prix a wtq:Entity ;
+    wtq:hasRow wtq:1996_Italian_motorcycle_Grand_Prix_row_10,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_14,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_17,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_18,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_19,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_20,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_21,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_22,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_23,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_25,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_27,
+        wtq:1996_Italian_motorcycle_Grand_Prix_row_3 .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_10 wtq:hasManufacturer wd:Q622062,
+        "Aprilia" ;
+    wtq:hasPoints "5.0" ;
+    wtq:hasPos "11" ;
+    wtq:hasRider "Massimo Ottobre" ;
+    wtq:hasTime_Retired "+51.563" ;
+    wtq:hasindex "10" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_14 wtq:hasManufacturer wd:Q9584,
+        "Honda" ;
+    wtq:hasPoints "1.0" ;
+    wtq:hasPos "15" ;
+    wtq:hasRider wd:Q2189825,
+        "Jurgen vd Goorbergh" ;
+    wtq:hasTime_Retired "+52.569" ;
+    wtq:hasindex "14" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_17 wtq:hasManufacturer wd:Q622062,
+        "Aprilia" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "18" ;
+    wtq:hasRider "Olivier Petrucciani" ;
+    wtq:hasTime_Retired "+1:06.945" ;
+    wtq:hasindex "17" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_18 wtq:hasManufacturer wd:Q622062,
+        "Aprilia" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "19" ;
+    wtq:hasRider "Alessandro Antonello" ;
+    wtq:hasTime_Retired "+1:07.099" ;
+    wtq:hasindex "18" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_19 wtq:hasManufacturer wd:Q622062,
+        "Aprilia" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "20" ;
+    wtq:hasRider "Osamu Miyazaki" ;
+    wtq:hasTime_Retired "+1:32.873" ;
+    wtq:hasindex "19" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_20 wtq:hasManufacturer wd:Q622062,
+        "Aprilia" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "21" ;
+    wtq:hasRider "Davide Bulega" ;
+    wtq:hasTime_Retired "+1:32.902" ;
+    wtq:hasindex "20" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_21 wtq:hasManufacturer wd:Q9584,
+        "Honda" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "22" ;
+    wtq:hasRider "Yasumasa Hatakeyama" ;
+    wtq:hasTime_Retired "+1:34.039" ;
+    wtq:hasindex "21" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_22 wtq:hasManufacturer wd:Q622062,
+        "Aprilia" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "23" ;
+    wtq:hasRider wd:Q2274324,
+        "Franco Battaini" ;
+    wtq:hasTime_Retired "+1:34.363" ;
+    wtq:hasindex "22" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_23 wtq:hasManufacturer wd:Q9584,
+        "Honda" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "24" ;
+    wtq:hasRider wd:Q506322,
+        "Sete Gibernau" ;
+    wtq:hasTime_Retired "+1:34.931" ;
+    wtq:hasindex "23" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_25 wtq:hasManufacturer wd:Q4022440,
+        "Yamaha" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "26" ;
+    wtq:hasRider "José Barresi" ;
+    wtq:hasTime_Retired "+1 Lap" ;
+    wtq:hasindex "25" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_27 wtq:hasManufacturer wd:Q9584,
+        "Honda" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "28" ;
+    wtq:hasRider "Cristophe Cogan" ;
+    wtq:hasTime_Retired "+1 Lap" ;
+    wtq:hasindex "27" .
+
+wtq:1996_Italian_motorcycle_Grand_Prix_row_3 wtq:hasManufacturer wd:Q9584,
+        "Honda" ;
+    wtq:hasPoints "13.0" ;
+    wtq:hasPos "4" ;
+    wtq:hasRider wd:Q705985,
+        "Olivier Jacque" ;
+    wtq:hasTime_Retired "+18.607" ;
+    wtq:hasindex "3" .
+
+wd:Q2189825 rdfs:label "Jurgen van den Goorbergh" ;
+    wdt:P19 "Breda" ;
+    wdt:P21 "male" ;
+    wdt:P735 "Jurgen" .
+
+wd:Q2274324 rdfs:label "Franco Battaini" ;
+    wdt:P106 "motorcycle racer" ;
+    wdt:P19 "Brescia" ;
+    wdt:P31 "human" .
+
+wd:Q4022440 rdfs:label "Yamaha" ;
+    wdt:P1889 "Yamaha (2)" ;
+    wdt:P31 "Wikimedia disambiguation page" .
+
+wd:Q506322 rdfs:label "Sete Gibernau" ;
+    wdt:P1412 "Catalan" ;
+    wdt:P31 "human" ;
+    wdt:P641 "motorcycle sport" .
+
+wd:Q705985 rdfs:label "Olivier Jacque" ;
+    wdt:P103 "French" ;
+    wdt:P166 "Knight of the National Order of Merit" ;
+    wdt:P735 "Olivier" .
+
+wd:Q9584 rdfs:label "Honda" ;
+    wdt:P112 "Sōichirō Honda",
+        "Takeo Fujisawa" ;
+    wdt:P127 "JPMorgan Chase Bank, N.A.",
+        "Meiji Yasuda Life",
+        "The Master Trust Bank of Japan",
+        "Tokio Marine" ;
+    wdt:P17 "Japan" ;
+    wdt:P31 "automobile manufacturer",
+        "motorcycle manufacturer",
+        "public company" .
+
+wd:Q622062 rdfs:label "Aprilia" ;
+    wdt:P127 "Piaggio" ;
+    wdt:P159 "Noale" ;
+    wdt:P169 "Massimo Rivola" ;
+    wdt:P17 "Italy" ;
+    wdt:P31 "motorcycle manufacturer",
+        "subsidiary" ;
+    wdt:P6379 "Design Museum Gent" ;
+    wdt:P740 "Noale" ;
+    wdt:P749 "Piaggio" .
+

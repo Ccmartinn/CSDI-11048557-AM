@@ -1,0 +1,247 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Staple_food a wtq:Entity ;
+    wtq:hasRow wtq:Staple_food_row_14,
+        wtq:Staple_food_row_17,
+        wtq:Staple_food_row_19,
+        wtq:Staple_food_row_20,
+        wtq:Staple_food_row_22,
+        wtq:Staple_food_row_24,
+        wtq:Staple_food_row_25,
+        wtq:Staple_food_row_26,
+        wtq:Staple_food_row_27,
+        wtq:Staple_food_row_3,
+        wtq:Staple_food_row_30,
+        wtq:Staple_food_row_31,
+        wtq:Staple_food_row_4 .
+
+wtq:Staple_food_row_14 wtq:hasCassava "0.34" ;
+    wtq:hasMaize___Corn "2.21" ;
+    wtq:hasPlantain "0.14" ;
+    wtq:hasPotato "0.29" ;
+    wtq:hasRice "1.09" ;
+    <http://wikitablequestion.org/hasSTAPLE:> "Zinc (mg)" ;
+    wtq:hasSorghum "0" ;
+    wtq:hasSoybean__Green_ "0.99" ;
+    wtq:hasSweet_potato "0.3" ;
+    wtq:hasWheat "2.65" ;
+    wtq:hasYam "0.24" ;
+    wtq:hasindex "14" .
+
+wtq:Staple_food_row_17 wtq:hasCassava "0.7" ;
+    wtq:hasMaize___Corn "15.5" ;
+    wtq:hasPlantain "1.5" ;
+    wtq:hasPotato "0.3" ;
+    wtq:hasRice "15.1" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q7447880,
+        "Selenium (μg)" ;
+    wtq:hasSorghum "0" ;
+    wtq:hasSoybean__Green_ "1.5" ;
+    wtq:hasSweet_potato "0.6" ;
+    wtq:hasWheat "70.7" ;
+    wtq:hasYam "0.7" ;
+    wtq:hasindex "17" .
+
+wtq:Staple_food_row_19 wtq:hasCassava "0.09" ;
+    wtq:hasMaize___Corn "0.39" ;
+    wtq:hasPlantain "0.05" ;
+    wtq:hasPotato "0.08" ;
+    wtq:hasRice "0.07" ;
+    <http://wikitablequestion.org/hasSTAPLE:> "Thiamin (mg)" ;
+    wtq:hasSorghum "0.24" ;
+    wtq:hasSoybean__Green_ "0.44" ;
+    wtq:hasSweet_potato "0.08" ;
+    wtq:hasWheat "0.3" ;
+    wtq:hasYam "0.11" ;
+    wtq:hasindex "19" .
+
+wtq:Staple_food_row_20 wtq:hasCassava "0.05" ;
+    wtq:hasMaize___Corn "0.2" ;
+    wtq:hasPlantain "0.05" ;
+    wtq:hasPotato "0.03" ;
+    wtq:hasRice "0.05" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q130365,
+        "Riboflavin (mg)" ;
+    wtq:hasSorghum "0.14" ;
+    wtq:hasSoybean__Green_ "0.18" ;
+    wtq:hasSweet_potato "0.06" ;
+    wtq:hasWheat "0.12" ;
+    wtq:hasYam "0.03" ;
+    wtq:hasindex "20" .
+
+wtq:Staple_food_row_22 wtq:hasCassava "0.11" ;
+    wtq:hasMaize___Corn "0.42" ;
+    wtq:hasPlantain "0.26" ;
+    wtq:hasPotato "0.3" ;
+    wtq:hasRice "1.01" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q179894,
+        "Pantothenic acid (mg)" ;
+    wtq:hasSorghum "-" ;
+    wtq:hasSoybean__Green_ "0.15" ;
+    wtq:hasSweet_potato "0.8" ;
+    wtq:hasWheat "0.95" ;
+    wtq:hasYam "0.31" ;
+    wtq:hasindex "22" .
+
+wtq:Staple_food_row_24 wtq:hasCassava "27.0" ;
+    wtq:hasMaize___Corn "19.0" ;
+    wtq:hasPlantain "22.0" ;
+    wtq:hasPotato "16.0" ;
+    wtq:hasRice "8.0" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q127060,
+        "Folate Total (μg)" ;
+    wtq:hasSorghum "0" ;
+    wtq:hasSoybean__Green_ "165.0" ;
+    wtq:hasSweet_potato "11.0" ;
+    wtq:hasWheat "38.0" ;
+    wtq:hasYam "23.0" ;
+    wtq:hasindex "24" .
+
+wtq:Staple_food_row_25 wtq:hasCassava "13.0" ;
+    wtq:hasMaize___Corn "214.0" ;
+    wtq:hasPlantain "1127.0" ;
+    wtq:hasPotato "2.0" ;
+    wtq:hasRice "0.0" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q18225,
+        "Vitamin A (IU)" ;
+    wtq:hasSorghum "0" ;
+    wtq:hasSoybean__Green_ "180.0" ;
+    wtq:hasSweet_potato "14187.0" ;
+    wtq:hasWheat "9.0" ;
+    wtq:hasYam "138.0" ;
+    wtq:hasindex "25" .
+
+wtq:Staple_food_row_26 wtq:hasCassava "0.19" ;
+    wtq:hasMaize___Corn "0.49" ;
+    wtq:hasPlantain "0.14" ;
+    wtq:hasPotato "0.01" ;
+    wtq:hasRice "0.11" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q141180,
+        "Vitamin E, alpha-tocopherol (mg)" ;
+    wtq:hasSorghum "0" ;
+    wtq:hasSoybean__Green_ "0.0" ;
+    wtq:hasSweet_potato "0.26" ;
+    wtq:hasWheat "1.01" ;
+    wtq:hasYam "0.39" ;
+    wtq:hasindex "26" .
+
+wtq:Staple_food_row_27 wtq:hasCassava "1.9" ;
+    wtq:hasMaize___Corn "0.3" ;
+    wtq:hasPlantain "0.7" ;
+    wtq:hasPotato "1.9" ;
+    wtq:hasRice "0.1" ;
+    <http://wikitablequestion.org/hasSTAPLE:> "Vitamin K1 (μg)" ;
+    wtq:hasSorghum "0" ;
+    wtq:hasSoybean__Green_ "0.0" ;
+    wtq:hasSweet_potato "1.8" ;
+    wtq:hasWheat "1.9" ;
+    wtq:hasYam "2.6" ;
+    wtq:hasindex "27" .
+
+wtq:Staple_food_row_3 wtq:hasCassava "1.4" ;
+    wtq:hasMaize___Corn "9.4" ;
+    wtq:hasPlantain "1.3" ;
+    wtq:hasPotato "2.0" ;
+    wtq:hasRice "7.1" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q21296145,
+        "Protein (g)" ;
+    wtq:hasSorghum "11.3" ;
+    wtq:hasSoybean__Green_ "13.0" ;
+    wtq:hasSweet_potato "1.6" ;
+    wtq:hasWheat "12.6" ;
+    wtq:hasYam "1.5" ;
+    wtq:hasindex "3" .
+
+wtq:Staple_food_row_30 wtq:hasCassava "0.07" ;
+    wtq:hasMaize___Corn "0.67" ;
+    wtq:hasPlantain "0.14" ;
+    wtq:hasPotato "0.03" ;
+    wtq:hasRice "0.18" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q970537,
+        "Saturated fatty acids (g)" ;
+    wtq:hasSorghum "0.46" ;
+    wtq:hasSoybean__Green_ "0.79" ;
+    wtq:hasSweet_potato "0.02" ;
+    wtq:hasWheat "0.26" ;
+    wtq:hasYam "0.04" ;
+    wtq:hasindex "30" .
+
+wtq:Staple_food_row_31 wtq:hasCassava "0.08" ;
+    wtq:hasMaize___Corn "1.25" ;
+    wtq:hasPlantain "0.03" ;
+    wtq:hasPotato "0.0" ;
+    wtq:hasRice "0.21" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q61738980,
+        "Monounsaturated fatty acids (g)" ;
+    wtq:hasSorghum "0.99" ;
+    wtq:hasSoybean__Green_ "1.28" ;
+    wtq:hasSweet_potato "0.0" ;
+    wtq:hasWheat "0.2" ;
+    wtq:hasYam "0.01" ;
+    wtq:hasindex "31" .
+
+wtq:Staple_food_row_4 wtq:hasCassava "0.28" ;
+    wtq:hasMaize___Corn "4.74" ;
+    wtq:hasPlantain "0.37" ;
+    wtq:hasPotato "0.09" ;
+    wtq:hasRice "0.66" ;
+    <http://wikitablequestion.org/hasSTAPLE:> wd:Q127980,
+        "Fat (g)" ;
+    wtq:hasSorghum "3.3" ;
+    wtq:hasSoybean__Green_ "6.8" ;
+    wtq:hasSweet_potato "0.05" ;
+    wtq:hasWheat "1.54" ;
+    wtq:hasYam "0.17" ;
+    wtq:hasindex "4" .
+
+wd:Q127060 rdfs:label "folic acid" ;
+    wdt:P31 "type of chemical entity" ;
+    wdt:P703 "Capsicum annuum",
+        "Cucumis sativus" .
+
+wd:Q127980 rdfs:label "fat" ;
+    wdt:P1424 "Template:Fats and oils" ;
+    wdt:P279 "mixture" ;
+    wdt:P910 "Category:Fat" .
+
+wd:Q130365 rdfs:label "riboflavin" ;
+    wdt:P703 "Panax ginseng",
+        "Perilla frutescens",
+        "potato" .
+
+wd:Q141180 rdfs:label "vitamin E" ;
+    wdt:P31 "group of chemical entities" ;
+    wdt:P361 "cellular response to vitamin E",
+        "vitamin E biosynthetic process" .
+
+wd:Q179894 rdfs:label "pantothenic acid" ;
+    wdt:P3364 "(R)-pantothenate" ;
+    wdt:P4952 "NFPA 704: Standard System for the Identification of the Hazards of Materials for Emergency Response" ;
+    wdt:P703 "Caenorhabditis elegans" .
+
+wd:Q18225 rdfs:label "vitamin A" ;
+    wdt:P31 "group of chemical entities" ;
+    wdt:P361 "vitamin A transport" ;
+    wdt:P61 "Marguerite Davis" .
+
+wd:Q21296145 rdfs:label "protein" ;
+    wdt:P1889 "Protein" ;
+    wdt:P279 "protein" ;
+    wdt:P31 "group or class of proteins" .
+
+wd:Q61738980 rdfs:label "monounsaturated fatty acid" ;
+    wdt:P1889 "monounsaturated fat" ;
+    wdt:P31 "structural class of chemical entities" ;
+    wdt:P361 "monounsaturated fatty acid metabolic process" .
+
+wd:Q7447880 rdfs:label "selenium in biology" ;
+    wdt:P279 "selenium" .
+
+wd:Q970537 rdfs:label "saturated fat" ;
+    wdt:P1889 "saturated fatty acid" ;
+    wdt:P461 "unsaturated fat" ;
+    wdt:P527 "oxygen" .
+

@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q6396457", "label": "wd:Q6396457", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_NASCAR_Busch_Series_row_9", "label": "wtq:2007_NASCAR_Busch_Series_row_9", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q723929", "label": "wd:Q723929", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_NASCAR_Busch_Series_row_2", "label": "wtq:2007_NASCAR_Busch_Series_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1929735", "label": "wd:Q1929735", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_NASCAR_Busch_Series_row_6", "label": "wtq:2007_NASCAR_Busch_Series_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1094266", "label": "wd:Q1094266", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1152098", "label": "wd:Q1152098", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q29570", "label": "wd:Q29570", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_NASCAR_Busch_Series_row_4", "label": "wtq:2007_NASCAR_Busch_Series_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q560164", "label": "wd:Q560164", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1094254", "label": "wd:Q1094254", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2007_NASCAR_Busch_Series", "label": "wtq:2007_NASCAR_Busch_Series", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q53268", "label": "wd:Q53268", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_business", "label": "business", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_David Reutimann", "label": "David Reutimann", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Chevrolet", "label": "Chevrolet", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_automobile manufacturer", "label": "automobile manufacturer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Richard Childress Racing", "label": "Richard Childress Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Brad Keselowski", "label": "Brad Keselowski", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_auto racing team", "label": "auto racing team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_auto racing team", "label": "auto racing team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Rochester Hills", "label": "Rochester Hills", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Toyota", "label": "Toyota", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_auto racing", "label": "auto racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_29", "label": "29", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_88", "label": "88", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Brad Keselowski", "label": "Brad Keselowski", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Toyota Motor Engineering \u0026 Manufacturing North America", "label": "Toyota Motor Engineering \u0026 Manufacturing North America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_automotive industry", "label": "automotive industry", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Louis Chevrolet", "label": "Louis Chevrolet", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Scott Wimmer", "label": "Scott Wimmer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Kevin Harvick Incorporated", "label": "Kevin Harvick Incorporated", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Chevrolet", "label": "Chevrolet", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Michael Waltrip Racing", "label": "Michael Waltrip Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_auto racing team", "label": "auto racing team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_Ron Hornaday", "label": "Ron Hornaday", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Chevrolet", "label": "Chevrolet", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_JR Motorsports", "label": "JR Motorsports", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_business", "label": "business", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_David Reutimann", "label": "David Reutimann", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_JR Motorsports", "label": "JR Motorsports", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Richard Childress Racing", "label": "Richard Childress Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Kuozui Motors", "label": "Kuozui Motors", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Wausau", "label": "Wausau", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Chevrolet", "label": "Chevrolet", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_business", "label": "business", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_car brand", "label": "car brand", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_Zephyrhills", "label": "Zephyrhills", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Detroit", "label": "Detroit", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Kevin Harvick Incorporated", "label": "Kevin Harvick Incorporated", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_77", "label": "77", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_99", "label": "99", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_auto racing", "label": "auto racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Toyota Kirloskar Motor Private Limited", "label": "Toyota Kirloskar Motor Private Limited", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Bob Keselowski", "label": "Bob Keselowski", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Toyota", "label": "Toyota", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_William Crapo Durant", "label": "William Crapo Durant", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Zephyrhills High School", "label": "Zephyrhills High School", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Scott Wimmer", "label": "Scott Wimmer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_Michael Waltrip Racing", "label": "Michael Waltrip Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_Arthur Chevrolet", "label": "Arthur Chevrolet", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q6396457", "title": "wtq:hasTeam", "to": "wtq:2007_NASCAR_Busch_Series_row_4"}, {"from": "wd:Q6396457", "title": "wdt:P31", "to": "literal_0_business"}, {"from": "wd:Q6396457", "title": "wdt:P17", "to": "literal_27_United States of America"}, {"from": "wd:Q6396457", "title": "rdfs:label", "to": "literal_28_Kevin Harvick Incorporated"}, {"from": "wd:Q6396457", "title": "wdt:P31", "to": "literal_31_auto racing team"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasTeam", "to": "wd:Q1094266"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasDriver", "to": "wd:Q560164"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasMake", "to": "wd:Q29570"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasRow", "to": "wtq:2007_NASCAR_Busch_Series"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasPos.", "to": "literal_1_10"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasDriver", "to": "literal_8_Brad Keselowski"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasCar_#", "to": "literal_18_88"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasMake", "to": "literal_29_Chevrolet"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasTeam", "to": "literal_40_JR Motorsports"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_9", "title": "wtq:hasindex", "to": "literal_57_9"}, {"from": "wd:Q723929", "title": "wtq:hasDriver", "to": "wtq:2007_NASCAR_Busch_Series_row_2"}, {"from": "wd:Q723929", "title": "rdfs:label", "to": "literal_2_David Reutimann"}, {"from": "wd:Q723929", "title": "wdt:P21", "to": "literal_20_male"}, {"from": "wd:Q723929", "title": "wdt:P19", "to": "literal_47_Zephyrhills"}, {"from": "wd:Q723929", "title": "wdt:P69", "to": "literal_58_Zephyrhills High School"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasTeam", "to": "wd:Q1929735"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasRow", "to": "wtq:2007_NASCAR_Busch_Series"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasMake", "to": "wd:Q53268"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasindex", "to": "literal_9_2"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasMake", "to": "literal_13_Toyota"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasPos.", "to": "literal_19_3"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasTeam", "to": "literal_30_Michael Waltrip Racing"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasDriver", "to": "literal_38_David Reutimann"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_2", "title": "wtq:hasCar_#", "to": "literal_51_99"}, {"from": "wd:Q1929735", "title": "wdt:P17", "to": "literal_14_United States of America"}, {"from": "wd:Q1929735", "title": "wdt:P31", "to": "literal_45_business"}, {"from": "wd:Q1929735", "title": "wdt:P641", "to": "literal_52_auto racing"}, {"from": "wd:Q1929735", "title": "rdfs:label", "to": "literal_61_Michael Waltrip Racing"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasRow", "to": "wtq:2007_NASCAR_Busch_Series"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasDriver", "to": "wd:Q1094254"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasTeam", "to": "wd:Q1152098"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasMake", "to": "wd:Q29570"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasMake", "to": "literal_3_Chevrolet"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasPos.", "to": "literal_16_7"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasCar_#", "to": "literal_17_29"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasindex", "to": "literal_39_6"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasTeam", "to": "literal_41_Richard Childress Racing"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_6", "title": "wtq:hasDriver", "to": "literal_60_Scott Wimmer"}, {"from": "wd:Q1094266", "title": "wdt:P17", "to": "literal_4_United States of America"}, {"from": "wd:Q1094266", "title": "wdt:P31", "to": "literal_10_auto racing team"}, {"from": "wd:Q1094266", "title": "rdfs:label", "to": "literal_35_JR Motorsports"}, {"from": "wd:Q1152098", "title": "wdt:P17", "to": "literal_5_United States of America"}, {"from": "wd:Q1152098", "title": "rdfs:label", "to": "literal_7_Richard Childress Racing"}, {"from": "wd:Q1152098", "title": "wdt:P31", "to": "literal_11_auto racing team"}, {"from": "wd:Q1152098", "title": "wdt:P31", "to": "literal_37_business"}, {"from": "wd:Q29570", "title": "wtq:hasMake", "to": "wtq:2007_NASCAR_Busch_Series_row_4"}, {"from": "wd:Q29570", "title": "wdt:P31", "to": "literal_6_automobile manufacturer"}, {"from": "wd:Q29570", "title": "wdt:P452", "to": "literal_24_automotive industry"}, {"from": "wd:Q29570", "title": "wdt:P112", "to": "literal_25_Louis Chevrolet"}, {"from": "wd:Q29570", "title": "rdfs:label", "to": "literal_33_Chevrolet"}, {"from": "wd:Q29570", "title": "wdt:P31", "to": "literal_46_car brand"}, {"from": "wd:Q29570", "title": "wdt:P159", "to": "literal_48_Detroit"}, {"from": "wd:Q29570", "title": "wdt:P112", "to": "literal_56_William Crapo Durant"}, {"from": "wd:Q29570", "title": "wdt:P112", "to": "literal_62_Arthur Chevrolet"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_4", "title": "wtq:hasRow", "to": "wtq:2007_NASCAR_Busch_Series"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_4", "title": "wtq:hasindex", "to": "literal_21_4"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_4", "title": "wtq:hasDriver", "to": "literal_32_Ron Hornaday"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_4", "title": "wtq:hasMake", "to": "literal_44_Chevrolet"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_4", "title": "wtq:hasTeam", "to": "literal_49_Kevin Harvick Incorporated"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_4", "title": "wtq:hasCar_#", "to": "literal_50_77"}, {"from": "wtq:2007_NASCAR_Busch_Series_row_4", "title": "wtq:hasPos.", "to": "literal_59_5"}, {"from": "wd:Q560164", "title": "wdt:P19", "to": "literal_12_Rochester Hills"}, {"from": "wd:Q560164", "title": "rdfs:label", "to": "literal_22_Brad Keselowski"}, {"from": "wd:Q560164", "title": "wdt:P31", "to": "literal_36_human"}, {"from": "wd:Q560164", "title": "wdt:P22", "to": "literal_54_Bob Keselowski"}, {"from": "wd:Q1094254", "title": "wdt:P641", "to": "literal_15_auto racing"}, {"from": "wd:Q1094254", "title": "rdfs:label", "to": "literal_26_Scott Wimmer"}, {"from": "wd:Q1094254", "title": "wdt:P31", "to": "literal_34_human"}, {"from": "wd:Q1094254", "title": "wdt:P19", "to": "literal_43_Wausau"}, {"from": "wtq:2007_NASCAR_Busch_Series", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wd:Q53268", "title": "wdt:P355", "to": "literal_23_Toyota Motor Engineering \u0026 Manufacturing North America"}, {"from": "wd:Q53268", "title": "wdt:P355", "to": "literal_42_Kuozui Motors"}, {"from": "wd:Q53268", "title": "wdt:P355", "to": "literal_53_Toyota Kirloskar Motor Private Limited"}, {"from": "wd:Q53268", "title": "rdfs:label", "to": "literal_55_Toyota"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

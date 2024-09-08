@@ -1,0 +1,44 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Appalachian_Athletic_Conference a wtq:Entity ;
+    wtq:hasRow wtq:Appalachian_Athletic_Conference_row_10,
+        wtq:Appalachian_Athletic_Conference_row_2,
+        wtq:Appalachian_Athletic_Conference_row_3,
+        wtq:Appalachian_Athletic_Conference_row_4 .
+
+wtq:Appalachian_Athletic_Conference_row_10 wtq:hasEnrollment "1,368" ;
+    wtq:hasFounded "1879" ;
+    wtq:hasInstitution "Union College" ;
+    wtq:hasJoined "2001" ;
+    wtq:hasLocation "Barbourville, Kentucky" ;
+    wtq:hasNickname "Bulldogs" ;
+    wtq:hasType "Private/Christian (Methodist)" ;
+    wtq:hasindex "10" .
+
+wtq:Appalachian_Athletic_Conference_row_2 wtq:hasEnrollment "1,006" ;
+    wtq:hasFounded "1866" ;
+    wtq:hasInstitution "Milligan College" ;
+    wtq:hasJoined "2001" ;
+    wtq:hasLocation "Elizabethton, Tennessee" ;
+    wtq:hasNickname "Buffaloes" ;
+    wtq:hasType "Private (Disciples of Christ)" ;
+    wtq:hasindex "2" .
+
+wtq:Appalachian_Athletic_Conference_row_3 wtq:hasEnrollment "1,145" ;
+    wtq:hasFounded "1916" ;
+    wtq:hasInstitution "Montreat College" ;
+    wtq:hasJoined "2001" ;
+    wtq:hasLocation "Montreat, North Carolina" ;
+    wtq:hasNickname "Cavaliers" ;
+    wtq:hasType "Private (Presbyterian)" ;
+    wtq:hasindex "3" .
+
+wtq:Appalachian_Athletic_Conference_row_4 wtq:hasEnrollment "1,000" ;
+    wtq:hasFounded "1937" ;
+    wtq:hasInstitution "Point University" ;
+    wtq:hasJoined "2011" ;
+    wtq:hasLocation "West Point, Georgia" ;
+    wtq:hasNickname "Skyhawks" ;
+    wtq:hasType "Private (Christian churches and churches of Christ)" ;
+    wtq:hasindex "4" .
+

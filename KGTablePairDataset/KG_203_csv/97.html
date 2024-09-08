@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:Staple_food_row_14", "label": "wtq:Staple_food_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_27", "label": "wtq:Staple_food_row_27", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_31", "label": "wtq:Staple_food_row_31", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q61738980", "label": "wd:Q61738980", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_3", "label": "wtq:Staple_food_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_30", "label": "wtq:Staple_food_row_30", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_19", "label": "wtq:Staple_food_row_19", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_20", "label": "wtq:Staple_food_row_20", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q141180", "label": "wd:Q141180", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q970537", "label": "wd:Q970537", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_22", "label": "wtq:Staple_food_row_22", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_4", "label": "wtq:Staple_food_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_25", "label": "wtq:Staple_food_row_25", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q18225", "label": "wd:Q18225", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food", "label": "wtq:Staple_food", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q130365", "label": "wd:Q130365", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q127060", "label": "wd:Q127060", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_24", "label": "wtq:Staple_food_row_24", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_26", "label": "wtq:Staple_food_row_26", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q179894", "label": "wd:Q179894", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q21296145", "label": "wd:Q21296145", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7447880", "label": "wd:Q7447880", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q127980", "label": "wd:Q127980", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Staple_food_row_17", "label": "wtq:Staple_food_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_0.99", "label": "0.99", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_0.3", "label": "0.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_9.4", "label": "9.4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_0.29", "label": "0.29", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_monounsaturated fatty acid", "label": "monounsaturated fatty acid", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_2.6", "label": "2.6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_0.18", "label": "0.18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_0.24", "label": "0.24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_0.2", "label": "0.2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_0.05", "label": "0.05", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_group of chemical entities", "label": "group of chemical entities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_oxygen", "label": "oxygen", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Pantothenic acid (mg)", "label": "Pantothenic acid (mg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_1.54", "label": "1.54", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_138.0", "label": "138.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_1.01", "label": "1.01", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_214.0", "label": "214.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_0.03", "label": "0.03", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_4.74", "label": "4.74", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_0.11", "label": "0.11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Panax ginseng", "label": "Panax ginseng", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_folic acid", "label": "folic acid", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_30", "label": "30", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_0.18", "label": "0.18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_27.0", "label": "27.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Thiamin (mg)", "label": "Thiamin (mg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_0.39", "label": "0.39", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_0.0", "label": "0.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Perilla frutescens", "label": "Perilla frutescens", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_1127.0", "label": "1127.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_vitamin A transport", "label": "vitamin A transport", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_3.3", "label": "3.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_pantothenic acid", "label": "pantothenic acid", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_26", "label": "26", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_0.14", "label": "0.14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_0.0", "label": "0.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_1.25", "label": "1.25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_vitamin A", "label": "vitamin A", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Protein", "label": "Protein", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_0.0", "label": "0.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Monounsaturated fatty acids (g)", "label": "Monounsaturated fatty acids (g)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Fat (g)", "label": "Fat (g)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_vitamin E", "label": "vitamin E", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_riboflavin", "label": "riboflavin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_selenium in biology", "label": "selenium in biology", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Marguerite Davis", "label": "Marguerite Davis", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_1.9", "label": "1.9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_8.0", "label": "8.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_13.0", "label": "13.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_0.17", "label": "0.17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_protein", "label": "protein", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_0.06", "label": "0.06", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_0.49", "label": "0.49", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_0.07", "label": "0.07", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_0.01", "label": "0.01", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_0.02", "label": "0.02", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_Vitamin E, alpha-tocopherol (mg)", "label": "Vitamin E, alpha-tocopherol (mg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_14187.0", "label": "14187.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_0.03", "label": "0.03", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Zinc (mg)", "label": "Zinc (mg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_0.14", "label": "0.14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_0.34", "label": "0.34", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_Template:Fats and oils", "label": "Template:Fats and oils", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_7.1", "label": "7.1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_0.3", "label": "0.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_0.37", "label": "0.37", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_2.0", "label": "2.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_0.09", "label": "0.09", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_1.9", "label": "1.9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_15.1", "label": "15.1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_0.42", "label": "0.42", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_1.4", "label": "1.4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_0.2", "label": "0.2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_(R)-pantothenate", "label": "(R)-pantothenate", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_1.9", "label": "1.9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_0.3", "label": "0.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_Cucumis sativus", "label": "Cucumis sativus", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_cellular response to vitamin E", "label": "cellular response to vitamin E", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_0.7", "label": "0.7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_0.14", "label": "0.14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_2.65", "label": "2.65", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_1.6", "label": "1.6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_0.3", "label": "0.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_0.7", "label": "0.7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_0.31", "label": "0.31", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_11.0", "label": "11.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_23.0", "label": "23.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_9.0", "label": "9.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_22.0", "label": "22.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_0.05", "label": "0.05", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_19.0", "label": "19.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_structural class of chemical entities", "label": "structural class of chemical entities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_0.3", "label": "0.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_0.01", "label": "0.01", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_0.24", "label": "0.24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_1.3", "label": "1.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_180.0", "label": "180.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_0.04", "label": "0.04", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_Vitamin K1 (\u03bcg)", "label": "Vitamin K1 (\u03bcg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_potato", "label": "potato", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_0.44", "label": "0.44", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_Protein (g)", "label": "Protein (g)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_0.79", "label": "0.79", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_15.5", "label": "15.5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_0.21", "label": "0.21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_Saturated fatty acids (g)", "label": "Saturated fatty acids (g)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_1.28", "label": "1.28", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_fat", "label": "fat", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_0.26", "label": "0.26", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_116_12.6", "label": "12.6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_117_saturated fatty acid", "label": "saturated fatty acid", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_118_13.0", "label": "13.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_119_group or class of proteins", "label": "group or class of proteins", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_120_2.21", "label": "2.21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_121_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_122_0.07", "label": "0.07", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_123_27", "label": "27", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_124_2.0", "label": "2.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_125_0.08", "label": "0.08", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_126_0.95", "label": "0.95", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_127_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_128_0.15", "label": "0.15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_129_1.5", "label": "1.5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_130_0.26", "label": "0.26", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_131_0.0", "label": "0.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_132_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_133_Caenorhabditis elegans", "label": "Caenorhabditis elegans", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_134_NFPA 704: Standard System for the Identification of the Hazards of Materials for Emergency Response", "label": "NFPA 704: Standard System for the Identification of the Hazards of Materials for Emergency Response", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_135_1.8", "label": "1.8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_136_0.05", "label": "0.05", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_137_selenium", "label": "selenium", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_138_-", "label": "-", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_139_1.5", "label": "1.5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_140_0.28", "label": "0.28", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_141_protein", "label": "protein", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_142_0.26", "label": "0.26", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_143_monounsaturated fatty acid metabolic process", "label": "monounsaturated fatty acid metabolic process", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_144_0.46", "label": "0.46", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_145_0.03", "label": "0.03", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_146_0.66", "label": "0.66", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_147_1.5", "label": "1.5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_148_Category:Fat", "label": "Category:Fat", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_149_monounsaturated fat", "label": "monounsaturated fat", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_150_0.7", "label": "0.7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_151_0.8", "label": "0.8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_152_Folate Total (\u03bcg)", "label": "Folate Total (\u03bcg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_153_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_154_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_155_11.3", "label": "11.3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_156_vitamin E biosynthetic process", "label": "vitamin E biosynthetic process", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_157_0.05", "label": "0.05", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_158_1.09", "label": "1.09", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_159_0.67", "label": "0.67", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_160_38.0", "label": "38.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_161_0.99", "label": "0.99", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_162_6.8", "label": "6.8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_163_Selenium (\u03bcg)", "label": "Selenium (\u03bcg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_164_group of chemical entities", "label": "group of chemical entities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_165_165.0", "label": "165.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_166_0.1", "label": "0.1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_167_0.03", "label": "0.03", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_168_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_169_0.19", "label": "0.19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_170_1.01", "label": "1.01", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_171_31", "label": "31", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_172_25", "label": "25", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_173_0.08", "label": "0.08", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_174_70.7", "label": "70.7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_175_0.0", "label": "0.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_176_0.12", "label": "0.12", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_177_0.11", "label": "0.11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_178_0.08", "label": "0.08", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_179_24", "label": "24", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_180_0.14", "label": "0.14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_181_0.11", "label": "0.11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_182_0.39", "label": "0.39", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_183_mixture", "label": "mixture", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_184_0.09", "label": "0.09", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_185_0.05", "label": "0.05", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_186_type of chemical entity", "label": "type of chemical entity", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_187_0.6", "label": "0.6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_188_Riboflavin (mg)", "label": "Riboflavin (mg)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_189_unsaturated fat", "label": "unsaturated fat", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_190_saturated fat", "label": "saturated fat", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_191_Capsicum annuum", "label": "Capsicum annuum", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_192_16.0", "label": "16.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_193_Vitamin A (IU)", "label": "Vitamin A (IU)", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:Staple_food_row_14", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasSoybean__Green_", "to": "literal_0_0.99"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasPotato", "to": "literal_3_0.29"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasindex", "to": "literal_47_14"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasSTAPLE:", "to": "literal_64_Zinc (mg)"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasCassava", "to": "literal_66_0.34"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasPlantain", "to": "literal_85_0.14"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasWheat", "to": "literal_86_2.65"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasSweet_potato", "to": "literal_99_0.3"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasYam", "to": "literal_101_0.24"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasMaize___Corn", "to": "literal_120_2.21"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasSorghum", "to": "literal_154_0"}, {"from": "wtq:Staple_food_row_14", "title": "wtq:hasRice", "to": "literal_158_1.09"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasMaize___Corn", "to": "literal_1_0.3"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasYam", "to": "literal_5_2.6"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasSorghum", "to": "literal_18_0"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasSoybean__Green_", "to": "literal_30_0.0"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasPotato", "to": "literal_51_1.9"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasCassava", "to": "literal_73_1.9"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasWheat", "to": "literal_80_1.9"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasPlantain", "to": "literal_89_0.7"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasSTAPLE:", "to": "literal_105_Vitamin K1 (\u03bcg)"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasindex", "to": "literal_123_27"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasSweet_potato", "to": "literal_135_1.8"}, {"from": "wtq:Staple_food_row_27", "title": "wtq:hasRice", "to": "literal_166_0.1"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasSTAPLE:", "to": "wd:Q61738980"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasSweet_potato", "to": "literal_38_0.0"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasMaize___Corn", "to": "literal_39_1.25"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasPotato", "to": "literal_42_0.0"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasSTAPLE:", "to": "literal_43_Monounsaturated fatty acids (g)"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasYam", "to": "literal_59_0.01"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasPlantain", "to": "literal_63_0.03"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasWheat", "to": "literal_78_0.2"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasRice", "to": "literal_111_0.21"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasSoybean__Green_", "to": "literal_113_1.28"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasCassava", "to": "literal_125_0.08"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasSorghum", "to": "literal_161_0.99"}, {"from": "wtq:Staple_food_row_31", "title": "wtq:hasindex", "to": "literal_171_31"}, {"from": "wd:Q61738980", "title": "rdfs:label", "to": "literal_4_monounsaturated fatty acid"}, {"from": "wd:Q61738980", "title": "wdt:P31", "to": "literal_98_structural class of chemical entities"}, {"from": "wd:Q61738980", "title": "wdt:P361", "to": "literal_143_monounsaturated fatty acid metabolic process"}, {"from": "wd:Q61738980", "title": "wdt:P1889", "to": "literal_149_monounsaturated fat"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasSTAPLE:", "to": "wd:Q21296145"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasMaize___Corn", "to": "literal_2_9.4"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasindex", "to": "literal_19_3"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasRice", "to": "literal_68_7.1"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasCassava", "to": "literal_77_1.4"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasSweet_potato", "to": "literal_87_1.6"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasPlantain", "to": "literal_102_1.3"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasSTAPLE:", "to": "literal_108_Protein (g)"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasWheat", "to": "literal_116_12.6"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasSoybean__Green_", "to": "literal_118_13.0"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasPotato", "to": "literal_124_2.0"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasYam", "to": "literal_129_1.5"}, {"from": "wtq:Staple_food_row_3", "title": "wtq:hasSorghum", "to": "literal_155_11.3"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasSTAPLE:", "to": "wd:Q970537"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasRice", "to": "literal_6_0.18"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasPotato", "to": "literal_20_0.03"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasindex", "to": "literal_25_30"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasPlantain", "to": "literal_37_0.14"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasCassava", "to": "literal_58_0.07"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasSweet_potato", "to": "literal_60_0.02"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasYam", "to": "literal_104_0.04"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasSoybean__Green_", "to": "literal_109_0.79"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasSTAPLE:", "to": "literal_112_Saturated fatty acids (g)"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasWheat", "to": "literal_142_0.26"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasSorghum", "to": "literal_144_0.46"}, {"from": "wtq:Staple_food_row_30", "title": "wtq:hasMaize___Corn", "to": "literal_159_0.67"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasSorghum", "to": "literal_7_0.24"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasSTAPLE:", "to": "literal_28_Thiamin (mg)"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasWheat", "to": "literal_88_0.3"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasSoybean__Green_", "to": "literal_107_0.44"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasRice", "to": "literal_122_0.07"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasindex", "to": "literal_127_19"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasSweet_potato", "to": "literal_173_0.08"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasYam", "to": "literal_177_0.11"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasPotato", "to": "literal_178_0.08"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasMaize___Corn", "to": "literal_182_0.39"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasCassava", "to": "literal_184_0.09"}, {"from": "wtq:Staple_food_row_19", "title": "wtq:hasPlantain", "to": "literal_185_0.05"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasSTAPLE:", "to": "wd:Q130365"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasMaize___Corn", "to": "literal_8_0.2"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasCassava", "to": "literal_9_0.05"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasSoybean__Green_", "to": "literal_26_0.18"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasindex", "to": "literal_48_20"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasSweet_potato", "to": "literal_56_0.06"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasPlantain", "to": "literal_136_0.05"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasPotato", "to": "literal_145_0.03"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasRice", "to": "literal_157_0.05"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasYam", "to": "literal_167_0.03"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasWheat", "to": "literal_176_0.12"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasSorghum", "to": "literal_180_0.14"}, {"from": "wtq:Staple_food_row_20", "title": "wtq:hasSTAPLE:", "to": "literal_188_Riboflavin (mg)"}, {"from": "wd:Q141180", "title": "wtq:hasSTAPLE:", "to": "wtq:Staple_food_row_26"}, {"from": "wd:Q141180", "title": "wdt:P31", "to": "literal_10_group of chemical entities"}, {"from": "wd:Q141180", "title": "rdfs:label", "to": "literal_45_vitamin E"}, {"from": "wd:Q141180", "title": "wdt:P361", "to": "literal_83_cellular response to vitamin E"}, {"from": "wd:Q141180", "title": "wdt:P361", "to": "literal_156_vitamin E biosynthetic process"}, {"from": "wd:Q970537", "title": "wdt:P527", "to": "literal_11_oxygen"}, {"from": "wd:Q970537", "title": "wdt:P1889", "to": "literal_117_saturated fatty acid"}, {"from": "wd:Q970537", "title": "wdt:P461", "to": "literal_189_unsaturated fat"}, {"from": "wd:Q970537", "title": "rdfs:label", "to": "literal_190_saturated fat"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasSTAPLE:", "to": "wd:Q179894"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasSTAPLE:", "to": "literal_12_Pantothenic acid (mg)"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasindex", "to": "literal_14_22"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasRice", "to": "literal_16_1.01"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasCassava", "to": "literal_22_0.11"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasPotato", "to": "literal_69_0.3"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasMaize___Corn", "to": "literal_76_0.42"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasYam", "to": "literal_91_0.31"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasPlantain", "to": "literal_115_0.26"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasWheat", "to": "literal_126_0.95"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasSoybean__Green_", "to": "literal_128_0.15"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasSorghum", "to": "literal_138_-"}, {"from": "wtq:Staple_food_row_22", "title": "wtq:hasSweet_potato", "to": "literal_151_0.8"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasSTAPLE:", "to": "wd:Q127980"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasWheat", "to": "literal_13_1.54"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasMaize___Corn", "to": "literal_21_4.74"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasSorghum", "to": "literal_34_3.3"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasSTAPLE:", "to": "literal_44_Fat (g)"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasYam", "to": "literal_54_0.17"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasPlantain", "to": "literal_70_0.37"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasPotato", "to": "literal_72_0.09"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasindex", "to": "literal_90_4"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasSweet_potato", "to": "literal_96_0.05"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasCassava", "to": "literal_140_0.28"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasRice", "to": "literal_146_0.66"}, {"from": "wtq:Staple_food_row_4", "title": "wtq:hasSoybean__Green_", "to": "literal_162_6.8"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasSTAPLE:", "to": "wd:Q18225"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasRow", "to": "wtq:Staple_food"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasYam", "to": "literal_15_138.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasMaize___Corn", "to": "literal_17_214.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasPlantain", "to": "literal_32_1127.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasCassava", "to": "literal_53_13.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasSweet_potato", "to": "literal_62_14187.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasPotato", "to": "literal_71_2.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasWheat", "to": "literal_94_9.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasSoybean__Green_", "to": "literal_103_180.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasSorghum", "to": "literal_168_0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasindex", "to": "literal_172_25"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasRice", "to": "literal_175_0.0"}, {"from": "wtq:Staple_food_row_25", "title": "wtq:hasSTAPLE:", "to": "literal_193_Vitamin A (IU)"}, {"from": "wd:Q18225", "title": "wdt:P361", "to": "literal_33_vitamin A transport"}, {"from": "wd:Q18225", "title": "rdfs:label", "to": "literal_40_vitamin A"}, {"from": "wd:Q18225", "title": "wdt:P61", "to": "literal_50_Marguerite Davis"}, {"from": "wd:Q18225", "title": "wdt:P31", "to": "literal_164_group of chemical entities"}, {"from": "wtq:Staple_food", "title": "wtq:hasRow", "to": "wtq:Staple_food_row_24"}, {"from": "wtq:Staple_food", "title": "wtq:hasRow", "to": "wtq:Staple_food_row_17"}, {"from": "wtq:Staple_food", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:Staple_food", "title": "wtq:hasRow", "to": "wtq:Staple_food_row_26"}, {"from": "wd:Q130365", "title": "wdt:P703", "to": "literal_23_Panax ginseng"}, {"from": "wd:Q130365", "title": "wdt:P703", "to": "literal_31_Perilla frutescens"}, {"from": "wd:Q130365", "title": "rdfs:label", "to": "literal_46_riboflavin"}, {"from": "wd:Q130365", "title": "wdt:P703", "to": "literal_106_potato"}, {"from": "wd:Q127060", "title": "wtq:hasSTAPLE:", "to": "wtq:Staple_food_row_24"}, {"from": "wd:Q127060", "title": "rdfs:label", "to": "literal_24_folic acid"}, {"from": "wd:Q127060", "title": "wdt:P703", "to": "literal_82_Cucumis sativus"}, {"from": "wd:Q127060", "title": "wdt:P31", "to": "literal_186_type of chemical entity"}, {"from": "wd:Q127060", "title": "wdt:P703", "to": "literal_191_Capsicum annuum"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasCassava", "to": "literal_27_27.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasRice", "to": "literal_52_8.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasSweet_potato", "to": "literal_92_11.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasYam", "to": "literal_93_23.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasPlantain", "to": "literal_95_22.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasMaize___Corn", "to": "literal_97_19.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasSTAPLE:", "to": "literal_152_Folate Total (\u03bcg)"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasSorghum", "to": "literal_153_0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasWheat", "to": "literal_160_38.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasSoybean__Green_", "to": "literal_165_165.0"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasindex", "to": "literal_179_24"}, {"from": "wtq:Staple_food_row_24", "title": "wtq:hasPotato", "to": "literal_192_16.0"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasYam", "to": "literal_29_0.39"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasindex", "to": "literal_36_26"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasMaize___Corn", "to": "literal_57_0.49"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasSTAPLE:", "to": "literal_61_Vitamin E, alpha-tocopherol (mg)"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasPlantain", "to": "literal_65_0.14"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasPotato", "to": "literal_100_0.01"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasSorghum", "to": "literal_121_0"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasSweet_potato", "to": "literal_130_0.26"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasSoybean__Green_", "to": "literal_131_0.0"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasCassava", "to": "literal_169_0.19"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasWheat", "to": "literal_170_1.01"}, {"from": "wtq:Staple_food_row_26", "title": "wtq:hasRice", "to": "literal_181_0.11"}, {"from": "wd:Q179894", "title": "rdfs:label", "to": "literal_35_pantothenic acid"}, {"from": "wd:Q179894", "title": "wdt:P3364", "to": "literal_79_(R)-pantothenate"}, {"from": "wd:Q179894", "title": "wdt:P703", "to": "literal_133_Caenorhabditis elegans"}, {"from": "wd:Q179894", "title": "wdt:P4952", "to": "literal_134_NFPA 704: Standard System for the Identification of the Hazards of Materials for Emergency Response"}, {"from": "wd:Q21296145", "title": "wdt:P1889", "to": "literal_41_Protein"}, {"from": "wd:Q21296145", "title": "wdt:P279", "to": "literal_55_protein"}, {"from": "wd:Q21296145", "title": "wdt:P31", "to": "literal_119_group or class of proteins"}, {"from": "wd:Q21296145", "title": "rdfs:label", "to": "literal_141_protein"}, {"from": "wd:Q7447880", "title": "wtq:hasSTAPLE:", "to": "wtq:Staple_food_row_17"}, {"from": "wd:Q7447880", "title": "rdfs:label", "to": "literal_49_selenium in biology"}, {"from": "wd:Q7447880", "title": "wdt:P279", "to": "literal_137_selenium"}, {"from": "wd:Q127980", "title": "wdt:P1424", "to": "literal_67_Template:Fats and oils"}, {"from": "wd:Q127980", "title": "rdfs:label", "to": "literal_114_fat"}, {"from": "wd:Q127980", "title": "wdt:P910", "to": "literal_148_Category:Fat"}, {"from": "wd:Q127980", "title": "wdt:P279", "to": "literal_183_mixture"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasRice", "to": "literal_74_15.1"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasindex", "to": "literal_75_17"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasPotato", "to": "literal_81_0.3"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasYam", "to": "literal_84_0.7"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasMaize___Corn", "to": "literal_110_15.5"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasSorghum", "to": "literal_132_0"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasSoybean__Green_", "to": "literal_139_1.5"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasPlantain", "to": "literal_147_1.5"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasCassava", "to": "literal_150_0.7"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasSTAPLE:", "to": "literal_163_Selenium (\u03bcg)"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasWheat", "to": "literal_174_70.7"}, {"from": "wtq:Staple_food_row_17", "title": "wtq:hasSweet_potato", "to": "literal_187_0.6"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

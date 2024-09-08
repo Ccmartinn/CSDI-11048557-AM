@@ -1,0 +1,78 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2010_U.S._Open_\(golf\) a wtq:Entity ;
+    wtq:hasRow wtq:2010_U.S._Open_\(golf\)_row_10,
+        wtq:2010_U.S._Open_\(golf\)_row_2,
+        wtq:2010_U.S._Open_\(golf\)_row_3,
+        wtq:2010_U.S._Open_\(golf\)_row_4 .
+
+wtq:2010_U.S._Open_\(golf\)_row_10 wtq:hasCountry "United States" ;
+    wtq:hasPlace wd:Q1178161,
+        "T10" ;
+    wtq:hasPlayer wd:Q30,
+        "Davis Love III" ;
+    wtq:hasScore "75-74-68=217" ;
+    wtq:hasTo_par "+4" ;
+    wtq:hasindex "10" .
+
+wtq:2010_U.S._Open_\(golf\)_row_2 wtq:hasCountry wd:Q30,
+        "United States" ;
+    wtq:hasPlace "3" ;
+    wtq:hasPlayer wd:Q10993,
+        "Tiger Woods" ;
+    wtq:hasScore "74-72-66=212" ;
+    wtq:hasTo_par "–1" ;
+    wtq:hasindex "2" .
+
+wtq:2010_U.S._Open_\(golf\)_row_3 wtq:hasCountry wd:Q258,
+        "South Africa" ;
+    wtq:hasPlace "T4" ;
+    wtq:hasPlayer wd:Q440171,
+        "Ernie Els" ;
+    wtq:hasScore "73-68-72=213" ;
+    wtq:hasTo_par "E" ;
+    wtq:hasindex "3" .
+
+wtq:2010_U.S._Open_\(golf\)_row_4 wtq:hasCountry "France" ;
+    wtq:hasPlace "T4" ;
+    wtq:hasPlayer wd:Q142,
+        "Grégory Havret" ;
+    wtq:hasScore "73-71-69=213" ;
+    wtq:hasTo_par "E" ;
+    wtq:hasindex "4" .
+
+wd:Q10993 rdfs:label "Tiger Woods" ;
+    wdt:P21 "male" ;
+    wdt:P69 "Stanford University",
+        "Western High School" .
+
+wd:Q1178161 rdfs:label "Davis Love III" ;
+    wdt:P106 "golfer" ;
+    wdt:P19 "Charlotte" ;
+    wdt:P27 "United States of America" .
+
+wd:Q142 rdfs:label "France" ;
+    wdt:P31 "country",
+        "sovereign state" ;
+    wdt:P36 "Paris" .
+
+wd:Q258 rdfs:label "South Africa" ;
+    wdt:P463 "BRICS",
+        "International Bank for Reconstruction and Development",
+        "Southern African Development Community" .
+
+wd:Q440171 rdfs:label "Ernie Els" ;
+    wdt:P106 "golfer" ;
+    wdt:P1412 "English" ;
+    wdt:P166 "World Golf Hall of Fame" .
+
+wd:Q30 rdfs:label "United States of America" ;
+    wdt:P30 "North America" ;
+    wdt:P31 "democratic republic",
+        "federal republic",
+        "sovereign state",
+        "superpower" .
+

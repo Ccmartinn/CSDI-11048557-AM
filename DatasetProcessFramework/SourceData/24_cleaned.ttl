@@ -1,0 +1,43 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup> a wtq:Entity ;
+    wtq:hasRow <http://wikitablequestion.org/2007–08_Hazfi_Cup_row_1>,
+        <http://wikitablequestion.org/2007–08_Hazfi_Cup_row_2>,
+        <http://wikitablequestion.org/2007–08_Hazfi_Cup_row_7> .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup_row_1> wtq:hasAway_team wd:Q1622208,
+        "Steel Azin" ;
+    wtq:hasDate "21 December 2007" ;
+    wtq:hasHome_team "Rah Ahan" ;
+    wtq:hasNotes "Rah Ahan progress 5-2 on penalties" ;
+    wtq:hasScore "2-2" ;
+    wtq:hasindex "1" .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup_row_2> wtq:hasAway_team wd:Q455971,
+        "Esteghlal" ;
+    wtq:hasDate "21 December 2007" ;
+    wtq:hasHome_team "Zob Ahan" ;
+    wtq:hasNotes "Esteghlal progress 3-1 on penalties" ;
+    wtq:hasScore "1-1" ;
+    wtq:hasindex "2" .
+
+<http://wikitablequestion.org/2007–08_Hazfi_Cup_row_7> wtq:hasAway_team "Pegah Gilan" ;
+    wtq:hasDate "4 March 2008" ;
+    wtq:hasHome_team "Sanaye Arak" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasScore "0-1" ;
+    wtq:hasindex "7" .
+
+wd:Q1622208 rdfs:label "Steel Azin F.C." ;
+    wdt:P115 "Shahid Dastgerdi Stadium" ;
+    wdt:P1424 "Q25877786" ;
+    wdt:P17 "Iran" .
+
+wd:Q455971 rdfs:label "Esteghlal F.C." ;
+    wdt:P118 "Iran Pro League" ;
+    wdt:P31 "association football club" ;
+    wdt:P910 "Category:Esteghlal F.C." .
+

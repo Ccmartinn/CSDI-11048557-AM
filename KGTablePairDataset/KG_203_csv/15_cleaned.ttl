@@ -1,0 +1,99 @@
+@prefix ns1: <http://wikitablequestion.org/hasWomen'> .
+@prefix ns2: <http://wikitablequestion.org/hasMen'> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Old_Four a wtq:Entity ;
+    wtq:hasRow wtq:Old_Four_row_2,
+        wtq:Old_Four_row_3,
+        wtq:Old_Four_row_4,
+        wtq:Old_Four_row_9 .
+
+wtq:Old_Four_row_2 wtq:hasLocation wd:Q340,
+        "Montreal" ;
+    ns2:s_runner-up "Queen's" ;
+    ns2:s_winner wd:Q180865,
+        "Toronto" ;
+    wtq:hasScore "2-1" ;
+    wtq:hasScore.1 "1-0" ;
+    ns1:s_runner-up "Queen's" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "2" .
+
+wtq:Old_Four_row_3 wtq:hasLocation wd:Q172,
+        "Toronto" ;
+    ns2:s_runner-up "Queen's" ;
+    ns2:s_winner wd:Q1144262,
+        "Western" ;
+    wtq:hasScore "3-0" ;
+    wtq:hasScore.1 "6-2" ;
+    ns1:s_runner-up wd:Q1144262,
+        "Western" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "3" .
+
+wtq:Old_Four_row_4 wtq:hasLocation wd:Q92561,
+        "London" ;
+    ns2:s_runner-up "McGill" ;
+    ns2:s_winner wd:Q1144262,
+        "Western" ;
+    wtq:hasScore "1-0" ;
+    wtq:hasScore.1 "1-0" ;
+    ns1:s_runner-up "Queen's" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2007" ;
+    wtq:hasindex "4" .
+
+wtq:Old_Four_row_9 wtq:hasLocation wd:Q172,
+        "Toronto" ;
+    ns2:s_runner-up wd:Q1144262,
+        "Western" ;
+    ns2:s_winner wd:Q180865,
+        "Toronto" ;
+    wtq:hasScore "1-1 (5-4 PK)" ;
+    wtq:hasScore.1 "2-1" ;
+    ns1:s_runner-up wd:Q1144262,
+        "Western" ;
+    ns1:s_winner "McGill" ;
+    wtq:hasYear "2012" ;
+    wtq:hasindex "9" .
+
+wd:Q340 rdfs:label "Montreal" ;
+    wdt:P17 "Canada" ;
+    wdt:P31 "metropolis" ;
+    wdt:P47 "Montréal-Est" .
+
+wd:Q92561 rdfs:label "London" ;
+    wdt:P138 "London" ;
+    wdt:P163 "flag of London, Ontario" ;
+    wdt:P31 "city" .
+
+wd:Q172 rdfs:label "Toronto" ;
+    wdt:P17 "Canada" ;
+    wdt:P31 "big city",
+        "financial centre",
+        "human settlement",
+        "provincial or territorial capital city in Canada" .
+
+wd:Q180865 rdfs:label "University of Toronto" ;
+    wdt:P355 "Innis College",
+        "Knox College",
+        "Massey College",
+        "New College",
+        "Trinity College",
+        "Victoria University" .
+
+wd:Q1144262 rdfs:label "Western University" ;
+    wdt:P131 "London" ;
+    wdt:P159 "London" ;
+    wdt:P17 "Canada" ;
+    wdt:P31 "open-access publisher",
+        "university in Ontario" ;
+    wdt:P355 "Biotron",
+        "Don Wright Faculty of Music",
+        "Schulich School of Medicine & Dentistry" .
+

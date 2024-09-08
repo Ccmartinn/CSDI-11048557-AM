@@ -1,0 +1,385 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_Olympic_medalists_in_figure_skating a wtq:Entity ;
+    wtq:hasRow wtq:List_of_Olympic_medalists_in_figure_skating_row_19,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_2,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_21,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_22,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_23,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_24,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_26,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_27,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_29,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_3,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_32,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_33,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_34,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_35,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_36,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_39,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_45,
+        wtq:List_of_Olympic_medalists_in_figure_skating_row_46 .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_19 wtq:hasAthlete wd:Q267434,
+        "Carol Heiss" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q742661,
+        "United States (USA)" ;
+    wtq:hasOlympics "1956-1960" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "19" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_2 wtq:hasAthlete wd:Q204205,
+        "Sonja Henie" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "3" ;
+    wtq:hasNation wd:Q833708,
+        "Norway (NOR)" ;
+    wtq:hasOlympics "1928–1936" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_21 wtq:hasAthlete "Kim Yu-na" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q495848,
+        "South Korea (KOR)" ;
+    wtq:hasOlympics "2010–2014" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "21" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_22 wtq:hasAthlete wd:Q197440,
+        wd:Q235229,
+        "Shen Xue / Zhao Hongbo" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q844734,
+        "China (CHN)" ;
+    wtq:hasOlympics "2002–2010" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "22" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_23 wtq:hasAthlete wd:Q250724,
+        "Jeannette Altwegg" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q749109,
+        "Great Britain (GBR)" ;
+    wtq:hasOlympics "1948-1952" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "23" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_24 wtq:hasAthlete wd:Q240057,
+        wd:Q443492,
+        "Marina Anissina / Gwendal Peizerat" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q742512,
+        "France (FRA)" ;
+    wtq:hasOlympics "1998-2002" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "24" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_26 wtq:hasAthlete wd:Q471623,
+        "Viktor Petrenko" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation wd:Q462135,
+        wd:Q517439,
+        "Soviet Union (URS)\\n Unified Team (EUN)" ;
+    wtq:hasOlympics "1988-1992" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "26" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_27 wtq:hasAthlete wd:Q263360,
+        "Beatrix Loughran" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q742661,
+        "United States (USA)" ;
+    wtq:hasOlympics "1924–1932" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "27" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_29 wtq:hasAthlete wd:Q261448,
+        "Fritzi Burger" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q701191,
+        "Austria (AUT)" ;
+    wtq:hasOlympics "1928-1932" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "29" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_3 wtq:hasAthlete wd:Q233812,
+        "Irina Rodnina / Alexander Zaitsev" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "3" ;
+    wtq:hasNation wd:Q462135,
+        "Soviet Union (URS)" ;
+    wtq:hasOlympics "1972–1980" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "3" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_32 wtq:hasAthlete wd:Q538342,
+        "Brian Orser" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q756913,
+        "Canada (CAN)" ;
+    wtq:hasOlympics "1984-1988" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "32" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_33 wtq:hasAthlete wd:Q473575,
+        "Elvis Stojko" ;
+    wtq:hasBronze "0" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q756913,
+        "Canada (CAN)" ;
+    wtq:hasOlympics "1994-1998" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "33" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_34 wtq:hasAthlete wd:Q270053,
+        "Phyllis Johnson" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q749109,
+        "Great Britain (GBR)" ;
+    wtq:hasOlympics "1908-1920" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "34" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_35 wtq:hasAthlete wd:Q239988,
+        "Nancy Kerrigan" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q742661,
+        "United States (USA)" ;
+    wtq:hasOlympics "1992-1994" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "35" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_36 wtq:hasAthlete wd:Q235254,
+        "Michelle Kwan" ;
+    wtq:hasBronze "1" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q742661,
+        "United States (USA)" ;
+    wtq:hasOlympics "1998-2002" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "36" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_39 wtq:hasAthlete wd:Q428941,
+        wd:Q433679,
+        "Isabelle Brasseur / Lloyd Eisler" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q756913,
+        "Canada (CAN)" ;
+    wtq:hasOlympics "1992-1994" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "39" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_45 wtq:hasAthlete "Emília Rotter / László Szollás" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q621481,
+        "Hungary (HUN)" ;
+    wtq:hasOlympics "1932-1936" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "45" .
+
+wtq:List_of_Olympic_medalists_in_figure_skating_row_46 wtq:hasAthlete wd:Q70548,
+        "Aliona Savchenko / Robin Szolkowy" ;
+    wtq:hasBronze "2" ;
+    wtq:hasGold "0" ;
+    wtq:hasNation wd:Q1576072,
+        "Germany (GER)" ;
+    wtq:hasOlympics "2010-2014" ;
+    wtq:hasSilver "0" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "46" .
+
+wd:Q1576072 rdfs:label "Germany at the Olympics" ;
+    wdt:P17 "Germany" ;
+    wdt:P31 "Olympic delegation" ;
+    wdt:P641 "Olympic sport" .
+
+wd:Q197440 rdfs:label "Zhao Hongbo" ;
+    wdt:P102 "Chinese Communist Party" ;
+    wdt:P106 "figure skater" ;
+    wdt:P19 "Harbin" .
+
+wd:Q204205 rdfs:label "Sonja Henie" ;
+    wdt:P19 "Oslo" ;
+    wdt:P22 "Wilhelm Henie" ;
+    wdt:P54 "Oslo SK" .
+
+wd:Q233812 rdfs:label "Irina Rodnina" ;
+    wdt:P27 "Russia" ;
+    wdt:P40 "Alyona Minkovski" ;
+    wdt:P69 "Russian State University of Physical Education, Sport, Youth and Tourism" .
+
+wd:Q235229 rdfs:label "Shen Xue" ;
+    wdt:P1344 "figure skating at the 1996 Asian Winter Games",
+        "figure skating at the 1999 Asian Winter Games",
+        "figure skating at the 2003 Asian Winter Games" .
+
+wd:Q235254 rdfs:label "Michelle Kwan" ;
+    wdt:P21 "female" ;
+    wdt:P39 "United States Ambassador to Belize" ;
+    wdt:P69 "The Fletcher School of Law and Diplomacy" .
+
+wd:Q239988 rdfs:label "Nancy Kerrigan" ;
+    wdt:P19 "Woburn" ;
+    wdt:P21 "female" ;
+    wdt:P69 "Emmanuel College" .
+
+wd:Q240057 rdfs:label "Marina Anissina" ;
+    wdt:P106 "ice dancer" ;
+    wdt:P21 "female" ;
+    wdt:P22 "Vyacheslav Anisin" .
+
+wd:Q250724 rdfs:label "Jeannette Altwegg" ;
+    wdt:P166 "Commander of the Order of the British Empire" ;
+    wdt:P31 "human" ;
+    wdt:P734 "Altwegg" .
+
+wd:Q261448 rdfs:label "Fritzi Burger" ;
+    wdt:P106 "figure skater" ;
+    wdt:P19 "Vienna" ;
+    wdt:P27 "Austria" .
+
+wd:Q263360 rdfs:label "Beatrix Loughran" ;
+    wdt:P106 "figure skating coach" ;
+    wdt:P19 "Mount Vernon" ;
+    wdt:P31 "human" .
+
+wd:Q267434 rdfs:label "Carol Heiss" ;
+    wdt:P31 "human" ;
+    wdt:P6886 "English" ;
+    wdt:P69 "Professional Children's School" .
+
+wd:Q270053 rdfs:label "Phyllis Johnson" ;
+    wdt:P20 "Tonbridge" ;
+    wdt:P21 "female" ;
+    wdt:P31 "human" .
+
+wd:Q428941 rdfs:label "Lloyd Eisler" ;
+    wdt:P106 "figure skater" ;
+    wdt:P166 "Canada's Sports Hall of Fame" ;
+    wdt:P26 "Kristy Swanson" .
+
+wd:Q433679 rdfs:label "Isabelle Brasseur" ;
+    wdt:P166 "Canada's Sports Hall of Fame" ;
+    wdt:P21 "female" ;
+    wdt:P26 "Rocky Marval" .
+
+wd:Q443492 rdfs:label "Gwendal Peizerat" ;
+    wdt:P19 "Lyon" ;
+    wdt:P31 "human" ;
+    wdt:P39 "regional councillor of Auvergne-Rhône-Alpes" .
+
+wd:Q471623 rdfs:label "Viktor Petrenko" ;
+    wdt:P1532 "Soviet Union" ;
+    wdt:P2522 "figure skating at the 1992 Winter Olympics – men's singles" ;
+    wdt:P5008 "WikiProject Ukraine" .
+
+wd:Q473575 rdfs:label "Elvis Stojko" ;
+    wdt:P19 "Newmarket" ;
+    wdt:P21 "male" ;
+    wdt:P69 "The Country Day School" .
+
+wd:Q495848 rdfs:label "South Korea at the Olympics" ;
+    wdt:P1424 "template:infobox Olympics South Korea" ;
+    wdt:P31 "Olympic delegation" ;
+    wdt:P641 "Olympic sport" .
+
+wd:Q517439 rdfs:label "Unified Team" ;
+    wdt:P31 "Olympic delegation",
+        "sports team" ;
+    wdt:P641 "Olympic sport" .
+
+wd:Q538342 rdfs:label "Brian Orser" ;
+    wdt:P106 "actor" ;
+    wdt:P27 "Canada" ;
+    wdt:P91 "homosexuality" .
+
+wd:Q621481 rdfs:label "Hungary at the Olympics" ;
+    wdt:P1344 "Olympic Games" ;
+    wdt:P1424 "Template:Infobox Olympics Hungary" ;
+    wdt:P641 "Olympic sport" .
+
+wd:Q701191 rdfs:label "Austria at the Olympics" ;
+    wdt:P1344 "Olympic Games" ;
+    wdt:P1424 "Template:Infobox Olympics Austria" ;
+    wdt:P641 "Olympic sport" .
+
+wd:Q70548 rdfs:label "Robin Szolkowy" ;
+    wdt:P1344 "2011 European Figure Skating Championships - pair skating",
+        "figure skating at the 2006 Winter Olympics – pairs",
+        "figure skating at the 2014 Winter Olympics – pair skating" .
+
+wd:Q742512 rdfs:label "France at the Olympics" ;
+    wdt:P31 "Olympic delegation" ;
+    wdt:P641 "Olympic sport" ;
+    wdt:P910 "Category:France at the Olympics" .
+
+wd:Q833708 rdfs:label "Norway at the Olympics" ;
+    wdt:P1424 "Template:Infobox Olympics Norway" ;
+    wdt:P17 "Norway" ;
+    wdt:P31 "Olympic delegation" .
+
+wd:Q844734 rdfs:label "China at the Olympics" ;
+    wdt:P1424 "Template:Infobox Olympics China" ;
+    wdt:P166 "Olympic bronze medal",
+        "Olympic silver medal" .
+
+wd:Q462135 rdfs:label "Soviet Union at the Olympics" ;
+    wdt:P1424 "Template:Infobox Olympics Soviet Union" ;
+    wdt:P17 "Soviet Union" ;
+    wdt:P910 "Category:Soviet Union at the Olympics" .
+
+wd:Q749109 rdfs:label "Great Britain" ;
+    wdt:P17 "Cayman Islands",
+        "Gibraltar",
+        "United Kingdom" ;
+    wdt:P910 "Category:Great Britain at the Olympics" .
+
+wd:Q756913 rdfs:label "Canada at the Olympics" ;
+    wdt:P1424 "template:infobox Olympics Canada" ;
+    wdt:P31 "Olympic delegation" ;
+    wdt:P641 "Olympic sport" ;
+    wdt:P910 "Category:Canada at the Olympics" .
+
+wd:Q742661 rdfs:label "United States at the Olympics" ;
+    wdt:P1344 "Olympic Games" ;
+    wdt:P1424 "template:infobox Olympics United States" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "Olympic delegation" ;
+    wdt:P641 "Olympic sport" ;
+    wdt:P910 "Category:United States at the Olympics" .
+

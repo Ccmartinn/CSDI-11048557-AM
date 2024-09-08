@@ -1,0 +1,84 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1989_Major_League_Baseball_Draft a wtq:Entity ;
+    wtq:hasRow wtq:1989_Major_League_Baseball_Draft_row_10,
+        wtq:1989_Major_League_Baseball_Draft_row_13,
+        wtq:1989_Major_League_Baseball_Draft_row_17,
+        wtq:1989_Major_League_Baseball_Draft_row_18,
+        wtq:1989_Major_League_Baseball_Draft_row_19,
+        wtq:1989_Major_League_Baseball_Draft_row_2,
+        wtq:1989_Major_League_Baseball_Draft_row_20,
+        wtq:1989_Major_League_Baseball_Draft_row_22,
+        wtq:1989_Major_League_Baseball_Draft_row_3,
+        wtq:1989_Major_League_Baseball_Draft_row_4 .
+
+wtq:1989_Major_League_Baseball_Draft_row_10 wtq:hasPick "11" ;
+    wtq:hasPlayer "Calvin Murray" ;
+    wtq:hasPosition "3B" ;
+    wtq:hasSchool "W.T. White High School (Dallas, TX)" ;
+    wtq:hasTeam "Cleveland Indians" ;
+    wtq:hasindex "10" .
+
+wtq:1989_Major_League_Baseball_Draft_row_13 wtq:hasPick "14" ;
+    wtq:hasPlayer "Steve Hosey" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool "Fresno State University" ;
+    wtq:hasTeam "San Francisco Giants" ;
+    wtq:hasindex "13" .
+
+wtq:1989_Major_League_Baseball_Draft_row_17 wtq:hasPick "18" ;
+    wtq:hasPlayer "Willie Greene" ;
+    wtq:hasPosition "SS" ;
+    wtq:hasSchool "Jones County HS (Gray, GA)" ;
+    wtq:hasTeam "Pittsburgh Pirates" ;
+    wtq:hasindex "17" .
+
+wtq:1989_Major_League_Baseball_Draft_row_18 wtq:hasPick "19" ;
+    wtq:hasPlayer "Eddie Zosky" ;
+    wtq:hasPosition "SS" ;
+    wtq:hasSchool "Fresno State University" ;
+    wtq:hasTeam "Toronto Blue Jays" ;
+    wtq:hasindex "18" .
+
+wtq:1989_Major_League_Baseball_Draft_row_19 wtq:hasPick "20" ;
+    wtq:hasPlayer "Scott Bryant" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool "University of Texas" ;
+    wtq:hasTeam "Cincinnati Reds" ;
+    wtq:hasindex "19" .
+
+wtq:1989_Major_League_Baseball_Draft_row_2 wtq:hasPick "3" ;
+    wtq:hasPlayer "Roger Salkeld" ;
+    wtq:hasPosition "RHP" ;
+    wtq:hasSchool "Saugus (CA) HS" ;
+    wtq:hasTeam "Seattle Mariners" ;
+    wtq:hasindex "2" .
+
+wtq:1989_Major_League_Baseball_Draft_row_20 wtq:hasPick "21" ;
+    wtq:hasPlayer "Greg Gohr" ;
+    wtq:hasPosition "RHP" ;
+    wtq:hasSchool "Santa Clara University" ;
+    wtq:hasTeam "Detroit Tigers" ;
+    wtq:hasindex "20" .
+
+wtq:1989_Major_League_Baseball_Draft_row_22 wtq:hasPick "23" ;
+    wtq:hasPlayer "Mo Vaughn" ;
+    wtq:hasPosition "1B" ;
+    wtq:hasSchool "Seton Hall University" ;
+    wtq:hasTeam "Boston Red Sox" ;
+    wtq:hasindex "22" .
+
+wtq:1989_Major_League_Baseball_Draft_row_3 wtq:hasPick "4" ;
+    wtq:hasPlayer "Jeff Jackson" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool "Simeon HS (Chicago, IL)" ;
+    wtq:hasTeam "Philadelphia Phillies" ;
+    wtq:hasindex "3" .
+
+wtq:1989_Major_League_Baseball_Draft_row_4 wtq:hasPick "5" ;
+    wtq:hasPlayer "Donald Harris" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool "Texas Tech University" ;
+    wtq:hasTeam "Texas Rangers" ;
+    wtq:hasindex "4" .
+

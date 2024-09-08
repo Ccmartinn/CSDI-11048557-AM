@@ -1,0 +1,124 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:France_at_the_2000_Summer_Olympics a wtq:Entity ;
+    wtq:hasRow wtq:France_at_the_2000_Summer_Olympics_row_17,
+        wtq:France_at_the_2000_Summer_Olympics_row_19,
+        wtq:France_at_the_2000_Summer_Olympics_row_2,
+        wtq:France_at_the_2000_Summer_Olympics_row_21,
+        wtq:France_at_the_2000_Summer_Olympics_row_22,
+        wtq:France_at_the_2000_Summer_Olympics_row_24,
+        wtq:France_at_the_2000_Summer_Olympics_row_25,
+        wtq:France_at_the_2000_Summer_Olympics_row_27,
+        wtq:France_at_the_2000_Summer_Olympics_row_28,
+        wtq:France_at_the_2000_Summer_Olympics_row_29,
+        wtq:France_at_the_2000_Summer_Olympics_row_3,
+        wtq:France_at_the_2000_Summer_Olympics_row_30,
+        wtq:France_at_the_2000_Summer_Olympics_row_31,
+        wtq:France_at_the_2000_Summer_Olympics_row_34,
+        wtq:France_at_the_2000_Summer_Olympics_row_35 .
+
+wtq:France_at_the_2000_Summer_Olympics_row_17 wtq:hasDate "September 16" ;
+    wtq:hasEvent "Men's épée" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName "Hugues Obry" ;
+    wtq:hasSport "Fencing" ;
+    wtq:hasindex "17" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_19 wtq:hasDate "September 21" ;
+    wtq:hasEvent "Men's sabre" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName "Mathieu Gourdain" ;
+    wtq:hasSport "Fencing" ;
+    wtq:hasindex "19" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_2 wtq:hasDate "September 21" ;
+    wtq:hasEvent "Men's Keirin" ;
+    wtq:hasMedal "Gold" ;
+    wtq:hasName "Florian Rousseau" ;
+    wtq:hasSport "Cycling" ;
+    wtq:hasindex "2" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_21 wtq:hasDate "September 24" ;
+    wtq:hasEvent "Men's pommel horse" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName "Éric Poujade" ;
+    wtq:hasSport "Gymnastics" ;
+    wtq:hasindex "21" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_22 wtq:hasDate "September 25" ;
+    wtq:hasEvent "Men's horizontal bar" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName "Benjamin Varonian" ;
+    wtq:hasSport "Gymnastics" ;
+    wtq:hasindex "22" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_24 wtq:hasDate "September 21" ;
+    wtq:hasEvent "Women's 78 kg" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName "Céline Lebrun" ;
+    wtq:hasSport "Judo" ;
+    wtq:hasindex "24" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_25 wtq:hasDate "September 18" ;
+    wtq:hasEvent "Women's trap" ;
+    wtq:hasMedal "Silver" ;
+    wtq:hasName "Delphine Racinet" ;
+    wtq:hasSport "Shooting" ;
+    wtq:hasindex "25" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_27 wtq:hasDate "October 1" ;
+    wtq:hasEvent "Flyweight" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Jérôme Thomas" ;
+    wtq:hasSport "Boxing" ;
+    wtq:hasindex "27" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_28 wtq:hasDate "September 18" ;
+    wtq:hasEvent "Women's slalom K-1" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Anne-Lise Bardet" ;
+    wtq:hasSport "Canoeing" ;
+    wtq:hasindex "28" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_29 wtq:hasDate "September 30" ;
+    wtq:hasEvent "Women's road time trial" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Jeannie Longo" ;
+    wtq:hasSport "Cycling" ;
+    wtq:hasindex "29" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_3 wtq:hasDate "September 17" ;
+    wtq:hasEvent "Men's team sprint" ;
+    wtq:hasMedal "Gold" ;
+    wtq:hasName "Florian Rousseau, Laurent Gané, Arnaud Tournant" ;
+    wtq:hasSport "Cycling" ;
+    wtq:hasindex "3" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_30 wtq:hasDate "September 17" ;
+    wtq:hasEvent "Women's épée" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Laura Flessel-Colovic" ;
+    wtq:hasSport "Fencing" ;
+    wtq:hasindex "30" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_31 wtq:hasDate "September 20" ;
+    wtq:hasEvent "Men's 90 kg" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Frédéric Demontfaucon" ;
+    wtq:hasSport "Judo" ;
+    wtq:hasindex "31" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_34 wtq:hasDate "September 26" ;
+    wtq:hasEvent "Women's duet" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Virginie Dedieu, Myriam Lignot" ;
+    wtq:hasSport "Synchronized swimming" ;
+    wtq:hasindex "34" .
+
+wtq:France_at_the_2000_Summer_Olympics_row_35 wtq:hasDate "September 23" ;
+    wtq:hasEvent "Men's doubles" ;
+    wtq:hasMedal "Bronze" ;
+    wtq:hasName "Patrick Chila, Jean-Philippe Gatien" ;
+    wtq:hasSport "Table tennis" ;
+    wtq:hasindex "35" .
+

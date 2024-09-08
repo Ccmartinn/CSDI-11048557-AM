@@ -1,0 +1,184 @@
+@prefix ns1: <http://wikitablequestion.org/hasMayor_n_2010–> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Camarines_Sur a wtq:Entity ;
+    wtq:hasRow wtq:Camarines_Sur_row_17,
+        wtq:Camarines_Sur_row_19,
+        wtq:Camarines_Sur_row_2,
+        wtq:Camarines_Sur_row_21,
+        wtq:Camarines_Sur_row_22,
+        wtq:Camarines_Sur_row_24,
+        wtq:Camarines_Sur_row_25,
+        wtq:Camarines_Sur_row_27,
+        wtq:Camarines_Sur_row_28,
+        wtq:Camarines_Sur_row_29,
+        wtq:Camarines_Sur_row_3,
+        wtq:Camarines_Sur_row_30,
+        wtq:Camarines_Sur_row_34,
+        wtq:Camarines_Sur_row_35 .
+
+wtq:Camarines_Sur_row_17 wtq:hasArea_n_hectares_ "34,282" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Libmanan" ;
+    wtq:hasIncome_Class_n_2010_ "1st class" ;
+    ns1:2013_ "Marilyn A. Jimenez" ;
+    wtq:hasNo._of_nBarangays "75" ;
+    wtq:hasPopulation_n_2010_ "100,002" ;
+    wtq:hasindex "17" .
+
+wtq:Camarines_Sur_row_19 wtq:hasArea_n_hectares_ "4,497" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Magarao" ;
+    wtq:hasIncome_Class_n_2010_ "4th class" ;
+    ns1:2013_ "Salvador A. Senar Jr." ;
+    wtq:hasNo._of_nBarangays "15" ;
+    wtq:hasPopulation_n_2010_ "24,274" ;
+    wtq:hasindex "19" .
+
+wtq:Camarines_Sur_row_2 wtq:hasArea_n_hectares_ "10,712" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 wd:Q208683,
+        "Bato" ;
+    wtq:hasIncome_Class_n_2010_ "3rd class" ;
+    ns1:2013_ "Jeanette R. Bernaldez" ;
+    wtq:hasNo._of_nBarangays "33" ;
+    wtq:hasPopulation_n_2010_ "48,306" ;
+    wtq:hasindex "2" .
+
+wtq:Camarines_Sur_row_21 wtq:hasArea_n_hectares_ "12,610" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Minalabac" ;
+    wtq:hasIncome_Class_n_2010_ "3rd class" ;
+    ns1:2013_ "Leovegildo D. Basmayor Jr." ;
+    wtq:hasNo._of_nBarangays "25" ;
+    wtq:hasPopulation_n_2010_ "48,162" ;
+    wtq:hasindex "21" .
+
+wtq:Camarines_Sur_row_22 wtq:hasArea_n_hectares_ "9,620" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Nabua" ;
+    wtq:hasIncome_Class_n_2010_ "1st class" ;
+    ns1:2013_ "Delia C. Simbulan" ;
+    wtq:hasNo._of_nBarangays "42" ;
+    wtq:hasPopulation_n_2010_ "80,111" ;
+    wtq:hasindex "22" .
+
+wtq:Camarines_Sur_row_24 wtq:hasArea_n_hectares_ "11,833" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 wd:Q208878,
+        "Ocampo" ;
+    wtq:hasIncome_Class_n_2010_ "3rd class" ;
+    ns1:2013_ "Fidel C. Carido" ;
+    wtq:hasNo._of_nBarangays "25" ;
+    wtq:hasPopulation_n_2010_ "43,523" ;
+    wtq:hasindex "24" .
+
+wtq:Camarines_Sur_row_25 wtq:hasArea_n_hectares_ "8,060" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 wd:Q208886,
+        "Pamplona" ;
+    wtq:hasIncome_Class_n_2010_ "4th class" ;
+    ns1:2013_ "Gimeno A. Imperial" ;
+    wtq:hasNo._of_nBarangays "17" ;
+    wtq:hasPopulation_n_2010_ "34,471" ;
+    wtq:hasindex "25" .
+
+wtq:Camarines_Sur_row_27 wtq:hasArea_n_hectares_ "12,625" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 wd:Q208899,
+        "Pili" ;
+    wtq:hasIncome_Class_n_2010_ "1st class" ;
+    ns1:2013_ "Tomas P. Bongalonta, Jr." ;
+    wtq:hasNo._of_nBarangays "26" ;
+    wtq:hasPopulation_n_2010_ "82,307" ;
+    wtq:hasindex "27" .
+
+wtq:Camarines_Sur_row_28 wtq:hasArea_n_hectares_ "14,380" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Presentacion" ;
+    wtq:hasIncome_Class_n_2010_ "4th class" ;
+    ns1:2013_ "Joey A. Deleña" ;
+    wtq:hasNo._of_nBarangays "18" ;
+    wtq:hasPopulation_n_2010_ "20,023" ;
+    wtq:hasindex "28" .
+
+wtq:Camarines_Sur_row_29 wtq:hasArea_n_hectares_ "40,022" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Ragay" ;
+    wtq:hasIncome_Class_n_2010_ "1st class" ;
+    ns1:2013_ "Ricardo B. Aquino" ;
+    wtq:hasNo._of_nBarangays "38" ;
+    wtq:hasPopulation_n_2010_ "54,934" ;
+    wtq:hasindex "29" .
+
+wtq:Camarines_Sur_row_3 wtq:hasArea_n_hectares_ "2,873" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 wd:Q208690,
+        "Bombon" ;
+    wtq:hasIncome_Class_n_2010_ "5th class" ;
+    ns1:2013_ "Ma. Luisa DC. Angeles" ;
+    wtq:hasNo._of_nBarangays "8" ;
+    wtq:hasPopulation_n_2010_ "15,437" ;
+    wtq:hasindex "3" .
+
+wtq:Camarines_Sur_row_30 wtq:hasArea_n_hectares_ "15,476" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Sagñay" ;
+    wtq:hasIncome_Class_n_2010_ "4th class" ;
+    ns1:2013_ "Evelyn B. Fuentebella" ;
+    wtq:hasNo._of_nBarangays "19" ;
+    wtq:hasPopulation_n_2010_ "31,314" ;
+    wtq:hasindex "30" .
+
+wtq:Camarines_Sur_row_34 wtq:hasArea_n_hectares_ "14,127" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 "Siruma" ;
+    wtq:hasIncome_Class_n_2010_ "4th class" ;
+    ns1:2013_ "Sandy S. Ondis Sr." ;
+    wtq:hasNo._of_nBarangays "22" ;
+    wtq:hasPopulation_n_2010_ "17,050" ;
+    wtq:hasindex "34" .
+
+wtq:Camarines_Sur_row_35 wtq:hasArea_n_hectares_ "7,235" ;
+    wtq:hasCity_Municipality "nan" ;
+    wtq:hasCity_Municipality.1 wd:Q209011,
+        "Tigaon" ;
+    wtq:hasIncome_Class_n_2010_ "3rd class" ;
+    ns1:2013_ "Arnulf Bryan B. Fuentebella" ;
+    wtq:hasNo._of_nBarangays "23" ;
+    wtq:hasPopulation_n_2010_ "48,611" ;
+    wtq:hasindex "35" .
+
+wd:Q208683 rdfs:label "Bato" ;
+    wdt:P1343 "Diccionario geográfico, estadístico, histórico de las Islas Filipinas (1850-1851)" ;
+    wdt:P17 "Philippines" ;
+    wdt:P1879 "3rd municipal income class" .
+
+wd:Q208690 rdfs:label "Bombon" ;
+    wdt:P131 "Camarines Sur" ;
+    wdt:P2936 "Central Bikol" ;
+    wdt:P7938 "Camarines Sur's 3rd congressional district" .
+
+wd:Q208878 rdfs:label "Ocampo" ;
+    wdt:P17 "Philippines" ;
+    wdt:P2936 "Tagalog" ;
+    wdt:P31 "municipality of the Philippines" .
+
+wd:Q208886 rdfs:label "Pamplona" ;
+    wdt:P31 "municipality of the Philippines" ;
+    wdt:P421 "UTC+08:00" ;
+    wdt:P7938 "Camarines Sur's 2nd congressional district" .
+
+wd:Q208899 rdfs:label "Pili" ;
+    wdt:P1313 "mayor" ;
+    wdt:P1879 "1st municipal income class" ;
+    wdt:P2936 "Central Bikol" .
+
+wd:Q209011 rdfs:label "Tigaon" ;
+    wdt:P17 "Philippines" ;
+    wdt:P2936 "Inagta Partido",
+        "Tagalog" .
+

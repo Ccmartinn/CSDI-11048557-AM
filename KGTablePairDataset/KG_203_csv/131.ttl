@@ -1,0 +1,36 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2007_NASCAR_Busch_Series a wtq:Entity ;
+    wtq:hasRow wtq:2007_NASCAR_Busch_Series_row_2,
+        wtq:2007_NASCAR_Busch_Series_row_4,
+        wtq:2007_NASCAR_Busch_Series_row_6,
+        wtq:2007_NASCAR_Busch_Series_row_9 .
+
+wtq:2007_NASCAR_Busch_Series_row_2 <http://wikitablequestion.org/hasCar_#> "99" ;
+    wtq:hasDriver "David Reutimann" ;
+    wtq:hasMake "Toyota" ;
+    <http://wikitablequestion.org/hasPos.> "3" ;
+    wtq:hasTeam "Michael Waltrip Racing" ;
+    wtq:hasindex "2" .
+
+wtq:2007_NASCAR_Busch_Series_row_4 <http://wikitablequestion.org/hasCar_#> "77" ;
+    wtq:hasDriver "Ron Hornaday" ;
+    wtq:hasMake "Chevrolet" ;
+    <http://wikitablequestion.org/hasPos.> "5" ;
+    wtq:hasTeam "Kevin Harvick Incorporated" ;
+    wtq:hasindex "4" .
+
+wtq:2007_NASCAR_Busch_Series_row_6 <http://wikitablequestion.org/hasCar_#> "29" ;
+    wtq:hasDriver "Scott Wimmer" ;
+    wtq:hasMake "Chevrolet" ;
+    <http://wikitablequestion.org/hasPos.> "7" ;
+    wtq:hasTeam "Richard Childress Racing" ;
+    wtq:hasindex "6" .
+
+wtq:2007_NASCAR_Busch_Series_row_9 <http://wikitablequestion.org/hasCar_#> "88" ;
+    wtq:hasDriver "Brad Keselowski" ;
+    wtq:hasMake "Chevrolet" ;
+    <http://wikitablequestion.org/hasPos.> "10" ;
+    wtq:hasTeam "JR Motorsports" ;
+    wtq:hasindex "9" .
+

@@ -1,0 +1,115 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Eder_Sánchez a wtq:Entity ;
+    wtq:hasRow wtq:Eder_Sánchez_row_2,
+        wtq:Eder_Sánchez_row_3,
+        wtq:Eder_Sánchez_row_4,
+        wtq:Eder_Sánchez_row_9 .
+
+wtq:Eder_Sánchez_row_2 wtq:hasCompetition wd:Q38,
+        wd:Q6716,
+        "World Junior Championships" ;
+    wtq:hasEvent "10 km" ;
+    wtq:hasNotes "41:01.64" ;
+    wtq:hasPosition "4th" ;
+    wtq:hasVenue "Grosseto, Italy" ;
+    wtq:hasYear wd:Q280944,
+        "2004" ;
+    wtq:hasindex "2" .
+
+wtq:Eder_Sánchez_row_3 wtq:hasCompetition wd:Q630307,
+        "World Championships" ;
+    wtq:hasEvent "20 km" ;
+    wtq:hasNotes "1:20:45" ;
+    wtq:hasPosition "8th" ;
+    wtq:hasVenue wd:Q1757,
+        wd:Q33,
+        "Helsinki, Finland" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "3" .
+
+wtq:Eder_Sánchez_row_4 wtq:hasCompetition wd:Q2869137,
+        "Central American and Caribbean Games" ;
+    wtq:hasEvent "20 km" ;
+    wtq:hasNotes "1:26:30" ;
+    wtq:hasPosition "2nd" ;
+    wtq:hasVenue wd:Q657461,
+        wd:Q739,
+        "Cartagena, Colombia" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "4" .
+
+wtq:Eder_Sánchez_row_9 wtq:hasCompetition wd:Q208675,
+        "World Championships" ;
+    wtq:hasEvent "20 km" ;
+    wtq:hasNotes "1:23:05" ;
+    wtq:hasPosition "15th" ;
+    wtq:hasVenue wd:Q20927,
+        wd:Q884,
+        "Daegu, Korea" ;
+    wtq:hasYear "2011" ;
+    wtq:hasindex "9" .
+
+wd:Q1757 rdfs:label "Helsinki" ;
+    wdt:P112 "Gustav I of Sweden" ;
+    wdt:P31 "municipality of Finland" ;
+    wdt:P47 "Espoo" .
+
+wd:Q208675 rdfs:label "2011 World Championships in Athletics" ;
+    wdt:P276 "Daegu Stadium" ;
+    wdt:P31 "World Athletics Championships" ;
+    wdt:P527 "2011 World Championships in Athletics – men's pole vault" .
+
+wd:Q20927 rdfs:label "Daegu" ;
+    wdt:P150 "Dalseong County" ;
+    wdt:P17 "South Korea" ;
+    wdt:P31 "metropolitan city of South Korea" .
+
+wd:Q280944 rdfs:label "2004 World Junior Championships in Athletics" ;
+    wdt:P156 "2006 World Junior Championships in Athletics" ;
+    wdt:P17 "Italy" ;
+    wdt:P31 "World Athletics U20 Championships" .
+
+wd:Q2869137 rdfs:label "athletics at the 2006 Central American and Caribbean Games" ;
+    wdt:P156 "athletics at the 2010 Central American and Caribbean Games" ;
+    wdt:P276 "Cartagena de Indias" ;
+    wdt:P641 "athletics" .
+
+wd:Q33 rdfs:label "Finland" ;
+    wdt:P463 "International Development Association",
+        "International Holocaust Remembrance Alliance",
+        "Nuclear Suppliers Group" .
+
+wd:Q38 rdfs:label "Italy" ;
+    wdt:P463 "European Southern Observatory",
+        "International Civil Aviation Organization",
+        "Latin Union" .
+
+wd:Q630307 rdfs:label "2005 World Championships in Athletics" ;
+    wdt:P527 "2005 World Championships in Athletics – Women's Marathon",
+        "2005 World Championships in Athletics – women's 5000 metres",
+        "2005 World Championships in Athletics – women's discus throw" .
+
+wd:Q657461 rdfs:label "Cartagena de Indias" ;
+    wdt:P1313 "mayor of Cartagena de Indias" ;
+    wdt:P361 "list of cities in Colombia" ;
+    wdt:P421 "UTC−05:00" .
+
+wd:Q6716 rdfs:label "Grosseto" ;
+    wdt:P31 "commune of Italy" ;
+    wdt:P47 "Campagnatico",
+        "Gavorrano" .
+
+wd:Q739 rdfs:label "Colombia" ;
+    wdt:P47 "Nicaragua",
+        "Panama" ;
+    wdt:P78 ".co" .
+
+wd:Q884 rdfs:label "South Korea" ;
+    wdt:P361 "MIKTA" ;
+    wdt:P421 "Korea Standard Time" ;
+    wdt:P463 "UNESCO" .
+

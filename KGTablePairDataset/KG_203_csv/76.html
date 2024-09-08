@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q171320", "label": "wd:Q171320", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q171414", "label": "wd:Q171414", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_10", "label": "wtq:2005_British_Grand_Prix_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q169846", "label": "wd:Q169846", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_3", "label": "wtq:2005_British_Grand_Prix_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q172712", "label": "wd:Q172712", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_4", "label": "wtq:2005_British_Grand_Prix_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q142381", "label": "wd:Q142381", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_14", "label": "wtq:2005_British_Grand_Prix_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q65954940", "label": "wd:Q65954940", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q10510", "label": "wd:Q10510", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q65961126", "label": "wd:Q65961126", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q172740", "label": "wd:Q172740", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_2", "label": "wtq:2005_British_Grand_Prix_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix", "label": "wtq:2005_British_Grand_Prix", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_6", "label": "wtq:2005_British_Grand_Prix_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_16", "label": "wtq:2005_British_Grand_Prix_row_16", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q172030", "label": "wd:Q172030", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q172001", "label": "wd:Q172001", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:2005_British_Grand_Prix_row_17", "label": "wtq:2005_British_Grand_Prix_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q169898", "label": "wd:Q169898", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q84178", "label": "wd:Q84178", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q173663", "label": "wd:Q173663", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q171367", "label": "wd:Q171367", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q63928692", "label": "wd:Q63928692", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q842097", "label": "wd:Q842097", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Formula One team", "label": "Formula One team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Albers", "label": "Albers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_television presenter", "label": "television presenter", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Q25910351", "label": "Q25910351", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_60", "label": "60", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_59", "label": "59", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Formula One constructor", "label": "Formula One constructor", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Renault F1 Team", "label": "Renault F1 Team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Honda F1", "label": "Honda F1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Category:Cosworth", "label": "Category:Cosworth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Rubens Barrichello", "label": "Rubens Barrichello", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_+2 Laps", "label": "+2 Laps", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Woking", "label": "Woking", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_Cosworth", "label": "Cosworth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Alpine F1 Team", "label": "Alpine F1 Team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Monteiro", "label": "Monteiro", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Porto", "label": "Porto", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Mike Costin", "label": "Mike Costin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_padel", "label": "padel", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Q115949623", "label": "Q115949623", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_12 \u2020", "label": "12 \u2020", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_+17.914", "label": "+17.914", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_59", "label": "59", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_Category:British American Racing", "label": "Category:British American Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Q25910305", "label": "Q25910305", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Gerald Forsythe", "label": "Gerald Forsythe", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Red Bull-Cosworth", "label": "Red Bull-Cosworth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_McLaren-Mercedes", "label": "McLaren-Mercedes", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_Red Bull Racing", "label": "Red Bull Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_58", "label": "58", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_60", "label": "60", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Italy", "label": "Italy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Eduardo Barrichello", "label": "Eduardo Barrichello", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_Formula Ford Festival", "label": "Formula Ford Festival", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_BMW Sauber", "label": "BMW Sauber", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Category:Christian Klien", "label": "Category:Christian Klien", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_2.0", "label": "2.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_English", "label": "English", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_McLaren Technology Group", "label": "McLaren Technology Group", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_nan", "label": "nan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Rome", "label": "Rome", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Jenson Button", "label": "Jenson Button", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Mark Webber", "label": "Mark Webber", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_Wikipedia article covering multiple topics", "label": "Wikipedia article covering multiple topics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Category:Jordan Grand Prix", "label": "Category:Jordan Grand Prix", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_Tiago Monteiro", "label": "Tiago Monteiro", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_auto racing", "label": "auto racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_BMW engines in Formula One", "label": "BMW engines in Formula One", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_57", "label": "57", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_Kimi R\u00e4ikk\u00f6nen", "label": "Kimi R\u00e4ikk\u00f6nen", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_Renault in Formula One", "label": "Renault in Formula One", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_Renault", "label": "Renault", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_Christian Klien", "label": "Christian Klien", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_Wikimedia human name disambiguation page", "label": "Wikimedia human name disambiguation page", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_BMW in Formula One", "label": "BMW in Formula One", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_20 \u2021", "label": "20 \u2021", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_24 Hours of Le Mans", "label": "24 Hours of Le Mans", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_5.0", "label": "5.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_Honda in Formula One", "label": "Honda in Formula One", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_Minardi-Cosworth", "label": "Minardi-Cosworth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_Giancarlo Fisichella", "label": "Giancarlo Fisichella", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_60", "label": "60", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_Renault F1 Team", "label": "Renault F1 Team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_automotive industry", "label": "automotive industry", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_Jordan Grand Prix", "label": "Jordan Grand Prix", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_24 Hours of Le Mans", "label": "24 Hours of Le Mans", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_Christijan Albers", "label": "Christijan Albers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_+40.264", "label": "+40.264", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_Jenson", "label": "Jenson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_Tiago Monteiro", "label": "Tiago Monteiro", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_Jordan-Toyota", "label": "Jordan-Toyota", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_racing automobile driver", "label": "racing automobile driver", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_+14.436", "label": "+14.436", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_Williams-BMW", "label": "Williams-BMW", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_Category:Scuderia Ferrari", "label": "Category:Scuderia Ferrari", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_6.0", "label": "6.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_automotive supplier", "label": "automotive supplier", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_BAR-Honda", "label": "BAR-Honda", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_Minardi", "label": "Minardi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_Q25910324", "label": "Q25910324", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_Ferrari", "label": "Ferrari", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_+1:16.567", "label": "+1:16.567", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_4.0", "label": "4.0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_116_Formula One team", "label": "Formula One team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_117_British American Racing", "label": "British American Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_118_Austria", "label": "Austria", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_119_Formula One racing", "label": "Formula One racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_120_Mark Webber", "label": "Mark Webber", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_121_Rubens Barrichello", "label": "Rubens Barrichello", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_122_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_123_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_124_Santander Group", "label": "Santander Group", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_125_60", "label": "60", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_126_Christian Klien", "label": "Christian Klien", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_127_+3 Laps", "label": "+3 Laps", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_128_Honda F1", "label": "Honda F1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_129_Wikipedia article covering multiple topics", "label": "Wikipedia article covering multiple topics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_130_McLaren", "label": "McLaren", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_131_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_132_Brazil", "label": "Brazil", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_133_Christijan", "label": "Christijan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_134_Scuderia Ferrari", "label": "Scuderia Ferrari", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_135_Giancarlo Fisichella", "label": "Giancarlo Fisichella", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_136_Jenson Button", "label": "Jenson Button", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_137_Christijan Albers", "label": "Christijan Albers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_138_+1 Lap", "label": "+1 Lap", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_139_+1 Lap", "label": "+1 Lap", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q171320", "title": "wtq:hasConstructor", "to": "wtq:2005_British_Grand_Prix_row_4"}, {"from": "wd:Q171320", "title": "wdt:P31", "to": "literal_0_Formula One team"}, {"from": "wd:Q171320", "title": "wdt:P17", "to": "literal_4_United Kingdom"}, {"from": "wd:Q171320", "title": "wdt:P910", "to": "literal_34_Category:British American Racing"}, {"from": "wd:Q171320", "title": "rdfs:label", "to": "literal_117_British American Racing"}, {"from": "wd:Q171414", "title": "wtq:hasDriver", "to": "wtq:2005_British_Grand_Prix_row_17"}, {"from": "wd:Q171414", "title": "wdt:P734", "to": "literal_1_Albers"}, {"from": "wd:Q171414", "title": "wdt:P1344", "to": "literal_81_24 Hours of Le Mans"}, {"from": "wd:Q171414", "title": "wdt:P735", "to": "literal_133_Christijan"}, {"from": "wd:Q171414", "title": "rdfs:label", "to": "literal_137_Christijan Albers"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasConstructor", "to": "wd:Q63928692"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasDriver", "to": "wd:Q842097"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasGrid", "to": "literal_2_11"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasLaps", "to": "literal_33_59"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasPoints", "to": "literal_47_nan"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasindex", "to": "literal_68_10"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasPos", "to": "literal_97_11"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasConstructor", "to": "literal_102_Williams-BMW"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasDriver", "to": "literal_120_Mark Webber"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasNo", "to": "literal_122_7"}, {"from": "wtq:2005_British_Grand_Prix_row_10", "title": "wtq:hasTime_Retired", "to": "literal_139_+1 Lap"}, {"from": "wd:Q169846", "title": "wtq:hasDriver", "to": "wtq:2005_British_Grand_Prix_row_6"}, {"from": "wd:Q169846", "title": "wdt:P106", "to": "literal_3_television presenter"}, {"from": "wd:Q169846", "title": "rdfs:label", "to": "literal_14_Rubens Barrichello"}, {"from": "wd:Q169846", "title": "wdt:P40", "to": "literal_44_Eduardo Barrichello"}, {"from": "wd:Q169846", "title": "wdt:P27", "to": "literal_132_Brazil"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasDriver", "to": "wd:Q172712"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasConstructor", "to": "wd:Q65954940"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasTime_Retired", "to": "literal_32_+17.914"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasPos", "to": "literal_49_4"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasindex", "to": "literal_50_3"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasGrid", "to": "literal_63_6"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasConstructor", "to": "literal_74_Renault"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasPoints", "to": "literal_82_5.0"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasDriver", "to": "literal_85_Giancarlo Fisichella"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasLaps", "to": "literal_86_60"}, {"from": "wtq:2005_British_Grand_Prix_row_3", "title": "wtq:hasNo", "to": "literal_87_6"}, {"from": "wd:Q172712", "title": "wdt:P641", "to": "literal_26_padel"}, {"from": "wd:Q172712", "title": "wdt:P19", "to": "literal_58_Rome"}, {"from": "wd:Q172712", "title": "wdt:P106", "to": "literal_100_racing automobile driver"}, {"from": "wd:Q172712", "title": "rdfs:label", "to": "literal_135_Giancarlo Fisichella"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasDriver", "to": "wd:Q10510"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasConstructor", "to": "wd:Q65961126"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasLaps", "to": "literal_6_60"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasNo", "to": "literal_13_3"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasPos", "to": "literal_16_5"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasindex", "to": "literal_21_4"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasGrid", "to": "literal_73_2"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasTime_Retired", "to": "literal_94_+40.264"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasConstructor", "to": "literal_107_BAR-Honda"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasPoints", "to": "literal_115_4.0"}, {"from": "wtq:2005_British_Grand_Prix_row_4", "title": "wtq:hasDriver", "to": "literal_136_Jenson Button"}, {"from": "wd:Q142381", "title": "wtq:hasConstructor", "to": "wtq:2005_British_Grand_Prix_row_17"}, {"from": "wd:Q142381", "title": "wdt:P1424", "to": "literal_5_Q25910351"}, {"from": "wd:Q142381", "title": "wdt:P31", "to": "literal_8_Formula One constructor"}, {"from": "wd:Q142381", "title": "wdt:P17", "to": "literal_43_Italy"}, {"from": "wd:Q142381", "title": "rdfs:label", "to": "literal_108_Minardi"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasConstructor", "to": "wd:Q172740"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasConstructor", "to": "wd:Q173663"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasDriver", "to": "wd:Q84178"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasLaps", "to": "literal_7_59"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasindex", "to": "literal_15_14"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasConstructor", "to": "literal_38_Red Bull-Cosworth"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasPoints", "to": "literal_56_nan"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasNo", "to": "literal_75_15"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasPos", "to": "literal_95_15"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasGrid", "to": "literal_113_15"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasDriver", "to": "literal_126_Christian Klien"}, {"from": "wtq:2005_British_Grand_Prix_row_14", "title": "wtq:hasTime_Retired", "to": "literal_138_+1 Lap"}, {"from": "wd:Q65954940", "title": "wdt:P921", "to": "literal_9_Renault F1 Team"}, {"from": "wd:Q65954940", "title": "wdt:P921", "to": "literal_20_Alpine F1 Team"}, {"from": "wd:Q65954940", "title": "rdfs:label", "to": "literal_72_Renault in Formula One"}, {"from": "wd:Q65954940", "title": "wdt:P1889", "to": "literal_88_Renault F1 Team"}, {"from": "wd:Q10510", "title": "wdt:P2522", "to": "literal_45_Formula Ford Festival"}, {"from": "wd:Q10510", "title": "wdt:P1412", "to": "literal_52_English"}, {"from": "wd:Q10510", "title": "rdfs:label", "to": "literal_59_Jenson Button"}, {"from": "wd:Q10510", "title": "wdt:P735", "to": "literal_96_Jenson"}, {"from": "wd:Q65961126", "title": "wdt:P1889", "to": "literal_10_Honda F1"}, {"from": "wd:Q65961126", "title": "wdt:P31", "to": "literal_61_Wikipedia article covering multiple topics"}, {"from": "wd:Q65961126", "title": "rdfs:label", "to": "literal_83_Honda in Formula One"}, {"from": "wd:Q65961126", "title": "wdt:P921", "to": "literal_128_Honda F1"}, {"from": "wd:Q172740", "title": "wtq:hasConstructor", "to": "wtq:2005_British_Grand_Prix_row_17"}, {"from": "wd:Q172740", "title": "wdt:P910", "to": "literal_11_Category:Cosworth"}, {"from": "wd:Q172740", "title": "rdfs:label", "to": "literal_19_Cosworth"}, {"from": "wd:Q172740", "title": "wdt:P112", "to": "literal_25_Mike Costin"}, {"from": "wd:Q172740", "title": "wdt:P127", "to": "literal_37_Gerald Forsythe"}, {"from": "wd:Q172740", "title": "wdt:P452", "to": "literal_89_automotive industry"}, {"from": "wd:Q172740", "title": "wdt:P31", "to": "literal_106_automotive supplier"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasConstructor", "to": "wd:Q172030"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasNo", "to": "literal_12_9"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasGrid", "to": "literal_30_12 \u2020"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasConstructor", "to": "literal_39_McLaren-Mercedes"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasDriver", "to": "literal_70_Kimi R\u00e4ikk\u00f6nen"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasTime_Retired", "to": "literal_101_+14.436"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasPoints", "to": "literal_105_6.0"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasPos", "to": "literal_111_3"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasindex", "to": "literal_123_2"}, {"from": "wtq:2005_British_Grand_Prix_row_2", "title": "wtq:hasLaps", "to": "literal_125_60"}, {"from": "wtq:2005_British_Grand_Prix", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix_row_6"}, {"from": "wtq:2005_British_Grand_Prix", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix_row_17"}, {"from": "wtq:2005_British_Grand_Prix", "title": "wtq:hasRow", "to": "wtq:2005_British_Grand_Prix_row_16"}, {"from": "wtq:2005_British_Grand_Prix", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasConstructor", "to": "wd:Q169898"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasLaps", "to": "literal_42_60"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasPoints", "to": "literal_51_2.0"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasGrid", "to": "literal_62_5"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasindex", "to": "literal_71_6"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasPos", "to": "literal_92_7"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasConstructor", "to": "literal_112_Ferrari"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasTime_Retired", "to": "literal_114_+1:16.567"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasDriver", "to": "literal_121_Rubens Barrichello"}, {"from": "wtq:2005_British_Grand_Prix_row_6", "title": "wtq:hasNo", "to": "literal_131_2"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasDriver", "to": "wd:Q172001"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasConstructor", "to": "wd:Q171367"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasTime_Retired", "to": "literal_17_+2 Laps"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasPoints", "to": "literal_28_nan"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasNo", "to": "literal_29_18"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasLaps", "to": "literal_41_58"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasindex", "to": "literal_54_16"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasGrid", "to": "literal_80_20 \u2021"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasDriver", "to": "literal_98_Tiago Monteiro"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasConstructor", "to": "literal_99_Jordan-Toyota"}, {"from": "wtq:2005_British_Grand_Prix_row_16", "title": "wtq:hasPos", "to": "literal_104_17"}, {"from": "wd:Q172030", "title": "wdt:P159", "to": "literal_18_Woking"}, {"from": "wd:Q172030", "title": "wdt:P1424", "to": "literal_36_Q25910305"}, {"from": "wd:Q172030", "title": "wdt:P749", "to": "literal_53_McLaren Technology Group"}, {"from": "wd:Q172030", "title": "rdfs:label", "to": "literal_130_McLaren"}, {"from": "wd:Q172001", "title": "wdt:P734", "to": "literal_22_Monteiro"}, {"from": "wd:Q172001", "title": "wdt:P19", "to": "literal_23_Porto"}, {"from": "wd:Q172001", "title": "wdt:P31", "to": "literal_57_human"}, {"from": "wd:Q172001", "title": "rdfs:label", "to": "literal_65_Tiago Monteiro"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasindex", "to": "literal_24_17"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasPos", "to": "literal_35_18"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasPoints", "to": "literal_55_nan"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasLaps", "to": "literal_69_57"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasGrid", "to": "literal_79_18"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasConstructor", "to": "literal_84_Minardi-Cosworth"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasDriver", "to": "literal_93_Christijan Albers"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasNo", "to": "literal_109_21"}, {"from": "wtq:2005_British_Grand_Prix_row_17", "title": "wtq:hasTime_Retired", "to": "literal_127_+3 Laps"}, {"from": "wd:Q169898", "title": "wdt:P1424", "to": "literal_27_Q115949623"}, {"from": "wd:Q169898", "title": "wdt:P910", "to": "literal_103_Category:Scuderia Ferrari"}, {"from": "wd:Q169898", "title": "wdt:P859", "to": "literal_124_Santander Group"}, {"from": "wd:Q169898", "title": "rdfs:label", "to": "literal_134_Scuderia Ferrari"}, {"from": "wd:Q84178", "title": "wdt:P21", "to": "literal_31_male"}, {"from": "wd:Q84178", "title": "wdt:P910", "to": "literal_48_Category:Christian Klien"}, {"from": "wd:Q84178", "title": "rdfs:label", "to": "literal_76_Christian Klien"}, {"from": "wd:Q84178", "title": "wdt:P1344", "to": "literal_91_24 Hours of Le Mans"}, {"from": "wd:Q173663", "title": "rdfs:label", "to": "literal_40_Red Bull Racing"}, {"from": "wd:Q173663", "title": "wdt:P641", "to": "literal_66_auto racing"}, {"from": "wd:Q173663", "title": "wdt:P17", "to": "literal_118_Austria"}, {"from": "wd:Q173663", "title": "wdt:P641", "to": "literal_119_Formula One racing"}, {"from": "wd:Q171367", "title": "wdt:P910", "to": "literal_64_Category:Jordan Grand Prix"}, {"from": "wd:Q171367", "title": "rdfs:label", "to": "literal_90_Jordan Grand Prix"}, {"from": "wd:Q171367", "title": "wdt:P1424", "to": "literal_110_Q25910324"}, {"from": "wd:Q171367", "title": "wdt:P31", "to": "literal_116_Formula One team"}, {"from": "wd:Q63928692", "title": "wdt:P921", "to": "literal_46_BMW Sauber"}, {"from": "wd:Q63928692", "title": "wdt:P921", "to": "literal_67_BMW engines in Formula One"}, {"from": "wd:Q63928692", "title": "rdfs:label", "to": "literal_78_BMW in Formula One"}, {"from": "wd:Q63928692", "title": "wdt:P31", "to": "literal_129_Wikipedia article covering multiple topics"}, {"from": "wd:Q842097", "title": "rdfs:label", "to": "literal_60_Mark Webber"}, {"from": "wd:Q842097", "title": "wdt:P31", "to": "literal_77_Wikimedia human name disambiguation page"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

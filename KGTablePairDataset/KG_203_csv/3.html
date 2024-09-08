@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q8717", "label": "wd:Q8717", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Andalusia_row_7", "label": "wtq:Andalusia_row_7", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Andalusia_row_2", "label": "wtq:Andalusia_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Andalusia_row_1", "label": "wtq:Andalusia_row_1", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q93309", "label": "wd:Q93309", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Andalusia", "label": "wtq:Andalusia", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Seville", "label": "Seville", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Seville", "label": "Seville", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_C\u00f3rdoba", "label": "C\u00f3rdoba", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_Alcal\u00e1 de Guada\u00edra", "label": "Alcal\u00e1 de Guada\u00edra", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_1,243,519", "label": "1,243,519", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_C\u00e1diz", "label": "C\u00e1diz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_75 municipalities", "label": "75 municipalities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Canal de Alfonso XIII", "label": "Canal de Alfonso XIII", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_158.8\u00a0/km2 (411\u00a0/sq\u00a0mi)", "label": "158.8\u00a0/km2 (411\u00a0/sq\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Tifariti", "label": "Tifariti", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_list of municipalities in Seville", "label": "list of municipalities in Seville", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_805,857", "label": "805,857", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_12", "label": "12", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_coat of arms of the City of Seville", "label": "coat of arms of the City of Seville", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Seville", "label": "Seville", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_44 municipalities", "label": "44 municipalities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_C\u00f3rdoba", "label": "C\u00f3rdoba", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_72.4\u00a0/km2 (188\u00a0/sq\u00a0mi)", "label": "72.4\u00a0/km2 (188\u00a0/sq\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_15", "label": "15", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_105 municipalities", "label": "105 municipalities", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_129.2\u00a0/km2 (335\u00a0/sq\u00a0mi)", "label": "129.2\u00a0/km2 (335\u00a0/sq\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_1,928,962", "label": "1,928,962", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Spain", "label": "Spain", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Seville", "label": "Seville", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_C\u00e1diz", "label": "C\u00e1diz", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q8717", "title": "wtq:hasCapital", "to": "wtq:Andalusia_row_7"}, {"from": "wd:Q8717", "title": "rdfs:label", "to": "literal_0_Seville"}, {"from": "wd:Q8717", "title": "wdt:P206", "to": "literal_9_Canal de Alfonso XIII"}, {"from": "wd:Q8717", "title": "wdt:P190", "to": "literal_12_Tifariti"}, {"from": "wd:Q8717", "title": "wdt:P237", "to": "literal_16_coat of arms of the City of Seville"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasMunicipalities", "to": "wd:Q93309"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasRow", "to": "wtq:Andalusia"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasProvince", "to": "literal_1_Seville"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasindex", "to": "literal_3_7"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasCapital", "to": "literal_17_Seville"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasLegal_districts", "to": "literal_22_15"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasMunicipalities", "to": "literal_23_105 municipalities"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasDensity", "to": "literal_24_129.2\u00a0/km2 (335\u00a0/sq\u00a0mi)"}, {"from": "wtq:Andalusia_row_7", "title": "wtq:hasPopulation", "to": "literal_25_1,928,962"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasRow", "to": "wtq:Andalusia"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasProvince", "to": "literal_2_C\u00f3rdoba"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasMunicipalities", "to": "literal_8_75 municipalities"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasindex", "to": "literal_11_2"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasPopulation", "to": "literal_14_805,857"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasLegal_districts", "to": "literal_15_12"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasCapital", "to": "literal_20_C\u00f3rdoba"}, {"from": "wtq:Andalusia_row_2", "title": "wtq:hasDensity", "to": "literal_21_72.4\u00a0/km2 (188\u00a0/sq\u00a0mi)"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasRow", "to": "wtq:Andalusia"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasLegal_districts", "to": "literal_4_14"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasPopulation", "to": "literal_6_1,243,519"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasProvince", "to": "literal_7_C\u00e1diz"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasDensity", "to": "literal_10_158.8\u00a0/km2 (411\u00a0/sq\u00a0mi)"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasindex", "to": "literal_18_1"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasMunicipalities", "to": "literal_19_44 municipalities"}, {"from": "wtq:Andalusia_row_1", "title": "wtq:hasCapital", "to": "literal_28_C\u00e1diz"}, {"from": "wd:Q93309", "title": "wdt:P527", "to": "literal_5_Alcal\u00e1 de Guada\u00edra"}, {"from": "wd:Q93309", "title": "rdfs:label", "to": "literal_13_list of municipalities in Seville"}, {"from": "wd:Q93309", "title": "wdt:P17", "to": "literal_26_Spain"}, {"from": "wd:Q93309", "title": "wdt:P527", "to": "literal_27_Seville"}, {"from": "wtq:Andalusia", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,219 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1989_Major_League_Baseball_Draft a wtq:Entity ;
+    wtq:hasRow wtq:1989_Major_League_Baseball_Draft_row_10,
+        wtq:1989_Major_League_Baseball_Draft_row_13,
+        wtq:1989_Major_League_Baseball_Draft_row_17,
+        wtq:1989_Major_League_Baseball_Draft_row_18,
+        wtq:1989_Major_League_Baseball_Draft_row_19,
+        wtq:1989_Major_League_Baseball_Draft_row_2,
+        wtq:1989_Major_League_Baseball_Draft_row_20,
+        wtq:1989_Major_League_Baseball_Draft_row_22,
+        wtq:1989_Major_League_Baseball_Draft_row_3,
+        wtq:1989_Major_League_Baseball_Draft_row_4 .
+
+wtq:1989_Major_League_Baseball_Draft_row_10 wtq:hasPick "11" ;
+    wtq:hasPlayer wd:Q5024464,
+        "Calvin Murray" ;
+    wtq:hasPosition "3B" ;
+    wtq:hasSchool "W.T. White High School (Dallas, TX)" ;
+    wtq:hasTeam "Cleveland Indians" ;
+    wtq:hasindex "10" .
+
+wtq:1989_Major_League_Baseball_Draft_row_13 wtq:hasPick "14" ;
+    wtq:hasPlayer wd:Q7612881,
+        "Steve Hosey" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool "Fresno State University" ;
+    wtq:hasTeam wd:Q308966,
+        "San Francisco Giants" ;
+    wtq:hasindex "13" .
+
+wtq:1989_Major_League_Baseball_Draft_row_17 wtq:hasPick "18" ;
+    wtq:hasPlayer wd:Q3569080,
+        "Willie Greene" ;
+    wtq:hasPosition "SS" ;
+    wtq:hasSchool "Jones County HS (Gray, GA)" ;
+    wtq:hasTeam wd:Q653772,
+        "Pittsburgh Pirates" ;
+    wtq:hasindex "17" .
+
+wtq:1989_Major_League_Baseball_Draft_row_18 wtq:hasPick "19" ;
+    wtq:hasPlayer wd:Q5336589,
+        "Eddie Zosky" ;
+    wtq:hasPosition "SS" ;
+    wtq:hasSchool "Fresno State University" ;
+    wtq:hasTeam wd:Q650829,
+        "Toronto Blue Jays" ;
+    wtq:hasindex "18" .
+
+wtq:1989_Major_League_Baseball_Draft_row_19 wtq:hasPick "20" ;
+    wtq:hasPlayer wd:Q7436057,
+        "Scott Bryant" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool "University of Texas" ;
+    wtq:hasTeam wd:Q826751,
+        "Cincinnati Reds" ;
+    wtq:hasindex "19" .
+
+wtq:1989_Major_League_Baseball_Draft_row_2 wtq:hasPick "3" ;
+    wtq:hasPlayer wd:Q16213753,
+        "Roger Salkeld" ;
+    wtq:hasPosition "RHP" ;
+    wtq:hasSchool "Saugus (CA) HS" ;
+    wtq:hasTeam wd:Q466586,
+        "Seattle Mariners" ;
+    wtq:hasindex "2" .
+
+wtq:1989_Major_League_Baseball_Draft_row_20 wtq:hasPick "21" ;
+    wtq:hasPlayer wd:Q5605619,
+        "Greg Gohr" ;
+    wtq:hasPosition "RHP" ;
+    wtq:hasSchool wd:Q992830,
+        "Santa Clara University" ;
+    wtq:hasTeam wd:Q650855,
+        "Detroit Tigers" ;
+    wtq:hasindex "20" .
+
+wtq:1989_Major_League_Baseball_Draft_row_22 wtq:hasPick "23" ;
+    wtq:hasPlayer wd:Q3030993,
+        "Mo Vaughn" ;
+    wtq:hasPosition "1B" ;
+    wtq:hasSchool wd:Q585828,
+        "Seton Hall University" ;
+    wtq:hasTeam wd:Q213959,
+        "Boston Red Sox" ;
+    wtq:hasindex "22" .
+
+wtq:1989_Major_League_Baseball_Draft_row_3 wtq:hasPick "4" ;
+    wtq:hasPlayer wd:Q16214013,
+        "Jeff Jackson" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool "Simeon HS (Chicago, IL)" ;
+    wtq:hasTeam wd:Q650840,
+        "Philadelphia Phillies" ;
+    wtq:hasindex "3" .
+
+wtq:1989_Major_League_Baseball_Draft_row_4 wtq:hasPick "5" ;
+    wtq:hasPlayer wd:Q5294490,
+        "Donald Harris" ;
+    wtq:hasPosition "OF" ;
+    wtq:hasSchool wd:Q1423756,
+        "Texas Tech University" ;
+    wtq:hasTeam wd:Q329816,
+        "Texas Rangers" ;
+    wtq:hasindex "4" .
+
+wd:Q1423756 rdfs:label "Texas Tech University" ;
+    wdt:P131 "Lubbock" ;
+    wdt:P31 "public educational institution of the United States" ;
+    wdt:P355 "Edward E. Whitacre Jr. College of Engineering, Texas Tech University" .
+
+wd:Q16213753 rdfs:label "Roger Salkeld" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" ;
+    wdt:P413 "pitcher" .
+
+wd:Q16214013 rdfs:label "Jeff Jackson" ;
+    wdt:P106 "baseball player" ;
+    wdt:P21 "male" ;
+    wdt:P641 "baseball" .
+
+wd:Q213959 rdfs:label "Boston Red Sox" ;
+    wdt:P17 "United States of America" ;
+    wdt:P286 "Alex Cora" ;
+    wdt:P31 "baseball team" .
+
+wd:Q3030993 rdfs:label "Mo Vaughn" ;
+    wdt:P19 "Norwalk" ;
+    wdt:P21 "male" ;
+    wdt:P69 "New Canaan Country School" .
+
+wd:Q308966 rdfs:label "San Francisco Giants" ;
+    wdt:P1344 "2012 World Series" ;
+    wdt:P641 "baseball" ;
+    wdt:P910 "Category:San Francisco Giants" .
+
+wd:Q329816 rdfs:label "Texas Rangers" ;
+    wdt:P1344 "2011 World Series" ;
+    wdt:P17 "United States of America" ;
+    wdt:P910 "Category:Texas Rangers (baseball)" .
+
+wd:Q3569080 rdfs:label "Willie Greene" ;
+    wdt:P106 "baseball player" ;
+    wdt:P21 "male" ;
+    wdt:P54 "Toronto Blue Jays" .
+
+wd:Q466586 rdfs:label "Seattle Mariners" ;
+    wdt:P127 "John W. Stanton" ;
+    wdt:P1424 "Template:Seattle Mariners" ;
+    wdt:P17 "United States of America" .
+
+wd:Q5024464 rdfs:label "Calvin Murray" ;
+    wdt:P27 "United States of America" ;
+    wdt:P31 "human" ;
+    wdt:P69 "W. T. White High School" .
+
+wd:Q5294490 rdfs:label "Donald Harris" ;
+    wdt:P118 "Major League Baseball" ;
+    wdt:P54 "Texas Rangers",
+        "Tiburones de La Guaira" .
+
+wd:Q5336589 rdfs:label "Eddie Zosky" ;
+    wdt:P21 "male" ;
+    wdt:P54 "Houston Astros",
+        "Toronto Blue Jays" .
+
+wd:Q5605619 rdfs:label "Greg Gohr" ;
+    wdt:P106 "baseball player" ;
+    wdt:P21 "male" ;
+    wdt:P54 "Detroit Tigers" .
+
+wd:Q585828 rdfs:label "Seton Hall University" ;
+    wdt:P138 "Elizabeth Ann Seton" ;
+    wdt:P355 "Seton Hall University Libraries" ;
+    wdt:P463 "American Council on Education" .
+
+wd:Q650829 rdfs:label "Toronto Blue Jays" ;
+    wdt:P118 "Major League Baseball" ;
+    wdt:P127 "Canadian Imperial Bank of Commerce",
+        "Rogers Communications" .
+
+wd:Q650840 rdfs:label "Philadelphia Phillies" ;
+    wdt:P138 "Philadelphia" ;
+    wdt:P17 "United States of America" ;
+    wdt:P6112 "Category:Philadelphia Quakers players" .
+
+wd:Q650855 rdfs:label "Detroit Tigers" ;
+    wdt:P118 "American League" ;
+    wdt:P127 "Frank Navin" ;
+    wdt:P17 "United States of America" .
+
+wd:Q653772 rdfs:label "Pittsburgh Pirates" ;
+    wdt:P1424 "Q25896649" ;
+    wdt:P1889 "Pittsburgh Pirates" ;
+    wdt:P641 "baseball" .
+
+wd:Q7436057 rdfs:label "Scott Bryant" ;
+    wdt:P27 "United States of America" ;
+    wdt:P54 "Charlotte Knights" ;
+    wdt:P69 "University of Texas at Austin" .
+
+wd:Q7612881 rdfs:label "Steve Hosey" ;
+    wdt:P31 "human" ;
+    wdt:P54 "San Francisco Giants" ;
+    wdt:P69 "California State University, Fresno" .
+
+wd:Q826751 rdfs:label "Cincinnati Reds" ;
+    wdt:P1830 "Cincinnati Reds Radio Network",
+        "Crosley Field" ;
+    wdt:P910 "Category:Cincinnati Reds" .
+
+wd:Q992830 rdfs:label "Santa Clara University" ;
+    wdt:P140 "Catholic Church" ;
+    wdt:P31 "university" ;
+    wdt:P355 "Ignatian Center for Jesuit Education, Santa Clara University" .
+

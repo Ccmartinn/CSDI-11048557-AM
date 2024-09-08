@@ -1,0 +1,220 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Morgan_Creek_Productions a wtq:Entity ;
+    wtq:hasRow wtq:Morgan_Creek_Productions_row_10,
+        wtq:Morgan_Creek_Productions_row_17,
+        wtq:Morgan_Creek_Productions_row_19,
+        wtq:Morgan_Creek_Productions_row_2,
+        wtq:Morgan_Creek_Productions_row_21,
+        wtq:Morgan_Creek_Productions_row_24,
+        wtq:Morgan_Creek_Productions_row_26,
+        wtq:Morgan_Creek_Productions_row_27,
+        wtq:Morgan_Creek_Productions_row_3,
+        wtq:Morgan_Creek_Productions_row_31,
+        wtq:Morgan_Creek_Productions_row_33,
+        wtq:Morgan_Creek_Productions_row_35,
+        wtq:Morgan_Creek_Productions_row_36,
+        wtq:Morgan_Creek_Productions_row_39,
+        wtq:Morgan_Creek_Productions_row_40,
+        wtq:Morgan_Creek_Productions_row_41,
+        wtq:Morgan_Creek_Productions_row_42,
+        wtq:Morgan_Creek_Productions_row_44,
+        wtq:Morgan_Creek_Productions_row_46,
+        wtq:Morgan_Creek_Productions_row_48,
+        wtq:Morgan_Creek_Productions_row_50,
+        wtq:Morgan_Creek_Productions_row_52,
+        wtq:Morgan_Creek_Productions_row_53,
+        wtq:Morgan_Creek_Productions_row_56 .
+
+wtq:Morgan_Creek_Productions_row_10 wtq:hasBudget "$18 million" ;
+    wtq:hasDirector "John Schlesinger" ;
+    wtq:hasGross__worldwide_ "$44,926,706" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Pacific Heights" ;
+    wtq:hasYear "1990" ;
+    wtq:hasindex "10" .
+
+wtq:Morgan_Creek_Productions_row_17 wtq:hasBudget "$13 million" ;
+    wtq:hasDirector "Tony Scott" ;
+    wtq:hasGross__worldwide_ "$12,281,551" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "True Romance" ;
+    wtq:hasYear "1993" ;
+    wtq:hasindex "17" .
+
+wtq:Morgan_Creek_Productions_row_19 wtq:hasBudget "$25 million" ;
+    wtq:hasDirector "David S. Ward" ;
+    wtq:hasGross__worldwide_ "$30,626,182" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Major League II" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "19" .
+
+wtq:Morgan_Creek_Productions_row_2 wtq:hasBudget "nan" ;
+    wtq:hasDirector "Blake Edwards" ;
+    wtq:hasGross__worldwide_ "$19,674,852" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Skin Deep" ;
+    wtq:hasYear "1989" ;
+    wtq:hasindex "2" .
+
+wtq:Morgan_Creek_Productions_row_21 wtq:hasBudget "nan" ;
+    wtq:hasDirector "Heywood Gould" ;
+    wtq:hasGross__worldwide_ "$6,971,777" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Trial by Jury" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "21" .
+
+wtq:Morgan_Creek_Productions_row_24 wtq:hasBudget "$30 million" ;
+    wtq:hasDirector "Steve Oedekerk" ;
+    wtq:hasGross__worldwide_ "$212,385,533" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Ace Ventura: When Nature Calls" ;
+    wtq:hasYear "1995" ;
+    wtq:hasindex "24" .
+
+wtq:Morgan_Creek_Productions_row_26 wtq:hasBudget "$15 million" ;
+    wtq:hasDirector "Steve Miner" ;
+    wtq:hasGross__worldwide_ "$2,042,530" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Big Bully" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "26" .
+
+wtq:Morgan_Creek_Productions_row_27 wtq:hasBudget "$45 million" ;
+    wtq:hasDirector "Jeremiah S. Chechik" ;
+    wtq:hasGross__worldwide_ "$17,100,369" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Diabolique" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "27" .
+
+wtq:Morgan_Creek_Productions_row_3 wtq:hasBudget "$11 million" ;
+    wtq:hasDirector "David S. Ward" ;
+    wtq:hasGross__worldwide_ "$49,797,148" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Major League" ;
+    wtq:hasYear "1989" ;
+    wtq:hasindex "3" .
+
+wtq:Morgan_Creek_Productions_row_31 wtq:hasBudget "$18 million" ;
+    wtq:hasDirector "John Warren" ;
+    wtq:hasGross__worldwide_ "$3,572,443" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Major League: Back to the Minors" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "31" .
+
+wtq:Morgan_Creek_Productions_row_33 wtq:hasBudget "$60 million" ;
+    wtq:hasDirector "Paul W.S. Anderson" ;
+    wtq:hasGross__worldwide_ "$14,594,226" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Soldier" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "33" .
+
+wtq:Morgan_Creek_Productions_row_35 wtq:hasBudget "$70 million" ;
+    wtq:hasDirector "Hugh Johnson" ;
+    wtq:hasGross__worldwide_ "$11,263,966" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Chill Factor" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "35" .
+
+wtq:Morgan_Creek_Productions_row_36 wtq:hasBudget "$11 million" ;
+    wtq:hasDirector "Barry Levinson" ;
+    wtq:hasGross__worldwide_ "$3,736,868" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Liberty Heights" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "36" .
+
+wtq:Morgan_Creek_Productions_row_39 wtq:hasBudget "$60 million" ;
+    wtq:hasDirector "Christian Duguay" ;
+    wtq:hasGross__worldwide_ "$40,400,425" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "The Art of War" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "39" .
+
+wtq:Morgan_Creek_Productions_row_40 wtq:hasBudget "$63.6 million" ;
+    wtq:hasDirector "Stephen Kay" ;
+    wtq:hasGross__worldwide_ "$19,412,993" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Get Carter" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "40" .
+
+wtq:Morgan_Creek_Productions_row_41 wtq:hasBudget "$15 million" ;
+    wtq:hasDirector "Mary Lambert" ;
+    wtq:hasGross__worldwide_ "$5,217,498" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "The In Crowd" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "41" .
+
+wtq:Morgan_Creek_Productions_row_42 wtq:hasBudget "$35 million" ;
+    wtq:hasDirector "Sean Penn" ;
+    wtq:hasGross__worldwide_ "$29,419,291" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "The Pledge" ;
+    wtq:hasYear "2001" ;
+    wtq:hasindex "42" .
+
+wtq:Morgan_Creek_Productions_row_44 wtq:hasBudget "$53 million" ;
+    wtq:hasDirector "Luis Mandoki" ;
+    wtq:hasGross__worldwide_ "$29,715,606" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Angel Eyes" ;
+    wtq:hasYear "2001" ;
+    wtq:hasindex "44" .
+
+wtq:Morgan_Creek_Productions_row_46 wtq:hasBudget "$39 million" ;
+    wtq:hasDirector "David Mamet" ;
+    wtq:hasGross__worldwide_ "$28,510,652" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Heist" ;
+    wtq:hasYear "2001" ;
+    wtq:hasindex "46" .
+
+wtq:Morgan_Creek_Productions_row_48 wtq:hasBudget "nan" ;
+    wtq:hasDirector "Craig Ferguson" ;
+    wtq:hasGross__worldwide_ "nan" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "I'll Be There" ;
+    wtq:hasYear "2003" ;
+    wtq:hasindex "48" .
+
+wtq:Morgan_Creek_Productions_row_50 wtq:hasBudget "$30 million" ;
+    wtq:hasDirector "Paul Schrader" ;
+    wtq:hasGross__worldwide_ "$251,495" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Dominion: Prequel to the Exorcist" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "50" .
+
+wtq:Morgan_Creek_Productions_row_52 wtq:hasBudget "$20 million" ;
+    wtq:hasDirector "Barry Levinson" ;
+    wtq:hasGross__worldwide_ "$41,237,658" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Man of the Year" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "52" .
+
+wtq:Morgan_Creek_Productions_row_53 wtq:hasBudget "$85 million" ;
+    wtq:hasDirector "Robert De Niro" ;
+    wtq:hasGross__worldwide_ "$99,480,480" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "The Good Shepherd" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "53" .
+
+wtq:Morgan_Creek_Productions_row_56 wtq:hasBudget "$7.5 million" ;
+    wtq:hasDirector "David Mickey Evans" ;
+    wtq:hasGross__worldwide_ "nan" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Ace Ventura Jr: Pet Detective" ;
+    wtq:hasYear "2009" ;
+    wtq:hasindex "56" .
+

@@ -1,0 +1,20 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_parishes_in_the_Diocese_of_Salford a wtq:Entity ;
+    wtq:hasRow wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2,
+        wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6 .
+
+wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2 wtq:hasClosed "2005" ;
+    wtq:hasFounded "1947" ;
+    wtq:hasLocality "Stacksteads" ;
+    wtq:hasParish "St Joseph" ;
+    wtq:hasParish_Priest "----" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6 wtq:hasClosed "----" ;
+    wtq:hasFounded "1828" ;
+    wtq:hasLocality "Rawtenstall" ;
+    wtq:hasParish "St James the Less" ;
+    wtq:hasParish_Priest "Fr David Lupton, Rural Dean" ;
+    wtq:hasindex "6" .
+

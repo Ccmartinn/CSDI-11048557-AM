@@ -1,0 +1,55 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2008_in_athletics_\(track_and_field\) a wtq:Entity ;
+    wtq:hasRow wtq:2008_in_athletics_\(track_and_field\)_row_2,
+        wtq:2008_in_athletics_\(track_and_field\)_row_6 .
+
+wtq:2008_in_athletics_\(track_and_field\)_row_2 wtq:hasAthlete "Usain Bolt" ;
+    wtq:hasDate "August 20" ;
+    wtq:hasEvent "200 m" ;
+    wtq:hasNation "Jamaica" ;
+    wtq:hasPerformance "19.30" ;
+    wtq:hasPlace "Beijing, China" ;
+    wtq:hasindex "2" .
+
+wtq:2008_in_athletics_\(track_and_field\)_row_6 wtq:hasAthlete wd:Q171500,
+        "Haile Gebrselassie" ;
+    wtq:hasDate "September 28" ;
+    wtq:hasEvent wd:Q40244,
+        "Marathon" ;
+    wtq:hasNation wd:Q115,
+        "Ethiopia" ;
+    wtq:hasPerformance "2:03:59" ;
+    wtq:hasPlace wd:Q183,
+        wd:Q64,
+        "Berlin, Germany" ;
+    wtq:hasindex "6" .
+
+wd:Q115 rdfs:label "Ethiopia" ;
+    wdt:P463 "Interpol",
+        "Organisation of African, Caribbean and Pacific States",
+        "United Nations" .
+
+wd:Q171500 rdfs:label "Haile Gebrselassie" ;
+    wdt:P106 "athletics competitor",
+        "marathon runner" ;
+    wdt:P19 "Ethiopia" .
+
+wd:Q183 rdfs:label "Germany" ;
+    wdt:P530 "Cuba",
+        "Malta",
+        "Montenegro" .
+
+wd:Q40244 rdfs:label "marathon" ;
+    wdt:P1343 "Encyclopædia Britannica 11th edition" ;
+    wdt:P31 "sports discipline" ;
+    wdt:P641 "athletics" .
+
+wd:Q64 rdfs:label "Berlin" ;
+    wdt:P17 "Germany" ;
+    wdt:P31 "Einheitsgemeinde of Germany",
+        "Hanseatic city" .
+

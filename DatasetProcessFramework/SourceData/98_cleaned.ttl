@@ -1,0 +1,471 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Morgan_Creek_Productions a wtq:Entity ;
+    wtq:hasRow wtq:Morgan_Creek_Productions_row_10,
+        wtq:Morgan_Creek_Productions_row_17,
+        wtq:Morgan_Creek_Productions_row_19,
+        wtq:Morgan_Creek_Productions_row_2,
+        wtq:Morgan_Creek_Productions_row_21,
+        wtq:Morgan_Creek_Productions_row_24,
+        wtq:Morgan_Creek_Productions_row_26,
+        wtq:Morgan_Creek_Productions_row_27,
+        wtq:Morgan_Creek_Productions_row_3,
+        wtq:Morgan_Creek_Productions_row_31,
+        wtq:Morgan_Creek_Productions_row_33,
+        wtq:Morgan_Creek_Productions_row_35,
+        wtq:Morgan_Creek_Productions_row_36,
+        wtq:Morgan_Creek_Productions_row_39,
+        wtq:Morgan_Creek_Productions_row_40,
+        wtq:Morgan_Creek_Productions_row_41,
+        wtq:Morgan_Creek_Productions_row_42,
+        wtq:Morgan_Creek_Productions_row_44,
+        wtq:Morgan_Creek_Productions_row_46,
+        wtq:Morgan_Creek_Productions_row_48,
+        wtq:Morgan_Creek_Productions_row_50,
+        wtq:Morgan_Creek_Productions_row_52,
+        wtq:Morgan_Creek_Productions_row_53,
+        wtq:Morgan_Creek_Productions_row_56 .
+
+wtq:Morgan_Creek_Productions_row_10 wtq:hasBudget "$18 million" ;
+    wtq:hasDirector wd:Q55303,
+        "John Schlesinger" ;
+    wtq:hasGross__worldwide_ "$44,926,706" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1148079,
+        "Pacific Heights" ;
+    wtq:hasYear "1990" ;
+    wtq:hasindex "10" .
+
+wtq:Morgan_Creek_Productions_row_17 wtq:hasBudget "$13 million" ;
+    wtq:hasDirector wd:Q193648,
+        "Tony Scott" ;
+    wtq:hasGross__worldwide_ "$12,281,551" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1127709,
+        "True Romance" ;
+    wtq:hasYear "1993" ;
+    wtq:hasindex "17" .
+
+wtq:Morgan_Creek_Productions_row_19 wtq:hasBudget "$25 million" ;
+    wtq:hasDirector "David S. Ward" ;
+    wtq:hasGross__worldwide_ "$30,626,182" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1213625,
+        "Major League II" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "19" .
+
+wtq:Morgan_Creek_Productions_row_2 wtq:hasBudget "nan" ;
+    wtq:hasDirector wd:Q56093,
+        "Blake Edwards" ;
+    wtq:hasGross__worldwide_ "$19,674,852" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q925980,
+        "Skin Deep" ;
+    wtq:hasYear "1989" ;
+    wtq:hasindex "2" .
+
+wtq:Morgan_Creek_Productions_row_21 wtq:hasBudget "nan" ;
+    wtq:hasDirector wd:Q3135104,
+        "Heywood Gould" ;
+    wtq:hasGross__worldwide_ "$6,971,777" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q2151912,
+        "Trial by Jury" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "21" .
+
+wtq:Morgan_Creek_Productions_row_24 wtq:hasBudget "$30 million" ;
+    wtq:hasDirector wd:Q562063,
+        "Steve Oedekerk" ;
+    wtq:hasGross__worldwide_ "$212,385,533" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q340127,
+        "Ace Ventura: When Nature Calls" ;
+    wtq:hasYear "1995" ;
+    wtq:hasindex "24" .
+
+wtq:Morgan_Creek_Productions_row_26 wtq:hasBudget "$15 million" ;
+    wtq:hasDirector wd:Q107404,
+        "Steve Miner" ;
+    wtq:hasGross__worldwide_ "$2,042,530" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q4905397,
+        "Big Bully" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "26" .
+
+wtq:Morgan_Creek_Productions_row_27 wtq:hasBudget "$45 million" ;
+    wtq:hasDirector wd:Q655416,
+        "Jeremiah S. Chechik" ;
+    wtq:hasGross__worldwide_ "$17,100,369" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q617117,
+        "Diabolique" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "27" .
+
+wtq:Morgan_Creek_Productions_row_3 wtq:hasBudget "$11 million" ;
+    wtq:hasDirector wd:Q720293,
+        "David S. Ward" ;
+    wtq:hasGross__worldwide_ "$49,797,148" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1213621,
+        "Major League" ;
+    wtq:hasYear "1989" ;
+    wtq:hasindex "3" .
+
+wtq:Morgan_Creek_Productions_row_31 wtq:hasBudget "$18 million" ;
+    wtq:hasDirector wd:Q1585267,
+        "John Warren" ;
+    wtq:hasGross__worldwide_ "$3,572,443" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q233285,
+        "Major League: Back to the Minors" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "31" .
+
+wtq:Morgan_Creek_Productions_row_33 wtq:hasBudget "$60 million" ;
+    wtq:hasDirector "Paul W.S. Anderson" ;
+    wtq:hasGross__worldwide_ "$14,594,226" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1138936,
+        "Soldier" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "33" .
+
+wtq:Morgan_Creek_Productions_row_35 wtq:hasBudget "$70 million" ;
+    wtq:hasDirector wd:Q5931301,
+        "Hugh Johnson" ;
+    wtq:hasGross__worldwide_ "$11,263,966" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1192764,
+        "Chill Factor" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "35" .
+
+wtq:Morgan_Creek_Productions_row_36 wtq:hasBudget "$11 million" ;
+    wtq:hasDirector wd:Q269692,
+        "Barry Levinson" ;
+    wtq:hasGross__worldwide_ "$3,736,868" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q178989,
+        "Liberty Heights" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "36" .
+
+wtq:Morgan_Creek_Productions_row_39 wtq:hasBudget "$60 million" ;
+    wtq:hasDirector wd:Q643982,
+        "Christian Duguay" ;
+    wtq:hasGross__worldwide_ "$40,400,425" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q466348,
+        "The Art of War" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "39" .
+
+wtq:Morgan_Creek_Productions_row_40 wtq:hasBudget "$63.6 million" ;
+    wtq:hasDirector wd:Q973915,
+        "Stephen Kay" ;
+    wtq:hasGross__worldwide_ "$19,412,993" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1010099,
+        "Get Carter" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "40" .
+
+wtq:Morgan_Creek_Productions_row_41 wtq:hasBudget "$15 million" ;
+    wtq:hasDirector wd:Q16801065,
+        "Mary Lambert" ;
+    wtq:hasGross__worldwide_ "$5,217,498" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1218172,
+        "The In Crowd" ;
+    wtq:hasYear "2000" ;
+    wtq:hasindex "41" .
+
+wtq:Morgan_Creek_Productions_row_42 wtq:hasBudget "$35 million" ;
+    wtq:hasDirector wd:Q44221,
+        "Sean Penn" ;
+    wtq:hasGross__worldwide_ "$29,419,291" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1170710,
+        "The Pledge" ;
+    wtq:hasYear "2001" ;
+    wtq:hasindex "42" .
+
+wtq:Morgan_Creek_Productions_row_44 wtq:hasBudget "$53 million" ;
+    wtq:hasDirector wd:Q939894,
+        "Luis Mandoki" ;
+    wtq:hasGross__worldwide_ "$29,715,606" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q531675,
+        "Angel Eyes" ;
+    wtq:hasYear "2001" ;
+    wtq:hasindex "44" .
+
+wtq:Morgan_Creek_Productions_row_46 wtq:hasBudget "$39 million" ;
+    wtq:hasDirector wd:Q269927,
+        "David Mamet" ;
+    wtq:hasGross__worldwide_ "$28,510,652" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Heist" ;
+    wtq:hasYear "2001" ;
+    wtq:hasindex "46" .
+
+wtq:Morgan_Creek_Productions_row_48 wtq:hasBudget "nan" ;
+    wtq:hasDirector wd:Q72867,
+        "Craig Ferguson" ;
+    wtq:hasGross__worldwide_ "nan" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "I'll Be There" ;
+    wtq:hasYear "2003" ;
+    wtq:hasindex "48" .
+
+wtq:Morgan_Creek_Productions_row_50 wtq:hasBudget "$30 million" ;
+    wtq:hasDirector wd:Q363989,
+        "Paul Schrader" ;
+    wtq:hasGross__worldwide_ "$251,495" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1238102,
+        "Dominion: Prequel to the Exorcist" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "50" .
+
+wtq:Morgan_Creek_Productions_row_52 wtq:hasBudget "$20 million" ;
+    wtq:hasDirector "Barry Levinson" ;
+    wtq:hasGross__worldwide_ "$41,237,658" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q1470582,
+        "Man of the Year" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "52" .
+
+wtq:Morgan_Creek_Productions_row_53 wtq:hasBudget "$85 million" ;
+    wtq:hasDirector wd:Q36949,
+        "Robert De Niro" ;
+    wtq:hasGross__worldwide_ "$99,480,480" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle wd:Q786562,
+        "The Good Shepherd" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "53" .
+
+wtq:Morgan_Creek_Productions_row_56 wtq:hasBudget "$7.5 million" ;
+    wtq:hasDirector wd:Q1175381,
+        "David Mickey Evans" ;
+    wtq:hasGross__worldwide_ "nan" ;
+    wtq:hasNotes "nan" ;
+    wtq:hasTitle "Ace Ventura Jr: Pet Detective" ;
+    wtq:hasYear "2009" ;
+    wtq:hasindex "56" .
+
+wd:Q1010099 rdfs:label "Get Carter" ;
+    wdt:P272 "Franchise Pictures" ;
+    wdt:P364 "English" ;
+    wdt:P750 "Netflix" .
+
+wd:Q107404 rdfs:label "Steve Miner" ;
+    wdt:P106 "film actor",
+        "television producer" ;
+    wdt:P31 "human" .
+
+wd:Q1127709 rdfs:label "True Romance" ;
+    wdt:P161 "Chris Penn",
+        "Christopher Walken",
+        "Michael Rapaport" .
+
+wd:Q1138936 rdfs:label "Soldier" ;
+    wdt:P136 "dystopian film" ;
+    wdt:P161 "Kurt Russell" ;
+    wdt:P58 "David Peoples" .
+
+wd:Q1148079 rdfs:label "Pacific Heights" ;
+    wdt:P495 "United States of America" ;
+    wdt:P750 "20th Century Studios" ;
+    wdt:P840 "San Francisco" .
+
+wd:Q1170710 rdfs:label "The Pledge" ;
+    wdt:P161 "Françoise Yip",
+        "Robin Wright",
+        "Vanessa Redgrave" .
+
+wd:Q1175381 rdfs:label "David M. Evans" ;
+    wdt:P106 "actor" ;
+    wdt:P6886 "English" ;
+    wdt:P7084 "Category:Films directed by David Mickey Evans" .
+
+wd:Q1192764 rdfs:label "Chill Factor" ;
+    wdt:P161 "Cuba Gooding Jr." ;
+    wdt:P57 "Hugh Johnson" ;
+    wdt:P86 "Hans Zimmer" .
+
+wd:Q1213621 rdfs:label "Major League" ;
+    wdt:P462 "color" ;
+    wdt:P495 "United States of America" ;
+    wdt:P750 "Netflix" .
+
+wd:Q1213625 rdfs:label "Major League II" ;
+    wdt:P155 "Major League" ;
+    wdt:P156 "Major League: Back to the Minors" ;
+    wdt:P57 "David S. Ward" .
+
+wd:Q1218172 rdfs:label "The In Crowd" ;
+    wdt:P161 "Tess Harper" ;
+    wdt:P31 "film" ;
+    wdt:P57 "Mary Lambert" .
+
+wd:Q1238102 rdfs:label "Dominion: Prequel to the Exorcist" ;
+    wdt:P57 "Paul Schrader" ;
+    wdt:P58 "William Wisher" ;
+    wdt:P86 "Angelo Badalamenti" .
+
+wd:Q1470582 rdfs:label "Man of the Year" ;
+    wdt:P462 "color" ;
+    wdt:P750 "Universal Pictures" ;
+    wdt:P915 "Toronto" .
+
+wd:Q1585267 rdfs:label "John Warren" ;
+    wdt:P31 "Wikimedia human name disambiguation page" .
+
+wd:Q16801065 rdfs:label "Mary Lambert" ;
+    wdt:P31 "Wikimedia human name disambiguation page" .
+
+wd:Q178989 rdfs:label "Liberty Heights" ;
+    wdt:P136 "comedy film" ;
+    wdt:P31 "film" ;
+    wdt:P58 "Barry Levinson" .
+
+wd:Q193648 rdfs:label "Tony Scott" ;
+    wdt:P3373 "Ridley Scott" ;
+    wdt:P509 "jumping" ;
+    wdt:P735 "Anthony" .
+
+wd:Q2151912 rdfs:label "Trial by Jury" ;
+    wdt:P136 "trial film" ;
+    wdt:P161 "David Cronenberg",
+        "Gabriel Byrne" .
+
+wd:Q233285 rdfs:label "Major League: Back to the Minors" ;
+    wdt:P161 "Ted McGinley" ;
+    wdt:P31 "film" ;
+    wdt:P86 "Robert Folk" .
+
+wd:Q269692 rdfs:label "Barry Levinson" ;
+    wdt:P106 "producer" ;
+    wdt:P166 "Primetime Emmy Award for Outstanding Directing for a Drama Series",
+        "Silver Bear Grand Jury Prize" .
+
+wd:Q269927 rdfs:label "David Mamet" ;
+    wdt:P27 "United States of America" ;
+    wdt:P40 "Zosia Mamet" ;
+    wdt:P69 "Neighborhood Playhouse School of the Theatre" .
+
+wd:Q3135104 rdfs:label "Heywood Gould" ;
+    wdt:P106 "journalist" ;
+    wdt:P19 "The Bronx" ;
+    wdt:P21 "male" .
+
+wd:Q340127 rdfs:label "Ace Ventura: When Nature Calls" ;
+    wdt:P136 "comedy film" ;
+    wdt:P58 "Steve Oedekerk" ;
+    wdt:P86 "Robert Folk" .
+
+wd:Q363989 rdfs:label "Paul Schrader" ;
+    wdt:P19 "Grand Rapids" ;
+    wdt:P21 "male" ;
+    wdt:P27 "United States of America" .
+
+wd:Q36949 rdfs:label "Robert De Niro" ;
+    wdt:P22 "Robert De Niro Sr." ;
+    wdt:P26 "Grace Hightower" ;
+    wdt:P27 "Italy" .
+
+wd:Q44221 rdfs:label "Sean Penn" ;
+    wdt:P19 "Santa Monica" ;
+    wdt:P21 "male" ;
+    wdt:P39 "President of the Jury at the Cannes Festival" .
+
+wd:Q466348 rdfs:label "The Art of War" ;
+    wdt:P136 "action film" ;
+    wdt:P156 "The Art of War II: Betrayal" ;
+    wdt:P31 "film" .
+
+wd:Q4905397 rdfs:label "Big Bully" ;
+    wdt:P161 "Jeffrey Tambor",
+        "Rick Moranis" ;
+    wdt:P86 "David Newman" .
+
+wd:Q531675 rdfs:label "Angel Eyes" ;
+    wdt:P161 "Jim Caviezel" ;
+    wdt:P31 "film" ;
+    wdt:P86 "Marco Beltrami" .
+
+wd:Q55303 rdfs:label "John Schlesinger" ;
+    wdt:P106 "director",
+        "film director" ;
+    wdt:P69 "Uppingham School" .
+
+wd:Q56093 rdfs:label "Blake Edwards" ;
+    wdt:P1411 "Academy Award for Best Writing, Adapted Screenplay" ;
+    wdt:P1889 "Blake Edwards" ;
+    wdt:P5008 "Neighborhood Public Art in Boston" .
+
+wd:Q562063 rdfs:label "Steve Oedekerk" ;
+    wdt:P106 "director",
+        "executive producer" ;
+    wdt:P27 "United States of America" .
+
+wd:Q5931301 rdfs:label "Hugh Johnson" ;
+    wdt:P106 "film director" ;
+    wdt:P20 "Los Angeles" ;
+    wdt:P734 "Johnson" .
+
+wd:Q617117 rdfs:label "Diabolique" ;
+    wdt:P136 "film based on a novel",
+        "horror film",
+        "neo-noir" .
+
+wd:Q643982 rdfs:label "Christian Duguay" ;
+    wdt:P19 "Montreal" ;
+    wdt:P21 "male" ;
+    wdt:P27 "Canada" .
+
+wd:Q655416 rdfs:label "Jeremiah S. Chechik" ;
+    wdt:P106 "director" ;
+    wdt:P21 "male" ;
+    wdt:P69 "McGill University" .
+
+wd:Q720293 rdfs:label "David S. Ward" ;
+    wdt:P26 "Rosanna DeSoto" ;
+    wdt:P69 "Pomona College",
+        "University of Southern California" .
+
+wd:Q72867 rdfs:label "Craig Ferguson" ;
+    wdt:P19 "Glasgow" ;
+    wdt:P21 "male" ;
+    wdt:P735 "Craig" .
+
+wd:Q786562 rdfs:label "The Good Shepherd" ;
+    wdt:P161 "John Turturro",
+        "Lee Pace",
+        "Matt Damon" .
+
+wd:Q925980 rdfs:label "Skin Deep" ;
+    wdt:P161 "Alyson Reed",
+        "Denise Crosby",
+        "Nina Foch" .
+
+wd:Q939894 rdfs:label "Luis Mandoki" ;
+    wdt:P106 "film producer" ;
+    wdt:P27 "Mexico" ;
+    wdt:P31 "human" .
+
+wd:Q973915 rdfs:label "Stephen Kay" ;
+    wdt:P106 "film director",
+        "screenwriter" ;
+    wdt:P31 "human" .
+

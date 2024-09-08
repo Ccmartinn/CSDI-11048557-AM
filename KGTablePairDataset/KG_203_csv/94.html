@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q26", "label": "wd:Q26", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q10993", "label": "wd:Q10993", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:BMW_Championship_(PGA_Tour)_row_2", "label": "wtq:BMW_Championship_(PGA_Tour)_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q537853", "label": "wd:Q537853", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:BMW_Championship_(PGA_Tour)_row_7", "label": "wtq:BMW_Championship_(PGA_Tour)_row_7", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:BMW_Championship_(PGA_Tour)_row_1", "label": "wtq:BMW_Championship_(PGA_Tour)_row_1", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5166704", "label": "wd:Q5166704", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q575355", "label": "wd:Q575355", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3359661", "label": "wd:Q3359661", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q380613", "label": "wd:Q380613", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5187858", "label": "wd:Q5187858", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q4629741", "label": "wd:Q4629741", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q4626479", "label": "wd:Q4626479", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q30", "label": "wd:Q30", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q139360", "label": "wd:Q139360", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:BMW_Championship_(PGA_Tour)", "label": "wtq:BMW_Championship_(PGA_Tour)", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_stateless nation", "label": "stateless nation", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_English", "label": "English", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_2 strokes", "label": "2 strokes", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Tiger Woods", "label": "Tiger Woods", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_2 strokes", "label": "2 strokes", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Conway Farms Golf Club", "label": "Conway Farms Golf Club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_\u201322", "label": "\u201322", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Lake Forest", "label": "Lake Forest", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_2013", "label": "2013", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_2008 PGA Tour", "label": "2008 PGA Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Cypress", "label": "Cypress", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_golf club", "label": "golf club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Zach Johnson", "label": "Zach Johnson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_67-67-65-63=262", "label": "67-67-65-63=262", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_sports season", "label": "sports season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_64-70-69-65=268", "label": "64-70-69-65=268", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_64-68-69-67=268", "label": "64-68-69-67=268", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_2013 PGA Tour", "label": "2013 PGA Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_1,440,000", "label": "1,440,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Northern Ireland", "label": "Northern Ireland", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Carmel", "label": "Carmel", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_golf", "label": "golf", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_2013 PGA Tour", "label": "2013 PGA Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Lake Bluff", "label": "Lake Bluff", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_2007", "label": "2007", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Johnson", "label": "Johnson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Regis High School", "label": "Regis High School", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Northern Ireland", "label": "Northern Ireland", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Rory McIlroy", "label": "Rory McIlroy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_United States", "label": "United States", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Joe Biden", "label": "Joe Biden", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_pound sterling", "label": "pound sterling", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Crooked Stick Golf Club", "label": "Crooked Stick Golf Club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_golfer", "label": "golfer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_sports club", "label": "sports club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_\u201320", "label": "\u201320", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_2012 PGA Tour", "label": "2012 PGA Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Conway Farms Golf Club", "label": "Conway Farms Golf Club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_8,000,000", "label": "8,000,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_8,000,000", "label": "8,000,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_2007 PGA Tour", "label": "2007 PGA Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_2 strokes", "label": "2 strokes", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_\u201316", "label": "\u201316", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Zach Johnson", "label": "Zach Johnson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Q110149427", "label": "Q110149427", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_city in the United States", "label": "city in the United States", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_7", "label": "7", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_7,000,000", "label": "7,000,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_sports season", "label": "sports season", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_1,440,000", "label": "1,440,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_2012 PGA Tour", "label": "2012 PGA Tour", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Lake Forest, Illinois", "label": "Lake Forest, Illinois", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Cog Hill Golf \u0026 Country Club", "label": "Cog Hill Golf \u0026 Country Club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_democratic republic", "label": "democratic republic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_sovereign state", "label": "sovereign state", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Indiana", "label": "Indiana", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_golf", "label": "golf", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_Erica Stoll", "label": "Erica Stoll", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_Rory McIlroy", "label": "Rory McIlroy", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_Lemont, Illinois", "label": "Lemont, Illinois", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_Crooked Stick Golf Club", "label": "Crooked Stick Golf Club", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_2012", "label": "2012", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_golf", "label": "golf", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_Tiger Woods", "label": "Tiger Woods", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_North America", "label": "North America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_1,260,000", "label": "1,260,000", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_Sullivan Upper School", "label": "Sullivan Upper School", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_Carmel, Indiana", "label": "Carmel, Indiana", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Stanford University", "label": "Stanford University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_United States", "label": "United States", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Category:Carmel, Indiana", "label": "Category:Carmel, Indiana", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_golf", "label": "golf", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q26", "title": "wtq:hasCountry", "to": "wtq:BMW_Championship_(PGA_Tour)_row_2"}, {"from": "wd:Q26", "title": "wdt:P31", "to": "literal_0_stateless nation"}, {"from": "wd:Q26", "title": "wdt:P37", "to": "literal_2_English"}, {"from": "wd:Q26", "title": "rdfs:label", "to": "literal_22_Northern Ireland"}, {"from": "wd:Q26", "title": "wdt:P38", "to": "literal_35_pound sterling"}, {"from": "wd:Q10993", "title": "wtq:hasPlayer", "to": "wtq:BMW_Championship_(PGA_Tour)_row_7"}, {"from": "wd:Q10993", "title": "wdt:P21", "to": "literal_1_male"}, {"from": "wd:Q10993", "title": "wdt:P19", "to": "literal_11_Cypress"}, {"from": "wd:Q10993", "title": "rdfs:label", "to": "literal_73_Tiger Woods"}, {"from": "wd:Q10993", "title": "wdt:P69", "to": "literal_78_Stanford University"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasLocation", "to": "wd:Q537853"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasPlayer", "to": "wd:Q380613"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasYear", "to": "wd:Q4626479"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasCourse", "to": "wd:Q5187858"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasRow", "to": "wtq:BMW_Championship_(PGA_Tour)"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasMargin_nof_victory", "to": "literal_3_2 strokes"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasScore", "to": "literal_18_64-68-69-67=268"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasWinner\u0027s_nshare__$_", "to": "literal_21_1,440,000"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasCountry", "to": "literal_30_Northern Ireland"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasCourse", "to": "literal_36_Crooked Stick Golf Club"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasTo_par", "to": "literal_39_\u201320"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasPurse__$_", "to": "literal_44_8,000,000"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasindex", "to": "literal_56_2"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasPlayer", "to": "literal_67_Rory McIlroy"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasYear", "to": "literal_70_2012"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_2", "title": "wtq:hasLocation", "to": "literal_77_Carmel, Indiana"}, {"from": "wd:Q537853", "title": "wdt:P17", "to": "literal_12_United States of America"}, {"from": "wd:Q537853", "title": "rdfs:label", "to": "literal_23_Carmel"}, {"from": "wd:Q537853", "title": "wdt:P1465", "to": "literal_49_Q110149427"}, {"from": "wd:Q537853", "title": "wdt:P910", "to": "literal_80_Category:Carmel, Indiana"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasRow", "to": "wtq:BMW_Championship_(PGA_Tour)"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasYear", "to": "wd:Q3359661"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasCountry", "to": "wd:Q30"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasPlayer", "to": "literal_4_Tiger Woods"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasMargin_nof_victory", "to": "literal_5_2 strokes"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasTo_par", "to": "literal_7_\u201322"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasScore", "to": "literal_15_67-67-65-63=262"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasYear", "to": "literal_27_2007"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasCountry", "to": "literal_32_United States"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasindex", "to": "literal_53_7"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasPurse__$_", "to": "literal_54_7,000,000"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasCourse", "to": "literal_60_Cog Hill Golf \u0026 Country Club"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasLocation", "to": "literal_68_Lemont, Illinois"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_7", "title": "wtq:hasWinner\u0027s_nshare__$_", "to": "literal_75_1,260,000"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasCourse", "to": "wd:Q5166704"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasYear", "to": "wd:Q4629741"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasCountry", "to": "wd:Q30"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasPlayer", "to": "wd:Q139360"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasLocation", "to": "wd:Q575355"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasRow", "to": "wtq:BMW_Championship_(PGA_Tour)"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasCourse", "to": "literal_6_Conway Farms Golf Club"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasYear", "to": "literal_9_2013"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasPlayer", "to": "literal_14_Zach Johnson"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasScore", "to": "literal_17_64-70-69-65=268"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasPurse__$_", "to": "literal_43_8,000,000"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasMargin_nof_victory", "to": "literal_46_2 strokes"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasTo_par", "to": "literal_47_\u201316"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasindex", "to": "literal_50_1"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasWinner\u0027s_nshare__$_", "to": "literal_57_1,440,000"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasLocation", "to": "literal_59_Lake Forest, Illinois"}, {"from": "wtq:BMW_Championship_(PGA_Tour)_row_1", "title": "wtq:hasCountry", "to": "literal_79_United States"}, {"from": "wd:Q5166704", "title": "wdt:P31", "to": "literal_38_sports club"}, {"from": "wd:Q5166704", "title": "rdfs:label", "to": "literal_42_Conway Farms Golf Club"}, {"from": "wd:Q5166704", "title": "wdt:P17", "to": "literal_51_United States of America"}, {"from": "wd:Q5166704", "title": "wdt:P641", "to": "literal_81_golf"}, {"from": "wd:Q575355", "title": "rdfs:label", "to": "literal_8_Lake Forest"}, {"from": "wd:Q575355", "title": "wdt:P17", "to": "literal_20_United States of America"}, {"from": "wd:Q575355", "title": "wdt:P47", "to": "literal_26_Lake Bluff"}, {"from": "wd:Q575355", "title": "wdt:P31", "to": "literal_52_city in the United States"}, {"from": "wd:Q3359661", "title": "wdt:P156", "to": "literal_10_2008 PGA Tour"}, {"from": "wd:Q3359661", "title": "wdt:P31", "to": "literal_16_sports season"}, {"from": "wd:Q3359661", "title": "wdt:P17", "to": "literal_34_United States of America"}, {"from": "wd:Q3359661", "title": "rdfs:label", "to": "literal_45_2007 PGA Tour"}, {"from": "wd:Q380613", "title": "rdfs:label", "to": "literal_31_Rory McIlroy"}, {"from": "wd:Q380613", "title": "wdt:P106", "to": "literal_37_golfer"}, {"from": "wd:Q380613", "title": "wdt:P26", "to": "literal_66_Erica Stoll"}, {"from": "wd:Q380613", "title": "wdt:P69", "to": "literal_76_Sullivan Upper School"}, {"from": "wd:Q5187858", "title": "wdt:P31", "to": "literal_13_golf club"}, {"from": "wd:Q5187858", "title": "wdt:P641", "to": "literal_24_golf"}, {"from": "wd:Q5187858", "title": "wdt:P159", "to": "literal_64_Indiana"}, {"from": "wd:Q5187858", "title": "rdfs:label", "to": "literal_69_Crooked Stick Golf Club"}, {"from": "wd:Q4629741", "title": "rdfs:label", "to": "literal_19_2013 PGA Tour"}, {"from": "wd:Q4629741", "title": "wdt:P155", "to": "literal_40_2012 PGA Tour"}, {"from": "wd:Q4629741", "title": "wdt:P17", "to": "literal_41_United States of America"}, {"from": "wd:Q4629741", "title": "wdt:P641", "to": "literal_71_golf"}, {"from": "wd:Q4626479", "title": "wdt:P156", "to": "literal_25_2013 PGA Tour"}, {"from": "wd:Q4626479", "title": "wdt:P31", "to": "literal_55_sports season"}, {"from": "wd:Q4626479", "title": "rdfs:label", "to": "literal_58_2012 PGA Tour"}, {"from": "wd:Q4626479", "title": "wdt:P641", "to": "literal_65_golf"}, {"from": "wd:Q30", "title": "wdt:P6", "to": "literal_33_Joe Biden"}, {"from": "wd:Q30", "title": "wdt:P31", "to": "literal_61_democratic republic"}, {"from": "wd:Q30", "title": "wdt:P31", "to": "literal_62_sovereign state"}, {"from": "wd:Q30", "title": "rdfs:label", "to": "literal_63_United States of America"}, {"from": "wd:Q30", "title": "wdt:P30", "to": "literal_74_North America"}, {"from": "wd:Q139360", "title": "wdt:P734", "to": "literal_28_Johnson"}, {"from": "wd:Q139360", "title": "wdt:P69", "to": "literal_29_Regis High School"}, {"from": "wd:Q139360", "title": "rdfs:label", "to": "literal_48_Zach Johnson"}, {"from": "wd:Q139360", "title": "wdt:P21", "to": "literal_72_male"}, {"from": "wtq:BMW_Championship_(PGA_Tour)", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

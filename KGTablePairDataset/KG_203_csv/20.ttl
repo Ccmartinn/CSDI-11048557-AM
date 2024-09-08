@@ -1,0 +1,20 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:PDC_World_Darts_Championship a wtq:Entity ;
+    wtq:hasRow wtq:PDC_World_Darts_Championship_row_2,
+        wtq:PDC_World_Darts_Championship_row_6 .
+
+wtq:PDC_World_Darts_Championship_row_2 wtq:hasOpponent "Gary Anderson" ;
+    wtq:hasPlayer "Adrian Lewis" ;
+    wtq:hasResult "Won" ;
+    wtq:hasRound "Final" ;
+    wtq:hasYear "2011" ;
+    wtq:hasindex "2" .
+
+wtq:PDC_World_Darts_Championship_row_6 wtq:hasOpponent "Ian White" ;
+    wtq:hasPlayer "Kyle Anderson" ;
+    wtq:hasResult "Lost" ;
+    wtq:hasRound "1st Round" ;
+    wtq:hasYear "2014" ;
+    wtq:hasindex "6" .
+

@@ -1,0 +1,68 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Petaluma_and_Santa_Rosa_Railroad a wtq:Entity ;
+    wtq:hasRow wtq:Petaluma_and_Santa_Rosa_Railroad_row_1,
+        wtq:Petaluma_and_Santa_Rosa_Railroad_row_10,
+        wtq:Petaluma_and_Santa_Rosa_Railroad_row_2,
+        wtq:Petaluma_and_Santa_Rosa_Railroad_row_3,
+        wtq:Petaluma_and_Santa_Rosa_Railroad_row_4 .
+
+wtq:Petaluma_and_Santa_Rosa_Railroad_row_1 wtq:hasBuilder wd:Q4743292,
+        "American Car Company" ;
+    wtq:hasDate "1904" ;
+    wtq:hasLength "47'9\"" ;
+    wtq:hasNotes "retired 1933" ;
+    wtq:hasNumber "53" ;
+    wtq:hasType "Motor" ;
+    wtq:hasindex "1" .
+
+wtq:Petaluma_and_Santa_Rosa_Railroad_row_10 wtq:hasBuilder wd:Q7945776,
+        "W. L. Holman Car Company" ;
+    wtq:hasDate "1905" ;
+    wtq:hasLength "44'" ;
+    wtq:hasNotes "retired 1929" ;
+    wtq:hasNumber "71" ;
+    wtq:hasType "Trailer" ;
+    wtq:hasindex "10" .
+
+wtq:Petaluma_and_Santa_Rosa_Railroad_row_2 wtq:hasBuilder wd:Q4743292,
+        "American Car Company" ;
+    wtq:hasDate "1904" ;
+    wtq:hasLength "47'9\"" ;
+    wtq:hasNotes "became inspection car in 1932 retired 1941" ;
+    wtq:hasNumber "55" ;
+    wtq:hasType "Motor" ;
+    wtq:hasindex "2" .
+
+wtq:Petaluma_and_Santa_Rosa_Railroad_row_3 wtq:hasBuilder wd:Q4743292,
+        "American Car Company" ;
+    wtq:hasDate "1904" ;
+    wtq:hasLength "47'9\"" ;
+    wtq:hasNotes "became inspection car in 1932 retired 1941" ;
+    wtq:hasNumber "57" ;
+    wtq:hasType "Motor" ;
+    wtq:hasindex "3" .
+
+wtq:Petaluma_and_Santa_Rosa_Railroad_row_4 wtq:hasBuilder wd:Q7945776,
+        "W. L. Holman Car Company" ;
+    wtq:hasDate "1904" ;
+    wtq:hasLength "44'" ;
+    wtq:hasNotes "retired 1932" ;
+    wtq:hasNumber "59" ;
+    wtq:hasType "Motor" ;
+    wtq:hasindex "4" .
+
+wd:Q7945776 rdfs:label "W. L. Holman Car Company" ;
+    wdt:P1056 "locomotive" ;
+    wdt:P31 "company" ;
+    wdt:P452 "rail transport" .
+
+wd:Q4743292 rdfs:label "American Car Company" ;
+    wdt:P1056 "locomotive" ;
+    wdt:P159 "St. Louis" ;
+    wdt:P17 "United States of America" ;
+    wdt:P452 "rail transport" .
+

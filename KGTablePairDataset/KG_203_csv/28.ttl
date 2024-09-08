@@ -1,0 +1,40 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Eder_Sánchez a wtq:Entity ;
+    wtq:hasRow wtq:Eder_Sánchez_row_2,
+        wtq:Eder_Sánchez_row_3,
+        wtq:Eder_Sánchez_row_4,
+        wtq:Eder_Sánchez_row_9 .
+
+wtq:Eder_Sánchez_row_2 wtq:hasCompetition "World Junior Championships" ;
+    wtq:hasEvent "10 km" ;
+    wtq:hasNotes "41:01.64" ;
+    wtq:hasPosition "4th" ;
+    wtq:hasVenue "Grosseto, Italy" ;
+    wtq:hasYear "2004" ;
+    wtq:hasindex "2" .
+
+wtq:Eder_Sánchez_row_3 wtq:hasCompetition "World Championships" ;
+    wtq:hasEvent "20 km" ;
+    wtq:hasNotes "1:20:45" ;
+    wtq:hasPosition "8th" ;
+    wtq:hasVenue "Helsinki, Finland" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "3" .
+
+wtq:Eder_Sánchez_row_4 wtq:hasCompetition "Central American and Caribbean Games" ;
+    wtq:hasEvent "20 km" ;
+    wtq:hasNotes "1:26:30" ;
+    wtq:hasPosition "2nd" ;
+    wtq:hasVenue "Cartagena, Colombia" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "4" .
+
+wtq:Eder_Sánchez_row_9 wtq:hasCompetition "World Championships" ;
+    wtq:hasEvent "20 km" ;
+    wtq:hasNotes "1:23:05" ;
+    wtq:hasPosition "15th" ;
+    wtq:hasVenue "Daegu, Korea" ;
+    wtq:hasYear "2011" ;
+    wtq:hasindex "9" .
+

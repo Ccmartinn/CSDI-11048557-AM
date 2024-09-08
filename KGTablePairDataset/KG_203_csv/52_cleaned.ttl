@@ -1,0 +1,152 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:2008_Canadian_Grand_Prix a wtq:Entity ;
+    wtq:hasRow wtq:2008_Canadian_Grand_Prix_row_10,
+        wtq:2008_Canadian_Grand_Prix_row_14,
+        wtq:2008_Canadian_Grand_Prix_row_16,
+        wtq:2008_Canadian_Grand_Prix_row_17,
+        wtq:2008_Canadian_Grand_Prix_row_2,
+        wtq:2008_Canadian_Grand_Prix_row_3,
+        wtq:2008_Canadian_Grand_Prix_row_4,
+        wtq:2008_Canadian_Grand_Prix_row_6 .
+
+wtq:2008_Canadian_Grand_Prix_row_10 wtq:hasConstructor "Honda" ;
+    wtq:hasDriver wd:Q10510,
+        "Jenson Button" ;
+    wtq:hasGrid "20" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "16" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "11" ;
+    wtq:hasTime_Retired "+1:07.540" ;
+    wtq:hasindex "10" .
+
+wtq:2008_Canadian_Grand_Prix_row_14 wtq:hasConstructor "Williams-Toyota" ;
+    wtq:hasDriver wd:Q171302,
+        "Kazuki Nakajima" ;
+    wtq:hasGrid "12" ;
+    wtq:hasLaps "46" ;
+    wtq:hasNo "8" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "Ret" ;
+    wtq:hasTime_Retired "Accident" ;
+    wtq:hasindex "14" .
+
+wtq:2008_Canadian_Grand_Prix_row_16 wtq:hasConstructor "Renault" ;
+    wtq:hasDriver wd:Q172838,
+        "Nelson Piquet Jr." ;
+    wtq:hasGrid "15" ;
+    wtq:hasLaps "43" ;
+    wtq:hasNo "6" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "Ret" ;
+    wtq:hasTime_Retired "Brakes" ;
+    wtq:hasindex "16" .
+
+wtq:2008_Canadian_Grand_Prix_row_17 wtq:hasConstructor wd:Q169898,
+        "Ferrari" ;
+    wtq:hasDriver "Kimi Räikkönen" ;
+    wtq:hasGrid "3" ;
+    wtq:hasLaps "19" ;
+    wtq:hasNo "1" ;
+    wtq:hasPoints "nan" ;
+    wtq:hasPos "Ret" ;
+    wtq:hasTime_Retired "Collision" ;
+    wtq:hasindex "17" .
+
+wtq:2008_Canadian_Grand_Prix_row_2 wtq:hasConstructor wd:Q173663,
+        "Red Bull-Renault" ;
+    wtq:hasDriver wd:Q172832,
+        "David Coulthard" ;
+    wtq:hasGrid "13" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "9" ;
+    wtq:hasPoints "6.0" ;
+    wtq:hasPos "3" ;
+    wtq:hasTime_Retired "+23.352" ;
+    wtq:hasindex "2" .
+
+wtq:2008_Canadian_Grand_Prix_row_3 wtq:hasConstructor "Toyota" ;
+    wtq:hasDriver wd:Q76719,
+        "Timo Glock" ;
+    wtq:hasGrid "11" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "12" ;
+    wtq:hasPoints "5.0" ;
+    wtq:hasPos "4" ;
+    wtq:hasTime_Retired "+42.627" ;
+    wtq:hasindex "3" .
+
+wtq:2008_Canadian_Grand_Prix_row_4 wtq:hasConstructor wd:Q169898,
+        "Ferrari" ;
+    wtq:hasDriver wd:Q82652,
+        "Felipe Massa" ;
+    wtq:hasGrid "6" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "2" ;
+    wtq:hasPoints "4.0" ;
+    wtq:hasPos "5" ;
+    wtq:hasTime_Retired "+43.934" ;
+    wtq:hasindex "4" .
+
+wtq:2008_Canadian_Grand_Prix_row_6 wtq:hasConstructor "Honda" ;
+    wtq:hasDriver wd:Q169846,
+        "Rubens Barrichello" ;
+    wtq:hasGrid "9" ;
+    wtq:hasLaps "70" ;
+    wtq:hasNo "17" ;
+    wtq:hasPoints "2.0" ;
+    wtq:hasPos "7" ;
+    wtq:hasTime_Retired "+53.597" ;
+    wtq:hasindex "6" .
+
+wd:Q10510 rdfs:label "Jenson Button" ;
+    wdt:P1344 "Macau Grand Prix" ;
+    wdt:P1412 "English" ;
+    wdt:P2522 "Formula Ford Festival" .
+
+wd:Q169846 rdfs:label "Rubens Barrichello" ;
+    wdt:P106 "racing automobile driver" ;
+    wdt:P27 "Brazil" ;
+    wdt:P40 "Eduardo Barrichello" .
+
+wd:Q171302 rdfs:label "Kazuki Nakajima" ;
+    wdt:P27 "Japan" ;
+    wdt:P641 "auto racing" ;
+    wdt:P735 "Kazuki" .
+
+wd:Q172832 rdfs:label "David Coulthard" ;
+    wdt:P54 "McLaren",
+        "Williams Racing" ;
+    wdt:P69 "Kirkcudbright Academy" .
+
+wd:Q172838 rdfs:label "Nelson Piquet Jr." ;
+    wdt:P19 "Heidelberg" ;
+    wdt:P22 "Nelson Piquet" ;
+    wdt:P31 "human" .
+
+wd:Q173663 rdfs:label "Red Bull Racing" ;
+    wdt:P17 "Austria" ;
+    wdt:P641 "auto racing" ;
+    wdt:P740 "Milton Keynes" .
+
+wd:Q76719 rdfs:label "Timo Glock" ;
+    wdt:P19 "Lindenfels" ;
+    wdt:P641 "auto racing" ;
+    wdt:P734 "Glock" .
+
+wd:Q82652 rdfs:label "Felipe Massa" ;
+    wdt:P103 "Brazilian Portuguese" ;
+    wdt:P106 "racing automobile driver" ;
+    wdt:P21 "male" .
+
+wd:Q169898 rdfs:label "Scuderia Ferrari" ;
+    wdt:P1269 "Ferrari in Formula One" ;
+    wdt:P2522 "1961 Formula One constructors' championship" ;
+    wdt:P859 "Ray-Ban",
+        "Shell USA" ;
+    wdt:P910 "Category:Scuderia Ferrari" .
+

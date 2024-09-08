@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:1982_British_Formula_One_season_row_2", "label": "wtq:1982_British_Formula_One_season_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q195996", "label": "wd:Q195996", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2561144", "label": "wd:Q2561144", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q173012", "label": "wd:Q173012", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1982_British_Formula_One_season", "label": "wtq:1982_British_Formula_One_season", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q171665", "label": "wd:Q171665", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1982_British_Formula_One_season_row_4", "label": "wtq:1982_British_Formula_One_season_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q509740", "label": "wd:Q509740", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2561078", "label": "wd:Q2561078", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1982_British_Formula_One_season_row_6", "label": "wtq:1982_British_Formula_One_season_row_6", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1982_British_Formula_One_season_row_9", "label": "wtq:1982_British_Formula_One_season_row_9", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q6278183", "label": "wd:Q6278183", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q173400", "label": "wd:Q173400", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Cosworth DFV V8", "label": "Cosworth DFV V8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Cosworth", "label": "Cosworth", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_racing automobile model", "label": "racing automobile model", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_Raymond Mays", "label": "Raymond Mays", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Formula One team", "label": "Formula One team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Q25910480", "label": "Q25910480", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Formula One team", "label": "Formula One team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_United Kingdom", "label": "United Kingdom", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Arnold Glass", "label": "Arnold Glass", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Formula One engine", "label": "Formula One engine", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Brazil", "label": "Brazil", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_British Racing Motors", "label": "British Racing Motors", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_McLaren M29", "label": "McLaren M29", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_BRM", "label": "BRM", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_Cosworth DFV", "label": "Cosworth DFV", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_P207", "label": "P207", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_9", "label": "9", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_Category:British Racing Motors", "label": "Category:British Racing Motors", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_Trimmer", "label": "Trimmer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Team Sanada", "label": "Team Sanada", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Cosworth DFV V8", "label": "Cosworth DFV V8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_McLaren", "label": "McLaren", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_Team Peru", "label": "Team Peru", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_M29", "label": "M29", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Williams", "label": "Williams", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_Jorge Koechlin", "label": "Jorge Koechlin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_BRM P207", "label": "BRM P207", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Tony Trimmer", "label": "Tony Trimmer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Fittipaldi", "label": "Fittipaldi", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_82", "label": "82", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_Huacho", "label": "Huacho", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Cosworth DFV V8", "label": "Cosworth DFV V8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_motorsport", "label": "motorsport", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_racing driver", "label": "racing driver", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Colin Bennett Racing", "label": "Colin Bennett Racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_Formula One car", "label": "Formula One car", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_gasoline engine", "label": "gasoline engine", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_John Jordan", "label": "John Jordan", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Williams FW07", "label": "Williams FW07", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Formula One driver", "label": "Formula One driver", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_12", "label": "12", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_racing automobile model", "label": "racing automobile model", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Jorge Koechlin", "label": "Jorge Koechlin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Tony Trimmer", "label": "Tony Trimmer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_McLaren M30", "label": "McLaren M30", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_1962 Formula One constructors\u0027 championship", "label": "1962 Formula One constructors\u0027 championship", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_F8", "label": "F8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_motorsport", "label": "motorsport", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_BRM 202 V12", "label": "BRM 202 V12", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Formula One car", "label": "Formula One car", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_Fittipaldi Automotive", "label": "Fittipaldi Automotive", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_David Williams", "label": "David Williams", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_motorsport", "label": "motorsport", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_FW07", "label": "FW07", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasRow", "to": "wtq:1982_British_Formula_One_season"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasChassis", "to": "wd:Q2561078"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasEngine", "to": "wd:Q195996"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasEngine", "to": "literal_0_Cosworth DFV V8"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasDriver", "to": "literal_9_Arnold Glass"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasConstructor", "to": "literal_24_McLaren"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasChassis", "to": "literal_26_M29"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasNo", "to": "literal_33_6"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasEntrant", "to": "literal_38_Colin Bennett Racing"}, {"from": "wtq:1982_British_Formula_One_season_row_2", "title": "wtq:hasindex", "to": "literal_59_2"}, {"from": "wd:Q195996", "title": "wtq:hasEngine", "to": "wtq:1982_British_Formula_One_season_row_4"}, {"from": "wd:Q195996", "title": "wtq:hasEngine", "to": "wtq:1982_British_Formula_One_season_row_9"}, {"from": "wd:Q195996", "title": "wdt:P176", "to": "literal_1_Cosworth"}, {"from": "wd:Q195996", "title": "wdt:P366", "to": "literal_10_Formula One engine"}, {"from": "wd:Q195996", "title": "rdfs:label", "to": "literal_16_Cosworth DFV"}, {"from": "wd:Q195996", "title": "wdt:P279", "to": "literal_40_gasoline engine"}, {"from": "wd:Q2561144", "title": "wtq:hasChassis", "to": "wtq:1982_British_Formula_One_season_row_9"}, {"from": "wd:Q2561144", "title": "wdt:P31", "to": "literal_2_racing automobile model"}, {"from": "wd:Q2561144", "title": "wdt:P641", "to": "literal_36_motorsport"}, {"from": "wd:Q2561144", "title": "wdt:P279", "to": "literal_39_Formula One car"}, {"from": "wd:Q2561144", "title": "rdfs:label", "to": "literal_42_Williams FW07"}, {"from": "wd:Q173012", "title": "wtq:hasEngine", "to": "wtq:1982_British_Formula_One_season_row_6"}, {"from": "wd:Q173012", "title": "wdt:P112", "to": "literal_3_Raymond Mays"}, {"from": "wd:Q173012", "title": "wdt:P31", "to": "literal_7_Formula One team"}, {"from": "wd:Q173012", "title": "wdt:P17", "to": "literal_8_United Kingdom"}, {"from": "wd:Q173012", "title": "rdfs:label", "to": "literal_13_British Racing Motors"}, {"from": "wd:Q173012", "title": "wdt:P910", "to": "literal_20_Category:British Racing Motors"}, {"from": "wd:Q173012", "title": "wdt:P2522", "to": "literal_50_1962 Formula One constructors\u0027 championship"}, {"from": "wtq:1982_British_Formula_One_season", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:1982_British_Formula_One_season", "title": "wtq:hasRow", "to": "wtq:1982_British_Formula_One_season_row_4"}, {"from": "wtq:1982_British_Formula_One_season", "title": "wtq:hasRow", "to": "wtq:1982_British_Formula_One_season_row_6"}, {"from": "wtq:1982_British_Formula_One_season", "title": "wtq:hasRow", "to": "wtq:1982_British_Formula_One_season_row_9"}, {"from": "wd:Q171665", "title": "wtq:hasConstructor", "to": "wtq:1982_British_Formula_One_season_row_4"}, {"from": "wd:Q171665", "title": "wdt:P31", "to": "literal_4_Formula One team"}, {"from": "wd:Q171665", "title": "wdt:P1424", "to": "literal_6_Q25910480"}, {"from": "wd:Q171665", "title": "wdt:P17", "to": "literal_11_Brazil"}, {"from": "wd:Q171665", "title": "rdfs:label", "to": "literal_56_Fittipaldi Automotive"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasDriver", "to": "wd:Q509740"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasNo", "to": "literal_5_8"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasEntrant", "to": "literal_22_Team Sanada"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasDriver", "to": "literal_30_Tony Trimmer"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasConstructor", "to": "literal_31_Fittipaldi"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasEngine", "to": "literal_35_Cosworth DFV V8"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasindex", "to": "literal_47_4"}, {"from": "wtq:1982_British_Formula_One_season_row_4", "title": "wtq:hasChassis", "to": "literal_51_F8"}, {"from": "wd:Q509740", "title": "wdt:P31", "to": "literal_12_human"}, {"from": "wd:Q509740", "title": "wdt:P734", "to": "literal_21_Trimmer"}, {"from": "wd:Q509740", "title": "wdt:P106", "to": "literal_43_Formula One driver"}, {"from": "wd:Q509740", "title": "rdfs:label", "to": "literal_48_Tony Trimmer"}, {"from": "wd:Q2561078", "title": "rdfs:label", "to": "literal_14_McLaren M29"}, {"from": "wd:Q2561078", "title": "wdt:P156", "to": "literal_49_McLaren M30"}, {"from": "wd:Q2561078", "title": "wdt:P279", "to": "literal_55_Formula One car"}, {"from": "wd:Q2561078", "title": "wdt:P641", "to": "literal_58_motorsport"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasChassis", "to": "wd:Q173400"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasConstructor", "to": "literal_15_BRM"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasChassis", "to": "literal_17_P207"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasEntrant", "to": "literal_41_John Jordan"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasNo", "to": "literal_44_12"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasEngine", "to": "literal_53_BRM 202 V12"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasindex", "to": "literal_54_6"}, {"from": "wtq:1982_British_Formula_One_season_row_6", "title": "wtq:hasDriver", "to": "literal_57_David Williams"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasDriver", "to": "wd:Q6278183"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasindex", "to": "literal_18_9"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasEngine", "to": "literal_23_Cosworth DFV V8"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasEntrant", "to": "literal_25_Team Peru"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasConstructor", "to": "literal_27_Williams"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasNo", "to": "literal_32_82"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasDriver", "to": "literal_46_Jorge Koechlin"}, {"from": "wtq:1982_British_Formula_One_season_row_9", "title": "wtq:hasChassis", "to": "literal_60_FW07"}, {"from": "wd:Q6278183", "title": "wdt:P31", "to": "literal_19_human"}, {"from": "wd:Q6278183", "title": "rdfs:label", "to": "literal_28_Jorge Koechlin"}, {"from": "wd:Q6278183", "title": "wdt:P19", "to": "literal_34_Huacho"}, {"from": "wd:Q6278183", "title": "wdt:P106", "to": "literal_37_racing driver"}, {"from": "wd:Q173400", "title": "rdfs:label", "to": "literal_29_BRM P207"}, {"from": "wd:Q173400", "title": "wdt:P31", "to": "literal_45_racing automobile model"}, {"from": "wd:Q173400", "title": "wdt:P641", "to": "literal_52_motorsport"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

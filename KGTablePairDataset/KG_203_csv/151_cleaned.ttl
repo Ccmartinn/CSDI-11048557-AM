@@ -1,0 +1,98 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Martin_Kaymer a wtq:Entity ;
+    wtq:hasRow wtq:Martin_Kaymer_row_2,
+        wtq:Martin_Kaymer_row_4,
+        wtq:Martin_Kaymer_row_6,
+        wtq:Martin_Kaymer_row_9 .
+
+wtq:Martin_Kaymer_row_2 wtq:hasDate wd:Q3467811,
+        "5 Jul 2009" ;
+    wtq:hasMargin_of_nvictory "Playoff" ;
+    <http://wikitablequestion.org/hasNo.> "3" ;
+    wtq:hasRunner_s_-up wd:Q585894,
+        "Lee Westwood" ;
+    wtq:hasTournament "Open de France ALSTOM" ;
+    wtq:hasWinning_score "−13 (62-72-69-68=271)" ;
+    wtq:hasindex "2" .
+
+wtq:Martin_Kaymer_row_4 wtq:hasDate wd:Q2974039,
+        "24 Jan 2010" ;
+    wtq:hasMargin_of_nvictory "1 stroke" ;
+    <http://wikitablequestion.org/hasNo.> "5" ;
+    wtq:hasRunner_s_-up wd:Q615937,
+        "Ian Poulter" ;
+    wtq:hasTournament wd:Q334939,
+        "Abu Dhabi Golf Championship" ;
+    wtq:hasWinning_score "−21 (67-67-67-66=267)" ;
+    wtq:hasindex "4" .
+
+wtq:Martin_Kaymer_row_6 wtq:hasDate wd:Q2974039,
+        "12 Sep 2010" ;
+    wtq:hasMargin_of_nvictory "4 strokes" ;
+    <http://wikitablequestion.org/hasNo.> "7" ;
+    wtq:hasRunner_s_-up wd:Q114193795,
+        wd:Q590399,
+        "Christian Nilsson, Fabrizio Zanotti" ;
+    wtq:hasTournament "KLM Open" ;
+    wtq:hasWinning_score "−14 (67-67-66-66=266)" ;
+    wtq:hasindex "6" .
+
+wtq:Martin_Kaymer_row_9 wtq:hasDate wd:Q2374093,
+        "6 Nov 2011" ;
+    wtq:hasMargin_of_nvictory "3 strokes" ;
+    <http://wikitablequestion.org/hasNo.> "10" ;
+    wtq:hasRunner_s_-up "Fredrik Jacobson" ;
+    wtq:hasTournament wd:Q2070623,
+        "WGC-HSBC Champions" ;
+    wtq:hasWinning_score "−20 (69-68-68-63=268)" ;
+    wtq:hasindex "9" .
+
+wd:Q114193795 rdfs:label "Christian Nilsson" ;
+    wdt:P31 "Wikimedia disambiguation page" .
+
+wd:Q2070623 rdfs:label "WGC-HSBC Champions" ;
+    wdt:P17 "People's Republic of China" ;
+    wdt:P276 "Shanghai" ;
+    wdt:P279 "golf tournament" .
+
+wd:Q2374093 rdfs:label "2011 European Tour" ;
+    wdt:P155 "2010 European Tour" ;
+    wdt:P31 "sports season" ;
+    wdt:P3450 "PGA European Tour" .
+
+wd:Q334939 rdfs:label "Abu Dhabi Golf Championship" ;
+    wdt:P17 "United Arab Emirates" ;
+    wdt:P276 "Abu Dhabi" ;
+    wdt:P279 "golf tournament" .
+
+wd:Q3467811 rdfs:label "2009 European Tour" ;
+    wdt:P155 "2008 European Tour" ;
+    wdt:P156 "2010 European Tour" ;
+    wdt:P31 "sports season" .
+
+wd:Q585894 rdfs:label "Lee Westwood" ;
+    wdt:P27 "United Kingdom" ;
+    wdt:P31 "human" ;
+    wdt:P641 "golf" .
+
+wd:Q590399 rdfs:label "Fabrizio Zanotti" ;
+    wdt:P21 "male" ;
+    wdt:P641 "golf" ;
+    wdt:P735 "Fabrizio" .
+
+wd:Q615937 rdfs:label "Ian Poulter" ;
+    wdt:P54 "European Ryder Cup team" ;
+    wdt:P641 "golf" ;
+    wdt:P734 "Poulter" .
+
+wd:Q2974039 rdfs:label "2010 European Tour" ;
+    wdt:P155 "2009 European Tour" ;
+    wdt:P31 "sports season" ;
+    wdt:P3450 "PGA European Tour" ;
+    wdt:P641 "golf" ;
+    wdt:P910 "Q9014439" .
+

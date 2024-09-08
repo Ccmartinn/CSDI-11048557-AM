@@ -1,0 +1,164 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:FC_St._Gallen_row_3", "label": "wtq:FC_St._Gallen_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q38124", "label": "wd:Q38124", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:FC_St._Gallen_row_4", "label": "wtq:FC_St._Gallen_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:FC_St._Gallen_row_2", "label": "wtq:FC_St._Gallen_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q18760", "label": "wd:Q18760", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:FC_St._Gallen_row_10", "label": "wtq:FC_St._Gallen_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q10333", "label": "wd:Q10333", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:FC_St._Gallen", "label": "wtq:FC_St._Gallen", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:FC_St._Gallen_row_1", "label": "wtq:FC_St._Gallen_row_1", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q9616", "label": "wd:Q9616", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_2001-2002", "label": "2001-2002", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Vlatko Kostov", "label": "Vlatko Kostov", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_1\u20131", "label": "1\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_2011\u201312 UEFA Europa League", "label": "2011\u201312 UEFA Europa League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Chelsea", "label": "Chelsea", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Second round", "label": "Second round", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_2012\u201313 UEFA Europa League", "label": "2012\u201313 UEFA Europa League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_2\u20133", "label": "2\u20133", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_North Macedonia", "label": "North Macedonia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Steaua Bucure\u0219ti", "label": "Steaua Bucure\u0219ti", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Group A", "label": "Group A", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Category:Valencia CF", "label": "Category:Valencia CF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_2\u20131", "label": "2\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_UEFA Europa League", "label": "UEFA Europa League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_1915 FA Cup Final", "label": "1915 FA Cup Final", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Template:Valencia CF managers", "label": "Template:Valencia CF managers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_2013\u201314", "label": "2013\u201314", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_UEFA Europa League", "label": "UEFA Europa League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_UEFA Cup", "label": "UEFA Cup", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_1\u20131", "label": "1\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_FK Pelister", "label": "FK Pelister", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Chelsea F.C.", "label": "Chelsea F.C.", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_4\u20133", "label": "4\u20133", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_0\u20131", "label": "0\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_2\u20133", "label": "2\u20133", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_2019\u201320 Premier League", "label": "2019\u201320 Premier League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Club Brugge", "label": "Club Brugge", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_2\u20131", "label": "2\u20131", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_2000-2001", "label": "2000-2001", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_UEFA Cup", "label": "UEFA Cup", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_First round", "label": "First round", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_1\u20135", "label": "1\u20135", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_UEFA Cup", "label": "UEFA Cup", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_2\u20130", "label": "2\u20130", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_4th place", "label": "4th place", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_2\u20130", "label": "2\u20130", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_Valencia", "label": "Valencia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_2019\u201320 UEFA Champions League", "label": "2019\u201320 UEFA Champions League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_Category:FK Pelister", "label": "Category:FK Pelister", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Valencia CF", "label": "Valencia CF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_Qualifying round", "label": "Qualifying round", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Pelister", "label": "Pelister", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_2000-2001", "label": "2000-2001", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_First round", "label": "First round", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_2\u20133", "label": "2\u20133", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Template:Valencia CF seasons", "label": "Template:Valencia CF seasons", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_UEFA Cup", "label": "UEFA Cup", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_3\u20132", "label": "3\u20132", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_1\u20132", "label": "1\u20132", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_2001-2002", "label": "2001-2002", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_UEFA Cup", "label": "UEFA Cup", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasOpponent", "to": "wd:Q38124"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasCompetition", "to": "wd:Q18760"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasRow", "to": "wtq:FC_St._Gallen"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasindex", "to": "literal_4_3"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasHome", "to": "literal_9_2\u20133"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasAggregate", "to": "literal_27_4\u20133"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasAway", "to": "literal_40_2\u20130"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasRound", "to": "literal_45_Qualifying round"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasOpponent", "to": "literal_46_Pelister"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasSeason", "to": "literal_54_2001-2002"}, {"from": "wtq:FC_St._Gallen_row_3", "title": "wtq:hasCompetition", "to": "literal_55_UEFA Cup"}, {"from": "wd:Q38124", "title": "wdt:P286", "to": "literal_1_Vlatko Kostov"}, {"from": "wd:Q38124", "title": "wdt:P17", "to": "literal_10_North Macedonia"}, {"from": "wd:Q38124", "title": "rdfs:label", "to": "literal_25_FK Pelister"}, {"from": "wd:Q38124", "title": "wdt:P910", "to": "literal_43_Category:FK Pelister"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasRow", "to": "wtq:FC_St._Gallen"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasSeason", "to": "literal_0_2001-2002"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasAway", "to": "literal_3_1\u20131"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasOpponent", "to": "literal_11_Steaua Bucure\u0219ti"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasindex", "to": "literal_24_4"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasHome", "to": "literal_32_2\u20131"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasCompetition", "to": "literal_34_UEFA Cup"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasRound", "to": "literal_48_First round"}, {"from": "wtq:FC_St._Gallen_row_4", "title": "wtq:hasAggregate", "to": "literal_52_3\u20132"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasRow", "to": "wtq:FC_St._Gallen"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasindex", "to": "literal_2_2"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasRound", "to": "literal_7_Second round"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasHome", "to": "literal_23_1\u20131"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasOpponent", "to": "literal_31_Club Brugge"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasSeason", "to": "literal_33_2000-2001"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasCompetition", "to": "literal_37_UEFA Cup"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasAggregate", "to": "literal_49_2\u20133"}, {"from": "wtq:FC_St._Gallen_row_2", "title": "wtq:hasAway", "to": "literal_53_1\u20132"}, {"from": "wd:Q18760", "title": "wdt:P527", "to": "literal_5_2011\u201312 UEFA Europa League"}, {"from": "wd:Q18760", "title": "wdt:P527", "to": "literal_8_2012\u201313 UEFA Europa League"}, {"from": "wd:Q18760", "title": "rdfs:label", "to": "literal_20_UEFA Europa League"}, {"from": "wd:Q18760", "title": "wdt:P460", "to": "literal_51_UEFA Cup"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasCompetition", "to": "wd:Q10333"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasRow", "to": "wtq:FC_St._Gallen"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasRound", "to": "literal_12_Group A"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasCompetition", "to": "literal_16_UEFA Europa League"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasSeason", "to": "literal_19_2013\u201314"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasindex", "to": "literal_21_10"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasHome", "to": "literal_29_2\u20133"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasAway", "to": "literal_36_1\u20135"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasAggregate", "to": "literal_39_4th place"}, {"from": "wtq:FC_St._Gallen_row_10", "title": "wtq:hasOpponent", "to": "literal_41_Valencia"}, {"from": "wd:Q10333", "title": "wdt:P910", "to": "literal_13_Category:Valencia CF"}, {"from": "wd:Q10333", "title": "wdt:P1424", "to": "literal_18_Template:Valencia CF managers"}, {"from": "wd:Q10333", "title": "rdfs:label", "to": "literal_44_Valencia CF"}, {"from": "wd:Q10333", "title": "wdt:P1424", "to": "literal_50_Template:Valencia CF seasons"}, {"from": "wtq:FC_St._Gallen", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:FC_St._Gallen", "title": "wtq:hasRow", "to": "wtq:FC_St._Gallen_row_1"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasRound", "to": "wd:Q9616"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasOpponent", "to": "literal_6_Chelsea"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasindex", "to": "literal_14_1"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasAggregate", "to": "literal_15_2\u20131"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasCompetition", "to": "literal_22_UEFA Cup"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasAway", "to": "literal_28_0\u20131"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasRound", "to": "literal_35_First round"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasHome", "to": "literal_38_2\u20130"}, {"from": "wtq:FC_St._Gallen_row_1", "title": "wtq:hasSeason", "to": "literal_47_2000-2001"}, {"from": "wd:Q9616", "title": "wdt:P1344", "to": "literal_17_1915 FA Cup Final"}, {"from": "wd:Q9616", "title": "rdfs:label", "to": "literal_26_Chelsea F.C."}, {"from": "wd:Q9616", "title": "wdt:P1344", "to": "literal_30_2019\u201320 Premier League"}, {"from": "wd:Q9616", "title": "wdt:P1344", "to": "literal_42_2019\u201320 UEFA Champions League"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

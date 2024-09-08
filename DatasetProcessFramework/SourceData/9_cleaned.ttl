@@ -1,0 +1,288 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_most_recent_executions_by_jurisdiction a wtq:Entity ;
+    wtq:hasRow wtq:List_of_most_recent_executions_by_jurisdiction_row_10,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_19,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_2,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_21,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_22,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_24,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_3,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_30,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_31,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_32,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_33,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_34,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_38,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_39,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_40,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_41,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_42,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_44,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_45,
+        wtq:List_of_most_recent_executions_by_jurisdiction_row_48 .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_10 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "26 February 2014" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName "Paul Augustus Howell" ;
+    wtq:hasState wd:Q812,
+        "Florida" ;
+    wtq:hasindex "10" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_19 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "7 January 2010" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName "Gerald J. Bordelon" ;
+    wtq:hasState wd:Q1588,
+        "Louisiana" ;
+    wtq:hasindex "19" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_2 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "25 July 2013" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName "Andrew Reid Lackey" ;
+    wtq:hasState wd:Q173,
+        "Alabama" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_21 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "5 December 2005" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName wd:Q7983845,
+        "Wesley Baker" ;
+    wtq:hasState wd:Q1391,
+        "Maryland" ;
+    wtq:hasindex "21" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_22 wtq:hasCrime wd:Q132821,
+        "murder" ;
+    wtq:hasLast_execution_date "9 May 1947" ;
+    wtq:hasMethod wd:Q185639,
+        "electric chair" ;
+    wtq:hasName "Philip Bellino and Edward Gertson" ;
+    wtq:hasState wd:Q771,
+        "Massachusetts" ;
+    wtq:hasindex "22" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_24 wtq:hasCrime wd:Q132821,
+        "murder" ;
+    wtq:hasLast_execution_date "13 February 1906" ;
+    wtq:hasMethod wd:Q175111,
+        "hanging" ;
+    wtq:hasName wd:Q8020393,
+        "William Williams" ;
+    wtq:hasState wd:Q1527,
+        "Minnesota" ;
+    wtq:hasindex "24" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_3 wtq:hasCrime "nan" ;
+    wtq:hasLast_execution_date "never used" ;
+    wtq:hasMethod "nan" ;
+    wtq:hasName "nan" ;
+    wtq:hasState wd:Q797,
+        "Alaska" ;
+    wtq:hasindex "3" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_30 wtq:hasCrime wd:Q132821,
+        "murder" ;
+    wtq:hasLast_execution_date "14 July 1939" ;
+    wtq:hasMethod wd:Q175111,
+        "hanging" ;
+    wtq:hasName wd:Q94277835,
+        "Howard Long" ;
+    wtq:hasState wd:Q759,
+        "New Hampshire" ;
+    wtq:hasindex "30" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_31 wtq:hasCrime wd:Q132821,
+        "murder" ;
+    wtq:hasLast_execution_date "22 January 1963" ;
+    wtq:hasMethod wd:Q185639,
+        "electric chair" ;
+    wtq:hasName wd:Q7287665,
+        "Ralph Hudson" ;
+    wtq:hasState wd:Q1408,
+        "New Jersey" ;
+    wtq:hasindex "31" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_32 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "6 November 2001" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName wd:Q7704276,
+        "Terry D. Clark" ;
+    wtq:hasState wd:Q1522,
+        "New Mexico" ;
+    wtq:hasindex "32" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_33 wtq:hasCrime wd:Q132821,
+        "murder" ;
+    wtq:hasLast_execution_date "15 August 1963" ;
+    wtq:hasMethod wd:Q185639,
+        "electric chair" ;
+    wtq:hasName "Eddie Mays" ;
+    wtq:hasState wd:Q22654,
+        "New York" ;
+    wtq:hasindex "33" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_34 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "18 August 2006" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName "Samuel Russell Flippen" ;
+    wtq:hasState wd:Q1454,
+        "North Carolina" ;
+    wtq:hasindex "34" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_38 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "16 May 1997" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName wd:Q5667882,
+        "Harry Charles Moore" ;
+    wtq:hasState wd:Q824,
+        "Oregon" ;
+    wtq:hasindex "38" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_39 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "6 July 1999" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName wd:Q93839,
+        "Gary M. Heidnik" ;
+    wtq:hasState wd:Q1400,
+        "Pennsylvania" ;
+    wtq:hasindex "39" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_40 wtq:hasCrime wd:Q132821,
+        "murder" ;
+    wtq:hasLast_execution_date "14 February 1845" ;
+    wtq:hasMethod wd:Q175111,
+        "hanging" ;
+    wtq:hasName "John Gordon" ;
+    wtq:hasState wd:Q1387,
+        "Rhode Island" ;
+    wtq:hasindex "40" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_41 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "6 May 2011" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName "Jeffrey Brian Motts" ;
+    wtq:hasState wd:Q1456,
+        "South Carolina" ;
+    wtq:hasindex "41" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_42 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "30 October 2012" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName "Donald Eugene Moeller" ;
+    wtq:hasState wd:Q1211,
+        "South Dakota" ;
+    wtq:hasindex "42" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_44 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "5 February 2014" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName wd:Q15711438,
+        "Suzanne Margaret Basso" ;
+    wtq:hasState wd:Q1439,
+        "Texas" ;
+    wtq:hasindex "44" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_45 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "18 June 2010" ;
+    wtq:hasMethod wd:Q25535272,
+        "firing squad" ;
+    wtq:hasName wd:Q2624513,
+        "Ronnie Lee Gardner" ;
+    wtq:hasState wd:Q829,
+        "Utah" ;
+    wtq:hasindex "45" .
+
+wtq:List_of_most_recent_executions_by_jurisdiction_row_48 wtq:hasCrime "aggravated murder" ;
+    wtq:hasLast_execution_date "10 September 2010" ;
+    wtq:hasMethod wd:Q210035,
+        "lethal injection" ;
+    wtq:hasName "Cal Coburn Brown" ;
+    wtq:hasState wd:Q1223,
+        "Washington" ;
+    wtq:hasindex "48" .
+
+wd:Q1211 rdfs:label "South Dakota" .
+
+wd:Q1223 rdfs:label "Washington" .
+
+wd:Q1387 rdfs:label "Rhode Island" .
+
+wd:Q1391 rdfs:label "Maryland" .
+
+wd:Q1400 rdfs:label "Pennsylvania" .
+
+wd:Q1408 rdfs:label "New Jersey" .
+
+wd:Q1439 rdfs:label "Texas" .
+
+wd:Q1454 rdfs:label "North Carolina" .
+
+wd:Q1456 rdfs:label "South Carolina" .
+
+wd:Q1522 rdfs:label "New Mexico" .
+
+wd:Q1527 rdfs:label "Minnesota" .
+
+wd:Q15711438 rdfs:label "Suzanne Basso" .
+
+wd:Q1588 rdfs:label "Louisiana" .
+
+wd:Q173 rdfs:label "Alabama" .
+
+wd:Q22654 rdfs:label "New York" .
+
+wd:Q25535272 rdfs:label "firing squad" .
+
+wd:Q2624513 rdfs:label "Ronnie Lee Gardner" .
+
+wd:Q5667882 rdfs:label "Harry Charles Moore" .
+
+wd:Q7287665 rdfs:label "Ralph Hudson" .
+
+wd:Q759 rdfs:label "New Hampshire" .
+
+wd:Q7704276 rdfs:label "Terry D. Clark" .
+
+wd:Q771 rdfs:label "Massachusetts" .
+
+wd:Q797 rdfs:label "Alaska" .
+
+wd:Q7983845 rdfs:label "Wesley Baker" .
+
+wd:Q8020393 rdfs:label "William Williams" .
+
+wd:Q812 rdfs:label "Florida" .
+
+wd:Q824 rdfs:label "Oregon" .
+
+wd:Q829 rdfs:label "Utah" .
+
+wd:Q93839 rdfs:label "Gary M. Heidnik" .
+
+wd:Q94277835 rdfs:label "Howard Long" .
+
+wd:Q175111 rdfs:label "hanging" .
+
+wd:Q185639 rdfs:label "electric chair" .
+
+wd:Q132821 rdfs:label "murder" .
+
+wd:Q210035 rdfs:label "lethal injection" .
+

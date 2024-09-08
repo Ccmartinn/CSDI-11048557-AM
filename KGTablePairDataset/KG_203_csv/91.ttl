@@ -1,0 +1,49 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Arasay_Thondike a wtq:Entity ;
+    wtq:hasRow wtq:Arasay_Thondike_row_1,
+        wtq:Arasay_Thondike_row_10,
+        wtq:Arasay_Thondike_row_2,
+        wtq:Arasay_Thondike_row_3,
+        wtq:Arasay_Thondike_row_4 .
+
+wtq:Arasay_Thondike_row_1 wtq:hasCompetition "ALBA Games" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "63.30 m" ;
+    wtq:hasPosition "1st" ;
+    wtq:hasVenue "La Habana, Cuba" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "1" .
+
+wtq:Arasay_Thondike_row_10 wtq:hasCompetition "World Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "69.97 m" ;
+    wtq:hasPosition "16th (q)" ;
+    wtq:hasVenue "Berlin, Germany" ;
+    wtq:hasYear "2009" ;
+    wtq:hasindex "10" .
+
+wtq:Arasay_Thondike_row_2 wtq:hasCompetition "Central American and Caribbean Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "60.49 m" ;
+    wtq:hasPosition "4th" ;
+    wtq:hasVenue "Nassau, Bahamas" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "2" .
+
+wtq:Arasay_Thondike_row_3 wtq:hasCompetition "Pan American Junior Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "64.80 m" ;
+    wtq:hasPosition "1st" ;
+    wtq:hasVenue "Windsor, Canada" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "3" .
+
+wtq:Arasay_Thondike_row_4 wtq:hasCompetition "NACAC U23 Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "66.28 m" ;
+    wtq:hasPosition "2nd" ;
+    wtq:hasVenue "Santo Domingo, Dominican Republic" ;
+    wtq:hasYear "2006" ;
+    wtq:hasindex "4" .
+

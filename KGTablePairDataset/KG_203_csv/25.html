@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wd:Q367373", "label": "wd:Q367373", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q127037", "label": "wd:Q127037", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_2", "label": "wtq:1983_Tour_de_France_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2348250", "label": "wd:Q2348250", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_16", "label": "wtq:1983_Tour_de_France_row_16", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q34001", "label": "wd:Q34001", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1358523", "label": "wd:Q1358523", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q174234", "label": "wd:Q174234", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1605266", "label": "wd:Q1605266", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_17", "label": "wtq:1983_Tour_de_France_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q74944", "label": "wd:Q74944", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_19", "label": "wtq:1983_Tour_de_France_row_19", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q350698", "label": "wd:Q350698", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France", "label": "wtq:1983_Tour_de_France", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q217591", "label": "wd:Q217591", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q2266066", "label": "wd:Q2266066", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_13", "label": "wtq:1983_Tour_de_France_row_13", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_3", "label": "wtq:1983_Tour_de_France_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q167152", "label": "wd:Q167152", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q520312", "label": "wd:Q520312", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_4", "label": "wtq:1983_Tour_de_France_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_20", "label": "wtq:1983_Tour_de_France_row_20", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q163795", "label": "wd:Q163795", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1983_Tour_de_France_row_10", "label": "wtq:1983_Tour_de_France_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q42810", "label": "wd:Q42810", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q744923", "label": "wd:Q744923", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7003", "label": "wd:Q7003", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q463988", "label": "wd:Q463988", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Fontaine-au-Pire", "label": "Fontaine-au-Pire", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_Avoriaz", "label": "Avoriaz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_144\u00a0km (89\u00a0mi)", "label": "144\u00a0km (89\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_commune of France", "label": "commune of France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_team time trial", "label": "team time trial", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Hilly stage", "label": "Hilly stage", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Gerald of Aurillac", "label": "Gerald of Aurillac", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Henk Lubberding", "label": "Henk Lubberding", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_223\u00a0km (139\u00a0mi)", "label": "223\u00a0km (139\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_IJsboerke", "label": "IJsboerke", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_France", "label": "France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Individual time trial", "label": "Individual time trial", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Boston-Mavic", "label": "Boston-Mavic", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_Morzine \u2013 Avoriaz", "label": "Morzine \u2013 Avoriaz", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_arrondissement of la Tour-du-Pin", "label": "arrondissement of la Tour-du-Pin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_Peter Winnen", "label": "Peter Winnen", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_sports discipline", "label": "sports discipline", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_100\u00a0km (62\u00a0mi)", "label": "100\u00a0km (62\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_Arpajon-sur-C\u00e8re", "label": "Arpajon-sur-C\u00e8re", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Peugeot cycling team", "label": "Peugeot cycling team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Lucien Van Impe", "label": "Lucien Van Impe", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_arrondissement of Cambrai", "label": "arrondissement of Cambrai", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_cyclist", "label": "cyclist", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Portes du Soleil", "label": "Portes du Soleil", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Rudy Matthijs\u00a0(BEL)", "label": "Rudy Matthijs\u00a0(BEL)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Billy-sur-Aisne", "label": "Billy-sur-Aisne", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_road bicycle racing", "label": "road bicycle racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_Team time trial", "label": "Team time trial", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_France", "label": "France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Valenciennes", "label": "Valenciennes", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_Issoire \u2013 Saint-\u00c9tienne", "label": "Issoire \u2013 Saint-\u00c9tienne", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_Philippe Leleu\u00a0(FRA)", "label": "Philippe Leleu\u00a0(FRA)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_15\u00a0km (9.3\u00a0mi)", "label": "15\u00a0km (9.3\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_14 July", "label": "14 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_La Tour-du-Pin \u2013 Alpe d\u0027Huez", "label": "La Tour-du-Pin \u2013 Alpe d\u0027Huez", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Robert Millar\u00a0(GBR)", "label": "Robert Millar\u00a0(GBR)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_road bicycle racing", "label": "road bicycle racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_11 July", "label": "11 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_Roquefort-sur-Soulzon \u2013 Aurillac", "label": "Roquefort-sur-Soulzon \u2013 Aurillac", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_sports venue", "label": "sports venue", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_Pau \u2013 Bagn\u00e8res-de-Luchon", "label": "Pau \u2013 Bagn\u00e8res-de-Luchon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_France", "label": "France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Erpe-Mere", "label": "Erpe-Mere", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_cycling team", "label": "cycling team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_3 July", "label": "3 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_Trith-Saint-L\u00e9ger", "label": "Trith-Saint-L\u00e9ger", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_152\u00a0km (94\u00a0mi)", "label": "152\u00a0km (94\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_Philippe Leleu", "label": "Philippe Leleu", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Soissons", "label": "Soissons", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_cycle sport", "label": "cycle sport", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Sainte-Adresse", "label": "Sainte-Adresse", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Roubaix \u2013 Le Havre", "label": "Roubaix \u2013 Le Havre", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_writer", "label": "writer", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Belgium", "label": "Belgium", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_22 July", "label": "22 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_Dijon", "label": "Dijon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Tourcoing", "label": "Tourcoing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Roubaix", "label": "Roubaix", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_La Tour-du-Pin", "label": "La Tour-du-Pin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_sport cyclist", "label": "sport cyclist", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_Petite-For\u00eat", "label": "Petite-For\u00eat", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_Michel Laurent", "label": "Michel Laurent", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_300\u00a0km (190\u00a0mi)", "label": "300\u00a0km (190\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_sports discipline", "label": "sports discipline", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_Kingdom of the Netherlands", "label": "Kingdom of the Netherlands", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_commune of France", "label": "commune of France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_16", "label": "16", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_Relax-Gam", "label": "Relax-Gam", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_Chen\u00f4ve", "label": "Chen\u00f4ve", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_Morzine \u2013 Dijon", "label": "Morzine \u2013 Dijon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Caudry", "label": "Caudry", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_Plain stage", "label": "Plain stage", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_18 July", "label": "18 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_Mathys", "label": "Mathys", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_TI-Raleigh", "label": "TI-Raleigh", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_individual time trial", "label": "individual time trial", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_Soissons \u2013 Fontaine-au-Pire", "label": "Soissons \u2013 Fontaine-au-Pire", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_Mercier", "label": "Mercier", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_Saint-Saulve", "label": "Saint-Saulve", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_Bucy-le-Long", "label": "Bucy-le-Long", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_201\u00a0km (125\u00a0mi)", "label": "201\u00a0km (125\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_Tour de France", "label": "Tour de France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_road bicycle racing", "label": "road bicycle racing", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_Leleu", "label": "Leleu", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_Henk Lubberding\u00a0(NED)", "label": "Henk Lubberding\u00a0(NED)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_Peter Winnen\u00a0(NED)", "label": "Peter Winnen\u00a0(NED)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_Hilly stage", "label": "Hilly stage", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_Hilly stage", "label": "Hilly stage", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_commune of France", "label": "commune of France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_Rudy Matthijs", "label": "Rudy Matthijs", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_1976 Summer Olympics", "label": "1976 Summer Olympics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_Venray", "label": "Venray", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_Lucien Van Impe\u00a0(BEL)", "label": "Lucien Van Impe\u00a0(BEL)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_Serge Demierre", "label": "Serge Demierre", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_Aurillac", "label": "Aurillac", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_5 July", "label": "5 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_Le Havre", "label": "Le Havre", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_commune of France", "label": "commune of France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_21 July", "label": "21 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_Sennecey-l\u00e8s-Dijon", "label": "Sennecey-l\u00e8s-Dijon", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_116_Serge Demierre\u00a0(SUI)", "label": "Serge Demierre\u00a0(SUI)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_117_sport cyclist", "label": "sport cyclist", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_118_Stage with mountain(s)", "label": "Stage with mountain(s)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_119_commune of France", "label": "commune of France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_120_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_121_Plain stage", "label": "Plain stage", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_122_210\u00a0km (130\u00a0mi)", "label": "210\u00a0km (130\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_123_Michel Laurent\u00a0(FRA)", "label": "Michel Laurent\u00a0(FRA)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_124_France", "label": "France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_125_Demierre", "label": "Demierre", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_126_4 July", "label": "4 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_127_17 July", "label": "17 July", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_128_Montivilliers", "label": "Montivilliers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_129_Stage with mountain(s)", "label": "Stage with mountain(s)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_130_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_131_291\u00a0km (181\u00a0mi)", "label": "291\u00a0km (181\u00a0mi)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_132_commune of France", "label": "commune of France", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_133_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_134_Valenciennes \u2013 Roubaix", "label": "Valenciennes \u2013 Roubaix", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wd:Q367373", "title": "wtq:hasRoute", "to": "wtq:1983_Tour_de_France_row_2"}, {"from": "wd:Q367373", "title": "rdfs:label", "to": "literal_0_Fontaine-au-Pire"}, {"from": "wd:Q367373", "title": "wdt:P131", "to": "literal_25_arrondissement of Cambrai"}, {"from": "wd:Q367373", "title": "wdt:P47", "to": "literal_80_Caudry"}, {"from": "wd:Q367373", "title": "wdt:P17", "to": "literal_124_France"}, {"from": "wd:Q127037", "title": "wtq:hasRoute", "to": "wtq:1983_Tour_de_France_row_19"}, {"from": "wd:Q127037", "title": "rdfs:label", "to": "literal_1_Avoriaz"}, {"from": "wd:Q127037", "title": "wdt:P17", "to": "literal_12_France"}, {"from": "wd:Q127037", "title": "wdt:P361", "to": "literal_27_Portes du Soleil"}, {"from": "wd:Q127037", "title": "wdt:P31", "to": "literal_46_sports venue"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasTerrain", "to": "wd:Q2348250"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasRoute", "to": "wd:Q167152"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasLength", "to": "literal_20_100\u00a0km (62\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasindex", "to": "literal_21_2"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasTerrain", "to": "literal_34_Team time trial"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasDate", "to": "literal_51_3 July"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasRoute", "to": "literal_88_Soissons \u2013 Fontaine-au-Pire"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasWinner", "to": "literal_89_Mercier"}, {"from": "wtq:1983_Tour_de_France_row_2", "title": "wtq:hasStage", "to": "literal_114_2"}, {"from": "wd:Q2348250", "title": "rdfs:label", "to": "literal_4_team time trial"}, {"from": "wd:Q2348250", "title": "wdt:P279", "to": "literal_43_road bicycle racing"}, {"from": "wd:Q2348250", "title": "wdt:P3095", "to": "literal_50_cycling team"}, {"from": "wd:Q2348250", "title": "wdt:P31", "to": "literal_71_sports discipline"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasWinner", "to": "wd:Q1358523"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasLength", "to": "literal_2_144\u00a0km (89\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasTerrain", "to": "literal_6_Hilly stage"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasStage", "to": "literal_28_16"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasRoute", "to": "literal_37_Issoire \u2013 Saint-\u00c9tienne"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasindex", "to": "literal_75_16"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasWinner", "to": "literal_123_Michel Laurent\u00a0(FRA)"}, {"from": "wtq:1983_Tour_de_France_row_16", "title": "wtq:hasDate", "to": "literal_127_17 July"}, {"from": "wd:Q34001", "title": "wtq:hasRoute", "to": "wtq:1983_Tour_de_France_row_3"}, {"from": "wd:Q34001", "title": "wdt:P31", "to": "literal_3_commune of France"}, {"from": "wd:Q34001", "title": "wdt:P17", "to": "literal_35_France"}, {"from": "wd:Q34001", "title": "wdt:P47", "to": "literal_63_Tourcoing"}, {"from": "wd:Q34001", "title": "rdfs:label", "to": "literal_64_Roubaix"}, {"from": "wd:Q1358523", "title": "wdt:P31", "to": "literal_5_human"}, {"from": "wd:Q1358523", "title": "wdt:P54", "to": "literal_23_Peugeot cycling team"}, {"from": "wd:Q1358523", "title": "rdfs:label", "to": "literal_69_Michel Laurent"}, {"from": "wd:Q1358523", "title": "wdt:P106", "to": "literal_117_sport cyclist"}, {"from": "wd:Q174234", "title": "wtq:hasRoute", "to": "wtq:1983_Tour_de_France_row_13"}, {"from": "wd:Q174234", "title": "wdt:P112", "to": "literal_7_Gerald of Aurillac"}, {"from": "wd:Q174234", "title": "wdt:P47", "to": "literal_22_Arpajon-sur-C\u00e8re"}, {"from": "wd:Q174234", "title": "wdt:P31", "to": "literal_102_commune of France"}, {"from": "wd:Q174234", "title": "rdfs:label", "to": "literal_109_Aurillac"}, {"from": "wd:Q1605266", "title": "wtq:hasWinner", "to": "wtq:1983_Tour_de_France_row_13"}, {"from": "wd:Q1605266", "title": "rdfs:label", "to": "literal_8_Henk Lubberding"}, {"from": "wd:Q1605266", "title": "wdt:P27", "to": "literal_73_Kingdom of the Netherlands"}, {"from": "wd:Q1605266", "title": "wdt:P54", "to": "literal_86_TI-Raleigh"}, {"from": "wd:Q1605266", "title": "wdt:P641", "to": "literal_96_road bicycle racing"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasRoute", "to": "wd:Q217591"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasWinner", "to": "wd:Q74944"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasLength", "to": "literal_9_223\u00a0km (139\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasStage", "to": "literal_10_17"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasindex", "to": "literal_29_17"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasRoute", "to": "literal_41_La Tour-du-Pin \u2013 Alpe d\u0027Huez"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasDate", "to": "literal_83_18 July"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasWinner", "to": "literal_99_Peter Winnen\u00a0(NED)"}, {"from": "wtq:1983_Tour_de_France_row_17", "title": "wtq:hasTerrain", "to": "literal_118_Stage with mountain(s)"}, {"from": "wd:Q74944", "title": "wdt:P54", "to": "literal_11_IJsboerke"}, {"from": "wd:Q74944", "title": "rdfs:label", "to": "literal_17_Peter Winnen"}, {"from": "wd:Q74944", "title": "wdt:P106", "to": "literal_59_writer"}, {"from": "wd:Q74944", "title": "wdt:P19", "to": "literal_105_Venray"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasWinner", "to": "wd:Q350698"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasTerrain", "to": "wd:Q2266066"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasTerrain", "to": "literal_13_Individual time trial"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasRoute", "to": "literal_15_Morzine \u2013 Avoriaz"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasLength", "to": "literal_39_15\u00a0km (9.3\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasStage", "to": "literal_85_19"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasWinner", "to": "literal_107_Lucien Van Impe\u00a0(BEL)"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasDate", "to": "literal_113_21 July"}, {"from": "wtq:1983_Tour_de_France_row_19", "title": "wtq:hasindex", "to": "literal_130_19"}, {"from": "wd:Q350698", "title": "wdt:P54", "to": "literal_14_Boston-Mavic"}, {"from": "wd:Q350698", "title": "rdfs:label", "to": "literal_24_Lucien Van Impe"}, {"from": "wd:Q350698", "title": "wdt:P19", "to": "literal_49_Erpe-Mere"}, {"from": "wd:Q350698", "title": "wdt:P54", "to": "literal_76_Relax-Gam"}, {"from": "wtq:1983_Tour_de_France", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:1983_Tour_de_France", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France_row_20"}, {"from": "wtq:1983_Tour_de_France", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France_row_10"}, {"from": "wtq:1983_Tour_de_France", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France_row_3"}, {"from": "wtq:1983_Tour_de_France", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France_row_13"}, {"from": "wtq:1983_Tour_de_France", "title": "wtq:hasRow", "to": "wtq:1983_Tour_de_France_row_4"}, {"from": "wd:Q217591", "title": "wdt:P131", "to": "literal_16_arrondissement of la Tour-du-Pin"}, {"from": "wd:Q217591", "title": "wdt:P17", "to": "literal_48_France"}, {"from": "wd:Q217591", "title": "rdfs:label", "to": "literal_65_La Tour-du-Pin"}, {"from": "wd:Q217591", "title": "wdt:P31", "to": "literal_119_commune of France"}, {"from": "wd:Q2266066", "title": "wdt:P31", "to": "literal_18_sports discipline"}, {"from": "wd:Q2266066", "title": "wdt:P3095", "to": "literal_26_cyclist"}, {"from": "wd:Q2266066", "title": "wdt:P641", "to": "literal_56_cycle sport"}, {"from": "wd:Q2266066", "title": "rdfs:label", "to": "literal_87_individual time trial"}, {"from": "wtq:1983_Tour_de_France_row_13", "title": "wtq:hasStage", "to": "literal_19_13"}, {"from": "wtq:1983_Tour_de_France_row_13", "title": "wtq:hasDate", "to": "literal_40_14 July"}, {"from": "wtq:1983_Tour_de_France_row_13", "title": "wtq:hasRoute", "to": "literal_45_Roquefort-sur-Soulzon \u2013 Aurillac"}, {"from": "wtq:1983_Tour_de_France_row_13", "title": "wtq:hasWinner", "to": "literal_98_Henk Lubberding\u00a0(NED)"}, {"from": "wtq:1983_Tour_de_France_row_13", "title": "wtq:hasTerrain", "to": "literal_100_Hilly stage"}, {"from": "wtq:1983_Tour_de_France_row_13", "title": "wtq:hasindex", "to": "literal_106_13"}, {"from": "wtq:1983_Tour_de_France_row_13", "title": "wtq:hasLength", "to": "literal_122_210\u00a0km (130\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasWinner", "to": "wd:Q744923"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasRoute", "to": "wd:Q163795"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasWinner", "to": "literal_30_Rudy Matthijs\u00a0(BEL)"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasLength", "to": "literal_53_152\u00a0km (94\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasindex", "to": "literal_67_3"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasTerrain", "to": "literal_101_Hilly stage"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasStage", "to": "literal_120_3"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasDate", "to": "literal_126_4 July"}, {"from": "wtq:1983_Tour_de_France_row_3", "title": "wtq:hasRoute", "to": "literal_134_Valenciennes \u2013 Roubaix"}, {"from": "wd:Q167152", "title": "wdt:P47", "to": "literal_31_Billy-sur-Aisne"}, {"from": "wd:Q167152", "title": "rdfs:label", "to": "literal_55_Soissons"}, {"from": "wd:Q167152", "title": "wdt:P31", "to": "literal_74_commune of France"}, {"from": "wd:Q167152", "title": "wdt:P47", "to": "literal_92_Bucy-le-Long"}, {"from": "wd:Q520312", "title": "wtq:hasWinner", "to": "wtq:1983_Tour_de_France_row_20"}, {"from": "wd:Q520312", "title": "wdt:P641", "to": "literal_32_road bicycle racing"}, {"from": "wd:Q520312", "title": "rdfs:label", "to": "literal_54_Philippe Leleu"}, {"from": "wd:Q520312", "title": "wdt:P106", "to": "literal_66_sport cyclist"}, {"from": "wd:Q520312", "title": "wdt:P734", "to": "literal_97_Leleu"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasWinner", "to": "wd:Q463988"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasRoute", "to": "wd:Q42810"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasStage", "to": "literal_33_4"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasRoute", "to": "literal_58_Roubaix \u2013 Le Havre"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasLength", "to": "literal_70_300\u00a0km (190\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasindex", "to": "literal_72_4"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasDate", "to": "literal_110_5 July"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasWinner", "to": "literal_116_Serge Demierre\u00a0(SUI)"}, {"from": "wtq:1983_Tour_de_France_row_4", "title": "wtq:hasTerrain", "to": "literal_121_Plain stage"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasRoute", "to": "wd:Q7003"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasWinner", "to": "literal_38_Philippe Leleu\u00a0(FRA)"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasDate", "to": "literal_61_22 July"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasRoute", "to": "literal_79_Morzine \u2013 Dijon"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasTerrain", "to": "literal_81_Plain stage"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasStage", "to": "literal_90_20"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasLength", "to": "literal_131_291\u00a0km (181\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_20", "title": "wtq:hasindex", "to": "literal_133_20"}, {"from": "wd:Q163795", "title": "rdfs:label", "to": "literal_36_Valenciennes"}, {"from": "wd:Q163795", "title": "wdt:P47", "to": "literal_52_Trith-Saint-L\u00e9ger"}, {"from": "wd:Q163795", "title": "wdt:P47", "to": "literal_68_Petite-For\u00eat"}, {"from": "wd:Q163795", "title": "wdt:P47", "to": "literal_91_Saint-Saulve"}, {"from": "wtq:1983_Tour_de_France_row_10", "title": "wtq:hasWinner", "to": "literal_42_Robert Millar\u00a0(GBR)"}, {"from": "wtq:1983_Tour_de_France_row_10", "title": "wtq:hasDate", "to": "literal_44_11 July"}, {"from": "wtq:1983_Tour_de_France_row_10", "title": "wtq:hasRoute", "to": "literal_47_Pau \u2013 Bagn\u00e8res-de-Luchon"}, {"from": "wtq:1983_Tour_de_France_row_10", "title": "wtq:hasStage", "to": "literal_78_10"}, {"from": "wtq:1983_Tour_de_France_row_10", "title": "wtq:hasLength", "to": "literal_93_201\u00a0km (125\u00a0mi)"}, {"from": "wtq:1983_Tour_de_France_row_10", "title": "wtq:hasindex", "to": "literal_95_10"}, {"from": "wtq:1983_Tour_de_France_row_10", "title": "wtq:hasTerrain", "to": "literal_129_Stage with mountain(s)"}, {"from": "wd:Q42810", "title": "wdt:P47", "to": "literal_57_Sainte-Adresse"}, {"from": "wd:Q42810", "title": "rdfs:label", "to": "literal_111_Le Havre"}, {"from": "wd:Q42810", "title": "wdt:P31", "to": "literal_112_commune of France"}, {"from": "wd:Q42810", "title": "wdt:P47", "to": "literal_128_Montivilliers"}, {"from": "wd:Q744923", "title": "wdt:P27", "to": "literal_60_Belgium"}, {"from": "wd:Q744923", "title": "wdt:P31", "to": "literal_82_human"}, {"from": "wd:Q744923", "title": "wdt:P734", "to": "literal_84_Mathys"}, {"from": "wd:Q744923", "title": "rdfs:label", "to": "literal_103_Rudy Matthijs"}, {"from": "wd:Q7003", "title": "rdfs:label", "to": "literal_62_Dijon"}, {"from": "wd:Q7003", "title": "wdt:P47", "to": "literal_77_Chen\u00f4ve"}, {"from": "wd:Q7003", "title": "wdt:P47", "to": "literal_115_Sennecey-l\u00e8s-Dijon"}, {"from": "wd:Q7003", "title": "wdt:P31", "to": "literal_132_commune of France"}, {"from": "wd:Q463988", "title": "wdt:P1344", "to": "literal_94_Tour de France"}, {"from": "wd:Q463988", "title": "wdt:P1344", "to": "literal_104_1976 Summer Olympics"}, {"from": "wd:Q463988", "title": "rdfs:label", "to": "literal_108_Serge Demierre"}, {"from": "wd:Q463988", "title": "wdt:P734", "to": "literal_125_Demierre"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

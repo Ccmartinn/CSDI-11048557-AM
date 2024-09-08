@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:1947\u201348_in_Swedish_football", "label": "wtq:1947\u201348_in_Swedish_football", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_21", "label": "wtq:1947\u201348_in_Swedish_football_row_21", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3942718", "label": "wd:Q3942718", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_18", "label": "wtq:1947\u201348_in_Swedish_football_row_18", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q110111", "label": "wd:Q110111", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_14", "label": "wtq:1947\u201348_in_Swedish_football_row_14", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_17", "label": "wtq:1947\u201348_in_Swedish_football_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1375621", "label": "wd:Q1375621", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_19", "label": "wtq:1947\u201348_in_Swedish_football_row_19", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q305262", "label": "wd:Q305262", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_13", "label": "wtq:1947\u201348_in_Swedish_football_row_13", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_10", "label": "wtq:1947\u201348_in_Swedish_football_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_3", "label": "wtq:1947\u201348_in_Swedish_football_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q973638", "label": "wd:Q973638", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q704463", "label": "wd:Q704463", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_4", "label": "wtq:1947\u201348_in_Swedish_football_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1947\u201348_in_Swedish_football_row_2", "label": "wtq:1947\u201348_in_Swedish_football_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1336279", "label": "wd:Q1336279", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q183274", "label": "wd:Q183274", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_Q10549123", "label": "Q10549123", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Vem \u00e4r det 1955", "label": "Vem \u00e4r det 1955", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Erik Nilsson", "label": "Erik Nilsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_6", "label": "6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Vem \u00e4r det 1967", "label": "Vem \u00e4r det 1967", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Sweden", "label": "Sweden", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_GK", "label": "GK", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_Solna cemetery", "label": "Solna cemetery", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Erik Nilsson", "label": "Erik Nilsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_8", "label": "8", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_DF", "label": "DF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_IFK G\u00f6teborg", "label": "IFK G\u00f6teborg", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_Harry Nilsson", "label": "Harry Nilsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_Kjell Ros\u00e9n", "label": "Kjell Ros\u00e9n", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_FW", "label": "FW", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_AIK Solna", "label": "AIK Solna", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_MF", "label": "MF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_N\u00e4ssj\u00f6", "label": "N\u00e4ssj\u00f6", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_Gunnar Nordahl", "label": "Gunnar Nordahl", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_MF/FW", "label": "MF/FW", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_H\u00f6rnefors", "label": "H\u00f6rnefors", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_Knut Nordahl", "label": "Knut Nordahl", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Gunnar Nordahl", "label": "Gunnar Nordahl", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Bertil Nordahl", "label": "Bertil Nordahl", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_Erik", "label": "Erik", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_AIK Solna", "label": "AIK Solna", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_DF", "label": "DF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_FW", "label": "FW", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Bertil Nordahl", "label": "Bertil Nordahl", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_Sweden national association football team", "label": "Sweden national association football team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Rune Emanuelsson", "label": "Rune Emanuelsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Alghero", "label": "Alghero", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Malm\u00f6 FF", "label": "Malm\u00f6 FF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_Torsten \"Lindy\" Lindberg", "label": "Torsten \"Lindy\" Lindberg", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Degerfors IF", "label": "Degerfors IF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_Henry Carlsson", "label": "Henry Carlsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Vem \u00e4r det 1977", "label": "Vem \u00e4r det 1977", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_1952 Summer Olympics", "label": "1952 Summer Olympics", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_IFK Norrk\u00f6ping", "label": "IFK Norrk\u00f6ping", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_IS Halmia Halmstad", "label": "IS Halmia Halmstad", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_DF", "label": "DF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_Djurg\u00e5rdens IF Fotboll", "label": "Djurg\u00e5rdens IF Fotboll", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_MF", "label": "MF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_Thure Grahn", "label": "Thure Grahn", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_IFK Norrk\u00f6ping", "label": "IFK Norrk\u00f6ping", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_Rune \"Killing\" Emanuelsson", "label": "Rune \"Killing\" Emanuelsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_Degerfors IF", "label": "Degerfors IF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_Atalanta BC", "label": "Atalanta BC", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_Knut Nordahl", "label": "Knut Nordahl", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_association football player", "label": "association football player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_DF", "label": "DF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_0", "label": "0", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Harry Nilsson", "label": "Harry Nilsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_1", "label": "1", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Henry \"Garvis\" Carlsson", "label": "Henry \"Garvis\" Carlsson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_Gunnar Nordahl", "label": "Gunnar Nordahl", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_IFK Norrk\u00f6ping", "label": "IFK Norrk\u00f6ping", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_Sweden", "label": "Sweden", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_IFK Norrk\u00f6ping FK", "label": "IFK Norrk\u00f6ping FK", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_Malm\u00f6 FF", "label": "Malm\u00f6 FF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_Torsten Lindberg", "label": "Torsten Lindberg", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_H\u00f6rnefors", "label": "H\u00f6rnefors", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_21"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_17"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_19"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_14"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_3"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_4"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_13"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_10"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_18"}, {"from": "wtq:1947\u201348_in_Swedish_football", "title": "wtq:hasRow", "to": "wtq:1947\u201348_in_Swedish_football_row_2"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_21", "title": "wtq:hasindex", "to": "literal_8_21"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_21", "title": "wtq:hasname", "to": "literal_21_Kjell Ros\u00e9n"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_21", "title": "wtq:haspos.", "to": "literal_28_MF/FW"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_21", "title": "wtq:hasgoals", "to": "literal_34_0"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_21", "title": "wtq:hascaps", "to": "literal_51_4"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_21", "title": "wtq:hasclub", "to": "literal_87_Malm\u00f6 FF"}, {"from": "wd:Q3942718", "title": "wtq:hasname", "to": "wtq:1947\u201348_in_Swedish_football_row_3"}, {"from": "wd:Q3942718", "title": "wdt:P166", "to": "literal_0_Q10549123"}, {"from": "wd:Q3942718", "title": "rdfs:label", "to": "literal_48_Rune Emanuelsson"}, {"from": "wd:Q3942718", "title": "wdt:P106", "to": "literal_74_association football player"}, {"from": "wd:Q3942718", "title": "wdt:P21", "to": "literal_90_male"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_18", "title": "wtq:hasname", "to": "wd:Q110111"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_18", "title": "wtq:hascaps", "to": "literal_5_6"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_18", "title": "wtq:hasgoals", "to": "literal_15_8"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_18", "title": "wtq:hasname", "to": "literal_33_Gunnar Nordahl"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_18", "title": "wtq:hasindex", "to": "literal_38_18"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_18", "title": "wtq:haspos.", "to": "literal_42_FW"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_18", "title": "wtq:hasclub", "to": "literal_69_IFK Norrk\u00f6ping"}, {"from": "wd:Q110111", "title": "wdt:P21", "to": "literal_20_male"}, {"from": "wd:Q110111", "title": "wdt:P20", "to": "literal_49_Alghero"}, {"from": "wd:Q110111", "title": "rdfs:label", "to": "literal_81_Gunnar Nordahl"}, {"from": "wd:Q110111", "title": "wdt:P19", "to": "literal_91_H\u00f6rnefors"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_14", "title": "wtq:hasname", "to": "wd:Q973638"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_14", "title": "wtq:hasindex", "to": "literal_1_14"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_14", "title": "wtq:hasgoals", "to": "literal_3_0"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_14", "title": "wtq:hasclub", "to": "literal_23_AIK Solna"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_14", "title": "wtq:hascaps", "to": "literal_41_2"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_14", "title": "wtq:haspos.", "to": "literal_61_DF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_14", "title": "wtq:hasname", "to": "literal_78_Harry Nilsson"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_17", "title": "wtq:hasname", "to": "wd:Q183274"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_17", "title": "wtq:hasname", "to": "literal_35_Bertil Nordahl"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_17", "title": "wtq:hascaps", "to": "literal_39_4"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_17", "title": "wtq:hasclub", "to": "literal_53_Degerfors IF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_17", "title": "wtq:hasgoals", "to": "literal_66_0"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_17", "title": "wtq:haspos.", "to": "literal_67_MF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_17", "title": "wtq:hasindex", "to": "literal_82_17"}, {"from": "wd:Q1375621", "title": "wtq:hasname", "to": "wtq:1947\u201348_in_Swedish_football_row_2"}, {"from": "wd:Q1375621", "title": "wdt:P1343", "to": "literal_2_Vem \u00e4r det 1955"}, {"from": "wd:Q1375621", "title": "wdt:P1343", "to": "literal_7_Vem \u00e4r det 1967"}, {"from": "wd:Q1375621", "title": "rdfs:label", "to": "literal_56_Henry Carlsson"}, {"from": "wd:Q1375621", "title": "wdt:P1343", "to": "literal_57_Vem \u00e4r det 1977"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_19", "title": "wtq:hasname", "to": "wd:Q305262"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_19", "title": "wtq:hasname", "to": "literal_31_Knut Nordahl"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_19", "title": "wtq:haspos.", "to": "literal_40_DF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_19", "title": "wtq:hascaps", "to": "literal_43_5"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_19", "title": "wtq:hasindex", "to": "literal_45_19"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_19", "title": "wtq:hasclub", "to": "literal_59_IFK Norrk\u00f6ping"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_19", "title": "wtq:hasgoals", "to": "literal_77_0"}, {"from": "wd:Q305262", "title": "wdt:P21", "to": "literal_13_male"}, {"from": "wd:Q305262", "title": "wdt:P54", "to": "literal_71_Degerfors IF"}, {"from": "wd:Q305262", "title": "rdfs:label", "to": "literal_73_Knut Nordahl"}, {"from": "wd:Q305262", "title": "wdt:P54", "to": "literal_85_IFK Norrk\u00f6ping FK"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_13", "title": "wtq:hasname", "to": "wd:Q704463"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_13", "title": "wtq:hasname", "to": "literal_4_Erik Nilsson"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_13", "title": "wtq:hasgoals", "to": "literal_9_0"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_13", "title": "wtq:hasclub", "to": "literal_50_Malm\u00f6 FF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_13", "title": "wtq:hasindex", "to": "literal_62_13"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_13", "title": "wtq:haspos.", "to": "literal_75_DF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_13", "title": "wtq:hascaps", "to": "literal_88_4"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_10", "title": "wtq:hasname", "to": "wd:Q1336279"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_10", "title": "wtq:hasindex", "to": "literal_6_10"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_10", "title": "wtq:haspos.", "to": "literal_11_GK"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_10", "title": "wtq:hascaps", "to": "literal_19_5"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_10", "title": "wtq:hasname", "to": "literal_52_Torsten \"Lindy\" Lindberg"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_10", "title": "wtq:hasgoals", "to": "literal_54_0"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_10", "title": "wtq:hasclub", "to": "literal_83_IFK Norrk\u00f6ping"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_3", "title": "wtq:hasclub", "to": "literal_17_IFK G\u00f6teborg"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_3", "title": "wtq:haspos.", "to": "literal_24_MF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_3", "title": "wtq:hascaps", "to": "literal_27_2"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_3", "title": "wtq:hasindex", "to": "literal_29_3"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_3", "title": "wtq:hasname", "to": "literal_70_Rune \"Killing\" Emanuelsson"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_3", "title": "wtq:hasgoals", "to": "literal_76_0"}, {"from": "wd:Q973638", "title": "wdt:P27", "to": "literal_10_Sweden"}, {"from": "wd:Q973638", "title": "wdt:P119", "to": "literal_12_Solna cemetery"}, {"from": "wd:Q973638", "title": "rdfs:label", "to": "literal_18_Harry Nilsson"}, {"from": "wd:Q973638", "title": "wdt:P31", "to": "literal_86_human"}, {"from": "wd:Q704463", "title": "rdfs:label", "to": "literal_14_Erik Nilsson"}, {"from": "wd:Q704463", "title": "wdt:P735", "to": "literal_36_Erik"}, {"from": "wd:Q704463", "title": "wdt:P1344", "to": "literal_58_1952 Summer Olympics"}, {"from": "wd:Q704463", "title": "wdt:P1532", "to": "literal_84_Sweden"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_4", "title": "wtq:haspos.", "to": "literal_16_DF"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_4", "title": "wtq:hasindex", "to": "literal_32_4"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_4", "title": "wtq:hasgoals", "to": "literal_46_0"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_4", "title": "wtq:hasclub", "to": "literal_60_IS Halmia Halmstad"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_4", "title": "wtq:hasname", "to": "literal_68_Thure Grahn"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_4", "title": "wtq:hascaps", "to": "literal_79_1"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_2", "title": "wtq:haspos.", "to": "literal_22_FW"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_2", "title": "wtq:hasclub", "to": "literal_37_AIK Solna"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_2", "title": "wtq:hascaps", "to": "literal_55_2"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_2", "title": "wtq:hasindex", "to": "literal_63_2"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_2", "title": "wtq:hasgoals", "to": "literal_65_0"}, {"from": "wtq:1947\u201348_in_Swedish_football_row_2", "title": "wtq:hasname", "to": "literal_80_Henry \"Garvis\" Carlsson"}, {"from": "wd:Q1336279", "title": "wdt:P19", "to": "literal_25_N\u00e4ssj\u00f6"}, {"from": "wd:Q1336279", "title": "wdt:P54", "to": "literal_47_Sweden national association football team"}, {"from": "wd:Q1336279", "title": "wdt:P6087", "to": "literal_64_Djurg\u00e5rdens IF Fotboll"}, {"from": "wd:Q1336279", "title": "rdfs:label", "to": "literal_89_Torsten Lindberg"}, {"from": "wd:Q183274", "title": "wdt:P3373", "to": "literal_26_Gunnar Nordahl"}, {"from": "wd:Q183274", "title": "wdt:P19", "to": "literal_30_H\u00f6rnefors"}, {"from": "wd:Q183274", "title": "rdfs:label", "to": "literal_44_Bertil Nordahl"}, {"from": "wd:Q183274", "title": "wdt:P54", "to": "literal_72_Atalanta BC"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

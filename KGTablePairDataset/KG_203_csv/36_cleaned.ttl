@@ -1,0 +1,35 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_parishes_in_the_Diocese_of_Salford a wtq:Entity ;
+    wtq:hasRow wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2,
+        wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6 .
+
+wtq:List_of_parishes_in_the_Diocese_of_Salford_row_2 wtq:hasClosed "2005" ;
+    wtq:hasFounded "1947" ;
+    wtq:hasLocality wd:Q7595992,
+        "Stacksteads" ;
+    wtq:hasParish "St Joseph" ;
+    wtq:hasParish_Priest "----" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_parishes_in_the_Diocese_of_Salford_row_6 wtq:hasClosed "----" ;
+    wtq:hasFounded "1828" ;
+    wtq:hasLocality wd:Q2201943,
+        "Rawtenstall" ;
+    wtq:hasParish "St James the Less" ;
+    wtq:hasParish_Priest "Fr David Lupton, Rural Dean" ;
+    wtq:hasindex "6" .
+
+wd:Q2201943 rdfs:label "Rawtenstall" ;
+    wdt:P131 "Rossendale" ;
+    wdt:P31 "town" ;
+    wdt:P421 "UTC±00:00" .
+
+wd:Q7595992 rdfs:label "Stacksteads" ;
+    wdt:P17 "United Kingdom" ;
+    wdt:P31 "village" ;
+    wdt:P7959 "Lancashire" .
+

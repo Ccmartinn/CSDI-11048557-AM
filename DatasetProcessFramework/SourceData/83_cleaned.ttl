@@ -1,0 +1,771 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:List_of_largest_companies_by_revenue a wtq:Entity ;
+    wtq:hasRow wtq:List_of_largest_companies_by_revenue_row_10,
+        wtq:List_of_largest_companies_by_revenue_row_17,
+        wtq:List_of_largest_companies_by_revenue_row_19,
+        wtq:List_of_largest_companies_by_revenue_row_2,
+        wtq:List_of_largest_companies_by_revenue_row_21,
+        wtq:List_of_largest_companies_by_revenue_row_24,
+        wtq:List_of_largest_companies_by_revenue_row_26,
+        wtq:List_of_largest_companies_by_revenue_row_27,
+        wtq:List_of_largest_companies_by_revenue_row_3,
+        wtq:List_of_largest_companies_by_revenue_row_33,
+        wtq:List_of_largest_companies_by_revenue_row_34,
+        wtq:List_of_largest_companies_by_revenue_row_36,
+        wtq:List_of_largest_companies_by_revenue_row_38,
+        wtq:List_of_largest_companies_by_revenue_row_40,
+        wtq:List_of_largest_companies_by_revenue_row_41,
+        wtq:List_of_largest_companies_by_revenue_row_43,
+        wtq:List_of_largest_companies_by_revenue_row_46,
+        wtq:List_of_largest_companies_by_revenue_row_47,
+        wtq:List_of_largest_companies_by_revenue_row_48,
+        wtq:List_of_largest_companies_by_revenue_row_52,
+        wtq:List_of_largest_companies_by_revenue_row_53,
+        wtq:List_of_largest_companies_by_revenue_row_55,
+        wtq:List_of_largest_companies_by_revenue_row_57,
+        wtq:List_of_largest_companies_by_revenue_row_59,
+        wtq:List_of_largest_companies_by_revenue_row_60,
+        wtq:List_of_largest_companies_by_revenue_row_63 .
+
+wtq:List_of_largest_companies_by_revenue_row_10 wtq:hasCEO wd:Q68355,
+        "Martin Winterkorn" ;
+    wtq:hasCapitalization__USD_billions_ "$77" ;
+    wtq:hasCompany wd:Q156578,
+        "Volkswagen Group" ;
+    wtq:hasEmployees "502,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q3014,
+        "Wolfsburg" ;
+    wtq:hasIndustry "Automotive" ;
+    wtq:hasListing wd:Q259605,
+        "ISIN: DE0007664005" ;
+    wtq:hasRanking "11" ;
+    wtq:hasRevenue__USD_billions_ "$254" ;
+    wtq:hasindex "10" .
+
+wtq:List_of_largest_companies_by_revenue_row_17 wtq:hasCEO wd:Q265852,
+        "Tim Cook" ;
+    wtq:hasCapitalization__USD_billions_ "$410" ;
+    wtq:hasCompany wd:Q312,
+        "Apple" ;
+    wtq:hasEmployees "76,000" ;
+    wtq:hasFY "September 28, 2013" ;
+    wtq:hasHeadquarters wd:Q189471,
+        "Cupertino, California" ;
+    wtq:hasIndustry "Electronics" ;
+    wtq:hasListing "NASDAQ: AAPL" ;
+    wtq:hasRanking "18" ;
+    wtq:hasRevenue__USD_billions_ "$170" ;
+    wtq:hasindex "17" .
+
+wtq:List_of_largest_companies_by_revenue_row_19 wtq:hasCEO wd:Q529638,
+        "Paolo Scaroni" ;
+    wtq:hasCapitalization__USD_billions_ "$94" ;
+    wtq:hasCompany wd:Q565594,
+        "Eni" ;
+    wtq:hasEmployees "78,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q220,
+        "Rome" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing wd:Q936563,
+        "BIT: ENI" ;
+    wtq:hasRanking "20" ;
+    wtq:hasRevenue__USD_billions_ "$167" ;
+    wtq:hasindex "19" .
+
+wtq:List_of_largest_companies_by_revenue_row_2 wtq:hasCEO "Rex W. Tillerson" ;
+    wtq:hasCapitalization__USD_billions_ "$406" ;
+    wtq:hasCompany wd:Q156238,
+        "Exxon Mobil Corporation" ;
+    wtq:hasEmployees "76,900" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q51690,
+        "Irving, Texas" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing wd:Q13677,
+        "NYSE: XOM" ;
+    wtq:hasRanking "3" ;
+    wtq:hasRevenue__USD_billions_ "$453" ;
+    wtq:hasindex "2" .
+
+wtq:List_of_largest_companies_by_revenue_row_21 wtq:hasCEO wd:Q47213,
+        "Warren Buffett" ;
+    wtq:hasCapitalization__USD_billions_ "$201" ;
+    wtq:hasCompany wd:Q217583,
+        "Berkshire Hathaway" ;
+    wtq:hasEmployees "217,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q43199,
+        "Omaha, Nebraska" ;
+    wtq:hasIndustry "Conglomerate" ;
+    wtq:hasListing wd:Q13677,
+        "NYSE: BRKA; NYSE: BRKB" ;
+    wtq:hasRanking "22" ;
+    wtq:hasRevenue__USD_billions_ "$162" ;
+    wtq:hasindex "21" .
+
+wtq:List_of_largest_companies_by_revenue_row_24 wtq:hasCEO "Jeffrey Immelt" ;
+    wtq:hasCapitalization__USD_billions_ "$212" ;
+    wtq:hasCompany wd:Q54173,
+        "General Electric" ;
+    wtq:hasEmployees "287,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q754635,
+        "Fairfield, Connecticut" ;
+    wtq:hasIndustry "Conglomerate" ;
+    wtq:hasListing wd:Q13677,
+        "NYSE: GE" ;
+    wtq:hasRanking "25" ;
+    wtq:hasRevenue__USD_billions_ "$147" ;
+    wtq:hasindex "24" .
+
+wtq:List_of_largest_companies_by_revenue_row_26 wtq:hasCEO "Maria das Graças Foster" ;
+    wtq:hasCapitalization__USD_billions_ "$171" ;
+    wtq:hasCompany wd:Q210047,
+        "Petrobras" ;
+    wtq:hasEmployees "81,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q8678,
+        "Rio de Janeiro" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing "Bovespa: PETR3; Bovespa: 4" ;
+    wtq:hasRanking "27" ;
+    wtq:hasRevenue__USD_billions_ "$144" ;
+    wtq:hasindex "26" .
+
+wtq:List_of_largest_companies_by_revenue_row_27 wtq:hasCEO wd:Q101023,
+        "Michael Diekmann" ;
+    wtq:hasCapitalization__USD_billions_ "$54" ;
+    wtq:hasCompany wd:Q487292,
+        "Allianz" ;
+    wtq:hasEmployees "142,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q1726,
+        "Munich" ;
+    wtq:hasIndustry wd:Q837171,
+        "Financial services" ;
+    wtq:hasListing wd:Q259605,
+        "ISIN: DE0008404005" ;
+    wtq:hasRanking "28" ;
+    wtq:hasRevenue__USD_billions_ "$140" ;
+    wtq:hasindex "27" .
+
+wtq:List_of_largest_companies_by_revenue_row_3 wtq:hasCEO wd:Q9631179,
+        "Zhou Jiping" ;
+    wtq:hasCapitalization__USD_billions_ "nan" ;
+    wtq:hasCompany wd:Q588786,
+        "China National Petroleum Corporation" ;
+    wtq:hasEmployees "1,668,072" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q956,
+        "Beijing" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing "—" ;
+    wtq:hasRanking "4" ;
+    wtq:hasRevenue__USD_billions_ "$425" ;
+    wtq:hasindex "3" .
+
+wtq:List_of_largest_companies_by_revenue_row_33 wtq:hasCEO "Claude Dauphin" ;
+    wtq:hasCapitalization__USD_billions_ "nan" ;
+    wtq:hasCompany wd:Q687508,
+        "Trafigura" ;
+    wtq:hasEmployees "8,773" ;
+    wtq:hasFY "September 30, 2013" ;
+    wtq:hasHeadquarters wd:Q4191,
+        "Lucerne" ;
+    wtq:hasIndustry "Commodities" ;
+    wtq:hasListing "—" ;
+    wtq:hasRanking "34" ;
+    wtq:hasRevenue__USD_billions_ "$133" ;
+    wtq:hasindex "33" .
+
+wtq:List_of_largest_companies_by_revenue_row_34 wtq:hasCEO wd:Q718292,
+        "Helge Lund" ;
+    wtq:hasCapitalization__USD_billions_ "$86" ;
+    wtq:hasCompany "Statoil" ;
+    wtq:hasEmployees "23,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q25416,
+        "Stavanger" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing wd:Q909158,
+        "OSE: STL" ;
+    wtq:hasRanking "35" ;
+    wtq:hasRevenue__USD_billions_ "$130" ;
+    wtq:hasindex "34" .
+
+wtq:List_of_largest_companies_by_revenue_row_36 wtq:hasCEO wd:Q979750,
+        "Randall L. Stephenson" ;
+    wtq:hasCapitalization__USD_billions_ "$185" ;
+    wtq:hasCompany "AT&T" ;
+    wtq:hasEmployees "256,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters "Dallas, Texas" ;
+    wtq:hasIndustry "Telecommunications" ;
+    wtq:hasListing wd:Q13677,
+        "NYSE: T" ;
+    wtq:hasRanking "37" ;
+    wtq:hasRevenue__USD_billions_ "$127" ;
+    wtq:hasindex "36" .
+
+wtq:List_of_largest_companies_by_revenue_row_38 wtq:hasCEO "Rafael Ramírez" ;
+    wtq:hasCapitalization__USD_billions_ "nan" ;
+    wtq:hasCompany wd:Q718194,
+        "PDVSA" ;
+    wtq:hasEmployees "121,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q1533,
+        "Caracas" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing "—" ;
+    wtq:hasRanking "39" ;
+    wtq:hasRevenue__USD_billions_ "$124" ;
+    wtq:hasindex "38" .
+
+wtq:List_of_largest_companies_by_revenue_row_40 wtq:hasCEO wd:Q1700352,
+        "John Hammergren" ;
+    wtq:hasCapitalization__USD_billions_ "$22" ;
+    wtq:hasCompany wd:Q570473,
+        "McKesson" ;
+    wtq:hasEmployees "32,000" ;
+    wtq:hasFY "March 31, 2013" ;
+    wtq:hasHeadquarters "San Francisco, California" ;
+    wtq:hasIndustry "Pharmaceuticals" ;
+    wtq:hasListing wd:Q13677,
+        "NYSE: MCK" ;
+    wtq:hasRanking "41" ;
+    wtq:hasRevenue__USD_billions_ "$122" ;
+    wtq:hasindex "40" .
+
+wtq:List_of_largest_companies_by_revenue_row_41 wtq:hasCEO "—" ;
+    wtq:hasCapitalization__USD_billions_ "$16" ;
+    wtq:hasCompany "JX Holdings" ;
+    wtq:hasEmployees "24,000" ;
+    wtq:hasFY "March 31, 2013" ;
+    wtq:hasHeadquarters wd:Q1490,
+        "Tokyo" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing wd:Q217475,
+        "TYO: 5020" ;
+    wtq:hasRanking "42" ;
+    wtq:hasRevenue__USD_billions_ "$119" ;
+    wtq:hasindex "41" .
+
+wtq:List_of_largest_companies_by_revenue_row_43 wtq:hasCEO "Sergio Balbinot; Giovanni Perissinotto" ;
+    wtq:hasCapitalization__USD_billions_ "$24" ;
+    wtq:hasCompany wd:Q670482,
+        "Assicurazioni Generali" ;
+    wtq:hasEmployees "85,000" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q546,
+        "Trieste" ;
+    wtq:hasIndustry "Financial services" ;
+    wtq:hasListing wd:Q936563,
+        "BIT: G" ;
+    wtq:hasRanking "44" ;
+    wtq:hasRevenue__USD_billions_ "$116" ;
+    wtq:hasindex "43" .
+
+wtq:List_of_largest_companies_by_revenue_row_46 wtq:hasCEO "Norio Wada" ;
+    wtq:hasCapitalization__USD_billions_ "$73" ;
+    wtq:hasCompany wd:Q1054787,
+        "Nippon Telegraph and Telephone" ;
+    wtq:hasEmployees "205,000" ;
+    wtq:hasFY "March 31, 2013" ;
+    wtq:hasHeadquarters wd:Q1490,
+        "Tokyo" ;
+    wtq:hasIndustry wd:Q418,
+        "Telecommunications" ;
+    wtq:hasListing wd:Q217475,
+        "TYO: 9432" ;
+    wtq:hasRanking "47" ;
+    wtq:hasRevenue__USD_billions_ "$113" ;
+    wtq:hasindex "46" .
+
+wtq:List_of_largest_companies_by_revenue_row_47 wtq:hasCEO "Choi Tae-Won" ;
+    wtq:hasCapitalization__USD_billions_ "nan" ;
+    wtq:hasCompany wd:Q494158,
+        "SK Group" ;
+    wtq:hasEmployees "52,377" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q8684,
+        "Seoul" ;
+    wtq:hasIndustry "Conglomerate" ;
+    wtq:hasListing wd:Q495372,
+        "KRX: 003600" ;
+    wtq:hasRanking "48" ;
+    wtq:hasRevenue__USD_billions_ "$112" ;
+    wtq:hasindex "47" .
+
+wtq:List_of_largest_companies_by_revenue_row_48 wtq:hasCEO wd:Q55174,
+        "Meg Whitman" ;
+    wtq:hasCapitalization__USD_billions_ "$47" ;
+    wtq:hasCompany wd:Q80978,
+        "Hewlett-Packard" ;
+    wtq:hasEmployees "267,000" ;
+    wtq:hasFY "October 31, 2013" ;
+    wtq:hasHeadquarters wd:Q47265,
+        "Palo Alto, California" ;
+    wtq:hasIndustry "Information Technology" ;
+    wtq:hasListing wd:Q13677,
+        "NYSE: HPQ" ;
+    wtq:hasRanking "49" ;
+    wtq:hasRevenue__USD_billions_ "$112" ;
+    wtq:hasindex "48" .
+
+wtq:List_of_largest_companies_by_revenue_row_52 wtq:hasCEO "Philip Clarke" ;
+    wtq:hasCapitalization__USD_billions_ "$42" ;
+    wtq:hasCompany wd:Q487494,
+        "Tesco" ;
+    wtq:hasEmployees "493,000" ;
+    wtq:hasFY "February 23, 2013" ;
+    wtq:hasHeadquarters "Cheshunt, Hertfordshire" ;
+    wtq:hasIndustry "Retail" ;
+    wtq:hasListing wd:Q171240,
+        "LSE: TSCO" ;
+    wtq:hasRanking "53" ;
+    wtq:hasRevenue__USD_billions_ "$110" ;
+    wtq:hasindex "52" .
+
+wtq:List_of_largest_companies_by_revenue_row_53 wtq:hasCEO wd:Q4907167,
+        "Bijan Namdar Zangeneh" ;
+    wtq:hasCapitalization__USD_billions_ "nan" ;
+    wtq:hasCompany wd:Q593733,
+        "National Iranian Oil Company" ;
+    wtq:hasEmployees "36,000" ;
+    wtq:hasFY "2011" ;
+    wtq:hasHeadquarters wd:Q3616,
+        "Tehran" ;
+    wtq:hasIndustry "Oil and gas" ;
+    wtq:hasListing "—" ;
+    wtq:hasRanking "54" ;
+    wtq:hasRevenue__USD_billions_ "$110" ;
+    wtq:hasindex "53" .
+
+wtq:List_of_largest_companies_by_revenue_row_55 wtq:hasCEO wd:Q1764649,
+        "Takanobu Ito" ;
+    wtq:hasCapitalization__USD_billions_ "$69" ;
+    wtq:hasCompany wd:Q9584,
+        "Honda" ;
+    wtq:hasEmployees "181,876" ;
+    wtq:hasFY "March 31, 2013" ;
+    wtq:hasHeadquarters "Tokyo" ;
+    wtq:hasIndustry "Automotive" ;
+    wtq:hasListing wd:Q217475,
+        "TYO: 7267" ;
+    wtq:hasRanking "55" ;
+    wtq:hasRevenue__USD_billions_ "$104" ;
+    wtq:hasindex "55" .
+
+wtq:List_of_largest_companies_by_revenue_row_57 wtq:hasCEO "Kurt Bock" ;
+    wtq:hasCapitalization__USD_billions_ "$80" ;
+    wtq:hasCompany wd:Q9401,
+        "BASF" ;
+    wtq:hasEmployees "113,262" ;
+    wtq:hasFY "December 31, 2012" ;
+    wtq:hasHeadquarters wd:Q2910,
+        "Ludwigshafen" ;
+    wtq:hasIndustry "Chemicals" ;
+    wtq:hasListing wd:Q151139,
+        "FWB: BAS" ;
+    wtq:hasRanking "57" ;
+    wtq:hasRevenue__USD_billions_ "$103" ;
+    wtq:hasindex "57" .
+
+wtq:List_of_largest_companies_by_revenue_row_59 wtq:hasCEO "Josef Käser" ;
+    wtq:hasCapitalization__USD_billions_ "$92" ;
+    wtq:hasCompany wd:Q81230,
+        "Siemens" ;
+    wtq:hasEmployees "405,000" ;
+    wtq:hasFY "September 30, 2013" ;
+    wtq:hasHeadquarters wd:Q1726,
+        "Munich" ;
+    wtq:hasIndustry "Conglomerate" ;
+    wtq:hasListing wd:Q151139,
+        "FWB: SIE" ;
+    wtq:hasRanking "59" ;
+    wtq:hasRevenue__USD_billions_ "$102" ;
+    wtq:hasindex "59" .
+
+wtq:List_of_largest_companies_by_revenue_row_60 wtq:hasCEO wd:Q356719,
+        "Carlos Ghosn" ;
+    wtq:hasCapitalization__USD_billions_ "$48" ;
+    wtq:hasCompany "Nissan Motor Company" ;
+    wtq:hasEmployees "128,000" ;
+    wtq:hasFY "March 31, 2013" ;
+    wtq:hasHeadquarters wd:Q38283,
+        "Yokohama" ;
+    wtq:hasIndustry "Automotive" ;
+    wtq:hasListing wd:Q217475,
+        "TYO: 7201" ;
+    wtq:hasRanking "60" ;
+    wtq:hasRevenue__USD_billions_ "$102" ;
+    wtq:hasindex "60" .
+
+wtq:List_of_largest_companies_by_revenue_row_63 wtq:hasCEO "George Barrett" ;
+    wtq:hasCapitalization__USD_billions_ "$14" ;
+    wtq:hasCompany wd:Q902397,
+        "Cardinal Health" ;
+    wtq:hasEmployees "40,000" ;
+    wtq:hasFY "June 30, 2013" ;
+    wtq:hasHeadquarters wd:Q988937,
+        "Dublin, Ohio" ;
+    wtq:hasIndustry "Pharmaceuticals" ;
+    wtq:hasListing wd:Q13677,
+        "NYSE: CAH" ;
+    wtq:hasRanking "63" ;
+    wtq:hasRevenue__USD_billions_ "$101" ;
+    wtq:hasindex "63" .
+
+wd:Q101023 rdfs:label "Michael Diekmann" ;
+    wdt:P106 "lawyer" ;
+    wdt:P108 "Allianz SE" ;
+    wdt:P734 "Diekmann" .
+
+wd:Q1054787 rdfs:label "Nippon Telegraph and Telephone" ;
+    wdt:P112 "Government of Japan" ;
+    wdt:P127 "Nippon Telegraph and Telephone" ;
+    wdt:P31 "enterprise" .
+
+wd:Q1533 rdfs:label "Caracas" ;
+    wdt:P112 "Diego de Losada" ;
+    wdt:P31 "city",
+        "human settlement" .
+
+wd:Q156238 rdfs:label "ExxonMobil" ;
+    wdt:P138 "Mobil" ;
+    wdt:P31 "business",
+        "enterprise" .
+
+wd:Q156578 rdfs:label "Volkswagen Group" ;
+    wdt:P355 "Audi AG",
+        "Bugatti",
+        "MAN SE" .
+
+wd:Q1700352 rdfs:label "John Hammergren" ;
+    wdt:P31 "human" ;
+    wdt:P69 "Carlson School of Management",
+        "University of Minnesota" .
+
+wd:Q171240 rdfs:label "London Stock Exchange" ;
+    wdt:P127 "London Stock Exchange Group" ;
+    wdt:P159 "London" ;
+    wdt:P38 "pound sterling" .
+
+wd:Q1764649 rdfs:label "Takanobu Itō" ;
+    wdt:P31 "human" ;
+    wdt:P69 "Kyoto University" ;
+    wdt:P734 "Itō" .
+
+wd:Q189471 rdfs:label "Cupertino" ;
+    wdt:P163 "flag of Cupertino" ;
+    wdt:P47 "San Jose",
+        "Sunnyvale" .
+
+wd:Q210047 rdfs:label "Petrobras" ;
+    wdt:P112 "Getúlio Vargas" ;
+    wdt:P31 "business",
+        "enterprise" .
+
+wd:Q217583 rdfs:label "Berkshire Hathaway" ;
+    wdt:P112 "Oliver Chace" ;
+    wdt:P127 "Bill Gates" ;
+    wdt:P31 "enterprise" .
+
+wd:Q220 rdfs:label "Rome" ;
+    wdt:P31 "border city" ;
+    wdt:P37 "Italian" ;
+    wdt:P47 "Zagarolo" .
+
+wd:Q25416 rdfs:label "Stavanger" ;
+    wdt:P17 "Norway" ;
+    wdt:P47 "Hjelmeland Municipality" ;
+    wdt:P6 "Sissel Knutsen Hegdal" .
+
+wd:Q265852 rdfs:label "Tim Cook" ;
+    wdt:P19 "Mobile" ;
+    wdt:P21 "male" ;
+    wdt:P31 "human" .
+
+wd:Q2910 rdfs:label "Ludwigshafen" ;
+    wdt:P17 "Germany" ;
+    wdt:P31 "big city",
+        "district capital" .
+
+wd:Q3014 rdfs:label "Wolfsburg" ;
+    wdt:P131 "Lower Saxony" ;
+    wdt:P47 "Groß Twülpstedt",
+        "Velpke" .
+
+wd:Q312 rdfs:label "Apple" ;
+    wdt:P355 "AuthenTec",
+        "Braeburn Capital",
+        "FileMaker, Inc." .
+
+wd:Q356719 rdfs:label "Carlos Ghosn" ;
+    wdt:P26 "Carole Ghosn" ;
+    wdt:P27 "France" ;
+    wdt:P40 "Caroline Ghosn" .
+
+wd:Q3616 rdfs:label "Tehran" ;
+    wdt:P190 "Berlin" ;
+    wdt:P31 "global city" ;
+    wdt:P38 "Iranian rial" .
+
+wd:Q38283 rdfs:label "Yokohama" ;
+    wdt:P31 "city of Japan",
+        "commuter town" ;
+    wdt:P47 "Yokosuka" .
+
+wd:Q418 rdfs:label "telecommunication" ;
+    wdt:P279 "remote communication" ;
+    wdt:P31 "academic discipline" ;
+    wdt:P910 "Category:Telecommunications" .
+
+wd:Q4191 rdfs:label "Lucerne" ;
+    wdt:P31 "cantonal capital of Switzerland",
+        "municipality of Switzerland" ;
+    wdt:P47 "Ebikon" .
+
+wd:Q43199 rdfs:label "Omaha" ;
+    wdt:P31 "big city",
+        "county seat" ;
+    wdt:P47 "Council Bluffs" .
+
+wd:Q47213 rdfs:label "Warren Buffett" ;
+    wdt:P19 "Omaha" ;
+    wdt:P22 "Howard Homan Buffett" ;
+    wdt:P26 "Astrid Menks" .
+
+wd:Q47265 rdfs:label "Palo Alto" ;
+    wdt:P47 "Mountain View",
+        "Stanford" ;
+    wdt:P6 "Adrian Fine" .
+
+wd:Q487292 rdfs:label "Allianz SE" ;
+    wdt:P31 "business" ;
+    wdt:P355 "Allianz Trade",
+        "PIMCO" .
+
+wd:Q487494 rdfs:label "Tesco" ;
+    wdt:P112 "Jack Cohen" ;
+    wdt:P31 "business",
+        "gas station chain" .
+
+wd:Q4907167 rdfs:label "Bijan Namdar Zangeneh" ;
+    wdt:P106 "businessperson" ;
+    wdt:P27 "Iran" ;
+    wdt:P39 "Minister of Petroleum of Iran" .
+
+wd:Q494158 rdfs:label "SK Group" ;
+    wdt:P127 "SK Inc." ;
+    wdt:P1830 "Jeju United FC",
+        "SK Telecom" .
+
+wd:Q495372 rdfs:label "Korean Stock Exchange" ;
+    wdt:P1424 "Template:Korea Exchange" ;
+    wdt:P17 "South Korea" ;
+    wdt:P31 "business" .
+
+wd:Q51690 rdfs:label "Irving" ;
+    wdt:P190 "Marino" ;
+    wdt:P47 "Grand Prairie" ;
+    wdt:P910 "Category:Irving, Texas" .
+
+wd:Q529638 rdfs:label "Paolo Scaroni" ;
+    wdt:P166 "Order of Friendship" ;
+    wdt:P21 "male" ;
+    wdt:P27 "Italy" .
+
+wd:Q54173 rdfs:label "General Electric" ;
+    wdt:P355 "GE Power" ;
+    wdt:P361 "Dow Jones Industrial Average" ;
+    wdt:P414 "New York Stock Exchange" .
+
+wd:Q546 rdfs:label "Trieste" ;
+    wdt:P31 "city",
+        "port settlement" ;
+    wdt:P47 "Duino-Aurisina" .
+
+wd:Q55174 rdfs:label "Meg Whitman" ;
+    wdt:P25 "Margaret Cushing Whitman" ;
+    wdt:P27 "United States of America" ;
+    wdt:P39 "chief executive officer" .
+
+wd:Q565594 rdfs:label "Eni" ;
+    wdt:P112 "Enrico Mattei" ;
+    wdt:P127 "Ministry of Economy and Finance" ;
+    wdt:P159 "San Donato Milanese" .
+
+wd:Q570473 rdfs:label "McKesson Corporation" ;
+    wdt:P1365 "McKesson & Robbins Inc." ;
+    wdt:P3320 "Donald Knauss" ;
+    wdt:P740 "New York City" .
+
+wd:Q588786 rdfs:label "China National Petroleum Corporation" ;
+    wdt:P17 "People's Republic of China" ;
+    wdt:P1830 "PetroChina Company Limited" ;
+    wdt:P5008 "WikiProject Climate change" .
+
+wd:Q593733 rdfs:label "National Iranian Oil Company" ;
+    wdt:P1830 "Iranian Offshore Oil Company",
+        "Naft Ghaemshahr F.C." ;
+    wdt:P5008 "WikiProject Climate change" .
+
+wd:Q670482 rdfs:label "Assicurazioni Generali" ;
+    wdt:P355 "Banca Generali Private",
+        "GRE PAN-EU PRAGUE 1",
+        "Generali CEE Holding" .
+
+wd:Q68355 rdfs:label "Martin Winterkorn" ;
+    wdt:P1416 "Audi AG" ;
+    wdt:P463 "Atlantik-Brücke" ;
+    wdt:P735 "Martin" .
+
+wd:Q687508 rdfs:label "Trafigura" ;
+    wdt:P1454 "besloten vennootschap" ;
+    wdt:P159 "Singapore" ;
+    wdt:P31 "enterprise" .
+
+wd:Q718194 rdfs:label "PDVSA" ;
+    wdt:P355 "Corpoven",
+        "Lagoven" ;
+    wdt:P452 "petroleum industry" .
+
+wd:Q718292 rdfs:label "Helge Lund" ;
+    wdt:P31 "human" ;
+    wdt:P69 "INSEAD",
+        "Norwegian School of Economics" .
+
+wd:Q754635 rdfs:label "Fairfield" ;
+    wdt:P112 "Roger Ludlow" ;
+    wdt:P190 "Tatabánya" ;
+    wdt:P31 "town in the United States" .
+
+wd:Q80978 rdfs:label "Hewlett-Packard" ;
+    wdt:P138 "David Packard" ;
+    wdt:P155 "3Com" ;
+    wdt:P17 "United States of America" .
+
+wd:Q81230 rdfs:label "Siemens" ;
+    wdt:P155 "A. Reyrolle & Company" ;
+    wdt:P166 "Q1664183",
+        "Q96249025" .
+
+wd:Q837171 rdfs:label "financial services" ;
+    wdt:P279 "business service",
+        "knowledge industry",
+        "product" .
+
+wd:Q8678 rdfs:label "Rio de Janeiro" ;
+    wdt:P31 "municipality of Brazil" ;
+    wdt:P47 "Nova Iguaçu",
+        "São João de Meriti" .
+
+wd:Q8684 rdfs:label "Seoul" ;
+    wdt:P31 "megacity",
+        "metropolis" ;
+    wdt:P36 "Jung District" .
+
+wd:Q902397 rdfs:label "Cardinal Health" ;
+    wdt:P17 "United States of America" ;
+    wdt:P31 "business",
+        "public company" .
+
+wd:Q909158 rdfs:label "Oslo Stock Exchange" ;
+    wdt:P355 "Euronext Growth - Oslo",
+        "Nordic Alternative Bond Market",
+        "Oslo Bors - Derivatives Market" .
+
+wd:Q9401 rdfs:label "BASF" ;
+    wdt:P138 "Baden",
+        "aniline" ;
+    wdt:P169 "Martin Brudermüller" .
+
+wd:Q956 rdfs:label "Beijing" ;
+    wdt:P31 "global city",
+        "metropolis" ;
+    wdt:P6 "Yin Yong" .
+
+wd:Q9584 rdfs:label "Honda" ;
+    wdt:P127 "Meiji Yasuda Life",
+        "The Master Trust Bank of Japan" ;
+    wdt:P31 "motorcycle manufacturer" .
+
+wd:Q9631179 rdfs:label "Zhou Jiping" ;
+    wdt:P106 "merchant" ;
+    wdt:P39 "member of the National Committee of the Chinese People's Political Consultative Conference" ;
+    wdt:P69 "China University of Petroleum (Beijing)" .
+
+wd:Q979750 rdfs:label "Randall L. Stephenson" ;
+    wdt:P108 "AT&T" ;
+    wdt:P39 "chief executive officer" ;
+    wdt:P463 "American Academy of Arts and Sciences" .
+
+wd:Q988937 rdfs:label "Dublin" ;
+    wdt:P131 "Delaware County" ;
+    wdt:P17 "United States of America" ;
+    wdt:P797 "City of Dublin" .
+
+wd:Q1490 rdfs:label "Tokyo" ;
+    wdt:P17 "Japan" ;
+    wdt:P31 "capital of Japan",
+        "megacity",
+        "metropolis",
+        "prefecture of Japan",
+        "tourist destination" .
+
+wd:Q151139 rdfs:label "Frankfurt Stock Exchange" ;
+    wdt:P127 "Deutsche Börse" ;
+    wdt:P131 "Frankfurt" ;
+    wdt:P31 "stock exchange",
+        "stock market" ;
+    wdt:P452 "economy" .
+
+wd:Q1726 rdfs:label "Munich" ;
+    wdt:P17 "Germany" ;
+    wdt:P31 "big city",
+        "district capital",
+        "financial centre",
+        "metropolis" ;
+    wdt:P6 "Dieter Reiter" .
+
+wd:Q259605 rdfs:label "International Securities Identification Number" ;
+    wdt:P1343 "ISO 6166" ;
+    wdt:P1424 "Q10556125" ;
+    wdt:P1889 "Isin" ;
+    wdt:P31 "unique identifier" .
+
+wd:Q936563 rdfs:label "Italian Stock Exchange" ;
+    wdt:P1454 "società per azioni" ;
+    wdt:P31 "stock market" ;
+    wdt:P3679 "FTSE MIB" ;
+    wdt:P910 "Category:Borsa Italiana" .
+
+wd:Q217475 rdfs:label "Tokyo Stock Exchange" ;
+    wdt:P137 "Japan Exchange Group" ;
+    wdt:P159 "Nihonbashi-Kabutochō",
+        "Tokyo" ;
+    wdt:P17 "Japan" ;
+    wdt:P31 "stock market" ;
+    wdt:P452 "financial instruments exchange" ;
+    wdt:P463 "Japanese Stock Exchanges Conference" ;
+    wdt:P749 "Japan Exchange Group" .
+
+wd:Q13677 rdfs:label "New York Stock Exchange" ;
+    wdt:P137 "Intercontinental Exchange" ;
+    wdt:P138 "New York City",
+        "Wall Street" ;
+    wdt:P159 "New York City",
+        "New York Stock Exchange Building" ;
+    wdt:P17 "United States of America" ;
+    wdt:P276 "New York Stock Exchange Building" ;
+    wdt:P31 "stock exchange" ;
+    wdt:P488 "Jeffrey Sprecher" ;
+    wdt:P553 "Livestream" .
+

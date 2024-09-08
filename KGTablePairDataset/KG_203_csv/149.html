@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_20", "label": "wtq:1989_Major_League_Baseball_Draft_row_20", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q16213753", "label": "wd:Q16213753", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft", "label": "wtq:1989_Major_League_Baseball_Draft", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_17", "label": "wtq:1989_Major_League_Baseball_Draft_row_17", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5294490", "label": "wd:Q5294490", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q1423756", "label": "wd:Q1423756", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q650829", "label": "wd:Q650829", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7612881", "label": "wd:Q7612881", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q650840", "label": "wd:Q650840", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_10", "label": "wtq:1989_Major_League_Baseball_Draft_row_10", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5024464", "label": "wd:Q5024464", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_3", "label": "wtq:1989_Major_League_Baseball_Draft_row_3", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_22", "label": "wtq:1989_Major_League_Baseball_Draft_row_22", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_19", "label": "wtq:1989_Major_League_Baseball_Draft_row_19", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q826751", "label": "wd:Q826751", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q585828", "label": "wd:Q585828", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_18", "label": "wtq:1989_Major_League_Baseball_Draft_row_18", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q329816", "label": "wd:Q329816", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q213959", "label": "wd:Q213959", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_2", "label": "wtq:1989_Major_League_Baseball_Draft_row_2", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q308966", "label": "wd:Q308966", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q466586", "label": "wd:Q466586", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_4", "label": "wtq:1989_Major_League_Baseball_Draft_row_4", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q650855", "label": "wd:Q650855", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5336589", "label": "wd:Q5336589", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:1989_Major_League_Baseball_Draft_row_13", "label": "wtq:1989_Major_League_Baseball_Draft_row_13", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q653772", "label": "wd:Q653772", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q992830", "label": "wd:Q992830", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q7436057", "label": "wd:Q7436057", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q16214013", "label": "wd:Q16214013", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3030993", "label": "wd:Q3030993", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q5605619", "label": "wd:Q5605619", "shape": "dot", "size": 40}, {"color": "green", "id": "wd:Q3569080", "label": "wd:Q3569080", "shape": "dot", "size": 40}, {"color": "green", "id": "wtq:Entity", "label": "wtq:Entity", "shape": "dot", "size": 40}, {"color": "gray", "id": "literal_0_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_1_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_2_Tiburones de La Guaira", "label": "Tiburones de La Guaira", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_3_public educational institution of the United States", "label": "public educational institution of the United States", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_4_Rogers Communications", "label": "Rogers Communications", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_5_San Francisco Giants", "label": "San Francisco Giants", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_6_Major League Baseball", "label": "Major League Baseball", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_7_Philadelphia", "label": "Philadelphia", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_8_Simeon HS (Chicago, IL)", "label": "Simeon HS (Chicago, IL)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_9_Toronto Blue Jays", "label": "Toronto Blue Jays", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_10_Seton Hall University", "label": "Seton Hall University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_11_Category:Texas Rangers (baseball)", "label": "Category:Texas Rangers (baseball)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_12_baseball team", "label": "baseball team", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_13_Cincinnati Reds Radio Network", "label": "Cincinnati Reds Radio Network", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_14_Willie Greene", "label": "Willie Greene", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_15_San Francisco Giants", "label": "San Francisco Giants", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_16_11", "label": "11", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_17_John W. Stanton", "label": "John W. Stanton", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_18_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_19_2", "label": "2", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_20_RHP", "label": "RHP", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_21_RHP", "label": "RHP", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_22_American League", "label": "American League", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_23_Crosley Field", "label": "Crosley Field", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_24_Elizabeth Ann Seton", "label": "Elizabeth Ann Seton", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_25_American Council on Education", "label": "American Council on Education", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_26_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_27_Texas Tech University", "label": "Texas Tech University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_28_University of Texas", "label": "University of Texas", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_29_Boston Red Sox", "label": "Boston Red Sox", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_30_Texas Rangers", "label": "Texas Rangers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_31_21", "label": "21", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_32_5", "label": "5", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_33_Pittsburgh Pirates", "label": "Pittsburgh Pirates", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_34_Fresno State University", "label": "Fresno State University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_35_Q25896649", "label": "Q25896649", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_36_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_37_OF", "label": "OF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_38_baseball", "label": "baseball", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_39_Norwalk", "label": "Norwalk", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_40_OF", "label": "OF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_41_baseball player", "label": "baseball player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_42_Greg Gohr", "label": "Greg Gohr", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_43_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_44_Jeff Jackson", "label": "Jeff Jackson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_45_2011 World Series", "label": "2011 World Series", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_46_Calvin Murray", "label": "Calvin Murray", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_47_Scott Bryant", "label": "Scott Bryant", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_48_Philadelphia Phillies", "label": "Philadelphia Phillies", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_49_Detroit Tigers", "label": "Detroit Tigers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_50_Category:San Francisco Giants", "label": "Category:San Francisco Giants", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_51_Frank Navin", "label": "Frank Navin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_52_baseball player", "label": "baseball player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_53_Detroit Tigers", "label": "Detroit Tigers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_54_baseball", "label": "baseball", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_55_Saugus (CA) HS", "label": "Saugus (CA) HS", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_56_Texas Rangers", "label": "Texas Rangers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_57_Philadelphia Phillies", "label": "Philadelphia Phillies", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_58_Willie Greene", "label": "Willie Greene", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_59_Major League Baseball", "label": "Major League Baseball", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_60_Santa Clara University", "label": "Santa Clara University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_61_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_62_Catholic Church", "label": "Catholic Church", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_63_Jones County HS (Gray, GA)", "label": "Jones County HS (Gray, GA)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_64_SS", "label": "SS", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_65_California State University, Fresno", "label": "California State University, Fresno", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_66_Seattle Mariners", "label": "Seattle Mariners", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_67_10", "label": "10", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_68_Steve Hosey", "label": "Steve Hosey", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_69_3", "label": "3", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_70_Canadian Imperial Bank of Commerce", "label": "Canadian Imperial Bank of Commerce", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_71_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_72_Charlotte Knights", "label": "Charlotte Knights", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_73_Seton Hall University", "label": "Seton Hall University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_74_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_75_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_76_22", "label": "22", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_77_Jeff Jackson", "label": "Jeff Jackson", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_78_Eddie Zosky", "label": "Eddie Zosky", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_79_Toronto Blue Jays", "label": "Toronto Blue Jays", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_80_Toronto Blue Jays", "label": "Toronto Blue Jays", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_81_W. T. White High School", "label": "W. T. White High School", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_82_Texas Tech University", "label": "Texas Tech University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_83_Santa Clara University", "label": "Santa Clara University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_84_Donald Harris", "label": "Donald Harris", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_85_Roger Salkeld", "label": "Roger Salkeld", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_86_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_87_14", "label": "14", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_88_baseball", "label": "baseball", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_89_SS", "label": "SS", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_90_Detroit Tigers", "label": "Detroit Tigers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_91_3B", "label": "3B", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_92_university", "label": "university", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_93_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_94_Donald Harris", "label": "Donald Harris", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_95_Eddie Zosky", "label": "Eddie Zosky", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_96_Calvin Murray", "label": "Calvin Murray", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_97_17", "label": "17", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_98_Seattle Mariners", "label": "Seattle Mariners", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_99_1B", "label": "1B", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_100_Category:Cincinnati Reds", "label": "Category:Cincinnati Reds", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_101_Cleveland Indians", "label": "Cleveland Indians", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_102_Mo Vaughn", "label": "Mo Vaughn", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_103_San Francisco Giants", "label": "San Francisco Giants", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_104_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_105_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_106_Ignatian Center for Jesuit Education, Santa Clara University", "label": "Ignatian Center for Jesuit Education, Santa Clara University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_107_Roger Salkeld", "label": "Roger Salkeld", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_108_Greg Gohr", "label": "Greg Gohr", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_109_Fresno State University", "label": "Fresno State University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_110_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_111_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_112_New Canaan Country School", "label": "New Canaan Country School", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_113_Edward E. Whitacre Jr. College of Engineering, Texas Tech University", "label": "Edward E. Whitacre Jr. College of Engineering, Texas Tech University", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_114_United States of America", "label": "United States of America", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_115_Lubbock", "label": "Lubbock", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_116_Alex Cora", "label": "Alex Cora", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_117_Category:Philadelphia Quakers players", "label": "Category:Philadelphia Quakers players", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_118_20", "label": "20", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_119_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_120_Boston Red Sox", "label": "Boston Red Sox", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_121_Texas Rangers", "label": "Texas Rangers", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_122_23", "label": "23", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_123_OF", "label": "OF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_124_Cincinnati Reds", "label": "Cincinnati Reds", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_125_Steve Hosey", "label": "Steve Hosey", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_126_18", "label": "18", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_127_University of Texas at Austin", "label": "University of Texas at Austin", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_128_Toronto Blue Jays", "label": "Toronto Blue Jays", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_129_13", "label": "13", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_130_OF", "label": "OF", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_131_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_132_baseball player", "label": "baseball player", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_133_4", "label": "4", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_134_pitcher", "label": "pitcher", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_135_Seton Hall University Libraries", "label": "Seton Hall University Libraries", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_136_W.T. White High School (Dallas, TX)", "label": "W.T. White High School (Dallas, TX)", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_137_Cincinnati Reds", "label": "Cincinnati Reds", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_138_Mo Vaughn", "label": "Mo Vaughn", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_139_male", "label": "male", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_140_Houston Astros", "label": "Houston Astros", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_141_19", "label": "19", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_142_Pittsburgh Pirates", "label": "Pittsburgh Pirates", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_143_Scott Bryant", "label": "Scott Bryant", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_144_human", "label": "human", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_145_Pittsburgh Pirates", "label": "Pittsburgh Pirates", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_146_2012 World Series", "label": "2012 World Series", "shape": "dot", "size": 30}, {"color": "gray", "id": "literal_147_Template:Seattle Mariners", "label": "Template:Seattle Mariners", "shape": "dot", "size": 30}]);
+                  edges = new vis.DataSet([{"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasSchool", "to": "wd:Q992830"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasPlayer", "to": "wd:Q5605619"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasTeam", "to": "wd:Q650855"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasindex", "to": "literal_0_20"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasPosition", "to": "literal_20_RHP"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasPick", "to": "literal_31_21"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasPlayer", "to": "literal_42_Greg Gohr"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasTeam", "to": "literal_49_Detroit Tigers"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_20", "title": "wtq:hasSchool", "to": "literal_60_Santa Clara University"}, {"from": "wd:Q16213753", "title": "wtq:hasPlayer", "to": "wtq:1989_Major_League_Baseball_Draft_row_2"}, {"from": "wd:Q16213753", "title": "wdt:P31", "to": "literal_1_human"}, {"from": "wd:Q16213753", "title": "wdt:P21", "to": "literal_86_male"}, {"from": "wd:Q16213753", "title": "rdfs:label", "to": "literal_107_Roger Salkeld"}, {"from": "wd:Q16213753", "title": "wdt:P413", "to": "literal_134_pitcher"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_17"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_22"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_2"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_4"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", "to": "wtq:Entity"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_18"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_13"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_10"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_19"}, {"from": "wtq:1989_Major_League_Baseball_Draft", "title": "wtq:hasRow", "to": "wtq:1989_Major_League_Baseball_Draft_row_3"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasPlayer", "to": "wd:Q3569080"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasTeam", "to": "wd:Q653772"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasPlayer", "to": "literal_14_Willie Greene"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasTeam", "to": "literal_33_Pittsburgh Pirates"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasSchool", "to": "literal_63_Jones County HS (Gray, GA)"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasPosition", "to": "literal_64_SS"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasPick", "to": "literal_75_18"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_17", "title": "wtq:hasindex", "to": "literal_97_17"}, {"from": "wd:Q5294490", "title": "wtq:hasPlayer", "to": "wtq:1989_Major_League_Baseball_Draft_row_4"}, {"from": "wd:Q5294490", "title": "wdt:P54", "to": "literal_2_Tiburones de La Guaira"}, {"from": "wd:Q5294490", "title": "wdt:P118", "to": "literal_6_Major League Baseball"}, {"from": "wd:Q5294490", "title": "wdt:P54", "to": "literal_56_Texas Rangers"}, {"from": "wd:Q5294490", "title": "rdfs:label", "to": "literal_84_Donald Harris"}, {"from": "wd:Q1423756", "title": "wtq:hasSchool", "to": "wtq:1989_Major_League_Baseball_Draft_row_4"}, {"from": "wd:Q1423756", "title": "wdt:P31", "to": "literal_3_public educational institution of the United States"}, {"from": "wd:Q1423756", "title": "rdfs:label", "to": "literal_27_Texas Tech University"}, {"from": "wd:Q1423756", "title": "wdt:P355", "to": "literal_113_Edward E. Whitacre Jr. College of Engineering, Texas Tech University"}, {"from": "wd:Q1423756", "title": "wdt:P131", "to": "literal_115_Lubbock"}, {"from": "wd:Q650829", "title": "wtq:hasTeam", "to": "wtq:1989_Major_League_Baseball_Draft_row_18"}, {"from": "wd:Q650829", "title": "wdt:P127", "to": "literal_4_Rogers Communications"}, {"from": "wd:Q650829", "title": "rdfs:label", "to": "literal_9_Toronto Blue Jays"}, {"from": "wd:Q650829", "title": "wdt:P118", "to": "literal_59_Major League Baseball"}, {"from": "wd:Q650829", "title": "wdt:P127", "to": "literal_70_Canadian Imperial Bank of Commerce"}, {"from": "wd:Q7612881", "title": "wtq:hasPlayer", "to": "wtq:1989_Major_League_Baseball_Draft_row_13"}, {"from": "wd:Q7612881", "title": "wdt:P54", "to": "literal_5_San Francisco Giants"}, {"from": "wd:Q7612881", "title": "wdt:P69", "to": "literal_65_California State University, Fresno"}, {"from": "wd:Q7612881", "title": "rdfs:label", "to": "literal_68_Steve Hosey"}, {"from": "wd:Q7612881", "title": "wdt:P31", "to": "literal_144_human"}, {"from": "wd:Q650840", "title": "wtq:hasTeam", "to": "wtq:1989_Major_League_Baseball_Draft_row_3"}, {"from": "wd:Q650840", "title": "wdt:P138", "to": "literal_7_Philadelphia"}, {"from": "wd:Q650840", "title": "rdfs:label", "to": "literal_48_Philadelphia Phillies"}, {"from": "wd:Q650840", "title": "wdt:P17", "to": "literal_111_United States of America"}, {"from": "wd:Q650840", "title": "wdt:P6112", "to": "literal_117_Category:Philadelphia Quakers players"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_10", "title": "wtq:hasPlayer", "to": "wd:Q5024464"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_10", "title": "wtq:hasPick", "to": "literal_16_11"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_10", "title": "wtq:hasindex", "to": "literal_67_10"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_10", "title": "wtq:hasPosition", "to": "literal_91_3B"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_10", "title": "wtq:hasPlayer", "to": "literal_96_Calvin Murray"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_10", "title": "wtq:hasTeam", "to": "literal_101_Cleveland Indians"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_10", "title": "wtq:hasSchool", "to": "literal_136_W.T. White High School (Dallas, TX)"}, {"from": "wd:Q5024464", "title": "rdfs:label", "to": "literal_46_Calvin Murray"}, {"from": "wd:Q5024464", "title": "wdt:P27", "to": "literal_74_United States of America"}, {"from": "wd:Q5024464", "title": "wdt:P69", "to": "literal_81_W. T. White High School"}, {"from": "wd:Q5024464", "title": "wdt:P31", "to": "literal_110_human"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_3", "title": "wtq:hasPlayer", "to": "wd:Q16214013"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_3", "title": "wtq:hasSchool", "to": "literal_8_Simeon HS (Chicago, IL)"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_3", "title": "wtq:hasTeam", "to": "literal_57_Philadelphia Phillies"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_3", "title": "wtq:hasindex", "to": "literal_69_3"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_3", "title": "wtq:hasPlayer", "to": "literal_77_Jeff Jackson"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_3", "title": "wtq:hasPosition", "to": "literal_123_OF"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_3", "title": "wtq:hasPick", "to": "literal_133_4"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasSchool", "to": "wd:Q585828"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasTeam", "to": "wd:Q213959"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasPlayer", "to": "wd:Q3030993"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasTeam", "to": "literal_29_Boston Red Sox"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasSchool", "to": "literal_73_Seton Hall University"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasindex", "to": "literal_76_22"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasPosition", "to": "literal_99_1B"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasPlayer", "to": "literal_102_Mo Vaughn"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_22", "title": "wtq:hasPick", "to": "literal_122_23"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasTeam", "to": "wd:Q826751"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasPlayer", "to": "wd:Q7436057"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasSchool", "to": "literal_28_University of Texas"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasPosition", "to": "literal_37_OF"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasPlayer", "to": "literal_47_Scott Bryant"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasPick", "to": "literal_118_20"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasindex", "to": "literal_119_19"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_19", "title": "wtq:hasTeam", "to": "literal_137_Cincinnati Reds"}, {"from": "wd:Q826751", "title": "wdt:P1830", "to": "literal_13_Cincinnati Reds Radio Network"}, {"from": "wd:Q826751", "title": "wdt:P1830", "to": "literal_23_Crosley Field"}, {"from": "wd:Q826751", "title": "wdt:P910", "to": "literal_100_Category:Cincinnati Reds"}, {"from": "wd:Q826751", "title": "rdfs:label", "to": "literal_124_Cincinnati Reds"}, {"from": "wd:Q585828", "title": "rdfs:label", "to": "literal_10_Seton Hall University"}, {"from": "wd:Q585828", "title": "wdt:P138", "to": "literal_24_Elizabeth Ann Seton"}, {"from": "wd:Q585828", "title": "wdt:P463", "to": "literal_25_American Council on Education"}, {"from": "wd:Q585828", "title": "wdt:P355", "to": "literal_135_Seton Hall University Libraries"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_18", "title": "wtq:hasPlayer", "to": "wd:Q5336589"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_18", "title": "wtq:hasPlayer", "to": "literal_78_Eddie Zosky"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_18", "title": "wtq:hasTeam", "to": "literal_80_Toronto Blue Jays"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_18", "title": "wtq:hasPosition", "to": "literal_89_SS"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_18", "title": "wtq:hasSchool", "to": "literal_109_Fresno State University"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_18", "title": "wtq:hasindex", "to": "literal_126_18"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_18", "title": "wtq:hasPick", "to": "literal_141_19"}, {"from": "wd:Q329816", "title": "wtq:hasTeam", "to": "wtq:1989_Major_League_Baseball_Draft_row_4"}, {"from": "wd:Q329816", "title": "wdt:P910", "to": "literal_11_Category:Texas Rangers (baseball)"}, {"from": "wd:Q329816", "title": "rdfs:label", "to": "literal_30_Texas Rangers"}, {"from": "wd:Q329816", "title": "wdt:P1344", "to": "literal_45_2011 World Series"}, {"from": "wd:Q329816", "title": "wdt:P17", "to": "literal_114_United States of America"}, {"from": "wd:Q213959", "title": "wdt:P31", "to": "literal_12_baseball team"}, {"from": "wd:Q213959", "title": "wdt:P17", "to": "literal_93_United States of America"}, {"from": "wd:Q213959", "title": "wdt:P286", "to": "literal_116_Alex Cora"}, {"from": "wd:Q213959", "title": "rdfs:label", "to": "literal_120_Boston Red Sox"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_2", "title": "wtq:hasTeam", "to": "wd:Q466586"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_2", "title": "wtq:hasindex", "to": "literal_19_2"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_2", "title": "wtq:hasPosition", "to": "literal_21_RHP"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_2", "title": "wtq:hasPick", "to": "literal_43_3"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_2", "title": "wtq:hasSchool", "to": "literal_55_Saugus (CA) HS"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_2", "title": "wtq:hasTeam", "to": "literal_66_Seattle Mariners"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_2", "title": "wtq:hasPlayer", "to": "literal_85_Roger Salkeld"}, {"from": "wd:Q308966", "title": "wtq:hasTeam", "to": "wtq:1989_Major_League_Baseball_Draft_row_13"}, {"from": "wd:Q308966", "title": "rdfs:label", "to": "literal_15_San Francisco Giants"}, {"from": "wd:Q308966", "title": "wdt:P910", "to": "literal_50_Category:San Francisco Giants"}, {"from": "wd:Q308966", "title": "wdt:P641", "to": "literal_88_baseball"}, {"from": "wd:Q308966", "title": "wdt:P1344", "to": "literal_146_2012 World Series"}, {"from": "wd:Q466586", "title": "wdt:P127", "to": "literal_17_John W. Stanton"}, {"from": "wd:Q466586", "title": "wdt:P17", "to": "literal_18_United States of America"}, {"from": "wd:Q466586", "title": "rdfs:label", "to": "literal_98_Seattle Mariners"}, {"from": "wd:Q466586", "title": "wdt:P1424", "to": "literal_147_Template:Seattle Mariners"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_4", "title": "wtq:hasPick", "to": "literal_32_5"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_4", "title": "wtq:hasindex", "to": "literal_71_4"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_4", "title": "wtq:hasSchool", "to": "literal_82_Texas Tech University"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_4", "title": "wtq:hasPlayer", "to": "literal_94_Donald Harris"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_4", "title": "wtq:hasTeam", "to": "literal_121_Texas Rangers"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_4", "title": "wtq:hasPosition", "to": "literal_130_OF"}, {"from": "wd:Q650855", "title": "wdt:P118", "to": "literal_22_American League"}, {"from": "wd:Q650855", "title": "wdt:P17", "to": "literal_26_United States of America"}, {"from": "wd:Q650855", "title": "wdt:P127", "to": "literal_51_Frank Navin"}, {"from": "wd:Q650855", "title": "rdfs:label", "to": "literal_53_Detroit Tigers"}, {"from": "wd:Q5336589", "title": "rdfs:label", "to": "literal_95_Eddie Zosky"}, {"from": "wd:Q5336589", "title": "wdt:P21", "to": "literal_105_male"}, {"from": "wd:Q5336589", "title": "wdt:P54", "to": "literal_128_Toronto Blue Jays"}, {"from": "wd:Q5336589", "title": "wdt:P54", "to": "literal_140_Houston Astros"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_13", "title": "wtq:hasSchool", "to": "literal_34_Fresno State University"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_13", "title": "wtq:hasPosition", "to": "literal_40_OF"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_13", "title": "wtq:hasPick", "to": "literal_87_14"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_13", "title": "wtq:hasTeam", "to": "literal_103_San Francisco Giants"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_13", "title": "wtq:hasPlayer", "to": "literal_125_Steve Hosey"}, {"from": "wtq:1989_Major_League_Baseball_Draft_row_13", "title": "wtq:hasindex", "to": "literal_129_13"}, {"from": "wd:Q653772", "title": "wdt:P1424", "to": "literal_35_Q25896649"}, {"from": "wd:Q653772", "title": "wdt:P641", "to": "literal_54_baseball"}, {"from": "wd:Q653772", "title": "rdfs:label", "to": "literal_142_Pittsburgh Pirates"}, {"from": "wd:Q653772", "title": "wdt:P1889", "to": "literal_145_Pittsburgh Pirates"}, {"from": "wd:Q992830", "title": "wdt:P140", "to": "literal_62_Catholic Church"}, {"from": "wd:Q992830", "title": "rdfs:label", "to": "literal_83_Santa Clara University"}, {"from": "wd:Q992830", "title": "wdt:P31", "to": "literal_92_university"}, {"from": "wd:Q992830", "title": "wdt:P355", "to": "literal_106_Ignatian Center for Jesuit Education, Santa Clara University"}, {"from": "wd:Q7436057", "title": "wdt:P27", "to": "literal_36_United States of America"}, {"from": "wd:Q7436057", "title": "wdt:P54", "to": "literal_72_Charlotte Knights"}, {"from": "wd:Q7436057", "title": "wdt:P69", "to": "literal_127_University of Texas at Austin"}, {"from": "wd:Q7436057", "title": "rdfs:label", "to": "literal_143_Scott Bryant"}, {"from": "wd:Q16214013", "title": "wdt:P641", "to": "literal_38_baseball"}, {"from": "wd:Q16214013", "title": "wdt:P106", "to": "literal_41_baseball player"}, {"from": "wd:Q16214013", "title": "rdfs:label", "to": "literal_44_Jeff Jackson"}, {"from": "wd:Q16214013", "title": "wdt:P21", "to": "literal_131_male"}, {"from": "wd:Q3030993", "title": "wdt:P19", "to": "literal_39_Norwalk"}, {"from": "wd:Q3030993", "title": "wdt:P21", "to": "literal_104_male"}, {"from": "wd:Q3030993", "title": "wdt:P69", "to": "literal_112_New Canaan Country School"}, {"from": "wd:Q3030993", "title": "rdfs:label", "to": "literal_138_Mo Vaughn"}, {"from": "wd:Q5605619", "title": "wdt:P54", "to": "literal_90_Detroit Tigers"}, {"from": "wd:Q5605619", "title": "rdfs:label", "to": "literal_108_Greg Gohr"}, {"from": "wd:Q5605619", "title": "wdt:P106", "to": "literal_132_baseball player"}, {"from": "wd:Q5605619", "title": "wdt:P21", "to": "literal_139_male"}, {"from": "wd:Q3569080", "title": "wdt:P106", "to": "literal_52_baseball player"}, {"from": "wd:Q3569080", "title": "rdfs:label", "to": "literal_58_Willie Greene"}, {"from": "wd:Q3569080", "title": "wdt:P21", "to": "literal_61_male"}, {"from": "wd:Q3569080", "title": "wdt:P54", "to": "literal_79_Toronto Blue Jays"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "forceAtlas2Based": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.01,
+            "damping": 0.4,
+            "gravitationalConstant": -50,
+            "springConstant": 0.08,
+            "springLength": 100
+        },
+        "solver": "forceAtlas2Based",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

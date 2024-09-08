@@ -1,0 +1,40 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1982_Ohio_State_Buckeyes_football_team a wtq:Entity ;
+    wtq:hasRow wtq:1982_Ohio_State_Buckeyes_football_team_row_10,
+        wtq:1982_Ohio_State_Buckeyes_football_team_row_2,
+        wtq:1982_Ohio_State_Buckeyes_football_team_row_3,
+        wtq:1982_Ohio_State_Buckeyes_football_team_row_4 .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_10 wtq:hasAttendance "90,252" ;
+    wtq:hasDate "November 20" ;
+    <http://wikitablequestion.org/hasOpponent#> "#13 Michigan" ;
+    <http://wikitablequestion.org/hasRank#> "nan" ;
+    wtq:hasResult "W 24–14" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "10" .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_2 wtq:hasAttendance "89,436" ;
+    wtq:hasDate "September 25" ;
+    <http://wikitablequestion.org/hasOpponent#> "Stanford*" ;
+    <http://wikitablequestion.org/hasRank#> "#13" ;
+    wtq:hasResult "L 20–23" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "2" .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_3 wtq:hasAttendance "89,491" ;
+    wtq:hasDate "October 2" ;
+    <http://wikitablequestion.org/hasOpponent#> "Florida State*" ;
+    <http://wikitablequestion.org/hasRank#> "nan" ;
+    wtq:hasResult "L 17–34" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "3" .
+
+wtq:1982_Ohio_State_Buckeyes_football_team_row_4 wtq:hasAttendance "88,344" ;
+    wtq:hasDate "October 9" ;
+    <http://wikitablequestion.org/hasOpponent#> "Wisconsin" ;
+    <http://wikitablequestion.org/hasRank#> "nan" ;
+    wtq:hasResult "L 0–6" ;
+    wtq:hasSite "Ohio Stadium • Columbus, OH" ;
+    wtq:hasindex "4" .
+

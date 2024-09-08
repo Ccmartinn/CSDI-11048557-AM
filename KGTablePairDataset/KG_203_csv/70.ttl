@@ -1,0 +1,103 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:1994_Jeux_de_la_Francophonie a wtq:Entity ;
+    wtq:hasRow wtq:1994_Jeux_de_la_Francophonie_row_10,
+        wtq:1994_Jeux_de_la_Francophonie_row_14,
+        wtq:1994_Jeux_de_la_Francophonie_row_17,
+        wtq:1994_Jeux_de_la_Francophonie_row_19,
+        wtq:1994_Jeux_de_la_Francophonie_row_2,
+        wtq:1994_Jeux_de_la_Francophonie_row_20,
+        wtq:1994_Jeux_de_la_Francophonie_row_21,
+        wtq:1994_Jeux_de_la_Francophonie_row_22,
+        wtq:1994_Jeux_de_la_Francophonie_row_24,
+        wtq:1994_Jeux_de_la_Francophonie_row_3,
+        wtq:1994_Jeux_de_la_Francophonie_row_4 .
+
+wtq:1994_Jeux_de_la_Francophonie_row_10 wtq:hasBronze "3" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Madagascar" ;
+    wtq:hasRank "11" ;
+    wtq:hasSilver "2" ;
+    wtq:hasTotal "6" ;
+    wtq:hasindex "10" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_14 wtq:hasBronze "-" ;
+    wtq:hasGold "1" ;
+    wtq:hasNation "Lebanon" ;
+    wtq:hasRank "15" ;
+    wtq:hasSilver "-" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "14" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_17 wtq:hasBronze "2" ;
+    wtq:hasGold "-" ;
+    wtq:hasNation "New Brunswick" ;
+    wtq:hasRank "18" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "3" ;
+    wtq:hasindex "17" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_19 wtq:hasBronze "-" ;
+    wtq:hasGold "-" ;
+    wtq:hasNation "Dominica" ;
+    wtq:hasRank "20" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "19" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_2 wtq:hasBronze "15" ;
+    wtq:hasGold "14" ;
+    wtq:hasNation "Canada" ;
+    wtq:hasRank "3" ;
+    wtq:hasSilver "10" ;
+    wtq:hasTotal "39" ;
+    wtq:hasindex "2" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_20 wtq:hasBronze "-" ;
+    wtq:hasGold "-" ;
+    wtq:hasNation "Gabon" ;
+    wtq:hasRank "21" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "20" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_21 wtq:hasBronze "-" ;
+    wtq:hasGold "-" ;
+    wtq:hasNation "Mali" ;
+    wtq:hasRank "22" ;
+    wtq:hasSilver "1" ;
+    wtq:hasTotal "1" ;
+    wtq:hasindex "21" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_22 wtq:hasBronze "2" ;
+    wtq:hasGold "-" ;
+    wtq:hasNation "Cambodia" ;
+    wtq:hasRank "23" ;
+    wtq:hasSilver "-" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "22" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_24 wtq:hasBronze "2" ;
+    wtq:hasGold "-" ;
+    wtq:hasNation "Mauritius" ;
+    wtq:hasRank "25" ;
+    wtq:hasSilver "-" ;
+    wtq:hasTotal "2" ;
+    wtq:hasindex "24" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_3 wtq:hasBronze "16" ;
+    wtq:hasGold "8" ;
+    wtq:hasNation "Quebec" ;
+    wtq:hasRank "4" ;
+    wtq:hasSilver "4" ;
+    wtq:hasTotal "28" ;
+    wtq:hasindex "3" .
+
+wtq:1994_Jeux_de_la_Francophonie_row_4 wtq:hasBronze "7" ;
+    wtq:hasGold "6" ;
+    wtq:hasNation "Morocco" ;
+    wtq:hasRank "5" ;
+    wtq:hasSilver "11" ;
+    wtq:hasTotal "24" ;
+    wtq:hasindex "4" .
+

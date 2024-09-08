@@ -1,0 +1,100 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:Arasay_Thondike a wtq:Entity ;
+    wtq:hasRow wtq:Arasay_Thondike_row_1,
+        wtq:Arasay_Thondike_row_10,
+        wtq:Arasay_Thondike_row_2,
+        wtq:Arasay_Thondike_row_3,
+        wtq:Arasay_Thondike_row_4 .
+
+wtq:Arasay_Thondike_row_1 wtq:hasCompetition wd:Q2703482,
+        "ALBA Games" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "63.30 m" ;
+    wtq:hasPosition "1st" ;
+    wtq:hasVenue "La Habana, Cuba" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "1" .
+
+wtq:Arasay_Thondike_row_10 wtq:hasCompetition "World Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "69.97 m" ;
+    wtq:hasPosition "16th (q)" ;
+    wtq:hasVenue "Berlin, Germany" ;
+    wtq:hasYear wd:Q2954325,
+        "2009" ;
+    wtq:hasindex "10" .
+
+wtq:Arasay_Thondike_row_2 wtq:hasCompetition wd:Q16825810,
+        "Central American and Caribbean Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "60.49 m" ;
+    wtq:hasPosition "4th" ;
+    wtq:hasVenue wd:Q241,
+        "Nassau, Bahamas" ;
+    wtq:hasYear "2005" ;
+    wtq:hasindex "2" .
+
+wtq:Arasay_Thondike_row_3 wtq:hasCompetition wd:Q2467,
+        "Pan American Junior Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "64.80 m" ;
+    wtq:hasPosition "1st" ;
+    wtq:hasVenue "Windsor, Canada" ;
+    wtq:hasYear wd:Q2949788,
+        "2005" ;
+    wtq:hasindex "3" .
+
+wtq:Arasay_Thondike_row_4 wtq:hasCompetition wd:Q182625,
+        "NACAC U23 Championships" ;
+    wtq:hasEvent "Hammer" ;
+    wtq:hasNotes "66.28 m" ;
+    wtq:hasPosition "2nd" ;
+    wtq:hasVenue "Santo Domingo, Dominican Republic" ;
+    wtq:hasYear wd:Q2955757,
+        "2006" ;
+    wtq:hasindex "4" .
+
+wd:Q16825810 rdfs:label "athletics at the 2005 ALBA Games" ;
+    wdt:P276 "Havana" ;
+    wdt:P31 "sport competition at a multi-sport event" ;
+    wdt:P641 "athletics" .
+
+wd:Q182625 rdfs:label "Windsor" ;
+    wdt:P131 "Essex County" ;
+    wdt:P1343 "Encyclopædia Britannica 11th edition" ;
+    wdt:P421 "UTC−05:00" .
+
+wd:Q241 rdfs:label "Cuba" ;
+    wdt:P530 "Georgia",
+        "Peru",
+        "South Africa" .
+
+wd:Q2467 rdfs:label "Nassau" ;
+    wdt:P190 "Albany",
+        "Detroit",
+        "Winston-Salem" .
+
+wd:Q2703482 rdfs:label "2003 World Youth Championships in Athletics" ;
+    wdt:P156 "2005 World Youth Championships in Athletics" ;
+    wdt:P31 "IAAF World Youth Championships in Athletics" ;
+    wdt:P664 "World Athletics" .
+
+wd:Q2949788 rdfs:label "2005 Central American and Caribbean Championships in Athletics" ;
+    wdt:P276 "Nassau" ;
+    wdt:P31 "Central American and Caribbean Championships in Athletics" ;
+    wdt:P527 "2005 Nassau CAC Championships – men's 200 metres" .
+
+wd:Q2954325 rdfs:label "2009 Central American and Caribbean Championships in Athletics" ;
+    wdt:P276 "Havana" ;
+    wdt:P31 "Central American and Caribbean Championships in Athletics" ;
+    wdt:P641 "athletics" .
+
+wd:Q2955757 rdfs:label "2005 Pan American Junior Athletics Championships" ;
+    wdt:P115 "University of Windsor Stadium" ;
+    wdt:P17 "Canada" ;
+    wdt:P31 "Pan American Junior Athletics Championships" .
+

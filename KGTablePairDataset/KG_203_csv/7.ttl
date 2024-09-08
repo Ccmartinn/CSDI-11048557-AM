@@ -1,0 +1,364 @@
+@prefix wtq: <http://wikitablequestion.org/> .
+
+wtq:French_Top_100_singles_of_the_1990s a wtq:Entity ;
+    wtq:hasRow wtq:French_Top_100_singles_of_the_1990s_row_10,
+        wtq:French_Top_100_singles_of_the_1990s_row_17,
+        wtq:French_Top_100_singles_of_the_1990s_row_19,
+        wtq:French_Top_100_singles_of_the_1990s_row_2,
+        wtq:French_Top_100_singles_of_the_1990s_row_23,
+        wtq:French_Top_100_singles_of_the_1990s_row_27,
+        wtq:French_Top_100_singles_of_the_1990s_row_31,
+        wtq:French_Top_100_singles_of_the_1990s_row_32,
+        wtq:French_Top_100_singles_of_the_1990s_row_33,
+        wtq:French_Top_100_singles_of_the_1990s_row_34,
+        wtq:French_Top_100_singles_of_the_1990s_row_35,
+        wtq:French_Top_100_singles_of_the_1990s_row_36,
+        wtq:French_Top_100_singles_of_the_1990s_row_38,
+        wtq:French_Top_100_singles_of_the_1990s_row_39,
+        wtq:French_Top_100_singles_of_the_1990s_row_40,
+        wtq:French_Top_100_singles_of_the_1990s_row_44,
+        wtq:French_Top_100_singles_of_the_1990s_row_46,
+        wtq:French_Top_100_singles_of_the_1990s_row_48,
+        wtq:French_Top_100_singles_of_the_1990s_row_51,
+        wtq:French_Top_100_singles_of_the_1990s_row_52,
+        wtq:French_Top_100_singles_of_the_1990s_row_54,
+        wtq:French_Top_100_singles_of_the_1990s_row_56,
+        wtq:French_Top_100_singles_of_the_1990s_row_59,
+        wtq:French_Top_100_singles_of_the_1990s_row_62,
+        wtq:French_Top_100_singles_of_the_1990s_row_65,
+        wtq:French_Top_100_singles_of_the_1990s_row_67,
+        wtq:French_Top_100_singles_of_the_1990s_row_69,
+        wtq:French_Top_100_singles_of_the_1990s_row_73,
+        wtq:French_Top_100_singles_of_the_1990s_row_78,
+        wtq:French_Top_100_singles_of_the_1990s_row_80,
+        wtq:French_Top_100_singles_of_the_1990s_row_81,
+        wtq:French_Top_100_singles_of_the_1990s_row_82,
+        wtq:French_Top_100_singles_of_the_1990s_row_84,
+        wtq:French_Top_100_singles_of_the_1990s_row_88,
+        wtq:French_Top_100_singles_of_the_1990s_row_92,
+        wtq:French_Top_100_singles_of_the_1990s_row_93,
+        wtq:French_Top_100_singles_of_the_1990s_row_94,
+        wtq:French_Top_100_singles_of_the_1990s_row_95,
+        wtq:French_Top_100_singles_of_the_1990s_row_97,
+        wtq:French_Top_100_singles_of_the_1990s_row_99 .
+
+wtq:French_Top_100_singles_of_the_1990s_row_10 wtq:hasArtist "Gala" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "11" ;
+    wtq:hasSales "1,013,000" ;
+    wtq:hasSingle "Freed from Desire" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "10" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_17 wtq:hasArtist "Los del Río" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "18" ;
+    wtq:hasSales "910,000" ;
+    wtq:hasSingle "Macarena" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "17" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_19 wtq:hasArtist "Zebda" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "20" ;
+    wtq:hasSales "868,000" ;
+    wtq:hasSingle "Tomber la chemise" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "19" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_2 wtq:hasArtist "Lou Bega" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "3" ;
+    wtq:hasSales "1,532,000" ;
+    wtq:hasSingle "Mambo No. 5" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "2" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_23 wtq:hasArtist "David Hallyday" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "24" ;
+    wtq:hasSales "801,000" ;
+    wtq:hasSingle "Tu ne m'as pas laissé le temps" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "23" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_27 wtq:hasArtist "Spice Girls" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "28" ;
+    wtq:hasSales "742,000" ;
+    wtq:hasSingle "Wannabe" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "27" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_31 wtq:hasArtist "Brandy & Monica" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "32" ;
+    wtq:hasSales "662,000" ;
+    wtq:hasSingle "The Boy Is Mine" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "31" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_32 wtq:hasArtist "Robert Miles" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "33" ;
+    wtq:hasSales "642,000" ;
+    wtq:hasSingle "Children" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "32" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_33 wtq:hasArtist "Lagaf'" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "34" ;
+    wtq:hasSales "625,000" ;
+    wtq:hasSingle "La Zoubida" ;
+    wtq:hasYear "1991" ;
+    wtq:hasindex "33" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_34 wtq:hasArtist "Tina Arena" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "35" ;
+    wtq:hasSales "617,000" ;
+    wtq:hasSingle "Aller plus haut" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "34" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_35 wtq:hasArtist "Ménélik & Imane D" ;
+    wtq:hasPeak "5" ;
+    <http://wikitablequestion.org/hasPos.> "36" ;
+    wtq:hasSales "613,000" ;
+    wtq:hasSingle "Bye bye" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "35" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_36 wtq:hasArtist "Nathalie Cardone" ;
+    wtq:hasPeak "4" ;
+    <http://wikitablequestion.org/hasPos.> "37" ;
+    wtq:hasSales "608,000" ;
+    wtq:hasSingle "Hasta Siempre" ;
+    wtq:hasYear "1997" ;
+    wtq:hasindex "36" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_38 wtq:hasArtist "Eiffel 65" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "39" ;
+    wtq:hasSales "589,000" ;
+    wtq:hasSingle "Move Your Body" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "38" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_39 wtq:hasArtist "Britney Spears" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "40" ;
+    wtq:hasSales "578,000" ;
+    wtq:hasSingle "... Baby One More Time" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "39" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_40 wtq:hasArtist "Lara Fabian" ;
+    wtq:hasPeak "5" ;
+    <http://wikitablequestion.org/hasPos.> "41" ;
+    wtq:hasSales "566,000" ;
+    wtq:hasSingle "Tout" ;
+    wtq:hasYear "1997" ;
+    wtq:hasindex "40" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_44 wtq:hasArtist "Poetic Lover" ;
+    wtq:hasPeak "5" ;
+    <http://wikitablequestion.org/hasPos.> "45" ;
+    wtq:hasSales "532,000" ;
+    wtq:hasSingle "Prenons notre temps" ;
+    wtq:hasYear "1997" ;
+    wtq:hasindex "44" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_46 wtq:hasArtist "Indians Sacred Spirit" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "47" ;
+    wtq:hasSales "528,000" ;
+    wtq:hasSingle "Yeha-Noha" ;
+    wtq:hasYear "1995" ;
+    wtq:hasindex "46" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_48 wtq:hasArtist "Bryan Adams" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "49" ;
+    wtq:hasSales "508,000" ;
+    wtq:hasSingle "(Everything I Do) I Do It for You" ;
+    wtq:hasYear "1991" ;
+    wtq:hasindex "48" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_51 wtq:hasArtist "Emilia" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "52" ;
+    wtq:hasSales "496,000" ;
+    wtq:hasSingle "Big Big World" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "51" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_52 wtq:hasArtist "Puff Daddy & Faith Evans" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "53" ;
+    wtq:hasSales "492,000" ;
+    wtq:hasSingle "I'll Be Missing You" ;
+    wtq:hasYear "1997" ;
+    wtq:hasindex "52" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_54 wtq:hasArtist "Manau" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "55" ;
+    wtq:hasSales "490,000" ;
+    wtq:hasSingle "Mais qui est la belette ?" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "54" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_56 wtq:hasArtist "Bellini" ;
+    wtq:hasPeak "3" ;
+    <http://wikitablequestion.org/hasPos.> "57" ;
+    wtq:hasSales "481,000" ;
+    wtq:hasSingle "Samba de Janeiro" ;
+    wtq:hasYear "1997" ;
+    wtq:hasindex "56" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_59 wtq:hasArtist "Janet Jackson" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "60" ;
+    wtq:hasSales "475,000" ;
+    wtq:hasSingle "Together Again" ;
+    wtq:hasYear "1998" ;
+    wtq:hasindex "59" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_62 wtq:hasArtist "2Be3" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "63" ;
+    wtq:hasSales "471,000" ;
+    wtq:hasSingle "Partir un jour" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "62" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_65 wtq:hasArtist "François Feldman" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "66" ;
+    wtq:hasSales "468,000" ;
+    wtq:hasSingle "Joy" ;
+    wtq:hasYear "1991" ;
+    wtq:hasindex "65" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_67 wtq:hasArtist "Youssou N'Dour & Neneh Cherry" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "68" ;
+    wtq:hasSales "465,000" ;
+    wtq:hasSingle "7 Seconds" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "67" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_69 wtq:hasArtist "David Charvet" ;
+    wtq:hasPeak "3" ;
+    <http://wikitablequestion.org/hasPos.> "70" ;
+    wtq:hasSales "452,000" ;
+    wtq:hasSingle "Should I Leave" ;
+    wtq:hasYear "1997" ;
+    wtq:hasindex "69" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_73 wtq:hasArtist "Mark Snow" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "74" ;
+    wtq:hasSales "425,000" ;
+    wtq:hasSingle "The X-Files" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "73" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_78 wtq:hasArtist "Worlds Apart" ;
+    wtq:hasPeak "3" ;
+    <http://wikitablequestion.org/hasPos.> "79" ;
+    wtq:hasSales "408,000" ;
+    wtq:hasSingle "Je te donne" ;
+    wtq:hasYear "1996" ;
+    wtq:hasindex "78" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_80 wtq:hasArtist "G.O. Culture" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "81" ;
+    wtq:hasSales "397,000" ;
+    wtq:hasSingle "Darla_dirladada" ;
+    wtq:hasYear "1993" ;
+    wtq:hasindex "80" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_81 wtq:hasArtist "Spice Girls" ;
+    wtq:hasPeak "3" ;
+    <http://wikitablequestion.org/hasPos.> "82" ;
+    wtq:hasSales "397,000" ;
+    wtq:hasSingle "Spice Up Your Life" ;
+    wtq:hasYear "1997" ;
+    wtq:hasindex "81" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_82 wtq:hasArtist "Elton John" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "83" ;
+    wtq:hasSales "391,000" ;
+    wtq:hasSingle "Can You Feel The Love Tonight" ;
+    wtq:hasYear "1994" ;
+    wtq:hasindex "82" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_84 wtq:hasArtist "Jean-Philippe Audin & Diego Modena" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "85" ;
+    wtq:hasSales "379,000" ;
+    wtq:hasSingle "Song of Ocarina" ;
+    wtq:hasYear "1991" ;
+    wtq:hasindex "84" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_88 wtq:hasArtist "Céline Dion" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "89" ;
+    wtq:hasSales "365,000" ;
+    wtq:hasSingle "Un garçon pas comme les autres (Ziggy)" ;
+    wtq:hasYear "1993" ;
+    wtq:hasindex "88" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_92 wtq:hasArtist "Patrick Bruel" ;
+    wtq:hasPeak "3" ;
+    <http://wikitablequestion.org/hasPos.> "93" ;
+    wtq:hasSales "358,000" ;
+    wtq:hasSingle "Alors regarde" ;
+    wtq:hasYear "1990" ;
+    wtq:hasindex "92" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_93 wtq:hasArtist "2 Unlimited" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "94" ;
+    wtq:hasSales "357,000" ;
+    wtq:hasSingle "No Limit" ;
+    wtq:hasYear "1993" ;
+    wtq:hasindex "93" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_94 wtq:hasArtist "Alliance Ethnik" ;
+    wtq:hasPeak "2" ;
+    <http://wikitablequestion.org/hasPos.> "95" ;
+    wtq:hasSales "357,000" ;
+    wtq:hasSingle "Respect" ;
+    wtq:hasYear "1995" ;
+    wtq:hasindex "94" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_95 wtq:hasArtist "Nirvana" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "96" ;
+    wtq:hasSales "356,000" ;
+    wtq:hasSingle "Smells Like Teen Spirit" ;
+    wtq:hasYear "1992" ;
+    wtq:hasindex "95" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_97 wtq:hasArtist "Organiz'" ;
+    wtq:hasPeak "5" ;
+    <http://wikitablequestion.org/hasPos.> "98" ;
+    wtq:hasSales "352,000" ;
+    wtq:hasSingle "I Never Knew Love Like This Before" ;
+    wtq:hasYear "1999" ;
+    wtq:hasindex "97" .
+
+wtq:French_Top_100_singles_of_the_1990s_row_99 wtq:hasArtist "Snap!" ;
+    wtq:hasPeak "1" ;
+    <http://wikitablequestion.org/hasPos.> "100" ;
+    wtq:hasSales "349,000" ;
+    wtq:hasSingle "Rhythm Is a Dancer" ;
+    wtq:hasYear "1992" ;
+    wtq:hasindex "99" .
+
